@@ -1,26 +1,40 @@
+/* Navbar Section */
 nav {
-    background-color: #333;
-    padding: 10px 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav ul li a:hover {
-    text-decoration: underline;
-  }
+  background: linear-gradient(to right, #333, #555); /* Subtle gradient for depth */
+  padding: 15px 0; /* Increased padding for better spacing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for a floating effect */
+  position: sticky; /* Keeps navbar at the top */
+  top: 0;
+  z-index: 1000; /* Ensures it appears above other content */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Even spacing between items */
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  color: #ffffff; /* Clean white text for contrast */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 10px 15px; /* Added padding for clickable area */
+  border-radius: 5px; /* Rounded edges for a modern feel */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+nav ul li a:hover {
+  background-color: #ff9800; /* Add a pop of color on hover */
+  color: #ffffff; /* Keep text white on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+

@@ -1,27 +1,44 @@
+/* Footer Section */
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-  }
-  
-  footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  footer ul li {
-    margin: 0 10px;
-  }
-  
-  footer ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  footer ul li a:hover {
-    text-decoration: underline;
-  }
+  background: #111111; /* Deep dark background for a sleek look */
+  color: #ffffff;
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Modern spacing between items */
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+}
+
+footer ul li {
+  margin: 0;
+}
+
+footer ul li a {
+  color: #ffffff;
+  font-size: 1em;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+
+footer ul li a:hover {
+  color: #ff9800; /* Add a pop of color on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Footer Branding or Extra Content */
+footer p {
+  grid-column: span 2; /* Ensures footer text spans full width on larger screens */
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.7); /* Slightly muted color */
+  margin-top: 10px;
+}
