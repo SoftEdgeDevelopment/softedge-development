@@ -13,22 +13,21 @@ const FooterWrapper = styled.footer`
   align-items: center;
   color: white;
   margin: 0;
-  padding: 1.5rem 1rem;
+  padding: 0.5rem 1rem; /* ✅ Minimal padding */
 `;
 
 const FooterSection = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1rem; /* ✅ Reduced spacing */
   width: 100%;
   max-width: 1200px;
-  padding: 1rem 0;
-  align-items: start; /* ✅ Ensures all sections start at the same height */
+  align-items: start;
   text-align: center;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
     text-align: center;
     align-items: center;
   }
@@ -38,13 +37,13 @@ const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start; /* ✅ Ensures content is aligned evenly at the top */
+  justify-content: start;
 `;
 
 const FooterLinks = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(140px, 1fr));
-  gap: 0.75rem;
+  gap: 0.5rem;
   justify-content: center;
 `;
 
@@ -56,7 +55,7 @@ const FooterNavItem = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: 0.85rem;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 0.75rem; /* ✅ Reduced padding */
   border-radius: 8px;
   text-align: center;
   border: 2px solid #222;
@@ -93,19 +92,19 @@ const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem; /* ✅ Reduced gap */
 
   a {
     color: white;
     text-decoration: none;
     font-size: 0.85rem;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem; /* ✅ Reduced padding */
     border-radius: 8px;
     position: relative;
     display: inline-block;
     text-align: center;
     width: 100%;
-    max-width: 280px;
+    max-width: 260px;
     border: 2px solid #222;
     transition: all 0.3s ease-in-out;
 
@@ -140,17 +139,17 @@ const FooterInfo = styled.div`
 /* ✅ Square Social Media Buttons */
 const FooterSocial = styled.div`
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem; /* ✅ Reduced gap */
   justify-content: center;
 
   a {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* ✅ Slightly smaller */
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 45px; /* ✅ Smaller size */
+    height: 45px;
     border-radius: 8px;
     border: 2px solid #222;
     text-decoration: none;
@@ -187,9 +186,9 @@ const FooterSocial = styled.div`
 
 const FooterTitle = styled.h3`
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem; /* ✅ Reduced margin */
   border-bottom: 2px solid white;
-  padding-bottom: 5px;
+  padding-bottom: 3px; /* ✅ Smaller spacing */
   color: white;
 `;
 
