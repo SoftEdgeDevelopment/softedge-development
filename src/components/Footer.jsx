@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faGithub, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const FooterWrapper = styled.footer`
@@ -232,8 +232,9 @@ const Footer = () => (
         <FooterTitle>Follow Us</FooterTitle>
         <FooterSocial>
           <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
-          <a href="https://www.linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+          <a href="https://www.github.com"><FontAwesomeIcon icon={faGithub} /></a>
           <a href="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
+          
         </FooterSocial>
       </FooterColumn>
     </FooterSection>
