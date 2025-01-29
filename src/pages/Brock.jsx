@@ -1,4 +1,5 @@
 import profileImage from './assets/profile.png';
+import projectImageSoftEdge from './assets/project-softedge.png';
 import projectImage01 from './assets/project-01.png';
 import projectImage02 from './assets/project-02.png';
 import projectImage03 from './assets/project-03.png';
@@ -564,6 +565,39 @@ const Brock = () => {
 
   <div className="projects-grid">
 
+
+
+{/* Project: SoftEdge Development Website */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://softedgedevelopment.com', '_blank')} // Replace with your live domain
+>
+  <img
+    src={projectImageSoftEdge} // Import your project image here
+    alt="SoftEdge Development - Custom Deployed Portfolio"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>SoftEdge Development</h3>
+    <p className="project-description">
+      A fully customized and deployed portfolio website, built from scratch with a custom domain, DNS configuration, and seamless Netlify deployment. Showcasing expertise in Full-Stack Development, Automation Testing, and DevOps.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button">React</div>
+      <div className="technology-button">Vite</div>
+      <div className="technology-button">Tailwind CSS</div>
+      <div className="technology-button">Framer Motion</div>
+      <div className="technology-button">Netlify</div>
+      <div className="technology-button">DNS Management</div>
+      <div className="technology-button">Custom Domain Setup</div>
+      <div className="technology-button">SSL Configuration</div>
+      <div className="technology-button">ESLint</div>
+      <div className="technology-button">FontAwesome</div>
+      <div className="technology-button">Performance Optimization</div>
+      <div className="technology-button">Responsive Design</div>
+    </div>
+  </div>
+</div>
 
 
 
