@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -60,7 +60,7 @@ const ServiceCard = styled(Link)`
 
   /* Gradient border with pseudo-element */
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -81,17 +81,23 @@ const ServiceCard = styled(Link)`
     background: white;
   }
 
-  img {
+  /* Ensure the image stays the same size and only the content changes */
+  .image-wrapper {
     width: 100%;
     height: 150px;
-    object-fit: contain; /* Ensure SVG content fits properly */
-    border-radius: 8px;
-    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
-  /* Change image to _02 version on hover */
-  &:hover img {
-    content: url(${(props) => props.hoverImage}); /* Change image */
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ✅ Ensures image fits properly */
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    position: absolute;
   }
 
   h3 {
@@ -108,12 +114,16 @@ const ServiceCard = styled(Link)`
   }
 
   /* Change text color to white on hover */
-  &:hover h3, &:hover p {
+  &:hover h3,
+  &:hover p {
     color: white;
   }
 `;
 
 const Home = () => {
+  // State to track hover for each service card
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <HomeWrapper>
       <Title>Welcome to SoftEdge Development</Title>
@@ -124,36 +134,72 @@ const Home = () => {
       </Description>
 
       <ServicesWrapper>
-        <ServiceCard to="/services/digital-strategy" hoverImage="/assets/digital-strategy-02.svg">
-          <img src="/assets/digital-strategy.svg" alt="Digital Strategy" />
-          <h3>Digital Strategy</h3>
-          <p>Develop innovative digital strategies for your business.</p>
-        </ServiceCard>
-        <ServiceCard to="/services/agile-management" hoverImage="/assets/agile-management-02.svg">
-          <img src="/assets/agile-management.svg" alt="Agile Management" />
-          <h3>Agile Management</h3>
-          <p>Transform your business with agile methodologies.</p>
-        </ServiceCard>
-        <ServiceCard to="/services/big-data-data-science" hoverImage="/assets/big-data-02.svg">
-          <img src="/assets/big-data.svg" alt="Big Data & Science" />
-          <h3>Big Data & Data Science</h3>
-          <p>Unlock insights from big data and advanced analytics.</p>
-        </ServiceCard>
-        <ServiceCard to="/services/cloud-infrastructures" hoverImage="/assets/cloud-infrastructure-02.svg">
-          <img src="/assets/cloud-infrastructure.svg" alt="Cloud Infrastructure" />
-          <h3>Cloud Infrastructures</h3>
-          <p>Scale your business with cutting-edge cloud solutions.</p>
-        </ServiceCard>
-        <ServiceCard to="/services/quality-test-automation" hoverImage="/assets/quality-automation-02.svg">
-          <img src="/assets/quality-automation.svg" alt="Quality & Test Automation" />
-          <h3>Quality & Test Automation</h3>
-          <p>Ensure product quality with automated testing processes.</p>
-        </ServiceCard>
-        <ServiceCard to="/services/user-experience-design" hoverImage="/assets/user-experience-02.svg">
-          <img src="/assets/user-experience.svg" alt="User Experience Design" />
-          <h3>User Experience Design</h3>
-          <p>Craft intuitive and user-friendly digital experiences.</p>
-        </ServiceCard>
+        {[
+          {
+            to: "/services/digital-strategy",
+            defaultImg: "/assets/digital-strategy.svg",
+            hoverImg: "/assets/digital-strategy-02.svg",
+            title: "Digital Strategy",
+            desc: "Develop innovative digital strategies for your business.",
+          },
+          {
+            to: "/services/agile-management",
+            defaultImg: "/assets/agile-management.svg",
+            hoverImg: "/assets/agile-management-02.svg",
+            title: "Agile Management",
+            desc: "Transform your business with agile methodologies.",
+          },
+          {
+            to: "/services/big-data-data-science",
+            defaultImg: "/assets/big-data.svg",
+            hoverImg: "/assets/big-data-02.svg",
+            title: "Big Data & Data Science",
+            desc: "Unlock insights from big data and advanced analytics.",
+          },
+          {
+            to: "/services/cloud-infrastructures",
+            defaultImg: "/assets/cloud-infrastructure.svg",
+            hoverImg: "/assets/cloud-infrastructure-02.svg",
+            title: "Cloud Infrastructures",
+            desc: "Scale your business with cutting-edge cloud solutions.",
+          },
+          {
+            to: "/services/quality-test-automation",
+            defaultImg: "/assets/quality-automation.svg",
+            hoverImg: "/assets/quality-automation-02.svg",
+            title: "Quality & Test Automation",
+            desc: "Ensure product quality with automated testing processes.",
+          },
+          {
+            to: "/services/user-experience-design",
+            defaultImg: "/assets/user-experience.svg",
+            hoverImg: "/assets/user-experience-02.svg",
+            title: "User Experience Design",
+            desc: "Craft intuitive and user-friendly digital experiences.",
+          },
+        ].map((service, index) => (
+          <ServiceCard
+            key={index}
+            to={service.to}
+            onMouseEnter={() => setHoveredCard(index)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <div className="image-wrapper">
+              <img
+                src={service.defaultImg}
+                alt={service.title}
+                style={{ opacity: hoveredCard === index ? 0 : 1 }}
+              />
+              <img
+                src={service.hoverImg}
+                alt={`${service.title} Hover`}
+                style={{ opacity: hoveredCard === index ? 1 : 0 }}
+              />
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.desc}</p>
+          </ServiceCard>
+        ))}
       </ServicesWrapper>
     </HomeWrapper>
   );
