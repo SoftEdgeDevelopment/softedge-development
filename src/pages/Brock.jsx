@@ -104,6 +104,7 @@ const Brock = () => {
         <button className="export-btn" onClick={exportToPDFHighRes}>PDF (High-Res)</button>
         <button className="export-btn" onClick={exportToPDFLowRes}>PDF (Low-Res)</button>
       </div>
+      
 
       {/* Header Section */}
       <header className="header-container">

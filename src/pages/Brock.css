@@ -995,15 +995,20 @@ section {
   }
 
   /* Floating export buttons */
-  .export-buttons {
-    top: 10px; /* Adjust button position */
-    right: 10px;
-  }
+.export-buttons {
+  position: fixed; /* Ensure the buttons stay in a fixed position */
+  top: 10px; /* Adjust button position from the top */
+  right: 10px; /* Adjust button position from the right */
+  margin-bottom: 20px; /* Add space at the bottom */
+}
 
-  .export-buttons button {
-    padding: 8px 16px; /* Smaller button size */
-    font-size: 0.9rem;
-  }
+.export-buttons button {
+  padding: 8px 16px; /* Smaller button size */
+  font-size: 0.9rem;
+  margin-bottom: 10px; /* Adds space below each button */
+}
+
+
 }
 
 /* Very Small Mobile Devices */
