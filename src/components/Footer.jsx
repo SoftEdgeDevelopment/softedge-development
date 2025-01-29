@@ -60,6 +60,7 @@ const FooterNavItem = styled(Link)`
   text-align: center;
   border: 2px solid #222;
   transition: all 0.3s ease-in-out;
+  position: relative;
 
   &:hover {
     background-color: #222;
@@ -95,16 +96,17 @@ const FooterInfo = styled.div`
   gap: 0.5rem; /* ✅ Reduced gap */
 
   a {
+    display: flex;
+    align-items: center; /* ✅ Aligns icon & text next to each other */
+    gap: 0.5rem; /* ✅ Space between icon and text */
     color: white;
     text-decoration: none;
     font-size: 0.85rem;
     padding: 0.5rem 0.75rem; /* ✅ Reduced padding */
     border-radius: 8px;
     position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    max-width: 260px;
+    text-align: left; /* ✅ Aligns text properly */
+    width: fit-content;
     border: 2px solid #222;
     transition: all 0.3s ease-in-out;
 
@@ -132,6 +134,10 @@ const FooterInfo = styled.div`
 
     &:hover::before {
       background: white;
+    }
+
+    svg {
+      font-size: 1rem; /* ✅ Adjust icon size */
     }
   }
 `;
