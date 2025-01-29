@@ -1,0 +1,89 @@
+/* Reset and Base Styles */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: #ffffff;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the app fills the full viewport */
+}
+
+.app-main {
+  flex-grow: 1; /* Pushes the footer to the bottom */
+  padding: 2rem;
+  text-align: center;
+}
+
+header, footer {
+  background: #f9f9f9;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, p {
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: #9d174d;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: rgb(108, 15, 52);
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+
+
+/* Inputs */
+input, textarea {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Footer Fix */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  position: relative; /* Ensures footer content stays within bounds */
+  width: 100%;
+  margin: 0; /* Removes any default margin */
+  padding: 1rem 0;
+  flex-shrink: 0; /* Ensures the footer doesn’t shrink */
+  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c); /* Gradient background */
+  overflow: hidden; /* Prevents background overflow */
+}
+
+footer > div {
+  max-width: 1200px; /* Aligns with project width */
+  margin: 0 auto; /* Centers footer content */
+}
