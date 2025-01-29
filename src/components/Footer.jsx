@@ -231,9 +231,9 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Follow Us</FooterTitle>
         <FooterSocial>
-          <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
-          <a href="https://www.github.com"><FontAwesomeIcon icon={faGithub} /></a>
-          <a href="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
+        <a href="https://www.github.com/SoftEdgeDevelopment"><FontAwesomeIcon icon={faGithub} /></a>
+          <a href="https://twitter.com/softedgedev"><FontAwesomeIcon icon={faTwitter} /></a>
+          <a href="https://www.instagram.com/softedgedev"><FontAwesomeIcon icon={faInstagram} /></a>
           
         </FooterSocial>
       </FooterColumn>
