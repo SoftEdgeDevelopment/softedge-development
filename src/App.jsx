@@ -14,8 +14,10 @@ import CloudInfrastructures from "./pages/services/CloudInfrastructures";
 import QualityAndTestAutomation from "./pages/services/QualityAndTestAutomation";
 import UserExperienceDesign from "./pages/services/UserExperienceDesign";
 import Outro from "./components/Outro";
-import TermsOfService from "./pages/TermsOfService"; // Import Terms of Service page
-import PrivacyPolicy from "./pages/PrivacyPolicy"; // Import Privacy Policy page
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Brock from "./pages/Brock"; // ✅ Import Brock page
+import Error from "./components/Error"; // ✅ Import Error component for invalid routes
 
 // Import individual blog post pages
 import Post01 from "./pages/blogs/Post01";
@@ -34,6 +36,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/brock-altug" element={<Brock />} /> {/* ✅ Brock page added */}
 
           {/* Service Pages */}
           <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
@@ -51,6 +54,9 @@ function App() {
           <Route path="/blogs/post-01" element={<Post01 />} />
           <Route path="/blogs/post-02" element={<Post02 />} />
           <Route path="/blogs/post-03" element={<Post03 />} />
+
+          {/* Catch-all route for non-existent pages */}
+          <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}
         </Routes>
       </main>
       <Outro /> {/* Include Outro at the bottom */}

@@ -1,0 +1,929 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font and Base Styles */
+body {
+  font-family: 'Poppins', Arial, sans-serif; /* Feminine modern font */
+  background-color: #5c5c5c;
+  color: #333333;
+  line-height: 1.6;
+}
+
+/* Custom Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:wght@400;700&display=swap');
+
+/* PDF-friendly container */
+.app-container {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #333333;
+  line-height: 1.6;
+  width: 210mm; /* A4 page width */
+  min-height: 297mm; /* A4 page height */
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White for PDF export */
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+/* Header Section */
+.header-container {
+  margin-bottom: 40px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align text and image to the top */
+  max-width: 180mm;
+  margin: 0 auto;
+}
+
+.header-text {
+  flex: 1;
+  text-align: left;
+}
+
+.header-title {
+  font-size: 1.75rem; /* Match About section title size */
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 5px; /* Tighter spacing */
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #555555;
+  margin-bottom: 15px;
+}
+
+.header-location,
+.header-email {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #444444;
+}
+
+/* Profile Image - Right-Aligned */
+.header-image {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header Links */
+.header-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.header-link {
+  width: 120px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333333;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* About Section */
+.about-section {
+  margin-bottom: 40px; /* Consistent spacing with other sections */
+  max-width: 180mm;
+  margin: 0 auto; /* Center align the content */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-title {
+  font-size: 1.75rem; /* Match Header title size */
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 20px; /* Consistent with other section titles */
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.about-paragraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444444;
+  text-align: justify; /* Ensures uniform alignment for professional look */
+}
+
+/* About Section Links (if any) */
+.about-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.about-link {
+  width: 150px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333333;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.stack-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stack-button {
+  width: 120px; /* Consistent size with header links */
+  height: 35px; /* Matches the header link height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Default white background */
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Consistent font size */
+  color: #333333; /* Dark gray text */
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor for button-like appearance */
+}
+
+.stack-button:hover {
+  background-color: #333333; /* Dark background on hover */
+  color: #ffffff; /* White text on hover */
+  border-color: #333333; /* Match border to background */
+}
+
+.stack-button:active {
+  transform: scale(0.95); /* Slightly shrink button on click */
+}
+
+/* Experience Section */
+/* Experience Section */
+.experience-section {
+  margin-bottom: 40px;
+  max-width: 180mm;
+  margin: 0 auto;
+}
+
+/* Section Title */
+.section-titlee {
+  padding-top: 80px;
+  text-align: left;
+}
+
+/* Experience Item */
+.experience-item {
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+}
+
+.experience-item:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Header */
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Left Content (Job Title, Company, Tags) */
+.experience-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Job Title */
+.experience-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222222;
+  margin: 0;
+}
+
+/* Company Name */
+.experience-company {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444444;
+  margin-top: 3px;
+}
+
+/* Tags */
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+/* Tag Button (Matching Technology Button) */
+.tag-button,
+.technology-button {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  min-width: 110px;
+  text-transform: uppercase;
+}
+
+/* Hover effect for both buttons */
+.experience-item:hover .tag-button,
+.experience-item:hover .technology-button {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Date */
+.experience-date {
+  font-style: italic;
+  color: #555555;
+  font-size: 1rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Description */
+.experience-description {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Technologies */
+.technologies-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-bottom: 40px; /* Consistent spacing with other sections */
+  max-width: 180mm; /* Match other sections width */
+  margin: 0 auto; /* Center align the content */
+}
+
+.skills-section .section-title {
+  font-size: 1.75rem; /* Match About section title size */
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 20px; /* Consistent with other section titles */
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.skills-section .about-paragraph {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444444;
+  text-align: justify; /* Ensures uniform alignment for professional look */
+  margin-bottom: 20px; /* Add spacing for consistency */
+}
+
+.skills-section .stack-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap */
+  gap: 10px; /* Space between buttons */
+  justify-content: flex-start; /* Align buttons to the left */
+  margin-top: 20px;
+}
+
+.skills-section .stack-button {
+  width: auto; /* Allow the button to scale based on text content */
+  min-width: 100px; /* Minimum width to ensure readability */
+  max-width: 200px; /* Prevent buttons from becoming too wide */
+  height: 35px; /* Consistent height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Default white background */
+  border: 2px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 0.9rem; /* Slightly smaller font for long text */
+  color: #333333; /* Dark gray text */
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor for button-like appearance */
+  padding: 0 12px; /* Horizontal padding for text spacing */
+  word-wrap: break-word; /* Allow words to break if too long */
+}
+
+.skills-section .stack-button:hover {
+  background-color: #333333; /* Dark background on hover */
+  color: #ffffff; /* White text on hover */
+  border-color: #333333; /* Match border to background */
+}
+
+.skills-section .stack-button:active {
+  transform: scale(0.95); /* Slightly shrink button on click */
+}
+
+
+
+/* Education Section */
+.education-section {
+  margin-bottom: 40px;
+  max-width: 180mm;
+  margin: 0 auto;
+}
+
+/* Section Title */
+.section-titlee {
+  padding-top: 80px;
+  text-align: left;
+}
+
+/* Education Item */
+.education-item {
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+}
+
+.education-item:hover {
+  background-color: #f8f8f8;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Header */
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+/* Left Content (Education Title, Company, Tags) */
+.education-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Education Title */
+.education-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222222;
+  margin: 0;
+}
+
+/* Education Institution */
+.education-company {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444444;
+  margin-top: 3px;
+}
+
+/* Tags */
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+/* Tag Button (Matching Technology Button) */
+.tag-button,
+.technology-button {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  min-width: 110px;
+  text-transform: uppercase;
+}
+
+/* Hover effect for both buttons */
+.education-item:hover .tag-button,
+.education-item:hover .technology-button {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Date */
+.education-date {
+  font-style: italic;
+  color: #555555;
+  font-size: 1rem;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Description */
+.education-description {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 10px;
+}
+
+/* Technologies */
+.technologies-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-bottom: 40px; /* Consistent spacing with other sections */
+  max-width: 180mm; /* Match other sections width */
+  margin: 0 auto; /* Center align the content */
+}
+
+.projects-section .section-title {
+  font-size: 1.5rem; /* Slightly smaller title size */
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 15px; /* Adjust spacing for compactness */
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+/* Grid Layout for Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller cards in a flexible grid */
+  gap: 15px; /* Reduced gap for compactness */
+  margin-top: 15px;
+}
+
+/* Project Card Styling */
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px; /* Slightly smaller radius */
+  overflow: hidden;
+  transition: all 0.2s ease-in-out; /* Faster transition */
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensure equal heights */
+  padding: 10px; /* Add padding for a tighter layout */
+}
+
+.project-card:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px); /* Slight lift */
+}
+
+/* Project Image Styling */
+.project-image {
+  width: 100%;
+  height: 150px; /* Reduce image height */
+  object-fit: cover;
+}
+
+/* Project Details Section */
+.project-details {
+  padding: 10px; /* Reduced padding */
+  flex-grow: 1;
+}
+
+.project-details h3 {
+  font-size: 1.2rem; /* Smaller font size */
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  font-size: 0.9rem; /* Smaller description text */
+  color: #555555; /* Softer color for readability */
+  margin-bottom: 10px; /* Compact bottom margin */
+  text-align: left; /* Align text to the left for a natural reading flow */
+  line-height: 1.4; /* Slightly reduced line spacing for tighter text */
+}
+
+/* Technologies Section */
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px; /* Tighter spacing */
+}
+
+/* Technology Buttons */
+.technology-button {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 0.8rem;
+  padding: 4px 8px; /* Smaller buttons */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.project-card:hover .technology-button {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Project Links Section */
+.project-links {
+  display: flex;
+  gap: 8px; /* Reduce gap between buttons */
+  justify-content: flex-start;
+}
+
+.project-link {
+  height: 28px; /* Smaller button height */
+  padding: 0 10px; /* Tighter padding */
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.85rem; /* Smaller text */
+  color: #333333;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Footer Styling */
+
+/* GitHub Stats Container */
+.github-stats-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  gap: 20px; /* Space between the cards */
+  justify-items: center; /* Center align the cards */
+  margin-bottom: 20px;
+}
+
+/* GitHub Card Styling */
+.github-card {
+  width: 300px; /* Consistent width */
+  height: 180px; /* Consistent height */
+  object-fit: contain; /* Ensure full content fits within the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.footer {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px 20px;
+  color: #333333;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.footer-social-link {
+  background-color: #ffffff;
+  color: #333333;
+  border: 2px solid #ccc;
+  border-radius: 50%; /* Circle containers */
+  padding: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+/* Download Portfolio Button */
+.download-portfolio-btn {
+  background-color: #ffffff; /* White background by default */
+  color: #333333; /* Dark text */
+  border: 2px solid #ccc; /* Light gray border */
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.download-portfolio-btn:hover {
+  background-color: #333333; /* Dark background on hover */
+  color: #ffffff; /* White text on hover */
+  border-color: #333333; /* Dark border on hover */
+}
+/* Copyright Section */
+.footer-copyright {
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* PDF-friendly container */
+  .app-container {
+    width: 100%; /* Make container full width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  /* Header Section */
+  .header-content {
+    flex-direction: column; /* Stack header text and image */
+    align-items: center; /* Center-align content */
+  }
+
+  .header-title {
+    font-size: 1.5rem; /* Smaller header title */
+    margin-bottom: 10px;
+  }
+
+  .header-subtitle {
+    font-size: 0.9rem; /* Smaller subtitle */
+    margin-bottom: 10px;
+  }
+
+  .header-location,
+  .header-email {
+    font-size: 0.9rem; /* Smaller text */
+    margin-bottom: 8px;
+  }
+
+  .header-image {
+    width: 100px; /* Smaller profile image */
+    height: 100px;
+  }
+
+  .header-links {
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  /* About Section */
+  .about-section {
+    max-width: 100%; /* Full width */
+    margin: 0 auto;
+  }
+
+  .about-title {
+    font-size: 1.5rem; /* Smaller about title */
+  }
+
+  .about-paragraph {
+    font-size: 0.9rem; /* Smaller paragraph text */
+  }
+
+  .stack-button {
+    width: 100%; /* Full width buttons for mobile */
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* Experience Section */
+  .experience-item {
+    margin-bottom: 20px; /* Smaller margin between items */
+    padding: 15px; /* Less padding */
+  }
+
+  .experience-title {
+    font-size: 1.25rem; /* Smaller experience title */
+  }
+
+  .experience-company {
+    font-size: 0.9rem; /* Smaller company name */
+  }
+
+  .experience-date {
+    font-size: 0.9rem; /* Smaller date text */
+  }
+
+  /* Projects Section */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller grid items */
+  }
+
+  .project-card {
+    height: auto; /* Allow height to adjust */
+    padding: 15px; /* Less padding */
+  }
+
+  .project-image {
+    height: 150px; /* Smaller images */
+  }
+
+  .project-details h3 {
+    font-size: 1.25rem; /* Smaller project title */
+  }
+
+  .project-description {
+    font-size: 0.9rem; /* Smaller description text */
+  }
+
+  .technology-button {
+    font-size: 0.8rem; /* Smaller technology buttons */
+    padding: 6px 10px;
+  }
+
+  .project-link {
+    font-size: 0.9rem; /* Smaller project link buttons */
+  }
+
+  /* Footer */
+  .footer {
+    font-size: 0.75rem; /* Smaller footer text */
+    padding-top: 10px;
+  }
+
+  /* Floating export buttons */
+  .export-buttons {
+    top: 10px; /* Adjust button position */
+    right: 10px;
+  }
+
+  .export-buttons button {
+    padding: 8px 16px; /* Smaller button size */
+    font-size: 0.9rem;
+  }
+}
+
+/* Very Small Mobile Devices */
+@media (max-width: 480px) {
+  .header-title {
+    font-size: 1.25rem; /* Further reduce header title */
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem; /* Smaller subtitle */
+  }
+
+  .about-title {
+    font-size: 1.25rem; /* Smaller about title */
+  }
+
+  .about-paragraph {
+    font-size: 0.85rem; /* Smaller paragraph text */
+  }
+
+  .experience-item {
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .experience-title {
+    font-size: 1.1rem; /* Smaller experience title */
+  }
+
+  .project-card {
+    padding: 10px; /* Less padding in project cards */
+  }
+
+  .project-image {
+    height: 130px; /* Smaller project image */
+  }
+
+  .project-details h3 {
+    font-size: 1.2rem; /* Smaller project title */
+  }
+
+  .project-description {
+    font-size: 0.85rem; /* Smaller description text */
+  }
+
+  .technology-button {
+    font-size: 0.75rem; /* Even smaller tech buttons */
+  }
+
+  .export-buttons {
+    top: 5px; /* Reduce space for smaller screens */
+    right: 5px;
+  }
+
+  .export-buttons button {
+    padding: 6px 12px; /* Further reduce button size */
+    font-size: 0.8rem;
+  }
+}

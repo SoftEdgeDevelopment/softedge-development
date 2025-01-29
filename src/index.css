@@ -40,14 +40,35 @@ a:hover {
   color: rgb(108, 15, 52);
 }
 
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+/* Export Buttons Container */
+.export-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+  margin-top: 15px;
+}
+
+/* Export Buttons Styling */
+.export-btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  background: white;
+  color: #4c1d95;
+  border: 2px solid;
+  border-image: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c) 1;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Hover Effect */
+.export-btn:hover {
+  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+  color: white;
+  border-color: white;
 }
 
 
