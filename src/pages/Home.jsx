@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Wrapper for the homepage content
 const HomeWrapper = styled.div`
@@ -38,7 +38,7 @@ const ServicesWrapper = styled.div`
 `;
 
 // Individual service card styling
-const ServiceCard = styled.div`
+const ServiceCard = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,12 +121,13 @@ const Home = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const navigate = useNavigate();
 
-  // ✅ FIXED: Smooth transition first, then instant scroll to top
+  // Handle navigation with scroll to top behavior
   const handleNavigate = (path) => {
-    setTimeout(() => {
-      navigate(path);
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Scroll after navigation
-    }, 200); // Small delay ensures smooth transition
+    // Immediately scroll to top before navigating
+    window.scrollTo(0, 0);
+
+    // Then navigate to the target path
+    navigate(path);
   };
 
   return (
@@ -185,7 +186,11 @@ const Home = () => {
         ].map((service, index) => (
           <ServiceCard
             key={index}
-            onClick={() => handleNavigate(service.to)}
+            to={service.to}
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavigate(service.to);
+            }}
             onMouseEnter={() => setHoveredCard(index)}
             onMouseLeave={() => setHoveredCard(null)}
           >
