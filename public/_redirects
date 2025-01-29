@@ -1,15 +1,10 @@
-# Ensure all requests are served through index.html
 /* /index.html 200
 
-# Redirect softedgedev.com to www.softedgedevelopment.com
+# Redirect softedgedev.com and softedgedevelopment.com to www.softedgedevelopment.com
 https://softedgedev.com/* https://www.softedgedevelopment.com/:splat 301!
 http://softedgedev.com/* https://www.softedgedevelopment.com/:splat 301!
 https://www.softedgedev.com/* https://www.softedgedevelopment.com/:splat 301!
 http://www.softedgedev.com/* https://www.softedgedevelopment.com/:splat 301!
 
-# Redirect non-www softedgedevelopment.com to www.softedgedevelopment.com
 https://softedgedevelopment.com/* https://www.softedgedevelopment.com/:splat 301!
 http://softedgedevelopment.com/* https://www.softedgedevelopment.com/:splat 301!
-
-# Keep all other routes working normally
-/* /index.html 200
