@@ -165,7 +165,7 @@ const Contact = () => {
 
     const mailtoLink = `mailto:contact@softedgedevelopment.com
       ?subject=New Contact Inquiry from ${formData.lastName}
-      &body=Last Name: ${formData.lastName}%0A
+      &body=Name: ${formData.lastName}%0A
       Email: ${formData.email}%0A
       Telephone: ${formData.telephone}%0A
       Message: ${formData.message}`;
