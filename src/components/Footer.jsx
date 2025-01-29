@@ -6,31 +6,31 @@ import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const FooterWrapper = styled.footer`
   background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-  padding: 2rem 1rem;
   width: 100vw;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  overflow-x: hidden;
   margin: 0;
+  padding: 1.5rem 1rem;
 `;
 
 const FooterSection = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
   max-width: 1200px;
-  padding: 2rem 1rem;
-  margin: 0 auto;
-  justify-content: space-evenly;
+  padding: 1rem 0;
+  align-items: start; /* ✅ Ensures all sections start at the same height */
+  text-align: center;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    text-align: center;
     gap: 1rem;
+    text-align: center;
+    align-items: center;
   }
 `;
 
@@ -38,13 +38,13 @@ const FooterColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: start; /* ✅ Ensures content is aligned evenly at the top */
 `;
 
 const FooterLinks = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 0.75rem;
   justify-content: center;
 `;
 
@@ -58,7 +58,6 @@ const FooterNavItem = styled(Link)`
   font-size: 0.85rem;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  position: relative;
   text-align: center;
   border: 2px solid #222;
   transition: all 0.3s ease-in-out;
@@ -94,7 +93,7 @@ const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 
   a {
     color: white;
@@ -106,8 +105,9 @@ const FooterInfo = styled.div`
     display: inline-block;
     text-align: center;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     border: 2px solid #222;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
       background-color: #222;
@@ -137,30 +137,57 @@ const FooterInfo = styled.div`
   }
 `;
 
+/* ✅ Square Social Media Buttons */
 const FooterSocial = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
 
   a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: white;
-    transition: color 0.3s ease;
-    padding: 1rem;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
     border: 2px solid #222;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
 
     &:hover {
       background-color: #222;
       color: white;
       border-color: white;
     }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+      z-index: -1;
+      border-radius: 8px;
+      padding: 2px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+    }
+
+    &:hover::before {
+      background: white;
+    }
   }
 `;
 
 const FooterTitle = styled.h3`
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   border-bottom: 2px solid white;
   padding-bottom: 5px;
   color: white;
@@ -199,15 +226,9 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Follow Us</FooterTitle>
         <FooterSocial>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
+          <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter} /></a>
+          <a href="https://www.linkedin.com"><FontAwesomeIcon icon={faLinkedin} /></a>
+          <a href="https://www.instagram.com"><FontAwesomeIcon icon={faInstagram} /></a>
         </FooterSocial>
       </FooterColumn>
     </FooterSection>
