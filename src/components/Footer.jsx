@@ -48,6 +48,10 @@ const FooterLinks = styled.div`
   justify-content: center;
 `;
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 const FooterNavItem = styled(Link)`
   color: white;
   text-decoration: none;
@@ -169,12 +173,12 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Useful Links</FooterTitle>
         <FooterLinks>
-          <FooterNavItem to="/services/digital-strategy">Digital Strategy</FooterNavItem>
-          <FooterNavItem to="/services/agile-management">Agile Management</FooterNavItem>
-          <FooterNavItem to="/services/big-data-data-science">Big Data & Data Science</FooterNavItem>
-          <FooterNavItem to="/services/cloud-infrastructures">Cloud Infrastructures</FooterNavItem>
-          <FooterNavItem to="/services/quality-test-automation">Quality & Test Automation</FooterNavItem>
-          <FooterNavItem to="/services/user-experience-design">User Experience Design</FooterNavItem>
+          <FooterNavItem to="/services/digital-strategy" onClick={scrollToTop}>Digital Strategy</FooterNavItem>
+          <FooterNavItem to="/services/agile-management" onClick={scrollToTop}>Agile Management</FooterNavItem>
+          <FooterNavItem to="/services/big-data-data-science" onClick={scrollToTop}>Big Data & Data Science</FooterNavItem>
+          <FooterNavItem to="/services/cloud-infrastructures" onClick={scrollToTop}>Cloud Infrastructures</FooterNavItem>
+          <FooterNavItem to="/services/quality-test-automation" onClick={scrollToTop}>Quality & Test Automation</FooterNavItem>
+          <FooterNavItem to="/services/user-experience-design" onClick={scrollToTop}>User Experience Design</FooterNavItem>
         </FooterLinks>
       </FooterColumn>
 
