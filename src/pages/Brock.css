@@ -269,6 +269,7 @@ section {
   font-weight: bold;
   color: #222222;
   margin: 0;
+  text-align: left;
 }
 
 /* Company Name */
@@ -277,6 +278,7 @@ section {
   font-weight: bold;
   color: #444444;
   margin-top: 3px;
+  text-align: left;
 }
 
 /* Tags */
@@ -507,6 +509,7 @@ section {
   font-weight: bold;
   color: #444444;
   margin-top: 3px;
+  text-align: left; /* Align institution to the left */
 }
 
 /* Tags */
