@@ -162,39 +162,57 @@ const Brock = () => {
 
 
 
-      {/* About Section */}
       <section className="about-section">
-        <h2 className="section-title">About</h2>
-        <p className="about-paragraph">
-          With a <strong>Bachelor’s degree in Computer Science</strong> and a solid foundation in <strong>Full Stack Development</strong> and <strong>Automation Testing</strong>, I am committed to delivering innovative, scalable, and efficient software solutions tailored to diverse needs. My expertise spans both front-end and back-end technologies, including building user-focused applications with frameworks like React.js, Angular, and Node.js, as well as designing and implementing secure, high-performance server-side architectures. Proficient in creating and consuming RESTful APIs and GraphQL APIs, I excel in implementing robust authentication and authorization mechanisms, including OAuth, JWT, and secure session management. Additionally, I bring hands-on experience in automation testing, containerization, CI/CD pipelines, and modern DevOps practices to ensure the delivery of reliable, high-quality software solutions that drive operational excellence.
-        </p>
-        
-        <p className="about-paragraph">
-          <strong>Competencies:</strong> Software Architecture • Full Stack Development • Automation Testing • API Design • CI/CD Pipelines • DevOps Practices • Agile Methodologies • Cloud-Native Applications • Scalable Microservices • Security and Authentication • Performance Optimization • Team Leadership
-        </p>
-        <div className="stacks-container">
-          <h3 className="section-subtitle">Stacks</h3>
-          <div className="stack-buttons">
-            {[
-              { name: "MERN", link: "https://www.mongodb.com/mern-stack" },
-              { name: "MERNG", link: "https://graphql.org/learn/" },
-              { name: "MEVN", link: "https://vuejs.org/" },
-              { name: "MEAN", link: "https://angular.io/start" },
-              { name: "MEEN", link: "https://nodejs.org/" },
-              { name: "SERN", link: "https://reactjs.org/" },
-              { name: "PWA", link: "https://web.dev/progressive-web-apps/" },
-            ].map((stack) => (
-              <button
-                key={stack.name}
-                className="stack-button"
-                onClick={() => window.open(stack.link, "_blank")}
-              >
-                {stack.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+  <h2 className="section-title">About Me</h2>
+  <p className="about-paragraph">
+    With a <strong>Bachelor’s degree in Computer Science</strong> and a solid foundation in <strong>Full Stack Development</strong> and <strong>Automation Testing</strong>, I am committed to delivering innovative, scalable, and efficient software solutions tailored to diverse needs. My expertise spans both front-end and back-end technologies, including building user-focused applications with frameworks like React.js, Angular, and Node.js, as well as designing and implementing secure, high-performance server-side architectures. Proficient in creating and consuming RESTful APIs and GraphQL APIs, I excel in implementing robust authentication and authorization mechanisms, including OAuth, JWT, and secure session management. Additionally, I bring hands-on experience in automation testing, containerization, CI/CD pipelines, and modern DevOps practices to ensure the delivery of reliable, high-quality software solutions that drive operational excellence.
+  </p>
+
+  {/* Competencies Section */}
+<div className="education-item">
+  <div className="education-header">
+    <h3 className="education-title">Competencies</h3>
+  </div>
+
+  <div className="certifications-list">
+    <div className="certification-button">Software Architecture</div>
+    <div className="certification-button">Full Stack Development</div>
+    <div className="certification-button">Automation Testing</div>
+    <div className="certification-button">API Design</div>
+    <div className="certification-button">CI/CD Pipelines</div>
+    <div className="certification-button">DevOps Practices</div>
+    <div className="certification-button">Agile Methodologies</div>
+    <div className="certification-button">Cloud-Native Applications</div>
+    <div className="certification-button">Scalable Microservices</div>
+    <div className="certification-button">Security and Authentication</div>
+    <div className="certification-button">Performance Optimization</div>
+    <div className="certification-button">Team Leadership</div>
+  </div>
+</div>
+
+  <div className="stacks-container">
+    <h3 className="section-subtitle">Stacks</h3>
+    <div className="stack-buttons">
+      {[
+        { name: "MERN", link: "https://www.mongodb.com/mern-stack" },
+        { name: "MERNG", link: "https://graphql.org/learn/" },
+        { name: "MEVN", link: "https://vuejs.org/" },
+        { name: "MEAN", link: "https://angular.io/start" },
+        { name: "MEEN", link: "https://nodejs.org/" },
+        { name: "SERN", link: "https://reactjs.org/" },
+        { name: "PWA", link: "https://web.dev/progressive-web-apps/" },
+      ].map((stack) => (
+        <button
+          className="stack-button"
+          key={stack.name}
+          onClick={() => window.open(stack.link, "_blank")}
+        >
+          {stack.name}
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
 
 
 
@@ -308,7 +326,7 @@ const Brock = () => {
     </div>
   </div>
 
-  {/* SDET (QA Engineer) */}
+  {/* QA Engineer */}
   <div className="experience-item">
     <div className="experience-header">
       <div className="experience-left">
@@ -341,6 +359,58 @@ const Brock = () => {
       <div className="technology-button">Cypress</div>
       <div className="technology-button">Jenkins</div>
       <div className="technology-button">GitHub Actions</div>
+    </div>
+  </div>
+
+  {/* QA Intern */}
+  <div className="experience-item">
+    <div className="experience-header">
+      <div className="experience-left">
+        <h3 className="experience-title">QA Intern</h3>
+        <p className="experience-company">Mersys</p>
+        <div className="job-tags">
+          <div className="tag-button">REMOTE</div>
+          <div className="tag-button">INTERNSHIP</div>
+        </div>
+      </div>
+      <p className="experience-date">Jan 2022 - Jun 2022</p>
+    </div>
+    <p className="experience-description">
+      Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software releases. Executed cross-browser testing using Selenium Grid, ensuring consistent performance across platforms. Implemented BDD with Cucumber, creating clear test scenarios aligned with business requirements. Validated APIs using Postman and contributed to Agile sprint cycles, ensuring timely delivery of high-quality software. Documented testing processes, created detailed reports, and provided actionable insights for improvement.
+    </p>
+    <div className="technologies-buttons">
+      <div className="technology-button">Java</div>
+      <div className="technology-button">Selenium</div>
+      <div className="technology-button">Maven</div>
+      <div className="technology-button">Cucumber</div>
+      <div className="technology-button">Selenium Grid</div>
+      <div className="technology-button">Postman</div>
+    </div>
+  </div>
+
+  {/* Data Entry Specialist */}
+  <div className="experience-item">
+    <div className="experience-header">
+      <div className="experience-left">
+        <h3 className="experience-title">Data Entry Specialist</h3>
+        <p className="experience-company">Nako Holding Company LLC</p>
+        <div className="job-tags">
+          <div className="tag-button">ON-SITE</div>
+          <div className="tag-button">FULLTIME</div>
+        </div>
+      </div>
+      <p className="experience-date">Oct 2018 - Dec 2021</p>
+    </div>
+    <p className="experience-description">
+      Managed large volumes of data with 99.9% accuracy, maintaining high standards of integrity. Streamlined workflows using automation tools, reducing manual entry time by 25%. Conducted audits to identify and resolve inconsistencies, reducing data-related errors by 20%. Trained new team members on data entry protocols and optimized reporting processes with advanced spreadsheet functionalities. Played a key role in migrating legacy data systems, improving accessibility and reducing redundancies.
+    </p>
+    <div className="technologies-buttons">
+      <div className="technology-button">Data Entry</div>
+      <div className="technology-button">Data Analysis</div>
+      <div className="technology-button">Automation Tools</div>
+      <div className="technology-button">Spreadsheet Functions</div>
+      <div className="technology-button">Data Integrity</div>
+      <div className="technology-button">Legacy Systems</div>
     </div>
   </div>
 </section>
@@ -378,13 +448,13 @@ const Brock = () => {
   <div className="education-item">
     <div className="education-header">
       <div className="education-left">
-        <h3 className="education-title">Full Stack Web Development Bootcamp</h3>
+        <h3 className="education-title">Full Stack Development Bootcamp</h3>
         <p className="education-company">University of California, Berkeley</p>
         <div className="job-tags">
           <div className="tag-button">Completed Jan 2025</div>
         </div>
       </div>
-      <p className="education-date">Jan 2025</p>
+      <p className="education-date">Aug 2024 - Jan 2025</p>
     </div>
     <p className="education-description">
       This immersive bootcamp focused on equipping me with the latest full-stack development skills. Covered cutting-edge technologies like React.js, Node.js, Express.js, and MongoDB, along with advanced DevOps practices like containerization (Docker, Kubernetes) and CI/CD pipelines (Jenkins, GitHub Actions). Emphasized real-world application development, API integrations, and security best practices.
@@ -411,7 +481,7 @@ const Brock = () => {
           <div className="tag-button">Completed Jul 2023</div>
         </div>
       </div>
-      <p className="education-date">Jul 2023</p>
+      <p className="education-date">Oct 2022 - Jul 2023</p>
     </div>
     <p className="education-description">
       Intensive training focused on mastering automation testing frameworks using Selenium, TestNG, and Cucumber BDD. Specialized in API testing with REST Assured and Postman. Gained experience in CI/CD workflows, integrating automated test scripts into Jenkins and GitHub Actions pipelines. Developed and executed comprehensive test suites to ensure high-quality software releases.
@@ -431,13 +501,13 @@ const Brock = () => {
   <div className="education-item">
     <div className="education-header">
       <div className="education-left">
-        <h3 className="education-title">Bachelor’s Degree in Computer Science</h3>
+        <h3 className="education-title">Bachelor’s Degree in CS</h3>
         <p className="education-company">Renton Technical College</p>
         <div className="job-tags">
           <div className="tag-button">Completed Jun 2022</div>
         </div>
       </div>
-      <p className="education-date">Jun 2022</p>
+      <p className="education-date">Sep 2018 - Jun 2022</p>
     </div>
     <p className="education-description">
       Developed a strong foundation in computer science principles, including data structures, algorithms, and software engineering. Gained hands-on experience in programming languages like Java, Python, and C++. Specialized in database management, application architecture, and system design, with a focus on relational and NoSQL databases.
@@ -460,11 +530,19 @@ const Brock = () => {
   </div>
   
   <div className="certifications-list">
-    <div className="certification-button">Certified Full Stack Web Developer <span>University of California, Berkeley</span></div>
-    <div className="certification-button">Certified Software Developer and Engineer in Testing (SDET) <span>Mersys.io</span></div>
-    <div className="certification-button">Certified in Agile Development and Team Collaboration <span>Various Online Platforms</span></div>
-    <div className="certification-button">Certified in Java Programming and Automation Testing <span>Self-Learning & Online Courses</span></div>
+  <div className="certification-button">
+    Certified Full Stack Web Developer <span>University of California, Berkeley - Aug 2023 - Nov 2023</span>
   </div>
+  <div className="certification-button">
+    Certified Software Developer and Engineer in Testing (SDET) <span>Mersys.io - Oct 2022 - Jul 2023</span>
+  </div>
+  <div className="certification-button">
+    Certified in Agile Development and Team Collaboration <span>Various Online Platforms - Oct 2022</span>
+  </div>
+  <div className="certification-button">
+    Certified in Java Programming and Automation Testing <span>Self-Learning & Online Courses - Apr 2022</span>
+  </div>
+</div>
 </div>
 </section>
 

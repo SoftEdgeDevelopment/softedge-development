@@ -448,8 +448,7 @@ section {
   color: #ddd;
 }
 
-
-
+/* Certifications Section */
 .education-section {
   margin-bottom: 40px;
   max-width: 180mm;
@@ -486,7 +485,7 @@ section {
   margin-bottom: 10px;
 }
 
-/* Left Content (Education Title, Company, Tags) */
+/* Left Content (Education Title, Institution, Tags) */
 .education-left {
   display: flex;
   flex-direction: column;
@@ -495,10 +494,11 @@ section {
 
 /* Education Title */
 .education-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Slightly smaller font */
   font-weight: bold;
   color: #222222;
   margin: 0;
+  text-align: left; /* Align title to the left */
 }
 
 /* Education Institution */
@@ -551,6 +551,8 @@ section {
   font-size: 1rem;
   text-align: right;
   flex-shrink: 0;
+  grid-column: 2; /* Ensures date stays in the second column */
+  align-self: start; /* Aligns it to the top */
 }
 
 /* Description */
@@ -560,6 +562,7 @@ section {
   line-height: 1.6;
   text-align: left;
   margin-top: 10px;
+  grid-column: span 2; /* Makes the description span both columns */
 }
 
 /* Technologies */
@@ -833,26 +836,108 @@ section {
     margin-top: 15px;
   }
 
-  /* About Section */
-  .about-section {
-    max-width: 100%; /* Full width */
-    margin: 0 auto;
-  }
+ /* About Section */
+.about-section {
+  max-width: 100%; /* Full width */
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
 
-  .about-title {
-    font-size: 1.5rem; /* Smaller about title */
-  }
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
 
-  .about-paragraph {
-    font-size: 0.9rem; /* Smaller paragraph text */
-  }
+/* About Paragraph */
+.about-paragraph {
+  font-size: 1.125rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .stack-button {
-    width: 100%; /* Full width buttons for mobile */
-    max-width: 100%;
-    font-size: 0.9rem;
-    padding: 8px;
-  }
+/* Competencies List */
+.competencies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid layout */
+  gap: 10px; /* Space between competencies */
+  margin-top: 15px;
+}
+
+/* Competency Buttons */
+.competency-button {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.competency-button:hover {
+  background-color: #f5f5f5;
+  border-color: #888;
+}
+
+.competency-button span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #555;
+  margin-top: 3px;
+}
+
+/* Stacks Section */
+.stacks-container {
+  margin-top: 3rem;
+}
+
+.section-subtitle {
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.stack-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.stack-button {
+  width: 100%;
+  max-width: 200px;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.stack-button:hover {
+  background-color: #333333;  /* Dark background on hover */
+  color: #ffffff;  /* White text on hover */
+  border-color: #333333;  /* Matching border color on hover */
+}
 
   /* Experience Section */
   .experience-item {
