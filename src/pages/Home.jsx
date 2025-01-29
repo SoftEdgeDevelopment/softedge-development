@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Wrapper for the homepage content
 const HomeWrapper = styled.div`
@@ -38,7 +38,7 @@ const ServicesWrapper = styled.div`
 `;
 
 // Individual service card styling
-const ServiceCard = styled(Link)`
+const ServiceCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,15 +50,15 @@ const ServiceCard = styled(Link)`
   color: #333;
   position: relative;
   z-index: 0;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
 
-  /* Hover effect */
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c); /* Gradient on hover */
+    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
     color: white;
+    transform: scale(1.03);
   }
 
-  /* Gradient border with pseudo-element */
   &::before {
     content: "";
     position: absolute;
@@ -69,19 +69,17 @@ const ServiceCard = styled(Link)`
     background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
     z-index: -1;
     border-radius: 10px;
-    padding: 6px; /* Border thickness */
+    padding: 6px;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
     transition: background-color 0.3s ease;
   }
 
-  /* Change border to white on hover */
   &:hover::before {
     background: white;
   }
 
-  /* Ensure the image stays the same size and only the content changes */
   .image-wrapper {
     width: 100%;
     height: 150px;
@@ -94,7 +92,7 @@ const ServiceCard = styled(Link)`
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ✅ Ensures image fits properly */
+    object-fit: contain;
     border-radius: 8px;
     transition: opacity 0.3s ease;
     position: absolute;
@@ -113,7 +111,6 @@ const ServiceCard = styled(Link)`
     line-height: 1.5;
   }
 
-  /* Change text color to white on hover */
   &:hover h3,
   &:hover p {
     color: white;
@@ -121,8 +118,16 @@ const ServiceCard = styled(Link)`
 `;
 
 const Home = () => {
-  // State to track hover for each service card
   const [hoveredCard, setHoveredCard] = useState(null);
+  const navigate = useNavigate();
+
+  // ✅ FIXED: Smooth transition first, then instant scroll to top
+  const handleNavigate = (path) => {
+    setTimeout(() => {
+      navigate(path);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // Scroll after navigation
+    }, 200); // Small delay ensures smooth transition
+  };
 
   return (
     <HomeWrapper>
@@ -180,7 +185,7 @@ const Home = () => {
         ].map((service, index) => (
           <ServiceCard
             key={index}
-            to={service.to}
+            onClick={() => handleNavigate(service.to)}
             onMouseEnter={() => setHoveredCard(index)}
             onMouseLeave={() => setHoveredCard(null)}
           >
