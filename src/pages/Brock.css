@@ -405,6 +405,51 @@ section {
 
 
 /* Education Section */
+
+/* Certifications Section */
+.certifications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid layout */
+  gap: 10px; /* Space between certifications */
+  margin-top: 15px;
+}
+
+/* Certification Buttons */
+.certification-button {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.certification-button span {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #555555;
+  margin-top: 3px;
+}
+
+/* Hover Effect */
+.education-item:hover .certification-button {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.education-item:hover .certification-button span {
+  color: #ddd;
+}
+
+
+
 .education-section {
   margin-bottom: 40px;
   max-width: 180mm;
@@ -527,93 +572,98 @@ section {
 
 /* Projects Section */
 .projects-section {
-  margin-bottom: 40px; /* Consistent spacing with other sections */
-  max-width: 180mm; /* Match other sections width */
-  margin: 0 auto; /* Center align the content */
+  margin-bottom: 40px;
+  max-width: 180mm;
+  margin: 0 auto;
 }
 
+/* Section Title */
 .projects-section .section-title {
-  font-size: 1.5rem; /* Slightly smaller title size */
+  font-size: 1.75rem;
   font-weight: bold;
   color: #222222;
-  margin-bottom: 15px; /* Adjust spacing for compactness */
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
   padding-bottom: 5px;
+  text-align: left;
 }
 
 /* Grid Layout for Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller cards in a flexible grid */
-  gap: 15px; /* Reduced gap for compactness */
-  margin-top: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
 /* Project Card Styling */
 .project-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
-  border-radius: 6px; /* Slightly smaller radius */
+  border-radius: 8px;
   overflow: hidden;
-  transition: all 0.2s ease-in-out; /* Faster transition */
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; /* Ensure equal heights */
-  padding: 10px; /* Add padding for a tighter layout */
+  padding: 15px;
 }
 
 .project-card:hover {
-  background-color: #f9f9f9;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-3px); /* Slight lift */
+  background-color: #f8f8f8;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
 }
 
-/* Project Image Styling */
+/* Project Image */
 .project-image {
   width: 100%;
-  height: 150px; /* Reduce image height */
+  height: 180px;
   object-fit: cover;
+  border-radius: 6px;
 }
 
-/* Project Details Section */
+/* Project Details */
 .project-details {
-  padding: 10px; /* Reduced padding */
+  padding-top: 12px;
   flex-grow: 1;
 }
 
 .project-details h3 {
-  font-size: 1.2rem; /* Smaller font size */
+  font-size: 1.3rem;
   font-weight: bold;
   color: #222222;
   margin-bottom: 8px;
+  text-align: left;
 }
 
 .project-description {
-  font-size: 0.9rem; /* Smaller description text */
-  color: #555555; /* Softer color for readability */
-  margin-bottom: 10px; /* Compact bottom margin */
-  text-align: left; /* Align text to the left for a natural reading flow */
-  line-height: 1.4; /* Slightly reduced line spacing for tighter text */
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 1.5;
 }
 
-/* Technologies Section */
+/* Technologies Section - Now Grid Aligned */
 .project-technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px; /* Tighter spacing */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
 /* Technology Buttons */
 .technology-button {
   background-color: #ffffff;
   color: #333333;
-  font-size: 0.8rem;
-  padding: 4px 8px; /* Smaller buttons */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: default;
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .project-card:hover .technology-button {
@@ -622,23 +672,24 @@ section {
   border-color: #333333;
 }
 
-/* Project Links Section */
+/* Project Links */
 .project-links {
   display: flex;
-  gap: 8px; /* Reduce gap between buttons */
+  gap: 12px;
   justify-content: flex-start;
+  margin-top: 12px;
 }
 
 .project-link {
-  height: 28px; /* Smaller button height */
-  padding: 0 10px; /* Tighter padding */
+  height: 32px;
+  padding: 6px 12px;
   background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 0.85rem; /* Smaller text */
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
   color: #333333;
   text-align: center;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
 
@@ -647,7 +698,6 @@ section {
   color: #ffffff;
   border-color: #333333;
 }
-
 /* Footer Styling */
 
 /* GitHub Stats Container */

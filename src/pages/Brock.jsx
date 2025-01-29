@@ -454,15 +454,18 @@ const Brock = () => {
   </div>
 
   {/* Certifications Section */}
-  <div className="education-item">
-    <h3 className="section-subtitle">Certifications</h3>
-    <ul>
-      <li><strong>Certified Full Stack Web Developer</strong> - University of California, Berkeley (Completed Jan 2025)</li>
-      <li><strong>Certified Software Developer and Engineer in Testing (SDET)</strong> - Mersys.io (Completed Jul 2023)</li>
-      <li><strong>Certified in Agile Development and Team Collaboration</strong> - Various Online Platforms (Completed Oct 2022)</li>
-      <li><strong>Certified in Java Programming and Automation Testing</strong> - Self-Learning & Online Courses (Completed Apr 2022)</li>
-    </ul>
+<div className="education-item">
+  <div className="education-header">
+    <h3 className="education-title">Certifications</h3>
   </div>
+  
+  <div className="certifications-list">
+    <div className="certification-button">Certified Full Stack Web Developer <span>University of California, Berkeley</span></div>
+    <div className="certification-button">Certified Software Developer and Engineer in Testing (SDET) <span>Mersys.io</span></div>
+    <div className="certification-button">Certified in Agile Development and Team Collaboration <span>Various Online Platforms</span></div>
+    <div className="certification-button">Certified in Java Programming and Automation Testing <span>Self-Learning & Online Courses</span></div>
+  </div>
+</div>
 </section>
 
 
