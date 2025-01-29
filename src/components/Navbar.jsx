@@ -188,9 +188,10 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  // Toggle dropdown on hover
-  const handleMouseEnter = () => setDropdownOpen(true);
-  const handleMouseLeave = () => setDropdownOpen(false);
+  // Toggle dropdown on hover or click for mobile
+  const handleClick = () => {
+    setDropdownOpen(prev => !prev);
+  };
 
   // Close dropdown when clicking anywhere outside
   useEffect(() => {
@@ -216,8 +217,8 @@ const Navbar = () => {
         <NavItem to="/about">About</NavItem>
 
         {/* Services Dropdown */}
-        <Dropdown ref={dropdownRef} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <ServicesButton>Services</ServicesButton>
+        <Dropdown ref={dropdownRef}>
+          <ServicesButton onClick={handleClick}>Services</ServicesButton>
           <DropdownContent isOpen={isDropdownOpen}>
             <DropdownItem to="/services/digital-strategy" onClick={closeDropdown}>Digital Strategy</DropdownItem>
             <DropdownItem to="/services/agile-management" onClick={closeDropdown}>Agile Management</DropdownItem>
