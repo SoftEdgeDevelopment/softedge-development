@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import images
+import dsImage1 from './assets/ds1.png';
+import dsImage2 from './assets/ds2.png';
+import dsImage3 from './assets/ds3.png';
+
 // Wrapper for the Digital Strategy section
 const DigitalStrategyWrapper = styled.div`
   text-align: center;
@@ -35,20 +40,20 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   margin-top: 3rem;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 // Image Styling
 const Image = styled.img`
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%; // This ensures images take up the full width on smaller screens
+  }
 `;
 
 // Div for Overview Text and Headers
@@ -57,6 +62,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  flex-grow: 1;  // Allow this container to grow and fill space
+  max-width: 100%;
 `;
 
 // Header for each text section
@@ -86,48 +93,62 @@ const SectionContent = styled.p`
   }
 `;
 
+// Styled component for each section that controls alignment
+const Section = styled.div`
+  display: flex;
+  justify-content: ${props => props.justifyContent};
+  gap: 2rem;
+  align-items: center;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 const DigitalStrategy = () => (
   <DigitalStrategyWrapper>
     <Title>Digital Strategy</Title>
     <Description>
-      At SoftEdge Development, we specialize in crafting tailored digital strategies that empower businesses to thrive in today's dynamic market. 
+      At SoftEdge Development, we specialize in crafting tailored digital strategies that empower businesses to thrive in today's dynamic market.
       From digital transformation to innovative solutions, we help you achieve your business goals.
     </Description>
 
     {/* Section with images and text */}
     <SectionWrapper>
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_1.jpg" alt="Digital Strategy 1" />
+      <Section justifyContent="flex-start">
+        <Image src={dsImage1} alt="Digital Strategy 1" />
         <TextWrapper>
           <SectionHeader>Transforming Your Business Digitally</SectionHeader>
           <SectionContent>
             We help businesses transform by leveraging the latest technologies. Our tailored digital strategies ensure your business stays ahead by adopting modern solutions that align with your long-term vision.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Right aligned image and left aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-end", gap: "2rem", alignItems: "center" }}>
+      <Section justifyContent="flex-end">
         <TextWrapper>
           <SectionHeader>Innovative Solutions for Growth</SectionHeader>
           <SectionContent>
             We provide innovative digital solutions that accelerate business growth. Our approach focuses on optimizing existing processes and introducing new strategies to drive efficiency, productivity, and scalability.
           </SectionContent>
         </TextWrapper>
-        <Image src="path_to_image_2.jpg" alt="Digital Strategy 2" />
-      </div>
+        <Image src={dsImage2} alt="Digital Strategy 2" />
+      </Section>
 
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_3.jpg" alt="Digital Strategy 3" />
+      <Section justifyContent="flex-start">
+        <Image src={dsImage3} alt="Digital Strategy 3" />
         <TextWrapper>
           <SectionHeader>Achieving Long-Term Success</SectionHeader>
           <SectionContent>
             Our digital strategies are designed for long-term success. By focusing on continuous innovation and strategic foresight, we ensure your business can adapt to market changes and consistently deliver value.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Additional Section for SEO Enhancement */}
       <div style={{ textAlign: "center", marginTop: "3rem" }}>

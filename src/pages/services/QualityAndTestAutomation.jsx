@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import images
+import qaImage1 from './assets/qa1.png';
+import qaImage2 from './assets/qa2.png';
+import qaImage3 from './assets/qa3.png';
+
 // Wrapper for the Quality and Test Automation section
 const QualityAndTestAutomationWrapper = styled.div`
   text-align: center;
@@ -35,20 +40,20 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   margin-top: 3rem;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 // Image Styling
 const Image = styled.img`
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%; // This ensures images take up the full width on smaller screens
+  }
 `;
 
 // Div for Overview Text and Headers
@@ -57,6 +62,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  flex-grow: 1;  // Allow this container to grow and fill space
+  max-width: 100%;
 `;
 
 // Header for each text section
@@ -86,6 +93,20 @@ const SectionContent = styled.p`
   }
 `;
 
+// Styled component for each section that controls alignment
+const Section = styled.div`
+  display: flex;
+  justify-content: ${props => props.justifyContent};
+  gap: 2rem;
+  align-items: center;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 const QualityAndTestAutomation = () => (
   <QualityAndTestAutomationWrapper>
     <Title>Quality & Test Automation</Title>
@@ -97,8 +118,8 @@ const QualityAndTestAutomation = () => (
     {/* Section with images and text */}
     <SectionWrapper>
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_1.jpg" alt="Test Automation Process 1" />
+      <Section justifyContent="flex-start">
+        <Image src={qaImage1} alt="Test Automation Process 1" />
         <TextWrapper>
           <SectionHeader>Automated Testing Frameworks</SectionHeader>
           <SectionContent>
@@ -106,10 +127,10 @@ const QualityAndTestAutomation = () => (
             seamlessly into your development lifecycle, improving testing coverage and reducing time-to-market.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Right aligned image and left aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-end", gap: "2rem", alignItems: "center" }}>
+      <Section justifyContent="flex-end">
         <TextWrapper>
           <SectionHeader>Comprehensive Test Coverage</SectionHeader>
           <SectionContent>
@@ -117,12 +138,12 @@ const QualityAndTestAutomation = () => (
             of your applications, ensuring high reliability and performance at every stage of development.
           </SectionContent>
         </TextWrapper>
-        <Image src="path_to_image_2.jpg" alt="Test Automation Process 2" />
-      </div>
+        <Image src={qaImage2} alt="Test Automation Process 2" />
+      </Section>
 
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_3.jpg" alt="Test Automation Process 3" />
+      <Section justifyContent="flex-start">
+        <Image src={qaImage3} alt="Test Automation Process 3" />
         <TextWrapper>
           <SectionHeader>Continuous Integration and Delivery</SectionHeader>
           <SectionContent>
@@ -130,7 +151,7 @@ const QualityAndTestAutomation = () => (
             up automated tests that run with every build, ensuring issues are caught early.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Additional Section for SEO Enhancement */}
       <div style={{ textAlign: "center", marginTop: "3rem" }}>

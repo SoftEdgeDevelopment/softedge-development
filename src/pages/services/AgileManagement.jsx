@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import images
+import agileImage1 from './assets/agile1.png';
+import agileImage2 from './assets/agile2.png';
+import agileImage3 from './assets/agile3.png';
+
 // Wrapper for the Agile Management section
 const AgileManagementWrapper = styled.div`
   text-align: center;
@@ -35,20 +40,20 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   margin-top: 3rem;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 // Image Styling
 const Image = styled.img`
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%; // This ensures images take up the full width on smaller screens
+  }
 `;
 
 // Div for Overview Text and Headers
@@ -57,6 +62,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  flex-grow: 1;  // Allow this container to grow and fill space
+  max-width: 100%;
 `;
 
 // Header for each text section
@@ -86,6 +93,19 @@ const SectionContent = styled.p`
   }
 `;
 
+// Styled component for each section
+const Section = styled.div`
+  display: flex;
+  justify-content: ${props => props.justifyContent};
+  gap: 2rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 const AgileManagement = () => (
   <AgileManagementWrapper>
     <Title>Agile Management</Title>
@@ -98,8 +118,8 @@ const AgileManagement = () => (
     {/* Section with images and text */}
     <SectionWrapper>
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_1.jpg" alt="Agile Process 1" />
+      <Section justifyContent="flex-start">
+        <Image src={agileImage1} alt="Agile Process 1" />
         <TextWrapper>
           <SectionHeader>Implementing Agile Frameworks</SectionHeader>
           <SectionContent>
@@ -107,10 +127,10 @@ const AgileManagement = () => (
             that improve productivity, transparency, and communication across your entire team.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Right aligned image and left aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-end", gap: "2rem", alignItems: "center" }}>
+      <Section justifyContent="flex-end">
         <TextWrapper>
           <SectionHeader>Collaboration & Efficiency</SectionHeader>
           <SectionContent>
@@ -118,12 +138,12 @@ const AgileManagement = () => (
             eliminating bottlenecks and increasing overall efficiency. 
           </SectionContent>
         </TextWrapper>
-        <Image src="path_to_image_2.jpg" alt="Agile Process 2" />
-      </div>
+        <Image src={agileImage2} alt="Agile Process 2" />
+      </Section>
 
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_3.jpg" alt="Agile Process 3" />
+      <Section justifyContent="flex-start">
+        <Image src={agileImage3} alt="Agile Process 3" />
         <TextWrapper>
           <SectionHeader>Faster Time-to-Market</SectionHeader>
           <SectionContent>
@@ -131,7 +151,7 @@ const AgileManagement = () => (
             high-quality products at a faster pace. With Agile, your products can reach the market sooner, ensuring competitive advantage.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Additional Section for SEO Enhancement */}
       <div style={{ textAlign: "center", marginTop: "3rem" }}>

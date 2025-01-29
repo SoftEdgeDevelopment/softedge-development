@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Import images
+import cloudImage1 from './assets/cloud1.png';
+import cloudImage2 from './assets/cloud2.png';
+import cloudImage3 from './assets/cloud3.png';
+
 // Wrapper for the Cloud Infrastructures section
 const CloudInfrastructuresWrapper = styled.div`
   text-align: center;
@@ -35,20 +40,20 @@ const SectionWrapper = styled.div`
   flex-direction: column;
   gap: 3rem;
   margin-top: 3rem;
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
 `;
 
 // Image Styling
 const Image = styled.img`
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%; // This ensures images take up the full width on smaller screens
+  }
 `;
 
 // Div for Overview Text and Headers
@@ -57,6 +62,8 @@ const TextWrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  flex-grow: 1;  // Allow this container to grow and fill space
+  max-width: 100%;
 `;
 
 // Header for each text section
@@ -86,6 +93,20 @@ const SectionContent = styled.p`
   }
 `;
 
+// Styled component for each section that controls alignment
+const Section = styled.div`
+  display: flex;
+  justify-content: ${props => props.justifyContent};
+  gap: 2rem;
+  align-items: center;
+  flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
 const CloudInfrastructures = () => (
   <CloudInfrastructuresWrapper>
     <Title>Cloud Infrastructures</Title>
@@ -97,37 +118,37 @@ const CloudInfrastructures = () => (
     {/* Section with images and text */}
     <SectionWrapper>
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_1.jpg" alt="Cloud Infrastructure 1" />
+      <Section justifyContent="flex-start">
+        <Image src={cloudImage1} alt="Cloud Infrastructure 1" />
         <TextWrapper>
           <SectionHeader>Cloud-Native Architecture</SectionHeader>
           <SectionContent>
             We design cloud-native architectures that maximize performance and scalability. With modern microservices-based approaches, we ensure that your infrastructure can scale dynamically to meet demand.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Right aligned image and left aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-end", gap: "2rem", alignItems: "center" }}>
+      <Section justifyContent="flex-end">
         <TextWrapper>
           <SectionHeader>Security & Compliance</SectionHeader>
           <SectionContent>
             Protect your data and infrastructure with our robust security protocols. We integrate top-tier security practices to ensure compliance with industry standards while keeping your cloud environment safe.
           </SectionContent>
         </TextWrapper>
-        <Image src="path_to_image_2.jpg" alt="Cloud Infrastructure 2" />
-      </div>
+        <Image src={cloudImage2} alt="Cloud Infrastructure 2" />
+      </Section>
 
       {/* Left aligned image and right aligned text */}
-      <div style={{ display: "flex", justifyContent: "flex-start", gap: "2rem", alignItems: "center" }}>
-        <Image src="path_to_image_3.jpg" alt="Cloud Infrastructure 3" />
+      <Section justifyContent="flex-start">
+        <Image src={cloudImage3} alt="Cloud Infrastructure 3" />
         <TextWrapper>
           <SectionHeader>Cost Optimization</SectionHeader>
           <SectionContent>
             We help you optimize your cloud costs by leveraging efficient resource allocation and management. Our solutions ensure that you only pay for what you use, providing cost-effective scalability for your business.
           </SectionContent>
         </TextWrapper>
-      </div>
+      </Section>
 
       {/* Additional Section for SEO Enhancement */}
       <div style={{ textAlign: "center", marginTop: "3rem" }}>
