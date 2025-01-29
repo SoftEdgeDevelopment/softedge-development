@@ -2,38 +2,37 @@ import styled from "styled-components";
 
 const FooterBottom = styled.div`
   background-color: #222;
-  padding: 1.5rem 0; /* Added spacing to the top and bottom */
-  text-align: center; /* Centering the content */
+  padding: 0.5rem 0; /* ✅ Drastically reduced spacing */
+  text-align: center;
 `;
 
 const FooterSmallLinks = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.75rem; /* ✅ Reduced gap */
   font-size: 0.75rem;
-  margin-bottom: 1rem; /* Added spacing below the links */
+  margin-bottom: 0.25rem; /* ✅ Reduced spacing */
 
   a {
     color: white;
     text-decoration: none;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem; /* ✅ More compact padding */
     position: relative;
     border-radius: 8px;
     transition: color 0.3s ease, background-color 0.3s ease, border 0.3s ease;
     display: inline-block;
-    border: 2px solid transparent; /* Default border to ensure smooth hover transition */
+    border: 2px solid transparent;
 
     /* Hover effect */
     &:hover {
       background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
       color: white;
-      padding-bottom: 5px;
-      border-color: white; /* White border on hover */
+      border-color: white;
     }
 
-    /* Gradient border with pseudo-element */
+    /* Gradient border */
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -42,11 +41,10 @@ const FooterSmallLinks = styled.div`
       background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
       z-index: -1;
       border-radius: 8px;
-      padding: 2px; /* Border thickness */
+      padding: 2px;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: destination-out;
       mask-composite: exclude;
-      transition: background-color 0.3s ease;
     }
 
     &:hover::before {
@@ -56,9 +54,9 @@ const FooterSmallLinks = styled.div`
 `;
 
 const CopyrightText = styled.p`
-  color: rgba(255, 255, 255, 0.6); /* Making the copyright text lighter */
-  font-size: 0.75rem;
-  margin-top: 0; /* Removed extra margin at the top */
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.7rem; /* ✅ Slightly smaller font */
+  margin: 0; /* ✅ Completely removed margin */
 `;
 
 const Copyright = () => (
