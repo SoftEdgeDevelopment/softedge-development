@@ -156,16 +156,8 @@ const Brock = () => {
         </div>
       </header>
 
-
-
-
-
-
-
-
-
       <section className="about-section">
-  <h2 className="section-title">About Me</h2>
+  <h2 className="section-titlee">About Me</h2>
   <p className="about-paragraph">
     With a <strong>Bachelor’s degree in Computer Science</strong> and a solid foundation in <strong>Full Stack Development</strong> and <strong>Automation Testing</strong>, I am committed to delivering innovative, scalable, and efficient software solutions tailored to diverse needs. My expertise spans both front-end and back-end technologies, including building user-focused applications with frameworks like React.js, Angular, and Node.js, as well as designing and implementing secure, high-performance server-side architectures. Proficient in creating and consuming RESTful APIs and GraphQL APIs, I excel in implementing robust authentication and authorization mechanisms, including OAuth, JWT, and secure session management. Additionally, I bring hands-on experience in automation testing, containerization, CI/CD pipelines, and modern DevOps practices to ensure the delivery of reliable, high-quality software solutions that drive operational excellence.
   </p>
@@ -173,7 +165,7 @@ const Brock = () => {
   {/* Competencies Section */}
 <div className="education-item">
   <div className="education-header">
-    <h3 className="education-title">Competencies</h3>
+    <h3 className="education-titlee">Competencies</h3>
   </div>
 
   <div className="certifications-list">
@@ -224,8 +216,9 @@ const Brock = () => {
 
 
 {/* Skills Section */}
+<h2 className="section-titlee">Skills</h2>
 <section className="skills-section">
-  <h2 className="section-titlee">Skills</h2>
+  
   <p className="about-paragraph">
     With a comprehensive set of skills in web development, automation testing, and software engineering, I am proficient in a range of technologies and frameworks. These competencies allow me to build scalable, high-performance applications and implement effective automation strategies. Below is a list of my core technical skills.
   </p>

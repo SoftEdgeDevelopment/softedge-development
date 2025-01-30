@@ -150,6 +150,7 @@ section {
 }
 
 .about-paragraph {
+  margin-bottom: 40px;
   font-size: 1rem;
   line-height: 1.6;
   color: #444444;
@@ -230,6 +231,7 @@ section {
 .section-titlee {
   padding-top: 40px;
   text-align: left;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 /* Experience Item */
@@ -347,6 +349,20 @@ section {
   margin-bottom: 40px; /* Consistent spacing with other sections */
   max-width: 180mm; /* Match other sections width */
   margin: 0 auto; /* Center align the content */
+  padding: 1.5rem;
+  border: 1px solid #ccc; /* Border around all stacks */
+  border-radius: 10px;
+  
+  text-align: center; /* Center align content */
+  margin-top: 40px;
+}
+
+.section-titlee {
+  font-size: 2rem; /* Larger title */
+  color: #333; /* Dark text */
+  font-weight: bold;
+  margin-bottom: 1rem; /* Space below title */
+  text-align: center;
 }
 
 .skills-section .section-title {
@@ -356,6 +372,7 @@ section {
   margin-bottom: 20px; /* Consistent with other section titles */
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 5px;
+  text-align: center; /* Center title */
 }
 
 .skills-section .about-paragraph {
@@ -370,7 +387,7 @@ section {
   display: flex;
   flex-wrap: wrap; /* Allow buttons to wrap */
   gap: 10px; /* Space between buttons */
-  justify-content: flex-start; /* Align buttons to the left */
+  justify-content: center; /* Center align buttons */
   margin-top: 20px;
 }
 
@@ -460,7 +477,7 @@ section {
 /* Section Title */
 .section-titlee {
   padding-top: 80px;
-  text-align: left;
+  text-align: center;
 }
 
 /* Education Item */
@@ -503,6 +520,16 @@ section {
   text-align: left; /* Align title to the left */
 }
 
+/* Education Title */
+.education-titlee {
+  font-size: 1.25rem; /* Slightly smaller font */
+  font-weight: bold;
+  color: #222222;
+  margin: 0;
+  text-align: center !important; /* Force center alignment */
+  display: block; /* Ensure it behaves as a block element */
+  width: 100%; /* Make sure it spans the full width */
+}
 /* Education Institution */
 .education-company {
   font-size: 1rem;
@@ -832,6 +859,7 @@ section {
   .header-image {
     width: 100px; /* Smaller profile image */
     height: 100px;
+    margin-top: 40px
   }
 
   .header-links {
@@ -867,6 +895,7 @@ section {
 
 /* Competencies List */
 .competencies-list {
+  
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid layout */
   gap: 10px; /* Space between competencies */
@@ -905,41 +934,72 @@ section {
 /* Stacks Section */
 .stacks-container {
   margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid #ccc !important; /* Force border */
+  border-radius: 10px !important;
+  text-align: center !important; /* Force text center */
+  max-width: 800px !important; /* Enforce max width */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
+/* Section subtitle centered */
 .section-subtitle {
-  font-size: 2rem;
-  color: #333;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 2rem !important;
+  color: #333 !important;
+  font-weight: bold !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
 }
 
+/* Stacks buttons */
 .stack-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
 }
 
+/* Individual stack button styling */
 .stack-button {
-  width: 100%;
-  max-width: 200px;
-  background-color: #ffffff;
-  color: #333333;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  width: auto !important; /* Adjust width dynamically */
+  min-width: 120px !important; /* Ensure buttons have a minimum width */
+  max-width: 200px !important;
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  padding: 10px !important;
+  border: 2px solid #ccc !important;
+  border-radius: 6px !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease-in-out !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
 
+/* Hover effect */
 .stack-button:hover {
-  background-color: #333333;  /* Dark background on hover */
-  color: #ffffff;  /* White text on hover */
-  border-color: #333333;  /* Matching border color on hover */
+  background-color: #333333 !important;  /* Dark background on hover */
+  color: #ffffff !important;  /* White text on hover */
+  border-color: #333333 !important;  /* Matching border color on hover */
+}
+
+/* Ensure the box appears on desktop as well */
+@media (min-width: 768px) {
+  .stacks-container {
+    display: flex !important;
+  }
 }
 
   /* Experience Section */
