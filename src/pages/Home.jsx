@@ -41,10 +41,6 @@ const HomeWrapper = styled.div`
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 `;
 
@@ -83,23 +79,31 @@ const VideoContainer = styled.div`
   align-items: center;
   width: 100%;
   margin: 2.5rem 0;
+
+  video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 // Services Grid
 const ServicesWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr); // Always 3 columns
+  grid-template-rows: repeat(2, 1fr); // Always 2 rows
+  gap: 2rem;
   margin-top: 3rem;
   align-items: center;
   justify-items: center;
 
   @media (max-width: 900px) {
-    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 1.5rem;
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 1rem;
   }
 `;
 
@@ -110,59 +114,55 @@ const ServiceCard = styled(Link)`
   align-items: center;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   text-decoration: none;
-  color: #333;
+  color: white;
   width: 100%;
-  max-width: 320px;
-  height: 300px;
-  position: relative;
-  z-index: 0;
-  transition: background 0.3s ease, transform 0.2s ease-in-out;
+  max-width: 300px;
+  height: 100%;
+  min-height: 200px;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border: 2px solid transparent;
 
   &:hover {
     background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    color: white;
     transform: scale(1.05);
-    border: 2px solid black;
   }
 
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: bold;
     color: black;
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     text-align: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
       font-size: 1.1rem;
     }
-  }
-
-  p {
-    font-size: 1rem;
-    color: white;
-    line-height: 1.7;
-    text-align: center;
-    margin-top: 0.8rem;
 
     @media (max-width: 600px) {
-      display: none;
+      font-size: 1rem;
     }
   }
 
   .image-wrapper {
     width: 100%;
-    height: 160px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @media (max-width: 900px) {
+      height: 100px;
+    }
+
+    @media (max-width: 600px) {
+      height: 80px;
+    }
   }
 
   img {
