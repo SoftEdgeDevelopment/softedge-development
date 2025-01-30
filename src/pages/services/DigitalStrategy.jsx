@@ -1,10 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import backgroundImage from "../assets/background.png"; // ✅ Background Image
 
-// Import images
-import dsImage1 from './assets/ds1.png';
-import dsImage2 from './assets/ds2.png';
-import dsImage3 from './assets/ds3.png';
+// Import images - Keeping exact file paths as provided
+import dsImage1 from "../services/assets/ds1.png";
+import dsImage2 from "../services/assets/ds2.png";
+import dsImage3 from "../services/assets/ds3.png";
+
+// Full-page background container
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6);
+  }
+`;
 
 // Wrapper for the Digital Strategy section
 const DigitalStrategyWrapper = styled.div`
@@ -13,20 +39,23 @@ const DigitalStrategyWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
+  position: relative;
+  z-index: 1;
 `;
 
-// Title Styling (consistent with other sections)
+// Title Styling - Black font with white outline
 const Title = styled.h2`
   font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
   font-weight: bold;
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+  margin-bottom: 1.5rem;
 `;
 
-// Description Styling (consistent with other sections)
+// Description Styling - White text
 const Description = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -52,36 +81,34 @@ const Image = styled.img`
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    max-width: 100%; // This ensures images take up the full width on smaller screens
+    max-width: 100%;
   }
 `;
 
-// Div for Overview Text and Headers
+// Wrapper for Text Sections
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  flex-grow: 1;  // Allow this container to grow and fill space
+  flex-grow: 1;
   max-width: 100%;
 `;
 
-// Header for each text section
+// Subheading Styling - Black font with white outline
 const SectionHeader = styled.h3`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-family: 'Arial', sans-serif;
+  color: black;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  margin-bottom: 1rem;
   text-align: center;
-  text-transform: capitalize;
-  letter-spacing: 0.03rem;
 `;
 
-// Content for each text section
+// Content Styling - White text
 const SectionContent = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   max-width: 900px;
   margin-left: auto;
@@ -93,13 +120,12 @@ const SectionContent = styled.p`
   }
 `;
 
-// Styled component for each section that controls alignment
+// Section Layout
 const Section = styled.div`
   display: flex;
-  justify-content: ${props => props.justifyContent};
+  justify-content: ${(props) => props.justifyContent};
   gap: 2rem;
   align-items: center;
-  flex-direction: row;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -108,57 +134,68 @@ const Section = styled.div`
 `;
 
 const DigitalStrategy = () => (
-  <DigitalStrategyWrapper>
-    <Title>Digital Strategy</Title>
-    <Description>
-      At SoftEdge Development, we specialize in crafting tailored digital strategies that empower businesses to thrive in today's dynamic market.
-      From digital transformation to innovative solutions, we help you achieve your business goals.
-    </Description>
+  <>
+    <BackgroundContainer />
+    <DigitalStrategyWrapper>
+      <Title>Digital Strategy</Title>
+      <Description>
+        Empower your business with tailored digital strategies that drive growth, innovation, and 
+        long-term success. We specialize in modern solutions that help businesses thrive in a 
+        rapidly evolving digital landscape.
+      </Description>
 
-    {/* Section with images and text */}
-    <SectionWrapper>
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={dsImage1} alt="Digital Strategy 1" />
-        <TextWrapper>
-          <SectionHeader>Transforming Your Business Digitally</SectionHeader>
+      <SectionWrapper>
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={dsImage1} alt="Digital Transformation" />
+          <TextWrapper>
+            <SectionHeader>Transforming Your Business Digitally</SectionHeader>
+            <SectionContent>
+              Digital transformation is the key to staying competitive. We implement strategies 
+              that integrate cutting-edge technology, streamline operations, and enhance customer 
+              engagement for sustainable business growth.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Right aligned image and left aligned text */}
+        <Section justifyContent="flex-end">
+          <TextWrapper>
+            <SectionHeader>Innovative Solutions for Growth</SectionHeader>
+            <SectionContent>
+              Our data-driven approach to digital strategy enables businesses to adapt to market 
+              trends. From AI-driven automation to cloud-based solutions, we help you unlock 
+              new opportunities for growth and efficiency.
+            </SectionContent>
+          </TextWrapper>
+          <Image src={dsImage2} alt="Innovative Digital Solutions" />
+        </Section>
+
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={dsImage3} alt="Strategic Business Success" />
+          <TextWrapper>
+            <SectionHeader>Achieving Long-Term Success</SectionHeader>
+            <SectionContent>
+              Our digital strategies focus on long-term value creation. By leveraging 
+              advanced analytics, market insights, and emerging technologies, we help 
+              businesses build scalable, future-ready models that stand the test of time.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Additional Section for Business Impact */}
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <SectionHeader>Comprehensive Digital Strategy for Business Growth</SectionHeader>
           <SectionContent>
-            We help businesses transform by leveraging the latest technologies. Our tailored digital strategies ensure your business stays ahead by adopting modern solutions that align with your long-term vision.
+            A strong digital strategy drives efficiency, profitability, and innovation. We partner with businesses 
+            to create tailored solutions that align with their vision, ensuring long-term success in the 
+            ever-changing digital world.
           </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Right aligned image and left aligned text */}
-      <Section justifyContent="flex-end">
-        <TextWrapper>
-          <SectionHeader>Innovative Solutions for Growth</SectionHeader>
-          <SectionContent>
-            We provide innovative digital solutions that accelerate business growth. Our approach focuses on optimizing existing processes and introducing new strategies to drive efficiency, productivity, and scalability.
-          </SectionContent>
-        </TextWrapper>
-        <Image src={dsImage2} alt="Digital Strategy 2" />
-      </Section>
-
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={dsImage3} alt="Digital Strategy 3" />
-        <TextWrapper>
-          <SectionHeader>Achieving Long-Term Success</SectionHeader>
-          <SectionContent>
-            Our digital strategies are designed for long-term success. By focusing on continuous innovation and strategic foresight, we ensure your business can adapt to market changes and consistently deliver value.
-          </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Additional Section for SEO Enhancement */}
-      <div style={{ textAlign: "center", marginTop: "3rem" }}>
-        <SectionHeader>Comprehensive Digital Strategy for Your Business</SectionHeader>
-        <SectionContent>
-          A comprehensive digital strategy is key to long-term business success. Our approach combines digital transformation, data-driven insights, and innovative technologies to deliver strategies that meet your unique business needs.
-        </SectionContent>
-      </div>
-    </SectionWrapper>
-  </DigitalStrategyWrapper>
+        </div>
+      </SectionWrapper>
+    </DigitalStrategyWrapper>
+  </>
 );
 
 export default DigitalStrategy;

@@ -1,32 +1,61 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import backgroundImage from "../assets/background.png"; // ✅ Background Image
 
 // Import images
-import agileImage1 from './assets/agile1.png';
-import agileImage2 from './assets/agile2.png';
-import agileImage3 from './assets/agile3.png';
+import agileImage1 from "../services/assets/agile1.png";
+import agileImage2 from "../services/assets/agile2.png";
+import agileImage3 from "../services/assets/agile3.png";
 
-// Wrapper for the Agile Management section
-const AgileManagementWrapper = styled.div`
+// Full-page background container
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6);
+  }
+`;
+
+// Wrapper for Agile Management content
+const AgileWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
+  position: relative;
+  z-index: 1;
 `;
 
-// Title Styling (consistent with other sections)
+// Title Styling - Black font with white outline
 const Title = styled.h2`
   font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
   font-weight: bold;
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+  margin-bottom: 1.5rem;
 `;
 
-// Description Styling (consistent with other sections)
+// Description Styling - White text
 const Description = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -52,36 +81,34 @@ const Image = styled.img`
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    max-width: 100%; // This ensures images take up the full width on smaller screens
+    max-width: 100%;
   }
 `;
 
-// Div for Overview Text and Headers
+// Wrapper for Text Sections
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  flex-grow: 1;  // Allow this container to grow and fill space
+  flex-grow: 1;
   max-width: 100%;
 `;
 
-// Header for each text section
+// Subheading Styling - Black font with white outline
 const SectionHeader = styled.h3`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-family: 'Arial', sans-serif;
+  color: black;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  margin-bottom: 1rem;
   text-align: center;
-  text-transform: capitalize;
-  letter-spacing: 0.03rem;
 `;
 
-// Content for each text section
+// Content Styling - White text
 const SectionContent = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   max-width: 900px;
   margin-left: auto;
@@ -93,10 +120,10 @@ const SectionContent = styled.p`
   }
 `;
 
-// Styled component for each section
+// Section Layout
 const Section = styled.div`
   display: flex;
-  justify-content: ${props => props.justifyContent};
+  justify-content: ${(props) => props.justifyContent};
   gap: 2rem;
   align-items: center;
 
@@ -107,62 +134,68 @@ const Section = styled.div`
 `;
 
 const AgileManagement = () => (
-  <AgileManagementWrapper>
-    <Title>Agile Management</Title>
-    <Description>
-      Streamline your workflows with Agile methodologies. Our experts guide you to implement Agile practices that promote collaboration, 
-      efficiency, and adaptability for faster and more effective project delivery. By breaking down complex tasks into manageable parts,
-      we ensure continuous improvement and success.
-    </Description>
+  <>
+    <BackgroundContainer />
+    <AgileWrapper>
+      <Title>Agile Management</Title>
+      <Description>
+        Optimize your workflow and accelerate project delivery with Agile methodologies. 
+        We guide teams through Agile transformations to improve collaboration, increase efficiency, 
+        and deliver high-quality results with flexibility and speed.
+      </Description>
 
-    {/* Section with images and text */}
-    <SectionWrapper>
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={agileImage1} alt="Agile Process 1" />
-        <TextWrapper>
-          <SectionHeader>Implementing Agile Frameworks</SectionHeader>
+      <SectionWrapper>
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={agileImage1} alt="Agile Frameworks" />
+          <TextWrapper>
+            <SectionHeader>Implementing Agile Frameworks</SectionHeader>
+            <SectionContent>
+              Master Agile frameworks like Scrum and Kanban to boost efficiency and 
+              transparency. We help teams adopt structured sprints, stand-ups, and 
+              iterative cycles to achieve greater productivity and faster outcomes.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Right aligned image and left aligned text */}
+        <Section justifyContent="flex-end">
+          <TextWrapper>
+            <SectionHeader>Collaboration & Adaptability</SectionHeader>
+            <SectionContent>
+              Foster a culture of cross-functional collaboration and adaptability. 
+              Agile empowers teams to respond swiftly to changing requirements, 
+              eliminate bottlenecks, and deliver incremental improvements effectively.
+            </SectionContent>
+          </TextWrapper>
+          <Image src={agileImage2} alt="Agile Collaboration" />
+        </Section>
+
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={agileImage3} alt="Faster Time-to-Market" />
+          <TextWrapper>
+            <SectionHeader>Faster Time-to-Market</SectionHeader>
+            <SectionContent>
+              Deliver products faster and reduce risk with Agile. By continuously 
+              refining processes and incorporating real-time feedback, Agile ensures 
+              high-quality releases while maintaining speed and flexibility.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Additional Section for Business Impact */}
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <SectionHeader>Agile Transformation for Business Growth</SectionHeader>
           <SectionContent>
-            Learn how Agile frameworks, such as Scrum and Kanban, enable your team to work iteratively and efficiently. We introduce you to proven strategies 
-            that improve productivity, transparency, and communication across your entire team.
+            Transitioning to Agile unlocks growth opportunities by enhancing 
+            operational efficiency. Our Agile consulting services help organizations 
+            integrate Agile seamlessly, ensuring sustainable success in a dynamic market.
           </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Right aligned image and left aligned text */}
-      <Section justifyContent="flex-end">
-        <TextWrapper>
-          <SectionHeader>Collaboration & Efficiency</SectionHeader>
-          <SectionContent>
-            Discover the power of Agile collaboration, where cross-functional teams share a common goal. We ensure your team can adapt quickly to changes,
-            eliminating bottlenecks and increasing overall efficiency. 
-          </SectionContent>
-        </TextWrapper>
-        <Image src={agileImage2} alt="Agile Process 2" />
-      </Section>
-
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={agileImage3} alt="Agile Process 3" />
-        <TextWrapper>
-          <SectionHeader>Faster Time-to-Market</SectionHeader>
-          <SectionContent>
-            Agile methodologies deliver faster results through iterative releases. We show you how to get quick feedback, allowing you to adjust and deliver 
-            high-quality products at a faster pace. With Agile, your products can reach the market sooner, ensuring competitive advantage.
-          </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Additional Section for SEO Enhancement */}
-      <div style={{ textAlign: "center", marginTop: "3rem" }}>
-        <SectionHeader>Agile Transformation for Businesses</SectionHeader>
-        <SectionContent>
-          Agile transformation helps businesses shift from traditional project management approaches to flexible, adaptive methods. Our Agile coaching and
-          consulting services equip your team with the skills and tools needed to thrive in a rapidly changing market.
-        </SectionContent>
-      </div>
-    </SectionWrapper>
-  </AgileManagementWrapper>
+        </div>
+      </SectionWrapper>
+    </AgileWrapper>
+  </>
 );
 
 export default AgileManagement;

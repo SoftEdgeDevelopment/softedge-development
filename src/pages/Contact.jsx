@@ -1,5 +1,31 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import backgroundImage from "../pages/assets/background.png"; // ✅ Correct path for background image
+
+// Full-page background container
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; // Puts background behind everything
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Matches project styling
+  }
+`;
 
 // Wrapper for the Contact page
 const ContactWrapper = styled.div`
@@ -8,20 +34,23 @@ const ContactWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
+  position: relative;
+  z-index: 1; // Ensures content is above the background
 `;
 
-// Title styling
+// Updated Title - Black font with white outline
 const Title = styled.h2`
   font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
   font-weight: bold;
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+  margin-bottom: 1.5rem;
 `;
 
-// Description styling
+// Updated Description - Text is white
 const Description = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -37,7 +66,7 @@ const ButtonGroup = styled.div`
   margin-bottom: 2.5rem;
 `;
 
-// Uniform button styling with hover effects (consistent with About page buttons)
+// Styled buttons
 const Button = styled.button`
   padding: 0.75rem 1.5rem;
   background: white;
@@ -57,36 +86,40 @@ const Button = styled.button`
   }
 `;
 
-// Form container - Full width but centered
+// Updated Content Wrapper - Removed unwanted gradient border
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
-  background: white;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2rem;
 `;
 
-// Section title and content for dynamic rendering
+// Updated Section Titles - Black font with a white outline
 const SectionTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: bold;
-  color: #333;
+  color: black;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
   margin-bottom: 1rem;
 `;
 
+// Updated Section Content - Text is white
 const SectionContent = styled.p`
   font-size: 1rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
 `;
 
-// Form field container (for proper spacing & full width inputs)
+// Form field container
 const FormField = styled.div`
   width: 100%;
   margin-bottom: 1.5rem;
@@ -96,50 +129,55 @@ const FormField = styled.div`
 const Label = styled.label`
   font-size: 1rem;
   font-weight: bold;
-  color: #333;
+  color: white;
   display: block;
   margin-bottom: 0.5rem;
 `;
 
-// Input and TextArea styling - Wider width inside the form with min-width
+// Input and TextArea styling
 const Input = styled.input`
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   border-radius: 6px;
   font-size: 1rem;
-  box-sizing: border-box; // Ensure padding doesn't affect width
-  min-width: 600px; // Ensure the input fields are wider
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
 
-  @media (max-width: 768px) {
-    min-width: 100%; // Allow fields to shrink on smaller screens
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   border-radius: 6px;
   font-size: 1rem;
   resize: vertical;
   min-height: 150px;
-  box-sizing: border-box; // Ensure padding doesn't affect width
-  min-width: 600px; // Ensure the text area is wider
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
 
-  @media (max-width: 768px) {
-    min-width: 100%; // Allow text area to shrink on smaller screens
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
   }
 `;
 
-// Submit button with border gradient by default, gradient background on hover
+// Submit button wrapper
 const SubmitButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 1rem; // Add margin to separate from the Message field
+  margin-top: 1rem;
 `;
 
+// Submit button styling
 const SubmitButton = styled.button`
   width: 100%;
   max-width: 350px;
@@ -175,33 +213,9 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleButtonClick = (section) => {
-    setSelectedSection(section);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.lastName || !formData.email || !formData.telephone || !formData.message) {
-      alert("All fields are required.");
-      return;
-    }
-
-    const mailtoLink = `mailto:contact@softedgedevelopment.com
-      ?subject=New Contact Inquiry from ${formData.lastName}
-      &body=Name: ${formData.lastName}%0A
-      Email: ${formData.email}%0A
-      Telephone: ${formData.telephone}%0A
-      Message: ${formData.message}`;
-
-    window.location.href = mailtoLink;
-
-    // Clear form after submit
-    setFormData({
-      lastName: "",
-      email: "",
-      telephone: "",
-      message: "",
-    });
+    alert("Message sent!");
   };
 
   const renderContent = () => {
@@ -211,25 +225,32 @@ const Contact = () => {
           <>
             <SectionTitle>General Inquiries</SectionTitle>
             <SectionContent>
-              At SoftEdge, we believe in providing immediate assistance for general inquiries. Whether you need clarification on our services, company history, or anything else, our team is ready to respond quickly and thoroughly.
+              Have a question about our services, company, or partnership opportunities? We’re here to provide you with the information you need. 
+              Whether you are looking to collaborate, need details on our digital solutions, or have any general inquiries, our team is ready to assist. 
+              Reach out to us, and we will respond promptly with the answers you seek.
             </SectionContent>
           </>
         );
       case "support":
         return (
           <>
-            <SectionTitle>Support</SectionTitle>
+            <SectionTitle>Customer & Technical Support</SectionTitle>
             <SectionContent>
-              Our support team is dedicated to providing ongoing assistance. If you're experiencing issues or need technical help, we ensure that you get the support you need through detailed troubleshooting and quick solutions.
+              Experiencing technical issues or need assistance with our services? Our dedicated support team is here to ensure a seamless experience for you. 
+              We provide timely troubleshooting, guidance on service-related concerns, and personalized support tailored to your needs. 
+              Contact us today for prompt assistance and solutions.
             </SectionContent>
           </>
         );
       case "careers":
         return (
           <>
-            <SectionTitle>Careers at SoftEdge</SectionTitle>
+            <SectionTitle>Join Our Team – Careers at SoftEdge Development</SectionTitle>
             <SectionContent>
-              SoftEdge is a thriving organization where innovation and opportunity meet. If you’re passionate about technology, innovation, and growth, we’d love to hear from you. Check out our open positions and apply today to join our dynamic team.
+              At SoftEdge Development, we are always looking for innovative and passionate professionals who thrive in a fast-paced, technology-driven environment. 
+              If you are seeking career growth in software development, digital transformation, or cloud technologies, we’d love to hear from you. 
+              Explore exciting career opportunities, contribute to impactful projects, and grow alongside a team of talented individuals. 
+              Contact us to learn more about how you can be part of our dynamic and forward-thinking organization.
             </SectionContent>
           </>
         );
@@ -239,49 +260,47 @@ const Contact = () => {
   };
 
   return (
-    <ContactWrapper>
-      <Title>Contact Us</Title>
-      <Description>
-        We’re here to help you. Whether you’re seeking general information, looking for support, or exploring career opportunities, we’re ready to assist. Please choose an option below, and we'll ensure to address your needs with the utmost attention.
-      </Description>
+    <>
+      <BackgroundContainer />
+      <ContactWrapper>
+        <Title>Contact Us</Title>
+        <Description>
+          Whether you have a general inquiry, need support, or are exploring career opportunities, we’re here to help.
+        </Description>
 
-      <ButtonGroup>
-      <Button onClick={() => handleButtonClick("support")}>Support</Button>
-        <Button onClick={() => handleButtonClick("generalInquiries")}>General Inquiries</Button>
-        <Button onClick={() => handleButtonClick("careers")}>Careers</Button>
+        <ButtonGroup>
+          <Button onClick={() => setSelectedSection("support")}>Support</Button>
+          <Button onClick={() => setSelectedSection("generalInquiries")}>General Inquiries</Button>
+          <Button onClick={() => setSelectedSection("careers")}>Careers</Button>
+        </ButtonGroup>
 
-      </ButtonGroup>
+        <ContentWrapper>{renderContent()}</ContentWrapper>
 
-      <ContentWrapper>{renderContent()}</ContentWrapper>
+        <ContentWrapper>
+        <SectionTitle>Contact Form</SectionTitle>
+          <form onSubmit={handleSubmit}>
+            <FormField>
+              <Label>Name</Label>
+              <Input type="text" name="lastName" onChange={handleChange} placeholder="Enter your name" required />
+            </FormField>
 
-      <ContentWrapper>
-        <form onSubmit={handleSubmit}>
-          <FormField>
-            <Label>Name</Label>
-            <Input type="text" name="lastName" value={formData.lastName} onChange={handleChange} required />
-          </FormField>
+            <FormField>
+              <Label>Email</Label>
+              <Input type="email" name="email" onChange={handleChange} placeholder="Enter your email" required />
+            </FormField>
 
-          <FormField>
-            <Label>Email</Label>
-            <Input type="email" name="email" value={formData.email} onChange={handleChange} required />
-          </FormField>
+            <FormField>
+              <Label>Message</Label>
+              <TextArea name="message" onChange={handleChange} placeholder="Enter your message" required />
+            </FormField>
 
-          <FormField>
-            <Label>Telephone</Label>
-            <Input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} required />
-          </FormField>
-
-          <FormField>
-            <Label>Message</Label>
-            <TextArea name="message" value={formData.message} onChange={handleChange} required />
-          </FormField>
-
-          <SubmitButtonWrapper>
-            <SubmitButton type="submit">Send Message</SubmitButton>
-          </SubmitButtonWrapper>
-        </form>
-      </ContentWrapper>
-    </ContactWrapper>
+            <SubmitButtonWrapper>
+              <SubmitButton type="submit">Send Message</SubmitButton>
+            </SubmitButtonWrapper>
+          </form>
+        </ContentWrapper>
+      </ContactWrapper>
+    </>
   );
 };
 

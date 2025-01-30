@@ -28,40 +28,38 @@ function App() {
   return (
     <Router>
       <Header />
-      <main style={{ minHeight: "80vh", padding: "2rem", textAlign: "center" }}>
-        <Routes>
-          {/* Main Pages */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/brock-altug" element={<Brock />} /> {/* ✅ Brock page added */}
+      <Routes>
+        {/* Main Pages */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/brock-altug" element={<Brock />} /> {/* ✅ Brock page added */}
 
-          {/* Service Pages */}
-          <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
-          <Route path="/services/agile-management" element={<AgileManagement />} />
-          <Route path="/services/big-data-data-science" element={<BigDataAndDataScience />} />
-          <Route path="/services/cloud-infrastructures" element={<CloudInfrastructures />} />
-          <Route path="/services/quality-test-automation" element={<QualityAndTestAutomation />} />
-          <Route path="/services/user-experience-design" element={<UserExperienceDesign />} />
+        {/* Service Pages */}
+        <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
+        <Route path="/services/agile-management" element={<AgileManagement />} />
+        <Route path="/services/big-data-data-science" element={<BigDataAndDataScience />} />
+        <Route path="/services/cloud-infrastructures" element={<CloudInfrastructures />} />
+        <Route path="/services/quality-test-automation" element={<QualityAndTestAutomation />} />
+        <Route path="/services/user-experience-design" element={<UserExperienceDesign />} />
 
-          {/* Legal Pages */}
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
+        {/* Legal Pages */}
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
 
-          {/* Blog Post Pages */}
-          <Route path="/blogs/post-01" element={<Post01 />} />
-          <Route path="/blogs/post-02" element={<Post02 />} />
-          <Route path="/blogs/post-03" element={<Post03 />} />
+        {/* Blog Post Pages */}
+        <Route path="/blogs/post-01" element={<Post01 />} />
+        <Route path="/blogs/post-02" element={<Post02 />} />
+        <Route path="/blogs/post-03" element={<Post03 />} />
 
-          {/* Catch-all route for non-existent pages */}
-          <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}
-        </Routes>
-      </main>
-      <Outro /> {/* Include Outro at the bottom */}
+        {/* Catch-all route for non-existent pages */}
+        <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}
+      </Routes>
+      <Outro />
       <Footer />
-      <Copyright /> {/* Include Copyright at the bottom */}
+      <Copyright />
     </Router>
   );
 }

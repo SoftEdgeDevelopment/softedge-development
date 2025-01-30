@@ -1,32 +1,61 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import backgroundImage from "../assets/background.png"; // ✅ Background Image
 
-// Import images
-import qaImage1 from './assets/qa1.png';
-import qaImage2 from './assets/qa2.png';
-import qaImage3 from './assets/qa3.png';
+// Import images - Keeping the exact file paths as provided
+import qaImage1 from "../services/assets/qa1.png";
+import qaImage2 from "../services/assets/qa2.png";
+import qaImage3 from "../services/assets/qa3.png";
+
+// Full-page background container
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6);
+  }
+`;
 
 // Wrapper for the Quality and Test Automation section
-const QualityAndTestAutomationWrapper = styled.div`
+const QAWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   font-family: "Arial", sans-serif;
+  position: relative;
+  z-index: 1;
 `;
 
-// Title Styling (consistent with other sections)
+// Title Styling - Black font with white outline
 const Title = styled.h2`
   font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1.5rem;
   font-weight: bold;
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+  margin-bottom: 1.5rem;
 `;
 
-// Description Styling (consistent with other sections)
+// Description Styling - White text
 const Description = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -52,36 +81,34 @@ const Image = styled.img`
   margin: 0 auto;
 
   @media (max-width: 768px) {
-    max-width: 100%; // This ensures images take up the full width on smaller screens
+    max-width: 100%;
   }
 `;
 
-// Div for Overview Text and Headers
+// Wrapper for Text Sections
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-  flex-grow: 1;  // Allow this container to grow and fill space
+  flex-grow: 1;
   max-width: 100%;
 `;
 
-// Header for each text section
+// Subheading Styling - Black font with white outline
 const SectionHeader = styled.h3`
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 0.5rem;
-  font-family: 'Arial', sans-serif;
+  color: black;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  margin-bottom: 1rem;
   text-align: center;
-  text-transform: capitalize;
-  letter-spacing: 0.03rem;
 `;
 
-// Content for each text section
+// Content Styling - White text
 const SectionContent = styled.p`
   font-size: 1.125rem;
-  color: #666;
+  color: white;
   line-height: 1.7;
   max-width: 900px;
   margin-left: auto;
@@ -93,13 +120,12 @@ const SectionContent = styled.p`
   }
 `;
 
-// Styled component for each section that controls alignment
+// Section Layout
 const Section = styled.div`
   display: flex;
-  justify-content: ${props => props.justifyContent};
+  justify-content: ${(props) => props.justifyContent};
   gap: 2rem;
   align-items: center;
-  flex-direction: row;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -108,61 +134,67 @@ const Section = styled.div`
 `;
 
 const QualityAndTestAutomation = () => (
-  <QualityAndTestAutomationWrapper>
-    <Title>Quality & Test Automation</Title>
-    <Description>
-      Ensure reliability and performance with robust testing frameworks and automation tools. Our expertise in quality assurance helps you 
-      deliver software that meets the highest standards.
-    </Description>
+  <>
+    <BackgroundContainer />
+    <QAWrapper>
+      <Title>Quality & Test Automation</Title>
+      <Description>
+        Ensure software reliability and efficiency with robust automated testing frameworks. 
+        Our expertise in QA and test automation guarantees high-performance applications that meet industry standards.
+      </Description>
 
-    {/* Section with images and text */}
-    <SectionWrapper>
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={qaImage1} alt="Test Automation Process 1" />
-        <TextWrapper>
-          <SectionHeader>Automated Testing Frameworks</SectionHeader>
+      <SectionWrapper>
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={qaImage1} alt="Automated Testing Frameworks" />
+          <TextWrapper>
+            <SectionHeader>Automated Testing Frameworks</SectionHeader>
+            <SectionContent>
+              Implement advanced test automation frameworks such as Selenium, Cypress, and Playwright 
+              to accelerate software delivery. Our automation strategies enhance test execution speed, 
+              reduce human errors, and ensure scalability.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Right aligned image and left aligned text */}
+        <Section justifyContent="flex-end">
+          <TextWrapper>
+            <SectionHeader>Comprehensive Test Coverage</SectionHeader>
+            <SectionContent>
+              Achieve end-to-end test coverage by integrating functional, regression, and 
+              performance testing. Our expertise in test automation ensures seamless 
+              execution and higher confidence in software releases.
+            </SectionContent>
+          </TextWrapper>
+          <Image src={qaImage2} alt="Comprehensive Test Coverage" />
+        </Section>
+
+        {/* Left aligned image and right aligned text */}
+        <Section justifyContent="flex-start">
+          <Image src={qaImage3} alt="CI/CD Testing Automation" />
+          <TextWrapper>
+            <SectionHeader>Continuous Integration & Delivery</SectionHeader>
+            <SectionContent>
+              Optimize your CI/CD pipeline with integrated test automation. By automating 
+              quality checks at every stage, we help teams deliver faster, minimize defects, 
+              and enhance overall software reliability.
+            </SectionContent>
+          </TextWrapper>
+        </Section>
+
+        {/* Additional Section for Business Impact */}
+        <div style={{ textAlign: "center", marginTop: "3rem" }}>
+          <SectionHeader>Driving Business Growth with Test Automation</SectionHeader>
           <SectionContent>
-            Implement automated testing frameworks like Selenium and Cypress to ensure fast and reliable test execution. We guide you to integrate automation 
-            seamlessly into your development lifecycle, improving testing coverage and reducing time-to-market.
+            A strong QA strategy leads to better software, satisfied users, and increased 
+            business efficiency. We empower teams with cutting-edge test automation 
+            solutions to ensure seamless, high-quality digital experiences.
           </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Right aligned image and left aligned text */}
-      <Section justifyContent="flex-end">
-        <TextWrapper>
-          <SectionHeader>Comprehensive Test Coverage</SectionHeader>
-          <SectionContent>
-            Achieve comprehensive test coverage by automating functional, regression, and performance testing. We help you identify gaps and optimize the quality 
-            of your applications, ensuring high reliability and performance at every stage of development.
-          </SectionContent>
-        </TextWrapper>
-        <Image src={qaImage2} alt="Test Automation Process 2" />
-      </Section>
-
-      {/* Left aligned image and right aligned text */}
-      <Section justifyContent="flex-start">
-        <Image src={qaImage3} alt="Test Automation Process 3" />
-        <TextWrapper>
-          <SectionHeader>Continuous Integration and Delivery</SectionHeader>
-          <SectionContent>
-            Enhance your CI/CD pipeline by incorporating automated testing. This ensures fast feedback for developers and improves product quality. We help you set 
-            up automated tests that run with every build, ensuring issues are caught early.
-          </SectionContent>
-        </TextWrapper>
-      </Section>
-
-      {/* Additional Section for SEO Enhancement */}
-      <div style={{ textAlign: "center", marginTop: "3rem" }}>
-        <SectionHeader>Optimizing Software Quality with Automation</SectionHeader>
-        <SectionContent>
-          We empower your team with test automation tools and best practices to ensure that your software delivers excellent quality at scale. From test design to execution, 
-          we provide end-to-end test automation services that guarantee optimal performance and reliability.
-        </SectionContent>
-      </div>
-    </SectionWrapper>
-  </QualityAndTestAutomationWrapper>
+        </div>
+      </SectionWrapper>
+    </QAWrapper>
+  </>
 );
 
 export default QualityAndTestAutomation;

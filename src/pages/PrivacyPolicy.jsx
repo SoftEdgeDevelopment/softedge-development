@@ -1,39 +1,75 @@
 import React from "react";
 import styled from "styled-components";
+import backgroundImage from "../pages/assets/background.png"; // ✅ Background Image
 
-const PrivacyWrapper = styled.div`
-  background-color: #f9f9f9; /* Light background for readability */
-  color: #333; /* Standard text color */
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto; /* Center content */
-  text-align: center; /* Center-align content */
-  font-family: "Arial", sans-serif;
-  line-height: 1.8;
+// Full-page background container
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6);
+  }
 `;
 
+// Wrapper for Privacy Policy content
+const PrivacyWrapper = styled.div`
+  text-align: left;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Arial", sans-serif;
+  position: relative;
+  z-index: 1;
+`;
+
+// Title with black font & white outline (consistent with other pages)
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
-  color: #4c1d95; /* Accent color */
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 2rem;
   text-align: center;
 `;
 
+// Section Wrapper
 const Section = styled.div`
   margin-bottom: 2rem;
   text-align: left;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 
   h2 {
-    font-size: 1.75rem;
-    color: #9d174d; /* Secondary accent color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     margin-bottom: 1rem;
+    text-align: left;
   }
 
   p {
-    font-size: 1rem;
-    color: #555; /* Subdued text color */
-    line-height: 1.8;
+    font-size: 1.125rem;
+    color: white;
+    line-height: 1.7;
+    text-align: left;
   }
 
   ul {
@@ -42,8 +78,8 @@ const Section = styled.div`
     text-align: left;
 
     li {
-      font-size: 1rem;
-      color: #555;
+      font-size: 1.125rem;
+      color: white;
       margin-bottom: 0.5rem;
     }
   }
@@ -51,107 +87,138 @@ const Section = styled.div`
   a {
     color: #9d174d;
     text-decoration: none;
+    font-weight: bold;
 
     &:hover {
       color: rgb(108, 15, 52);
+      text-decoration: underline;
     }
   }
 `;
 
+// Contact Information Section
 const ContactInfo = styled.div`
   margin-top: 3rem;
-  font-size: 0.875rem;
-  color: #666;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
 
   a {
     color: #9d174d;
     text-decoration: none;
+    font-weight: bold;
 
     &:hover {
       color: rgb(108, 15, 52);
+      text-decoration: underline;
     }
   }
 `;
 
+// Footer Note
 const FooterNote = styled.p`
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: #999;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: white;
+  text-align: center;
+  opacity: 0.8;
 `;
 
 const PrivacyPolicy = () => (
-  <PrivacyWrapper>
-    <Title>Privacy Policy</Title>
-    <Section>
-      <h2>Our Commitment to Privacy</h2>
-      <p>
-        At SoftEdge Development, your privacy is a top priority. We are committed to protecting your personal information and
-        providing transparency about how your data is collected, used, and safeguarded.
-      </p>
-    </Section>
-    <Section>
-      <h2>How We Collect Your Data</h2>
-      <p>We may collect information through the following methods:</p>
-      <ul>
-        <li>Direct interactions: Filling out forms or contacting us directly.</li>
-        <li>Automated technologies: Cookies, analytics tools, and similar technologies.</li>
-        <li>Third-party sources: Trusted partners and publicly available information.</li>
-      </ul>
-    </Section>
-    <Section>
-      <h2>How We Use Your Data</h2>
-      <p>Your data is utilized to:</p>
-      <ul>
-        <li>Improve and personalize our services.</li>
-        <li>Communicate with you and respond to your inquiries.</li>
-        <li>Analyze usage patterns and optimize website functionality.</li>
-        <li>Ensure the security and reliability of our systems.</li>
-        <li>Comply with legal obligations and enforce our terms of service.</li>
-      </ul>
-    </Section>
-    <Section>
-      <h2>How We Protect Your Data</h2>
-      <p>
-        We employ robust security measures to ensure your data remains secure, including:
-      </p>
-      <ul>
-        <li>Data encryption during transmission and storage.</li>
-        <li>Access controls to limit unauthorized access.</li>
-        <li>Regular security audits and vulnerability assessments.</li>
-        <li>Firewall protections and monitoring systems.</li>
-      </ul>
-    </Section>
-    <Section>
-      <h2>Data Sharing and Disclosure</h2>
-      <p>
-        Your data may be shared with third parties in the following circumstances:
-      </p>
-      <ul>
-        <li>With trusted service providers to support our operations (e.g., hosting, analytics).</li>
-        <li>To comply with legal requirements or respond to lawful requests.</li>
-        <li>To protect our rights, privacy, safety, or property.</li>
-        <li>In the event of a business transition, such as a merger or acquisition.</li>
-      </ul>
-    </Section>
-    <Section>
-      <h2>Policy Updates</h2>
-      <p>
-        This Privacy Policy may be updated periodically to reflect changes in our practices or legal requirements. Updates will
-        be communicated on our website, and the "Last Updated" date will be revised accordingly. By continuing to use our
-        services, you accept the updated terms.
-      </p>
-    </Section>
-    <ContactInfo>
-      
-      <p>
-        If you have any questions or concerns about this Privacy Policy, please contact us:
-      </p>
-      
-    </ContactInfo>
-    <FooterNote>
-      This Privacy Policy is effective as of January 2025.
-    </FooterNote>
-  </PrivacyWrapper>
+  <>
+    <BackgroundContainer />
+    <PrivacyWrapper>
+      <Title>Privacy Policy</Title>
+
+      <Section>
+        <h2>Our Commitment to Privacy</h2>
+        <p>
+          At SoftEdge Development, we prioritize your privacy and are committed to safeguarding your personal data.
+          This Privacy Policy explains how we collect, use, and protect your information.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>Information We Collect</h2>
+        <p>We collect information in the following ways:</p>
+        <ul>
+          <li>Directly from you: When you contact us, sign up for updates, or use our services.</li>
+          <li>Automatically: Through cookies, analytics, and usage tracking.</li>
+          <li>From third parties: Trusted service providers and public data sources.</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>How We Use Your Data</h2>
+        <p>Your data is utilized for the following purposes:</p>
+        <ul>
+          <li>To provide and improve our services.</li>
+          <li>To communicate with you and respond to inquiries.</li>
+          <li>To analyze website traffic and optimize user experience.</li>
+          <li>To maintain security and prevent fraud.</li>
+          <li>To comply with legal requirements.</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>Data Protection Measures</h2>
+        <p>We take data security seriously and implement the following safeguards:</p>
+        <ul>
+          <li>Data encryption for secure transmission.</li>
+          <li>Strict access controls and authentication measures.</li>
+          <li>Regular system security audits.</li>
+          <li>Firewalls and threat detection systems.</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>Sharing and Disclosure of Data</h2>
+        <p>We do not sell your data. We may share information in these cases:</p>
+        <ul>
+          <li>With trusted service providers (e.g., hosting, analytics).</li>
+          <li>For legal compliance and regulatory obligations.</li>
+          <li>To prevent fraud or security threats.</li>
+          <li>During a business transition, such as a merger or acquisition.</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>Cookies and Tracking Technologies</h2>
+        <p>
+          We use cookies and similar tracking technologies to improve user experience and website functionality.
+          You can manage your cookie preferences through your browser settings.
+        </p>
+      </Section>
+
+      <Section>
+        <h2>Your Rights and Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access and review your personal data.</li>
+          <li>Request data deletion, subject to legal limitations.</li>
+          <li>Opt-out of marketing communications.</li>
+          <li>Adjust cookie and tracking settings.</li>
+        </ul>
+      </Section>
+
+      <Section>
+        <h2>Policy Updates</h2>
+        <p>
+          We may update this Privacy Policy to reflect changes in our practices or legal requirements.
+          Updates will be communicated on our website. By continuing to use our services, you accept the updated terms.
+        </p>
+      </Section>
+
+      <ContactInfo>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
+        <p><a href="mailto:contact@softedgedevelopment.com">contact@softedgedevelopment.com</a></p>
+      </ContactInfo>
+
+      <FooterNote>
+        This Privacy Policy is effective as of January 2025.
+      </FooterNote>
+    </PrivacyWrapper>
+  </>
 );
 
 export default PrivacyPolicy;
