@@ -144,7 +144,7 @@ const Donate = () => {
 
           {/* Link to GoFundMe */}
           <DonateButton href="https://www.buymeacoffee.com/softedgedev" target="_blank" rel="noopener noreferrer">
-          Join Us in Making a Difference, Help to Build the Future
+          Join Us in Making a Difference, Make Your Mark
           </DonateButton>
 
           
