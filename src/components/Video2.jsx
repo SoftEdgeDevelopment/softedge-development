@@ -82,13 +82,15 @@ const Video2 = () => {
 
   return (
     <VideoContainer>
-      {/* First Video (Navigates to Blog) */}
-      <VideoWrapper onClick={() => navigate("/blog")}>
-        <StyledVideo ref={videoRef1} src={videoFile1} autoPlay loop muted playsInline />
-      </VideoWrapper>
+      
 
       <VideoWrapper onClick={() => navigate("/about")}>
         <StyledVideo ref={videoRef3} src={videoFile3} autoPlay loop muted playsInline />
+      </VideoWrapper>
+
+      {/* First Video (Navigates to Blog) */}
+      <VideoWrapper onClick={() => navigate("/blog")}>
+        <StyledVideo ref={videoRef1} src={videoFile1} autoPlay loop muted playsInline />
       </VideoWrapper>
 
       {/* Second Video (Navigates to Contact) */}
