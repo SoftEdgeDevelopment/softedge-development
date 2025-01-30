@@ -33,6 +33,10 @@ const VideoWrapper = styled.div`
   overflow: hidden;
   cursor: pointer; // ✅ Makes it clear it's clickable
 
+  &:hover {
+    background: linear-gradient(90deg, #2a0e4a, #5a0d2b, #9c2d07); // ✅ Darker glow effect on hover
+  }
+
   @media (max-width: 768px) {
     width: 90%;
     margin: auto;
@@ -51,6 +55,10 @@ const StyledVideo = styled.video`
   display: block;
   object-fit: cover; // Ensures full visibility without distortion
   pointer-events: none;
+
+  &:hover {
+    filter: brightness(0.6); // ✅ Stronger darkening effect on hover
+  }
 `;
 
 const Video2 = () => {
