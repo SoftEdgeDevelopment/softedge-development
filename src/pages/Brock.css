@@ -310,9 +310,38 @@ section {
   text-transform: uppercase;
 }
 
+.technology-buttonn {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  min-width: 110px;
+  text-transform: uppercase;
+}
+
 /* Hover effect for both buttons */
 .experience-item:hover .tag-button,
 .experience-item:hover .technology-button {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.experience-item:hover .technology-buttonn {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #333333;
+}
+
+.education-item:hover .technology-buttonn {
   background-color: #333333;
   color: #ffffff;
   border-color: #333333;
@@ -618,31 +647,41 @@ section {
   margin-bottom: 20px;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 5px;
-  text-align: left;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
 }
 
 /* Grid Layout for Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
   margin-top: 20px;
+  justify-content: center !important;
+  align-items: stretch !important;
 }
 
-/* Project Card Styling */
+/* Project Card */
 .project-card {
   background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 12px !important;
+  min-height: 240px !important;
+  width: 100%;
+  max-width: 300px; /* Prevents cards from getting too large */
+  margin: 0 auto; /* Ensures perfect centering */
 }
 
+/* Hover Effect */
 .project-card:hover {
   background-color: #f8f8f8;
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
@@ -651,86 +690,162 @@ section {
 
 /* Project Image */
 .project-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+  width: 100% !important;
+  height: 110px !important;
+  object-fit: cover !important;
   border-radius: 6px;
 }
 
 /* Project Details */
 .project-details {
-  padding-top: 12px;
-  flex-grow: 1;
+  padding-top: 6px !important;
+  flex-grow: 1 !important;
+  text-align: center !important;
+  width: 100%;
 }
 
+/* Project Title */
 .project-details h3 {
-  font-size: 1.3rem;
+  font-size: 1rem !important;
   font-weight: bold;
   color: #222222;
-  margin-bottom: 8px;
-  text-align: left;
+  margin-bottom: 5px;
+  text-align: center !important;
 }
 
+/* Project Description */
 .project-description {
-  font-size: 1rem;
+  font-size: 0.8rem !important;
   color: #555555;
-  margin-bottom: 10px;
-  text-align: left;
-  line-height: 1.5;
+  margin-bottom: 10px !important;
+  text-align: center !important;
+  line-height: 1.4;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Technologies Section - Now Grid Aligned */
+/* Technologies Section */
 .project-technologies {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 6px !important;
+  max-width: 180px !important; /* Ensures perfect centering */
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* Technology Buttons */
 .technology-button {
-  background-color: #ffffff;
-  color: #333333;
-  font-size: 0.85rem;
-  padding: 6px 10px;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 32px !important; /* Smaller size */
+  height: 32px !important;
+  background-color: #ffffff !important;
+  border: 1.5px solid #ccc !important;
+  border-radius: 6px !important;
+  text-align: center !important;
+  transition: all 0.3s ease-in-out !important;
 }
 
+/* Technology Icons */
+.technology-button svg {
+  width: 18px !important; /* Smaller icon size */
+  height: 18px !important;
+  color: #333 !important;
+}
+
+/* On hover, dark mode effect */
 .project-card:hover .technology-button {
-  background-color: #333333;
-  color: #ffffff;
-  border-color: #333333;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+
+.project-card:hover .technology-button svg {
+  color: #ffffff !important;
 }
 
 /* Project Links */
 .project-links {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-start;
-  margin-top: 12px;
+  display: flex !important;
+  gap: 6px !important;
+  justify-content: center !important;
+  margin-top: 10px !important;
+  width: 100%;
 }
 
+/* Project Link Buttons */
 .project-link {
-  height: 32px;
-  padding: 6px 12px;
-  background-color: #ffffff;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: #333333;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
+  height: 26px !important;
+  padding: 4px 8px !important;
+  background-color: #ffffff !important;
+  border: 1.5px solid #ccc !important;
+  border-radius: 6px !important;
+  font-size: 0.75rem !important;
+  color: #333333 !important;
+  text-align: center !important;
+  transition: all 0.3s ease-in-out !important;
+  text-decoration: none !important;
 }
 
 .project-link:hover {
-  background-color: #333333;
-  color: #ffffff;
-  border-color: #333333;
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
 }
+
+/* Responsive Styling for Mobile */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* Ensures proper alignment */
+    gap: 10px !important;
+  }
+
+  .project-card {
+    min-height: 200px !important;
+    padding: 8px !important;
+    max-width: 260px;
+  }
+
+  .project-image {
+    height: 100px !important;
+  }
+
+  .project-details h3 {
+    font-size: 0.85rem !important;
+  }
+
+  .project-description {
+    font-size: 0.75rem !important;
+  }
+
+  .project-technologies {
+    max-width: 140px !important;
+    gap: 4px !important;
+  }
+
+  .technology-button {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .technology-button svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .project-link {
+    font-size: 0.7rem !important;
+    padding: 3px 6px !important;
+  }
+}
+
+
+
+
 /* Footer Styling */
 
 /* GitHub Stats Container */

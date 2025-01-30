@@ -19,6 +19,33 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import "./Brock.css";
+import { FaReact, FaServer, FaLock, FaCode, FaBolt, FaCheckCircle } from "react-icons/fa";
+import { SiVite, SiTailwindcss, SiFramer, SiNetlify, SiCloudflare, SiEslint } from "react-icons/si";
+import { FaNodeJs, FaBootstrap, FaFontAwesome} from "react-icons/fa";
+import { SiGraphql, SiApollographql, SiMongodb, SiJsonwebtokens, SiExpress } from "react-icons/si";
+import { MdLibraryMusic } from "react-icons/md";
+import { SiSequelize, SiPostgresql, SiDotenv, SiInsomnia } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase } from "react-icons/fa";
+import { SiJson } from "react-icons/si";
+import { VscFileCode } from "react-icons/vsc";
+import { MdStorage } from "react-icons/md";
+import { AiOutlineApi } from "react-icons/ai";
+import { BiHash } from "react-icons/bi";
+import { SiHandlebarsdotjs } from "react-icons/si";
+import { FaSearch, FaTags, FaTools } from "react-icons/fa";
+import { SiGoogleanalytics } from "react-icons/si";
+import { MdDataUsage } from "react-icons/md";
+import { SiMongoose } from "react-icons/si";
+import { SiWebpack } from "react-icons/si";
+import { MdWorkspaces } from "react-icons/md";
+import { FaCloud } from "react-icons/fa";
+import { SiInformatica } from "react-icons/si";
+import { VscTerminalPowershell } from "react-icons/vsc";
+import { WiDayCloudy } from "react-icons/wi";
+import { SiJest, SiNpm } from "react-icons/si";
+import { MdOutlineDraw } from "react-icons/md";
+
+
 
 const Brock = () => {
   // Function to handle JPG export
@@ -307,17 +334,17 @@ const Brock = () => {
       Collaborated with clients to gather requirements, provided regular updates, and delivered intuitive, feature-rich solutions ahead of schedule.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">React.js</div>
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">MongoDB</div>
-      <div className="technology-button">RESTful APIs</div>
-      <div className="technology-button">GraphQL</div>
-      <div className="technology-button">Tailwind CSS</div>
-      <div className="technology-button">Bootstrap</div>
-      <div className="technology-button">Docker</div>
-      <div className="technology-button">Kubernetes</div>
-      <div className="technology-button">AWS</div>
-      <div className="technology-button">GCP</div>
+      <div className="technology-buttonn">React.js</div>
+      <div className="technology-buttonn">Node.js</div>
+      <div className="technology-buttonn">MongoDB</div>
+      <div className="technology-buttonn">RESTful APIs</div>
+      <div className="technology-buttonn">GraphQL</div>
+      <div className="technology-buttonn">Tailwind CSS</div>
+      <div className="technology-buttonn">Bootstrap</div>
+      <div className="technology-buttonn">Docker</div>
+      <div className="technology-buttonn">Kubernetes</div>
+      <div className="technology-buttonn">AWS</div>
+      <div className="technology-buttonn">GCP</div>
     </div>
   </div>
 
@@ -344,16 +371,16 @@ const Brock = () => {
       Led defect tracking and reporting initiatives, enabling rapid issue resolution and improving overall software quality.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">Java</div>
-      <div className="technology-button">Selenium WebDriver</div>
-      <div className="technology-button">TestNG</div>
-      <div className="technology-button">Cucumber BDD</div>
-      <div className="technology-button">REST Assured</div>
-      <div className="technology-button">Postman</div>
-      <div className="technology-button">Docker</div>
-      <div className="technology-button">Cypress</div>
-      <div className="technology-button">Jenkins</div>
-      <div className="technology-button">GitHub Actions</div>
+      <div className="technology-buttonn">Java</div>
+      <div className="technology-buttonn">Selenium WebDriver</div>
+      <div className="technology-buttonn">TestNG</div>
+      <div className="technology-buttonn">Cucumber BDD</div>
+      <div className="technology-buttonn">REST Assured</div>
+      <div className="technology-buttonn">Postman</div>
+      <div className="technology-buttonn">Docker</div>
+      <div className="technology-buttonn">Cypress</div>
+      <div className="technology-buttonn">Jenkins</div>
+      <div className="technology-buttonn">GitHub Actions</div>
     </div>
   </div>
 
@@ -374,12 +401,12 @@ const Brock = () => {
       Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software releases. Executed cross-browser testing using Selenium Grid, ensuring consistent performance across platforms. Implemented BDD with Cucumber, creating clear test scenarios aligned with business requirements. Validated APIs using Postman and contributed to Agile sprint cycles, ensuring timely delivery of high-quality software. Documented testing processes, created detailed reports, and provided actionable insights for improvement.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">Java</div>
-      <div className="technology-button">Selenium</div>
-      <div className="technology-button">Maven</div>
-      <div className="technology-button">Cucumber</div>
-      <div className="technology-button">Selenium Grid</div>
-      <div className="technology-button">Postman</div>
+      <div className="technology-buttonn">Java</div>
+      <div className="technology-buttonn">Selenium</div>
+      <div className="technology-buttonn">Maven</div>
+      <div className="technology-buttonn">Cucumber</div>
+      <div className="technology-buttonn">Selenium Grid</div>
+      <div className="technology-buttonn">Postman</div>
     </div>
   </div>
 
@@ -400,12 +427,12 @@ const Brock = () => {
       Managed large volumes of data with 99.9% accuracy, maintaining high standards of integrity. Streamlined workflows using automation tools, reducing manual entry time by 25%. Conducted audits to identify and resolve inconsistencies, reducing data-related errors by 20%. Trained new team members on data entry protocols and optimized reporting processes with advanced spreadsheet functionalities. Played a key role in migrating legacy data systems, improving accessibility and reducing redundancies.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">Data Entry</div>
-      <div className="technology-button">Data Analysis</div>
-      <div className="technology-button">Automation Tools</div>
-      <div className="technology-button">Spreadsheet Functions</div>
-      <div className="technology-button">Data Integrity</div>
-      <div className="technology-button">Legacy Systems</div>
+      <div className="technology-buttonn">Data Entry</div>
+      <div className="technology-buttonn">Data Analysis</div>
+      <div className="technology-buttonn">Automation Tools</div>
+      <div className="technology-buttonn">Spreadsheet Functions</div>
+      <div className="technology-buttonn">Data Integrity</div>
+      <div className="technology-buttonn">Legacy Systems</div>
     </div>
   </div>
 </section>
@@ -455,14 +482,14 @@ const Brock = () => {
       This immersive bootcamp focused on equipping me with the latest full-stack development skills. Covered cutting-edge technologies like React.js, Node.js, Express.js, and MongoDB, along with advanced DevOps practices like containerization (Docker, Kubernetes) and CI/CD pipelines (Jenkins, GitHub Actions). Emphasized real-world application development, API integrations, and security best practices.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">React.js</div>
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">MongoDB</div>
-      <div className="technology-button">Express.js</div>
-      <div className="technology-button">GraphQL</div>
-      <div className="technology-button">Docker</div>
-      <div className="technology-button">Kubernetes</div>
-      <div className="technology-button">CI/CD Pipelines</div>
+      <div className="technology-buttonn">React.js</div>
+      <div className="technology-buttonn">Node.js</div>
+      <div className="technology-buttonn">MongoDB</div>
+      <div className="technology-buttonn">Express.js</div>
+      <div className="technology-buttonn">GraphQL</div>
+      <div className="technology-buttonn">Docker</div>
+      <div className="technology-buttonn">Kubernetes</div>
+      <div className="technology-buttonn">CI/CD Pipelines</div>
     </div>
   </div>
 
@@ -482,13 +509,13 @@ const Brock = () => {
       Intensive training focused on mastering automation testing frameworks using Selenium, TestNG, and Cucumber BDD. Specialized in API testing with REST Assured and Postman. Gained experience in CI/CD workflows, integrating automated test scripts into Jenkins and GitHub Actions pipelines. Developed and executed comprehensive test suites to ensure high-quality software releases.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">Selenium WebDriver</div>
-      <div className="technology-button">TestNG</div>
-      <div className="technology-button">Cucumber BDD</div>
-      <div className="technology-button">REST Assured</div>
-      <div className="technology-button">Postman</div>
-      <div className="technology-button">Jenkins</div>
-      <div className="technology-button">GitHub Actions</div>
+      <div className="technology-buttonn">Selenium WebDriver</div>
+      <div className="technology-buttonn">TestNG</div>
+      <div className="technology-buttonn">Cucumber BDD</div>
+      <div className="technology-buttonn">REST Assured</div>
+      <div className="technology-buttonn">Postman</div>
+      <div className="technology-buttonn">Jenkins</div>
+      <div className="technology-buttonn">GitHub Actions</div>
     </div>
   </div>
 
@@ -508,13 +535,13 @@ const Brock = () => {
       Developed a strong foundation in computer science principles, including data structures, algorithms, and software engineering. Gained hands-on experience in programming languages like Java, Python, and C++. Specialized in database management, application architecture, and system design, with a focus on relational and NoSQL databases.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-button">Java</div>
-      <div className="technology-button">Python</div>
-      <div className="technology-button">C++</div>
-      <div className="technology-button">Data Structures</div>
-      <div className="technology-button">Algorithms</div>
-      <div className="technology-button">Database Design</div>
-      <div className="technology-button">SQL</div>
+      <div className="technology-buttonn">Java</div>
+      <div className="technology-buttonn">Python</div>
+      <div className="technology-buttonn">C++</div>
+      <div className="technology-buttonn">Data Structures</div>
+      <div className="technology-buttonn">Algorithms</div>
+      <div className="technology-buttonn">Database Design</div>
+      <div className="technology-buttonn">SQL</div>
     </div>
   </div>
 
@@ -526,10 +553,11 @@ const Brock = () => {
   
   <div className="certifications-list">
   <div className="certification-button">
-    Certified Full Stack Web Developer <span>University of California, Berkeley - Aug 2023 - Nov 2023</span>
+    Certified Full Stack Web Developer
+    <span>University of California, Berkeley - Jan 2025</span> 
   </div>
   <div className="certification-button">
-    Certified Software Developer and Engineer in Testing (SDET) <span>Mersys.io - Oct 2022 - Jul 2023</span>
+    Certified Software Developer and Engineer in Testing (SDET) <span>Mersys.io - Jul 2023</span>
   </div>
   <div className="certification-button">
     Certified in Agile Development and Team Collaboration <span>Various Online Platforms - Oct 2022</span>
@@ -575,19 +603,21 @@ const Brock = () => {
     <p className="project-description">
       A fully customized and deployed portfolio website, built from scratch with a custom domain, DNS configuration, and seamless Netlify deployment. Showcasing expertise in Full-Stack Development, Automation Testing, and DevOps.
     </p>
+    
+    {/* Technologies Section with Icons */}
     <div className="project-technologies">
-      <div className="technology-button">React</div>
-      <div className="technology-button">Vite</div>
-      <div className="technology-button">Tailwind CSS</div>
-      <div className="technology-button">Framer Motion</div>
-      <div className="technology-button">Netlify</div>
-      <div className="technology-button">DNS Management</div>
-      <div className="technology-button">Custom Domain Setup</div>
-      <div className="technology-button">SSL Configuration</div>
-      <div className="technology-button">ESLint</div>
-      <div className="technology-button">FontAwesome</div>
-      <div className="technology-button">Performance Optimization</div>
-      <div className="technology-button">Responsive Design</div>
+      <div className="technology-button"><FaReact title="React" /></div>
+      <div className="technology-button"><SiVite title="Vite" /></div>
+      <div className="technology-button"><SiTailwindcss title="Tailwind CSS" /></div>
+      <div className="technology-button"><SiFramer title="Framer Motion" /></div>
+      <div className="technology-button"><SiNetlify title="Netlify" /></div>
+      <div className="technology-button"><SiCloudflare title="DNS Management" /></div>
+      <div className="technology-button"><FaServer title="Custom Domain Setup" /></div>
+      <div className="technology-button"><FaLock title="SSL Configuration" /></div>
+      <div className="technology-button"><SiEslint title="ESLint" /></div>
+      <div className="technology-button"><FaCode title="FontAwesome Integration" /></div>
+      <div className="technology-button"><FaBolt title="Performance Optimization" /></div>
+      <div className="technology-button"><FaCheckCircle title="Responsive Design" /></div>
     </div>
   </div>
 </div>
@@ -597,7 +627,7 @@ const Brock = () => {
     {/* Project: Vibez Tune Music App */}
 <div
   className="project-card"
-  onClick={() => window.open('https://vibez-tune-music-app.onrender.com', '_blank')} // Replace with your live demo link
+  onClick={() => window.open('https://vibez-tune-music-app.onrender.com', '_blank')} // Live demo link
 >
   <img
     src={projectImage13} // Import your project image here
@@ -610,50 +640,53 @@ const Brock = () => {
       Explore and save your favorite songs, view lyrics, and create a personalized library. Built with the MERN stack, Apollo GraphQL, and JWT for secure authentication.
     </p>
     <div className="project-technologies">
-      <div className="technology-button">React</div>
-      <div className="technology-button">GraphQL</div>
-      <div className="technology-button">Apollo</div>
-      <div className="technology-button">MongoDB</div>
-      <div className="technology-button">JWT</div>
-      <div className="technology-button">Lyrics.ovh API</div>
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">Express.js</div>
-      <div className="technology-button">Vite</div>
-      <div className="technology-button">Bootstrap</div>
-      <div className="technology-button">ESLint</div>
-      <div className="technology-button">FontAwesome</div>
+      <div className="technology-button"><FaReact title="React" /></div>
+      <div className="technology-button"><SiGraphql title="GraphQL" /></div>
+      <div className="technology-button"><SiApollographql title="Apollo" /></div>
+      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
+      <div className="technology-button"><SiJsonwebtokens title="JWT" /></div>
+      <div className="technology-button"><MdLibraryMusic title="Lyrics.ovh API" /></div>
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiVite title="Vite" /></div>
+      <div className="technology-button"><FaBootstrap title="Bootstrap" /></div>
+      <div className="technology-button"><SiEslint title="ESLint" /></div>
+      <div className="technology-button"><FaFontAwesome title="FontAwesome" /></div>
     </div>
   </div>
 </div>
 
 
-    {/* Project 5 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/orm-ecom-backend', '_blank')}>
-      <img
-        src={projectImage05} // Import your project image here
-        alt="E-Commerce Backend"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>ORM Ecom Backend</h3>
-        <p className="project-description">
-          A backend API for managing an e-commerce platform with categories, products, and tags. Built using Node.js, Express, Sequelize, and PostgreSQL for scalable database management.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">Express.js</div>
-          <div className="technology-button">Sequelize</div>
-          <div className="technology-button">PostgreSQL</div>
-          <div className="technology-button">Dotenv</div>
-          <div className="technology-button">Insomnia</div>
-        </div>
-      </div>
-    </div>
-
-    {/* Project 9 */}
+    {/* Project: ORM Ecom Backend */}
 <div
   className="project-card"
-  onClick={() => window.open('https://github.com/BrockAltug/express-note-taker', '_blank')}
+  onClick={() => window.open('https://github.com/BrockAltug/orm-ecom-backend', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage05} // Import your project image here
+    alt="E-Commerce Backend"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>ORM Ecom Backend</h3>
+    <p className="project-description">
+      A backend API for managing an e-commerce platform with categories, products, and tags. Built using Node.js, Express, Sequelize, and PostgreSQL for scalable database management.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
+      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
+      <div className="technology-button"><SiDotenv title="Dotenv" /></div>
+      <div className="technology-button"><SiInsomnia title="Insomnia" /></div>
+    </div>
+  </div>
+</div>
+
+    {/* Project: Express Note Taker */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/express-note-taker', '_blank')} // GitHub repo link
 >
   <img
     src={projectImage09} // Import your project image here
@@ -666,185 +699,206 @@ const Brock = () => {
       A simple and efficient note-taking application for creating, viewing, and managing notes. Built with Node.js and Express.js, it features persistent storage and an intuitive interface, ensuring your ideas are always saved and accessible!
     </p>
     <div className="project-technologies">
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">Express.js</div>
-      <div className="technology-button">JavaScript</div>
-      <div className="technology-button">HTML</div>
-      <div className="technology-button">CSS</div>
-      <div className="technology-button">JSON</div>
-      <div className="technology-button">CRUD</div>
-      <div className="technology-button">UUID</div>
-      <div className="technology-button">File System</div>
-      <div className="technology-button">RESTful API</div>
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
+      <div className="technology-button"><FaHtml5 title="HTML" /></div>
+      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
+      <div className="technology-button"><SiJson title="JSON" /></div>
+      <div className="technology-button"><VscFileCode title="CRUD" /></div>
+      <div className="technology-button"><BiHash title="UUID" /></div>
+      <div className="technology-button"><MdStorage title="File System" /></div>
+      <div className="technology-button"><AiOutlineApi title="RESTful API" /></div>
     </div>
   </div>
 </div>
 
-    {/* Project 6 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/social-media-app', '_blank')}>
-      <img
-        src={projectImage06} // Import your project image here
-        alt="YourSpace - Social Media Platform"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>Basic Social Media Platform</h3>
-        <p className="project-description">
-          An interactive social media platform to share posts, comments, and engage with others. Built with Node.js, PostgreSQL, and Express.js using MVC architecture for scalability.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">Express.js</div>
-          <div className="technology-button">Sequelize</div>
-          <div className="technology-button">PostgreSQL</div>
-          <div className="technology-button">HTML</div>
-          <div className="technology-button">CSS</div>
-          <div className="technology-button">JavaScript</div>
-          <div className="technology-button">Handlebars.js</div>
-        </div>
-      </div>
+    {/* Project: Basic Social Media Platform */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/social-media-app', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage06} // Import your project image here
+    alt="YourSpace - Social Media Platform"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>Basic Social Media Platform</h3>
+    <p className="project-description">
+      An interactive social media platform to share posts, comments, and engage with others. Built with Node.js, PostgreSQL, and Express.js using MVC architecture for scalability.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
+      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
+      <div className="technology-button"><FaHtml5 title="HTML" /></div>
+      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
+      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
+      <div className="technology-button"><SiHandlebarsdotjs title="Handlebars.js" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 7 */}
-    <div className="project-card" onClick={() => window.open('https://softedgedevelopment.github.io/seo-roadmap/', '_blank')}>
-      <img
-        src={projectImage07} // Import your project image here
-        alt="SEO Roadmap - Boost Your Rankings"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>SEO Roadmap</h3>
-        <p className="project-description">
-          An open-source guide to help users implement SEO strategies and improve website rankings. It covers SEO foundations, meta tags, and tools for optimization.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">SEO</div>
-          <div className="technology-button">SEO Optimization</div>
-          <div className="technology-button">Metadata</div>
-          <div className="technology-button">Meta Tags</div>
-          <div className="technology-button">SEO Tools</div>
-        </div>
-      </div>
+    {/* Project: SEO Roadmap */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://softedgedevelopment.github.io/seo-roadmap/', '_blank')} // Live project link
+>
+  <img
+    src={projectImage07} // Import your project image here
+    alt="SEO Roadmap - Boost Your Rankings"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>SEO Roadmap</h3>
+    <p className="project-description">
+      An open-source guide to help users implement SEO strategies and improve website rankings. It covers SEO foundations, meta tags, and tools for optimization.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaSearch title="SEO" /></div>
+      <div className="technology-button"><SiGoogleanalytics title="SEO Optimization" /></div>
+      <div className="technology-button"><MdDataUsage title="Metadata" /></div>
+      <div className="technology-button"><FaTags title="Meta Tags" /></div>
+      <div className="technology-button"><FaTools title="SEO Tools" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 1 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/social-network-api', '_blank')}>
-      <img
-        src={projectImage01} // Import your project image here
-        alt="Social Network API Backend"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>NoSQL Social Network API</h3>
-        <p className="project-description">
-          A NoSQL backend for a social network app, supporting user profiles, thoughts, reactions, and friend lists. Built with Node.js, Express, MongoDB, and Mongoose.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">Express.js</div>
-          <div className="technology-button">MongoDB</div>
-          <div className="technology-button">Mongoose</div>
-          <div className="technology-button">Dotenv</div>
-          <div className="technology-button">Insomnia</div>
-        </div>
-      </div>
+    {/* Project: NoSQL Social Network API */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/social-network-api', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage01} // Import your project image here
+    alt="Social Network API Backend"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>NoSQL Social Network API</h3>
+    <p className="project-description">
+      A NoSQL backend for a social network app, supporting user profiles, thoughts, reactions, and friend lists. Built with Node.js, Express, MongoDB, and Mongoose.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
+      <div className="technology-button"><SiMongoose title="Mongoose" /></div>
+      <div className="technology-button"><SiDotenv title="Dotenv" /></div>
+      <div className="technology-button"><SiInsomnia title="Insomnia" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 2 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/mern-book-search-engine', '_blank')}>
-      <img
-        src={projectImage02} // Import your project image here
-        alt="MERN Book Search Engine with GraphQL"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>MERN Book Search Engine</h3>
-        <p className="project-description">
-          A MERN stack book search engine refactored to use GraphQL and Apollo. Integrated with Google Books API for real-time book search and deployed on Render with MongoDB Atlas.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">React</div>
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">GraphQL</div>
-          <div className="technology-button">Apollo</div>
-          <div className="technology-button">MongoDB</div>
-          <div className="technology-button">Express.js</div>
-          <div className="technology-button">JWT Authentication</div>
-        </div>
-      </div>
+    {/* Project: MERN Book Search Engine */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/mern-book-search-engine', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage02} // Import your project image here
+    alt="MERN Book Search Engine with GraphQL"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>MERN Book Search Engine</h3>
+    <p className="project-description">
+      A MERN stack book search engine refactored to use GraphQL and Apollo. Integrated with Google Books API for real-time book search and deployed on Render with MongoDB Atlas.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaReact title="React" /></div>
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiGraphql title="GraphQL" /></div>
+      <div className="technology-button"><SiApollographql title="Apollo" /></div>
+      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiJsonwebtokens title="JWT Authentication" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 3 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/mvc-tech-blog', '_blank')}>
-      <img
-        src={projectImage03}  // Use the imported image path for your new project image
-        alt="MVC Tech Blog"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>MVC Tech Blog</h3>
-        <p className="project-description">
-          A CMS-style blog built using the MVC architecture. It allows developers to publish posts, comment, and share their thoughts on tech using Express.js, Sequelize, and Handlebars.js.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">Express.js</div>
-          <div className="technology-button">PostgreSQL</div>
-          <div className="technology-button">Sequelize</div>
-          <div className="technology-button">Handlebars.js</div>
-        </div>
-      </div>
+    {/* Project: MVC Tech Blog */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/mvc-tech-blog', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage03}  // Use the imported image path for your new project image
+    alt="MVC Tech Blog"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>MVC Tech Blog</h3>
+    <p className="project-description">
+      A CMS-style blog built using the MVC architecture. It allows developers to publish posts, comment, and share their thoughts on tech using Express.js, Sequelize, and Handlebars.js.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiExpress title="Express.js" /></div>
+      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
+      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
+      <div className="technology-button"><SiHandlebarsdotjs title="Handlebars.js" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 4 */}
-    <div className="project-card" onClick={() => window.open('https://github.com/BrockAltug/pwa-text-editor', '_blank')}>
-      <img
-        src={projectImage04} // Import your image here
-        alt="JATE - Just Another Text Editor"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>PWA Text Editor</h3>
-        <p className="project-description">
-          A progressive web app (PWA) for offline text editing. Features IndexedDB for data storage and a service worker for caching, offering a seamless offline experience.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">Webpack</div>
-          <div className="technology-button">Service Worker</div>
-          <div className="technology-button">PWA</div>
-          <div className="technology-button">IndexedDB</div>
-        </div>
-      </div>
+   {/* Project: PWA Text Editor */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://github.com/BrockAltug/pwa-text-editor', '_blank')} // GitHub repo link
+>
+  <img
+    src={projectImage04} // Import your image here
+    alt="JATE - Just Another Text Editor"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>PWA Text Editor</h3>
+    <p className="project-description">
+      A progressive web app (PWA) for offline text editing. Features IndexedDB for data storage and a service worker for caching, offering a seamless offline experience.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiWebpack title="Webpack" /></div>
+      <div className="technology-button"><MdWorkspaces title="Service Worker" /></div>
+      <div className="technology-button"><FaCloud title="PWA" /></div>
+      <div className="technology-button"><MdStorage title="IndexedDB" /></div>
     </div>
+  </div>
+</div>
 
-    {/* Project 8 */}
-    <div className="project-card" onClick={() => window.open('https://brockaltug.github.io/sql-employee-tracker/', '_blank')}>
-      <img
-        src={projectImage08} // Import your project image here
-        alt="Employee Tracker - Manage Employee Database"
-        className="project-image"
-      />
-      <div className="project-details">
-        <h3>SQL Employee Tracker</h3>
-        <p className="project-description">
-          Command-line application to manage employees, roles, and departments. Built with Node.js, PostgreSQL, and Inquirer, providing a simple and effective CLI interface.
-        </p>
-        <div className="project-technologies">
-          <div className="technology-button">Node.js</div>
-          <div className="technology-button">PostgreSQL</div>
-          <div className="technology-button">Inquirer</div>
-          <div className="technology-button">CLI</div>
-          <div className="technology-button">CRUD</div>
-        </div>
-      </div>
+    {/* Project: SQL Employee Tracker */}
+<div
+  className="project-card"
+  onClick={() => window.open('https://brockaltug.github.io/sql-employee-tracker/', '_blank')} // Live project link
+>
+  <img
+    src={projectImage08} // Import your project image here
+    alt="Employee Tracker - Manage Employee Database"
+    className="project-image"
+  />
+  <div className="project-details">
+    <h3>SQL Employee Tracker</h3>
+    <p className="project-description">
+      Command-line application to manage employees, roles, and departments. Built with Node.js, PostgreSQL, and Inquirer, providing a simple and effective CLI interface.
+    </p>
+    <div className="project-technologies">
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
+      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
+      <div className="technology-button"><VscTerminalPowershell title="CLI" /></div>
+      <div className="technology-button"><VscFileCode title="CRUD" /></div>
     </div>
+  </div>
+</div>
 
 
 {/* Project: Weather Dashboard */}
 <div
   className="project-card"
-  onClick={() => window.open('https://brockaltug.github.io/server-side-api-weather-dashboard/', '_blank')}
+  onClick={() => window.open('https://brockaltug.github.io/server-side-api-weather-dashboard/', '_blank')} // Live project link
 >
   <img
     src={projectImage10} 
@@ -857,11 +911,12 @@ const Brock = () => {
       A dynamic weather dashboard that allows users to search for cities and view current weather conditions and a 5-day forecast using the OpenWeatherMap API. Search history is saved for convenience!
     </p>
     <div className="project-technologies">
-      <div className="technology-button">JavaScript</div>
-      <div className="technology-button">CSS</div>
-      <div className="technology-button">HTML</div>
-      <div className="technology-button">API</div>
-      <div className="technology-button">LocalStorage</div>
+      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
+      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
+      <div className="technology-button"><FaHtml5 title="HTML" /></div>
+      <div className="technology-button"><AiOutlineApi title="API" /></div>
+      <div className="technology-button"><MdStorage title="LocalStorage" /></div>
+      <div className="technology-button"><WiDayCloudy title="Weather API" /></div>
     </div>
   </div>
 </div>
@@ -870,7 +925,7 @@ const Brock = () => {
 {/* Project: SVG Logo Maker */}
 <div
   className="project-card"
-  onClick={() => window.open('https://brockaltug.github.io/oop-svg-logo-maker/', '_blank')}
+  onClick={() => window.open('https://brockaltug.github.io/oop-svg-logo-maker/', '_blank')} // Live project link
 >
   <img
     src={projectImage11} 
@@ -883,13 +938,13 @@ const Brock = () => {
       A Node.js command-line tool that allows users to easily create customizable SVG logos by choosing text, colors, and shapes through interactive prompts. Includes robust unit testing with Jest to ensure functionality and input handling.
     </p>
     <div className="project-technologies">
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">JavaScript</div>
-      <div className="technology-button">SVG</div>
-      <div className="technology-button">NPM</div>
-      <div className="technology-button">Unit Testing</div>
-      <div className="technology-button">Jest</div>
-      <div className="technology-button">Inquirer</div>
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
+      <div className="technology-button"><MdOutlineDraw title="SVG" /></div>
+      <div className="technology-button"><SiNpm title="NPM" /></div>
+      <div className="technology-button"><FaCheckCircle title="Unit Testing" /></div>
+      <div className="technology-button"><SiJest title="Jest" /></div>
+      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
     </div>
   </div>
 </div>
@@ -897,7 +952,7 @@ const Brock = () => {
 {/* Project: README Generator */}
 <div
   className="project-card"
-  onClick={() => window.open('https://brockaltug.github.io/nodejs-readme-generator/', '_blank')}
+  onClick={() => window.open('https://brockaltug.github.io/nodejs-readme-generator/', '_blank')} // Live project link
 >
   <img
     src={projectImage12} // Import your project image here
@@ -910,9 +965,9 @@ const Brock = () => {
       A CLI tool that generates a complete README.md file with sections like title, description, installation, usage, and more based on user input. Streamline your documentation process with ease!
     </p>
     <div className="project-technologies">
-      <div className="technology-button">Node.js</div>
-      <div className="technology-button">File System</div>
-      <div className="technology-button">Inquirer</div>
+      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
+      <div className="technology-button"><MdStorage title="File System" /></div>
+      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
     </div>
   </div>
 </div>
