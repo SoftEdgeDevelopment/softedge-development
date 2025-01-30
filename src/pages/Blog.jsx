@@ -39,33 +39,51 @@ const BlogWrapper = styled.div`
   z-index: 1; // Ensures content is above the background
 `;
 
-// Updated Title - Black font with white outline
+// Title
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: black; // ✅ Black font
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; // ✅ White border effect
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 
-// Updated Description - Text is white
+// Description
 const Description = styled.p`
   font-size: 1.125rem;
-  color: white; // ✅ Changed to white
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    text-align: center;
+  }
 `;
 
-// Blog grid container
+// Blog grid container (Now better spaced for desktop)
 const BlogGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); // ✅ 3 columns on desktop
+  gap: 2.5rem;
   margin-top: 2rem;
   align-items: stretch;
+  justify-content: center;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr); // ✅ 2 columns on medium screens
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr; // ✅ Stacks 1 card per row on mobile
+  }
 `;
 
 // Individual blog card styling
@@ -74,7 +92,7 @@ const BlogCard = styled(Link)`
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.2); // ✅ Glassmorphism effect
-  backdrop-filter: blur(10px); // ✅ Soft frosted blur
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
@@ -84,28 +102,30 @@ const BlogCard = styled(Link)`
   z-index: 0;
   transition: background 0.3s ease, transform 0.2s ease-in-out;
   cursor: pointer;
-  border: 2px solid transparent; // ✅ Transparent border
+  border: 2px solid transparent; 
 
   &:hover {
     background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
     color: white;
     transform: scale(1.03);
-    border: 2px solid black; // ✅ White border on hover
-    border-radius: 12px; // ✅ Rounded corners on hover
+    border: 2px solid black;
+    border-radius: 12px;
   }
 
   h3 {
     font-size: 1.25rem;
     font-weight: bold;
-    color: black; // ✅ Black font
-    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; // ✅ White border effect
+    color: black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   p {
     font-size: 1rem;
-    color: white; // ✅ Text is white
+    color: white;
     line-height: 1.7;
+    text-align: center;
   }
 
   .image-wrapper {
@@ -124,11 +144,6 @@ const BlogCard = styled(Link)`
     border-radius: 8px;
     transition: opacity 0.3s ease;
     position: absolute;
-  }
-
-  &:hover h3,
-  &:hover p {
-    
   }
 `;
 
@@ -162,7 +177,8 @@ const Blog = () => {
               img: "/assets/blogpost03.png",
               title: "The Future of Cloud Computing",
               desc: "Explore the latest advancements in cloud computing and what they mean for businesses of all sizes.",
-            },
+            }
+            
           ].map((blog, index) => (
             <BlogCard key={index} to={blog.to}>
               <div className="image-wrapper">

@@ -4,7 +4,7 @@ import videoFile from "../pages/assets/video.mp4"; // ✅ Using your original pa
 
 // Main container ensures full width and perfect centering
 const VideoContainer = styled.div`
-  width: 100vw; // Full width of screen
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,13 @@ const VideoWrapper = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
+    width: 90%;
+    padding: 4px;
+  }
+
+  @media (max-width: 480px) {
     width: 95%;
+    padding: 3px;
   }
 `;
 
@@ -34,7 +40,7 @@ const StyledVideo = styled.video`
   height: auto;
   border-radius: 14px;
   display: block;
-  object-fit: contain; // Ensures full visibility (NO zoom or cropping)
+  object-fit: cover; // Ensures full visibility without distortion
   pointer-events: none;
 `;
 

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import Video from "../components/Video"; // Import Video component
-import backgroundImage from "../pages/assets/background.png"; // ✅ Correct path for background image
+import Video from "../components/Video";
+import Video2 from "../components/Video2";
+import backgroundImage from "../pages/assets/background.png";
 
 // Full-page background container
 const BackgroundContainer = styled.div`
@@ -11,12 +12,11 @@ const BackgroundContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1; // Puts background behind everything
+  z-index: -1;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* Background Image */
   &::before {
     content: "";
     position: absolute;
@@ -25,11 +25,11 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Applies blur, brightness, and opacity
+    filter: blur(20px) brightness(1.3) opacity(0.6);
   }
 `;
 
-// Wrapper for the homepage content
+// Wrapper for homepage content
 const HomeWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
@@ -37,27 +37,44 @@ const HomeWrapper = styled.div`
   margin: 0 auto;
   font-family: "Arial", sans-serif;
   position: relative;
-  z-index: 1; // Ensures content is above the background
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
-// Updated Title - Black font with white outline
+// Title
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: black; // ✅ Black font
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; // ✅ White border effect
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 
-// Updated Description - Text is white
+// Description
 const Description = styled.p`
   font-size: 1.125rem;
-  color: white; // ✅ Changed to white
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    text-align: center;
+  }
 `;
 
 // Centered Video Section
@@ -69,53 +86,63 @@ const VideoContainer = styled.div`
   margin: 2rem 0;
 `;
 
-// Services grid container
+// Services Grid (Centered on Mobile)
 const ServicesWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
-  align-items: stretch;
+  align-items: center;
+  justify-items: center; // Ensures center alignment
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 
-// Individual service card styling
+// Service Cards (Ensures Center Alignment)
 const ServiceCard = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255, 255, 255, 0.2); // ✅ Glassmorphism effect
-  backdrop-filter: blur(10px); // ✅ Soft frosted blur
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: #333;
+  width: 100%;
+  max-width: 320px;
   position: relative;
   z-index: 0;
   transition: background 0.3s ease, transform 0.2s ease-in-out;
   cursor: pointer;
-  border: 2px solid transparent; // ✅ Transparent border
+  border: 2px solid transparent;
 
   &:hover {
     background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
     color: white;
     transform: scale(1.03);
-    border: 2px solid black; // ✅ White border on hover
-    border-radius: 12px; // ✅ Rounded corners on hover
+    border: 2px solid black;
+    border-radius: 12px;
   }
 
   h3 {
     font-size: 1.25rem;
     font-weight: bold;
-    color: black; // ✅ Black font
-    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; // ✅ White border effect
+    color: black;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   p {
     font-size: 1rem;
-    color: white; // ✅ Text is white
+    color: white;
     line-height: 1.7;
+    text-align: center;
   }
 
   .image-wrapper {
@@ -135,18 +162,12 @@ const ServiceCard = styled(Link)`
     transition: opacity 0.3s ease;
     position: absolute;
   }
-
-  &:hover h3,
-  &:hover p {
-    
-  }
 `;
 
 const Home = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
   const navigate = useNavigate();
 
-  // Handle navigation with scroll to top behavior
   const handleNavigate = (path) => {
     window.scrollTo(0, 0);
     navigate(path);
@@ -240,6 +261,11 @@ const Home = () => {
             </ServiceCard>
           ))}
         </ServicesWrapper>
+{/* Centered Video Section */}
+<VideoContainer>
+          <Video2 />
+        </VideoContainer>
+
       </HomeWrapper>
     </>
   );
