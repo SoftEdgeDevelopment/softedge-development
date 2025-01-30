@@ -20,9 +20,9 @@ import Brock from "./pages/Brock"; // ✅ Import Brock page
 import Error from "./components/Error"; // ✅ Import Error component for invalid routes
 
 // Import individual blog post pages
-import Post01 from "./pages/blogs/Post01";
-import Post02 from "./pages/blogs/Post02";
-import Post03 from "./pages/blogs/Post03";
+import Post01 from "./pages/blog/Post01";
+import Post02 from "./pages/blog/Post02";
+import Post03 from "./pages/blog/Post03";
 
 function App() {
   return (
@@ -50,9 +50,9 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
 
         {/* Blog Post Pages */}
-        <Route path="/blogs/post-01" element={<Post01 />} />
-        <Route path="/blogs/post-02" element={<Post02 />} />
-        <Route path="/blogs/post-03" element={<Post03 />} />
+        <Route path="/blog/post-01" element={<Post01 />} />
+        <Route path="/blog/post-02" element={<Post02 />} />
+        <Route path="/blog/post-03" element={<Post03 />} />
 
         {/* Catch-all route for non-existent pages */}
         <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}

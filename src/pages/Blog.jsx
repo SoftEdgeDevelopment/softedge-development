@@ -161,19 +161,19 @@ const Blog = () => {
         <BlogGrid>
           {[
             {
-              to: "/blogs/post-01",
+              to: "/blog/post-01",
               img: "/assets/blogpost01.png",
               title: "How Agile Development Boosts Business Success",
               desc: "Discover the key principles of agile development and how it can transform your business processes.",
             },
             {
-              to: "/blogs/post-02",
+              to: "/blog/post-02",
               img: "/assets/blogpost02.png",
               title: "5 Big Data Strategies for Small Businesses",
               desc: "Learn how small businesses can leverage big data to gain a competitive edge in the market.",
             },
             {
-              to: "/blogs/post-03",
+              to: "/blog/post-03",
               img: "/assets/blogpost03.png",
               title: "The Future of Cloud Computing",
               desc: "Explore the latest advancements in cloud computing and what they mean for businesses of all sizes.",
