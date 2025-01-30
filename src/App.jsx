@@ -64,9 +64,11 @@ function App() {
         <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}
       </Routes>
       <Outro />
+      
       <Footer />
-      <Copyright />
       <Donation />
+      <Copyright />
+      
     </Router>
   );
 }
