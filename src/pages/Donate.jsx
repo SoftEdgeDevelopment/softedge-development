@@ -138,7 +138,7 @@ const Donate = () => {
           </SectionContent>
 
 {/* Link to GoFundMe */}
-<DonateButton href="https://www.gofundme.com/f/help-softedge-build-a-better-social-network" target="_blank" rel="noopener noreferrer">
+<DonateButton href="https://www.gofundme.com/f/join-the-fight-against-toxic-social-media" target="_blank" rel="noopener noreferrer">
             Fundraiser
           </DonateButton>
 
