@@ -242,7 +242,7 @@ const Home = () => {
             },
             {
               to: "/services/user-experience-design",
-              img: "/assets/user-experience.svg",
+              img: "/assets/user-experience.png",
               hoverImg: "/assets/user-experience-02.svg",
               title: "UX Design",
             },
