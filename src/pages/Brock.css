@@ -230,7 +230,13 @@ section {
 /* Section Title */
 .section-titlee {
   padding-top: 40px;
-  text-align: left;
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Section Title */
+.section-titleee {
+  text-align: center;
   border-bottom: 2px solid #e0e0e0;
 }
 
@@ -1047,7 +1053,7 @@ section {
 }
 
 /* Stacks Section */
-.stacks-container {
+.stacks-containerr {
   margin-top: 3rem;
   padding: 1.5rem;
   border: 1px solid #ccc !important; /* Force border */
@@ -1064,6 +1070,17 @@ section {
 
 /* Section subtitle centered */
 .section-subtitle {
+  font-size: 2rem !important;
+  color: #333 !important;
+  font-weight: bold !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Section subtitle centered */
+.section-subtitlee {
   font-size: 2rem !important;
   color: #333 !important;
   font-weight: bold !important;
@@ -1108,6 +1125,10 @@ section {
   background-color: #333333 !important;  /* Dark background on hover */
   color: #ffffff !important;  /* White text on hover */
   border-color: #333333 !important;  /* Matching border color on hover */
+}
+
+.stacks-container {
+  display: flex !important;
 }
 
 /* Ensure the box appears on desktop as well */
@@ -1171,22 +1192,6 @@ section {
     font-size: 0.75rem; /* Smaller footer text */
     padding-top: 10px;
   }
-
-  /* Floating export buttons */
-.export-buttons {
-  position: fixed; /* Ensure the buttons stay in a fixed position */
-  top: 10px; /* Adjust button position from the top */
-  right: 10px; /* Adjust button position from the right */
-  margin-bottom: 20px; /* Add space at the bottom */
-}
-
-.export-buttons button {
-  padding: 8px 16px; /* Smaller button size */
-  font-size: 0.9rem;
-  margin-bottom: 10px; /* Adds space below each button */
-}
-
-
 }
 
 /* Very Small Mobile Devices */
@@ -1235,13 +1240,5 @@ section {
     font-size: 0.75rem; /* Even smaller tech buttons */
   }
 
-  .export-buttons {
-    top: 5px; /* Reduce space for smaller screens */
-    right: 5px;
-  }
-
-  .export-buttons button {
-    padding: 6px 12px; /* Further reduce button size */
-    font-size: 0.8rem;
-  }
+  
 }

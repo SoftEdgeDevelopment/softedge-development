@@ -211,8 +211,8 @@ const Brock = () => {
   </div>
 </div>
 
-  <div className="stacks-container">
-    <h3 className="section-subtitle">Stacks</h3>
+  <div className="stacks-containerr">
+  <h2 className="section-titleee">Stacks</h2>
     <div className="stack-buttons">
       {[
         { name: "MERN", link: "https://www.mongodb.com/mern-stack" },
