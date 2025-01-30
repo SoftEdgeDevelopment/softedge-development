@@ -18,6 +18,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Brock from "./pages/Brock"; // ✅ Import Brock page
 import Error from "./components/Error"; // ✅ Import Error component for invalid routes
+import "./App.css";
 
 // Import individual blog post pages
 import Post01 from "./pages/blog/Post01";

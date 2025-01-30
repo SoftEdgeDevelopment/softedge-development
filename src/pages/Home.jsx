@@ -96,8 +96,8 @@ const VideoContainer = styled.div`
 // Services Grid
 const ServicesWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // Always 3 columns
-  grid-template-rows: repeat(2, 1fr); // Always 2 rows
+  grid-template-columns: repeat(3, 1fr); // 3 columns by default
+  grid-template-rows: repeat(2, 1fr); // 2 rows by default
   gap: 2rem;
   margin-top: 3rem;
   align-items: center;
@@ -107,7 +107,9 @@ const ServicesWrapper = styled.div`
     gap: 1.5rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 520px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns on small screens
+    grid-template-rows: repeat(3, 1fr); // 3 rows on small screens
     gap: 1rem;
   }
 `;
