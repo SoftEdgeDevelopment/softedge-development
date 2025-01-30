@@ -25,7 +25,7 @@ const Donate = () => {
           fontWeight: 'bold'
         }}
       >
-        Donate Now
+        Join Us in Making a Difference, Make Your Mark
       </Link>
     </div>
   );
