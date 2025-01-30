@@ -15,7 +15,3 @@
     text-decoration: none !important; /* Prevent underline on hover/focus/active */
   }
   
-  /* Optional: Smooth transition for hover effects */
-  a {
-    transition: all 0.3s ease-in-out;
-  }

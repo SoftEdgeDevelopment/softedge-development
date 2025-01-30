@@ -131,13 +131,11 @@ const ServiceCard = styled(Link)`
   max-width: 300px;
   height: 100%;
   min-height: 200px;
-  transition: all 0.3s ease;
   cursor: pointer;
   border: 2px solid transparent; /* Corrected border property */
 
   &:hover {
     background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    transform: scale(1.05);
     border: 2px solid black; /* Fixed border application */
   }
 
