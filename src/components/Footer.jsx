@@ -161,31 +161,30 @@ const FooterSocial = styled.div`
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
 
     &:hover {
       background-color: #222;
       color: white;
-      border-color: white;
+      border-color: white; /* ✅ Only the border turns white */
     }
 
     &::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
       z-index: -1;
       border-radius: 8px;
       padding: 2px;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: destination-out;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask-composite: exclude;
+      transition: background 0.3s ease-in-out;
     }
 
     &:hover::before {
-      background: white;
+      background: none; /* ✅ Removes the gradient effect on hover */
     }
   }
 `;
