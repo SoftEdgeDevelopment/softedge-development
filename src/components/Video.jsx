@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import videoFile from "../pages/assets/video.mp4"; // ✅ Using your original path
+import videoFile from "../pages/assets/video1.mp4"; // ✅ Using your original path
 
 // Main container ensures full width and perfect centering
 const VideoContainer = styled.div`

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import videoFile1 from "../pages/assets/video2.mp4"; // ✅ First video
 import videoFile2 from "../pages/assets/video3.mp4"; // ✅ Second video
+import videoFile3 from "../pages/assets/video.mp4"; // ✅ Second video
+
 
 // Container for the videos with grid layout
 const VideoContainer = styled.div`
@@ -65,10 +67,13 @@ const Video2 = () => {
   const navigate = useNavigate();
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
+  const videoRef3 = useRef(null);
 
   useEffect(() => {
     if (videoRef1.current) videoRef1.current.playbackRate = 1.25; // Speed adjustment for video 1
     if (videoRef2.current) videoRef2.current.playbackRate = 1.25; // Speed adjustment for video 2
+    if (videoRef3.current) videoRef3.current.playbackRate = 1.25; // Speed adjustment for video 2
+
   }, []);
 
   return (
@@ -78,10 +83,16 @@ const Video2 = () => {
         <StyledVideo ref={videoRef1} src={videoFile1} autoPlay loop muted playsInline />
       </VideoWrapper>
 
+      <VideoWrapper onClick={() => navigate("/about")}>
+        <StyledVideo ref={videoRef3} src={videoFile3} autoPlay loop muted playsInline />
+      </VideoWrapper>
+
       {/* Second Video (Navigates to Contact) */}
       <VideoWrapper onClick={() => navigate("/contact")}>
         <StyledVideo ref={videoRef2} src={videoFile2} autoPlay loop muted playsInline />
       </VideoWrapper>
+
+      
     </VideoContainer>
   );
 };

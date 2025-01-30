@@ -41,10 +41,6 @@ const HomeWrapper = styled.div`
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 `;
 
@@ -86,35 +82,40 @@ const VideoContainer = styled.div`
   margin: 2rem 0;
 `;
 
-// Services Grid (Centered on Mobile)
+// Services Grid (Perfectly Centered & Same Size)
 const ServicesWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+  gap: 1.5rem;
   margin-top: 2rem;
   align-items: center;
-  justify-items: center; // Ensures center alignment
+  justify-items: center;
+  width: 100%;
 
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    width: 100%;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // ✅ Two-column grid on mobile
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; // ✅ Stacks into one column on very small screens
   }
 `;
 
-// Service Cards (Ensures Center Alignment)
+// Service Cards (Always Same Size & Properly Spaced)
 const ServiceCard = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: #333;
-  width: 100%;
-  max-width: 320px;
+  width: 260px;  // ✅ Exact same width
+  height: 320px; // ✅ Exact same height for all cards
   position: relative;
   z-index: 0;
   transition: background 0.3s ease, transform 0.2s ease-in-out;
@@ -130,24 +131,25 @@ const ServiceCard = styled(Link)`
   }
 
   h3 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: bold;
     color: black;
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-    margin-bottom: 1rem;
+    margin: 1rem 0 0.5rem; // ✅ Added space between title and image
     text-align: center;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: white;
-    line-height: 1.7;
+    line-height: 1.5;
     text-align: center;
+    margin-top: 0.5rem; // ✅ Adjusted spacing
   }
 
   .image-wrapper {
     width: 100%;
-    height: 150px;
+    height: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -177,9 +179,9 @@ const Home = () => {
     <>
       <BackgroundContainer />
       <HomeWrapper>
-        <Title>Welcome to SoftEdge Development</Title>
+        <Title>Welcome to SofEdge Development</Title>
         <Description>
-          At SoftEdge Development, we build innovative solutions that empower businesses to thrive in the
+          At SofEdge Development, we build innovative solutions that empower businesses to thrive in the
           modern digital landscape. From digital strategies to cutting-edge technology, we help you achieve
           your vision.
         </Description>
@@ -189,83 +191,34 @@ const Home = () => {
           <Video />
         </VideoContainer>
 
+        {/* Services Section (Now Centered, Same Size, and with Descriptions) */}
         <ServicesWrapper>
           {[
-            {
-              to: "/services/digital-strategy",
-              defaultImg: "/assets/digital-strategy.svg",
-              hoverImg: "/assets/digital-strategy-02.svg",
-              title: "Digital Strategy",
-              desc: "Develop innovative digital strategies for your business.",
-            },
-            {
-              to: "/services/agile-management",
-              defaultImg: "/assets/agile-management.svg",
-              hoverImg: "/assets/agile-management-02.svg",
-              title: "Agile Management",
-              desc: "Transform your business with agile methodologies.",
-            },
-            {
-              to: "/services/big-data-data-science",
-              defaultImg: "/assets/big-data.svg",
-              hoverImg: "/assets/big-data-02.svg",
-              title: "Big Data & Data Science",
-              desc: "Unlock insights from big data and advanced analytics.",
-            },
-            {
-              to: "/services/cloud-infrastructures",
-              defaultImg: "/assets/cloud-infrastructure.svg",
-              hoverImg: "/assets/cloud-infrastructure-02.svg",
-              title: "Cloud Infrastructures",
-              desc: "Scale your business with cutting-edge cloud solutions.",
-            },
-            {
-              to: "/services/quality-test-automation",
-              defaultImg: "/assets/quality-automation.svg",
-              hoverImg: "/assets/quality-automation-02.svg",
-              title: "Quality & Test Automation",
-              desc: "Ensure product quality with automated testing processes.",
-            },
-            {
-              to: "/services/user-experience-design",
-              defaultImg: "/assets/user-experience.svg",
-              hoverImg: "/assets/user-experience-02.svg",
-              title: "User Experience Design",
-              desc: "Craft intuitive and user-friendly digital experiences.",
-            },
+            { to: "/services/digital-strategy", defaultImg: "/assets/digital-strategy.svg", title: "Digital Strategy", desc: "Develop innovative digital strategies for your business." },
+            { to: "/services/agile-management", defaultImg: "/assets/agile-management.svg", title: "Agile Management", desc: "Transform your business with agile methodologies." },
+            { to: "/services/big-data-data-science", defaultImg: "/assets/big-data.svg", title: "Big Data & Data Science", desc: "Unlock insights from big data and advanced analytics." },
+            { to: "/services/cloud-infrastructures", defaultImg: "/assets/cloud-infrastructure.svg", title: "Cloud Infrastructures", desc: "Scale your business with cutting-edge cloud solutions." },
+            { to: "/services/quality-test-automation", defaultImg: "/assets/quality-automation.svg", title: "Quality & Test Automation", desc: "Ensure product quality with automated testing processes." },
+            { to: "/services/user-experience-design", defaultImg: "/assets/user-experience.svg", title: "User Experience Design", desc: "Craft intuitive and user-friendly digital experiences." },
           ].map((service, index) => (
             <ServiceCard
               key={index}
               to={service.to}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigate(service.to);
-              }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => handleNavigate(service.to)}
             >
               <div className="image-wrapper">
-                <img
-                  src={service.defaultImg}
-                  alt={service.title}
-                  style={{ opacity: hoveredCard === index ? 0 : 1 }}
-                />
-                <img
-                  src={service.hoverImg}
-                  alt={`${service.title} Hover`}
-                  style={{ opacity: hoveredCard === index ? 1 : 0 }}
-                />
+                <img src={service.defaultImg} alt={service.title} />
               </div>
               <h3>{service.title}</h3>
               <p>{service.desc}</p>
             </ServiceCard>
           ))}
         </ServicesWrapper>
-{/* Centered Video Section */}
-<VideoContainer>
+
+        {/* Centered Video Section */}
+        <VideoContainer>
           <Video2 />
         </VideoContainer>
-
       </HomeWrapper>
     </>
   );
