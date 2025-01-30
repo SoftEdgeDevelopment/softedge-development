@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
+import Video from "../components/Video"; // Import Video component
 
 // Wrapper for the homepage content
 const HomeWrapper = styled.div`
@@ -26,6 +27,15 @@ const Description = styled.p`
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+`;
+
+// Video container to ensure perfect centering
+const VideoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
 `;
 
 // Services grid container
@@ -123,10 +133,7 @@ const Home = () => {
 
   // Handle navigation with scroll to top behavior
   const handleNavigate = (path) => {
-    // Immediately scroll to top before navigating
     window.scrollTo(0, 0);
-
-    // Then navigate to the target path
     navigate(path);
   };
 
@@ -138,6 +145,11 @@ const Home = () => {
         modern digital landscape. From digital strategies to cutting-edge technology, we help you achieve
         your vision.
       </Description>
+
+      {/* Centered Video Section */}
+      <VideoContainer>
+        <Video />
+      </VideoContainer>
 
       <ServicesWrapper>
         {[
