@@ -31,6 +31,10 @@ const BackgroundContainer = styled.div`
 
 // Homepage Wrapper
 const HomeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 3rem 2rem;
   max-width: 1200px;
@@ -38,6 +42,7 @@ const HomeWrapper = styled.div`
   font-family: "Arial", sans-serif;
   position: relative;
   z-index: 1;
+  min-height: 100vh; /* Ensures full height coverage for perfect centering */
 
   @media (max-width: 768px) {
     padding: 2rem 1rem;
