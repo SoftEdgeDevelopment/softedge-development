@@ -11,6 +11,7 @@ const HeaderWrapper = styled.header`
   grid-template-columns: auto 1fr auto;
   align-items: center;
   justify-content: space-between;
+  position: relative;  // Add position to contain the buttons' hover effects
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -19,8 +20,8 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-/* Desktop Info (Top Left & Top Right) */
-const Info = styled.a`
+// Ensure that hover effects only apply to these buttons in the header
+const HeaderButton = styled.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -31,6 +32,7 @@ const Info = styled.a`
   padding: 0.5rem 1rem;
   border-radius: 8px;
   border: 2px solid #222;
+  position: relative;
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -64,7 +66,6 @@ const Info = styled.a`
   }
 `;
 
-/* Mobile Icons (Center - Visible Only on Mobile) */
 const MobileIcons = styled.div`
   display: none;
 
@@ -120,10 +121,10 @@ const Header = () => (
   <>
     <HeaderWrapper>
       {/* Email (Top Left) - Hidden on Mobile */}
-      <Info href="mailto:contact@softedgedevelopment.com" style={{ justifySelf: "start" }}>
+      <HeaderButton href="mailto:contact@softedgedevelopment.com" style={{ justifySelf: "start" }}>
         <FontAwesomeIcon icon={faEnvelope} />
         contact@softedgedevelopment.com
-      </Info>
+      </HeaderButton>
 
       {/* Mobile Icons (Visible Only on Mobile) */}
       <MobileIcons>
@@ -140,7 +141,7 @@ const Header = () => (
       </MobileIcons>
 
       {/* Location (Top Right) - Hidden on Mobile */}
-      <Info
+      <HeaderButton
         href="https://www.google.com/maps/place/Seattle,+WA/"
         target="_blank"
         rel="noopener noreferrer"
@@ -148,7 +149,7 @@ const Header = () => (
       >
         <FontAwesomeIcon icon={faMapMarkerAlt} />
         Seattle, Washington
-      </Info>
+      </HeaderButton>
     </HeaderWrapper>
     <Navbar />
   </>
