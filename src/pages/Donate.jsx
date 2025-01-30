@@ -92,12 +92,12 @@ const SectionContent = styled.p`
 
 // Donation Button Styling
 const DonateButton = styled.a`
-  background-color: #4c1d95;
+  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
   color: white;
   font-size: 1.2rem;
   padding: 15px 30px;
   border-radius: 8px;
-  border: none;
+  border: 2px solid white;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: 1.5rem;
@@ -106,9 +106,10 @@ const DonateButton = styled.a`
   display: inline-block;
 
   &:hover {
-    background-color: #ea580c;
+    background-color:#333;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
   }
 
   &:focus {
@@ -136,10 +137,17 @@ const Donate = () => {
             Every contribution, big or small, makes a significant impact. Thank you for being part of our mission to change the world through technology.
           </SectionContent>
 
-          {/* Link to Buy Me a Coffee */}
-          <DonateButton href="https://buymeacoffee.com/softedgedev" target="_blank" rel="noopener noreferrer">
+{/* Link to GoFundMe */}
+<DonateButton href="https://www.gofundme.com/f/help-softedge-build-a-better-social-network" target="_blank" rel="noopener noreferrer">
+            Fundraiser
+          </DonateButton>
+
+          {/* Link to GoFundMe */}
+          <DonateButton href="https://www.buymeacoffee.com/softedgedev" target="_blank" rel="noopener noreferrer">
             Donate Now
           </DonateButton>
+
+          
         </ContentWrapper>
       </DonateWrapper>
     </>

@@ -19,6 +19,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Brock from "./pages/Brock"; // ✅ Import Brock page
 import Error from "./components/Error"; // ✅ Import Error component for invalid routes
 import Donate from "./pages/Donate"; // ✅ Import Donate page
+import Donation from "./components/Donation"; // ✅ Import Donation component
 
 
 // Import individual blog post pages
@@ -65,6 +66,7 @@ function App() {
       <Outro />
       <Footer />
       <Copyright />
+      <Donation />
     </Router>
   );
 }
