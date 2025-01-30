@@ -5,7 +5,7 @@ import Video from "../components/Video";
 import Video2 from "../components/Video2";
 import backgroundImage from "../pages/assets/background.png";
 
-// Full-page background container
+// Background Container
 const BackgroundContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -29,7 +29,7 @@ const BackgroundContainer = styled.div`
   }
 `;
 
-// Wrapper for homepage content
+// Homepage Wrapper
 const HomeWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
@@ -76,7 +76,7 @@ const Description = styled.p`
   }
 `;
 
-// Centered Video Section
+// Video Section
 const VideoContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -85,7 +85,7 @@ const VideoContainer = styled.div`
   margin: 2.5rem 0;
 `;
 
-// Services Grid with improved spacing
+// Services Grid
 const ServicesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,7 +103,7 @@ const ServicesWrapper = styled.div`
   }
 `;
 
-// Service Cards with consistent spacing and hover effect
+// Service Card
 const ServiceCard = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -138,6 +138,10 @@ const ServiceCard = styled(Link)`
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     margin-top: 1.2rem;
     text-align: center;
+
+    @media (max-width: 600px) {
+      font-size: 1.1rem;
+    }
   }
 
   p {
@@ -191,7 +195,6 @@ const Home = () => {
           your vision.
         </Description>
 
-        {/* Centered Video Section */}
         <VideoContainer>
           <Video />
         </VideoContainer>
@@ -200,45 +203,39 @@ const Home = () => {
           {[
             {
               to: "/services/digital-strategy",
-              defaultImg: "/assets/digital-strategy.svg",
+              img: "/assets/digital-strategy.svg",
               hoverImg: "/assets/digital-strategy-02.svg",
               title: "Digital Strategy",
-              desc: "Develop innovative digital strategies for your business.",
             },
             {
               to: "/services/agile-management",
-              defaultImg: "/assets/agile-management.svg",
+              img: "/assets/agile-management.svg",
               hoverImg: "/assets/agile-management-02.svg",
               title: "Agile Management",
-              desc: "Transform your business with agile methodologies.",
             },
             {
               to: "/services/big-data-data-science",
-              defaultImg: "/assets/big-data.svg",
+              img: "/assets/big-data.svg",
               hoverImg: "/assets/big-data-02.svg",
-              title: "Big Data & Data Science",
-              desc: "Unlock insights from big data and advanced analytics.",
+              title: "Data Science",
             },
             {
               to: "/services/cloud-infrastructures",
-              defaultImg: "/assets/cloud-infrastructure.svg",
+              img: "/assets/cloud-infrastructure.svg",
               hoverImg: "/assets/cloud-infrastructure-02.svg",
               title: "Cloud Infrastructures",
-              desc: "Scale your business with cutting-edge cloud solutions.",
             },
             {
               to: "/services/quality-test-automation",
-              defaultImg: "/assets/quality-automation.svg",
+              img: "/assets/quality-automation.svg",
               hoverImg: "/assets/quality-automation-02.svg",
-              title: "Quality & Test Automation",
-              desc: "Ensure product quality with automated testing processes.",
+              title: "QA Automation",
             },
             {
               to: "/services/user-experience-design",
-              defaultImg: "/assets/user-experience.svg",
+              img: "/assets/user-experience.svg",
               hoverImg: "/assets/user-experience-02.svg",
-              title: "User Experience Design",
-              desc: "Craft intuitive and user-friendly digital experiences.",
+              title: "UX Design",
             },
           ].map((service, index) => (
             <ServiceCard
@@ -252,20 +249,17 @@ const Home = () => {
               onMouseLeave={() => setHoveredCard(null)}
             >
               <div className="image-wrapper">
-                <img src={service.defaultImg} alt={service.title} style={{ opacity: hoveredCard === index ? 0 : 1 }} />
+                <img src={service.img} alt={service.title} style={{ opacity: hoveredCard === index ? 0 : 1 }} />
                 <img src={service.hoverImg} alt={`${service.title} Hover`} style={{ opacity: hoveredCard === index ? 1 : 0 }} />
               </div>
               <h3>{service.title}</h3>
-              <p>{service.desc}</p>
             </ServiceCard>
           ))}
         </ServicesWrapper>
 
-        {/* Centered Video Section */}
         <VideoContainer>
           <Video2 />
         </VideoContainer>
-
       </HomeWrapper>
     </>
   );
