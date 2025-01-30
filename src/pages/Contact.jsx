@@ -290,6 +290,11 @@ const Contact = () => {
             </FormField>
 
             <FormField>
+              <Label>Phone Number</Label>
+              <Input type="telephone" name="telephone" onChange={handleChange} placeholder="Enter your phone number" required />
+            </FormField>
+
+            <FormField>
               <Label>Message</Label>
               <TextArea name="message" onChange={handleChange} placeholder="Enter your message" required />
             </FormField>
