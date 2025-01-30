@@ -24,6 +24,7 @@ const FooterTop = styled.div`
 const Logo = styled.img`
   width: 40px;
   height: auto;
+  cursor: pointer; /* ✅ Shows it's clickable */
 
   @media (max-width: 768px) {
     margin-bottom: 0.5rem;
@@ -41,9 +42,12 @@ const Outro = () => (
   <>
     <GradientLine /> {/* ✅ Full-width gradient line */}
     <FooterTop>
-      <Logo src="/assets/logo.png" alt="SoftEdge Development Logo" />
+      <a href="https://github.com/SoftEdgeDevelopment" target="_blank" rel="noopener noreferrer">
+        <Logo src="/assets/logo.png" alt="SoftEdge Development Logo" />
+      </a>
       <MissionStatement>
-        At SoftEdge Development, we believe that a customer experience is the aggregate of all the touchpoints that our clients experience with our services.
+        At SoftEdge Development, we believe that a customer experience is the aggregate of all the touchpoints 
+        that our clients experience with our services.
       </MissionStatement>
     </FooterTop>
   </>
