@@ -16,23 +16,8 @@ const NavWrapper = styled.div`
 
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1.5rem 2rem;
-  }
-`;
-
-const Logo = styled(Link)`
-  display: block;
-  width: 120px;
-  margin-bottom: 1rem;
-
-  img {
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    margin-bottom: 0;
-    width: 150px;
   }
 `;
 
@@ -46,13 +31,13 @@ const Nav = styled.nav`
   align-items: center;
 
   @media (min-width: 768px) {
-    justify-content: flex-end;
+    justify-content: center;
   }
 `;
 
 const NavItem = styled(Link)`
-  color: #333;
-  background: white;
+  color: white; /* ✅ Changed text to white */
+  background: transparent;
   padding: 0.75rem 1rem;
   text-align: center;
   position: relative;
@@ -89,15 +74,13 @@ const NavItem = styled(Link)`
   }
 `;
 
-/* Dropdown Wrapper */
 const Dropdown = styled.div`
   position: relative;
 `;
 
-/* Services Button */
 const ServicesButton = styled.div`
-  color: #333;
-  background: white;
+  color: white; /* ✅ Changed text to white */
+  background: transparent;
   padding: 0.75rem 1rem;
   text-align: center;
   position: relative;
@@ -134,7 +117,6 @@ const ServicesButton = styled.div`
   }
 `;
 
-/* Dropdown Menu */
 const DropdownContent = styled.div`
   position: absolute;
   top: 100%;
@@ -155,7 +137,6 @@ const DropdownContent = styled.div`
   border-image-slice: 1;
 `;
 
-/* Dropdown Items (Now with Permanent Gradient Underline) */
 const DropdownItem = styled(Link)`
   display: block;
   padding: 0.5rem 1rem;
@@ -171,7 +152,6 @@ const DropdownItem = styled(Link)`
     color: white;
   }
 
-  /* Permanent Gradient Underline */
   &::after {
     content: '';
     position: absolute;
@@ -188,12 +168,10 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
   const location = useLocation();
 
-  // Toggle dropdown on hover or click for mobile
   const handleClick = () => {
     setDropdownOpen(prev => !prev);
   };
 
-  // Close dropdown when clicking anywhere outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -204,19 +182,14 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Close dropdown when clicking a service link
   const closeDropdown = () => setDropdownOpen(false);
 
   return (
     <NavWrapper>
-      <Logo to="/">
-        <img src="/assets/logo.png" alt="SoftEdge Development Logo" />
-      </Logo>
       <Nav>
         <NavItem to="/">Home</NavItem>
         <NavItem to="/about">About</NavItem>
 
-        {/* Services Dropdown */}
         <Dropdown ref={dropdownRef}>
           <ServicesButton onClick={handleClick}>Services</ServicesButton>
           <DropdownContent isOpen={isDropdownOpen}>

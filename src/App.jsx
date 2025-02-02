@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Logo from "./components/Logo"; // ✅ Import Logo component
+import Navbar from "./components/Navbar"; // ✅ Import Navbar component
 import Footer from "./components/Footer";
 import Copyright from "./components/Copyright";
 import Home from "./pages/Home";
@@ -21,7 +23,6 @@ import Error from "./components/Error"; // ✅ Import Error component for invali
 import Donate from "./pages/Donate"; // ✅ Import Donate page
 import Donation from "./components/Donation"; // ✅ Import Donation component
 
-
 // Import individual blog post pages
 import Post01 from "./pages/blog/Post01";
 import Post02 from "./pages/blog/Post02";
@@ -31,6 +32,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Logo /> {/* ✅ Added Logo directly under Header */}
       <Routes>
         {/* Main Pages */}
         <Route path="/" element={<Home />} />
