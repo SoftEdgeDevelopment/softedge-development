@@ -175,16 +175,14 @@ const Brock = () => {
   
               {/* Social & Contact Links */}
               <div className="header-links">
-                <a href="mailto:altugba99@gmail.com" target="_blank" rel="noopener noreferrer" className="header-link">
-                  <FontAwesomeIcon icon={faEnvelope} />
+              <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer" className="header-link">
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
-  
                 <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer" className="header-link">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
-  
-                <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer" className="header-link">
-                  <FontAwesomeIcon icon={faLinkedin} />
+                <a href="mailto:altugba99@gmail.com" target="_blank" rel="noopener noreferrer" className="header-link">
+                  <FontAwesomeIcon icon={faEnvelope} />
                 </a>
               </div>
             </div>
@@ -879,13 +877,14 @@ const Brock = () => {
       {/* Social Links */}
       <div className="footer-social-links">
       <a
-          href="mailto:altugba99@gmail.com"
+          href="https://linkedin.com/in/BrockAltug"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-link"
         >
-          <FontAwesomeIcon icon={faEnvelope} />
+          <FontAwesomeIcon icon={faLinkedin} />
         </a>
+      
         <a
           href="https://github.com/BrockAltug"
           target="_blank"
@@ -894,13 +893,14 @@ const Brock = () => {
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
+        
         <a
-          href="https://linkedin.com/in/BrockAltug"
+          href="mailto:altugba99@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
           className="footer-social-link"
         >
-          <FontAwesomeIcon icon={faLinkedin} />
+          <FontAwesomeIcon icon={faEnvelope} />
         </a>
         
       </div>
