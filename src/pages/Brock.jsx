@@ -149,6 +149,10 @@ const Brock = () => {
               <p className="header-location">
                 <FontAwesomeIcon icon={faGlobe} /> Seattle, Washington, USA
               </p>
+              {/* Phone Number */}
+              <p className="header-phone">
+                <FontAwesomeIcon icon={faPhone} /> (206) 739-7583
+              </p>
   
               {/* LinkedIn */}
               <p className="header-phone">
@@ -168,10 +172,7 @@ const Brock = () => {
                 <a href="mailto:altugba99@gmail.com"> altugba99@gmail.com</a>
               </p>
   
-              {/* Phone Number */}
-              <p className="header-phone">
-                <FontAwesomeIcon icon={faPhone} /> (206) 739-7583
-              </p>
+              
   
               
             </div>
