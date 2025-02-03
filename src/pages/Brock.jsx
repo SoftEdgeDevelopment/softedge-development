@@ -19,33 +19,34 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import "./Brock.css";
-import { FaReact, FaServer, FaLock, FaCode, FaBolt, FaCheckCircle } from "react-icons/fa";
-import { SiVite, SiTailwindcss, SiFramer, SiNetlify, SiCloudflare, SiEslint } from "react-icons/si";
-import { FaNodeJs, FaBootstrap, FaFontAwesome} from "react-icons/fa";
-import { SiGraphql, SiApollographql, SiMongodb, SiJsonwebtokens, SiExpress } from "react-icons/si";
-import { MdLibraryMusic } from "react-icons/md";
-import { SiSequelize, SiPostgresql, SiDotenv, SiInsomnia } from "react-icons/si";
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaDatabase } from "react-icons/fa";
-import { SiJson } from "react-icons/si";
-import { VscFileCode } from "react-icons/vsc";
-import { MdStorage } from "react-icons/md";
-import { AiOutlineApi } from "react-icons/ai";
-import { BiHash } from "react-icons/bi";
-import { SiHandlebarsdotjs } from "react-icons/si";
-import { FaSearch, FaTags, FaTools } from "react-icons/fa";
-import { SiGoogleanalytics } from "react-icons/si";
-import { MdDataUsage } from "react-icons/md";
-import { SiMongoose } from "react-icons/si";
-import { SiWebpack } from "react-icons/si";
-import { MdWorkspaces } from "react-icons/md";
-import { FaCloud } from "react-icons/fa";
-import { SiInformatica } from "react-icons/si";
-import { VscTerminalPowershell } from "react-icons/vsc";
-import { WiDayCloudy } from "react-icons/wi";
-import { SiJest, SiNpm } from "react-icons/si";
-import { MdOutlineDraw } from "react-icons/md";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import backgroundImage from "./assets/background.png"; // Adjust path if necessary
+import styled from "styled-components";
 
+// Background container for full-screen effect
+const BackgroundContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; // Ensure it stays behind content
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  /* Background Image */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${backgroundImage}) no-repeat center center/cover;
+    filter: blur(20px) brightness(1.3) opacity(0.6); // Adjust effects
+  }
+`;
 
 const Brock = () => {
   // Function to handle JPG export
@@ -64,127 +65,143 @@ const Brock = () => {
     }
   };
 
-  // Function to handle high-resolution PDF export
-  const exportToPDFHighRes = () => {
+  const exportToPDFHighRes = async () => {
     const element = document.querySelector(".app-container");
-    if (element) {
-      html2canvas(element, {
-        scale: 2, // High resolution
-      }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/jpeg", 1.0); // Max quality
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const imgWidth = 210; // A4 width
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let position = 0;
-
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-        let remainingHeight = imgHeight - 297;
-
-        while (remainingHeight > 0) {
-          position -= 297;
-          pdf.addPage();
-          pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-          remainingHeight -= 297;
-        }
-
-        pdf.save("brockaltug-portfolio.pdf");
-      });
-    } else {
+    if (!element) {
       console.error("Container element not found for PDF export");
+      return;
+    }
+  
+    try {
+      // Select the background element
+      const backgroundElement = document.querySelector(".background-container");
+  
+      // Save the original background style to restore later
+      const originalBackground = backgroundElement ? backgroundElement.style.display : "";
+  
+      // **Completely remove the background**
+      if (backgroundElement) {
+        backgroundElement.style.display = "none";
+      }
+  
+      // Wait for the background to be removed
+      await new Promise((resolve) => setTimeout(resolve, 300));
+  
+      // Capture the full page **without** background
+      const canvas = await html2canvas(element, {
+        scale: 2, // Higher resolution
+        useCORS: true,
+        backgroundColor: "#FFFFFF", // Set white background for clean PDF
+        logging: false,
+        removeContainer: true,
+      });
+  
+      // Restore the background **after export**
+      if (backgroundElement) {
+        backgroundElement.style.display = originalBackground;
+      }
+  
+      // Convert to image
+      const imgData = canvas.toDataURL("image/jpeg", 1.0);
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+  
+      const imgWidth = 210; // A4 width
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let yOffset = 0;
+  
+      // Multi-page PDF handling
+      while (yOffset < imgHeight) {
+        if (yOffset > 0) pdf.addPage();
+        pdf.addImage(imgData, "JPEG", 0, -yOffset, imgWidth, imgHeight);
+        yOffset += 297; // A4 page height
+      }
+  
+      // Save PDF
+      pdf.save("brockaltug-portfolio.pdf");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
     }
   };
 
-  // Function to handle low-resolution PDF export
-  const exportToPDFLowRes = () => {
-    const element = document.querySelector(".app-container");
-    if (element) {
-      html2canvas(element, {
-        scale: 1, // Lower resolution
-      }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/jpeg", 0.5); // Reduced quality for smaller size
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        const imgWidth = 210; // A4 width
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let position = 0;
-
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, undefined, 'FAST'); // Fast compression
-        let remainingHeight = imgHeight - 297;
-
-        while (remainingHeight > 0) {
-          position -= 297;
-          pdf.addPage();
-          pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, undefined, 'FAST');
-          remainingHeight -= 297;
-        }
-
-        pdf.save("brockaltug-portfolio-low-res.pdf");
-      });
-    } else {
-      console.error("Container element not found for PDF export");
-    }
-  };
+  
 
   return (
-    <div className="app-container">
-      {/* Floating Export Buttons */}
-      <div className="export-buttons">
-        <button className="export-btn" onClick={exportToJPG}>JPG</button>
-        <button className="export-btn" onClick={exportToPDFHighRes}>PDF (High-Res)</button>
-        <button className="export-btn" onClick={exportToPDFLowRes}>PDF (Low-Res)</button>
-      </div>
-      
-
-      {/* Header Section */}
-      <header className="header-container">
-        <div className="header-content">
-          <div className="header-text">
-            <p className="header-title">Brock Altug</p>
-            <p className="header-subtitle">Full Stack Developer / Automation Tester</p>
-            <p className="header-location">
-              <FontAwesomeIcon icon={faGlobe} /> Seattle, Washington, USA
-            </p>
-            <p className="header-email">
-              <FontAwesomeIcon icon={faEnvelope} /> altugba99@gmail.com
-            </p>
-            <div className="header-links">
-              <a
-                href="mailto:altugba99@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-link"
-              >
-                <FontAwesomeIcon icon={faEnvelope} />
-              </a>
-              <a
-                href="https://github.com/BrockAltug"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-link"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-              <a
-                href="https://linkedin.com/in/BrockAltug"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-link"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
+    <>
+      {/* Background should be placed outside the main container */}
+      <BackgroundContainer />
+  
+      {/* Main App Container */}
+      <div className="app-container">
+        
+        {/* Header Section */}
+        <header className="header-container">
+          <div className="header-content">
+            <div className="header-text">
+              {/* Name & Title */}
+              <p className="header-title">Brock Altug</p>
+              <p className="header-subtitle">Full Stack Developer / Automation Tester</p>
+  
+              {/* Location */}
+              <p className="header-location">
+                <FontAwesomeIcon icon={faGlobe} /> Seattle, Washington, USA
+              </p>
+  
+              {/* LinkedIn */}
+              <p className="header-phone">
+                <FontAwesomeIcon icon={faLinkedin} /> 
+                <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/brock-altug
+                </a>
+              </p>
+  
+              {/* GitHub */}
+              <p className="header-phone">
+                <FontAwesomeIcon icon={faGithub} /> 
+                <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer">
+                  BrockAltug
+                </a>
+              </p>
+  
+              {/* Email */}
+              <p className="header-email">
+                <FontAwesomeIcon icon={faEnvelope} /> 
+                <a href="mailto:altugba99@gmail.com">altugba99@gmail.com</a>
+              </p>
+  
+              {/* Phone Number */}
+              <p className="header-phone">
+                <FontAwesomeIcon icon={faPhone} /> (206) 739-7583
+              </p>
+  
+              {/* Social & Contact Links */}
+              <div className="header-links">
+                <a href="mailto:altugba99@gmail.com" target="_blank" rel="noopener noreferrer" className="header-link">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </a>
+  
+                <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer" className="header-link">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+  
+                <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer" className="header-link">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
+              </div>
+            </div>
+  
+            {/* Profile Image */}
+            <div className="header-image">
+              <img src={profileImage} alt="Brock Altug" className="profile-image" />
             </div>
           </div>
-          <div className="header-image">
-            <img
-              src={profileImage}
-              alt="Brock Altug"
-              className="profile-image"
-            />
-          </div>
-        </div>
-      </header>
+        </header>
 
       <section className="about-section">
-  <h2 className="section-titlee">About Me</h2>
+  <h2 className="section-titleee">About Me</h2>
   <p className="about-paragraph">
     With a <strong>Bachelor’s degree in Computer Science</strong> and a solid foundation in <strong>Full Stack Development</strong> and <strong>Automation Testing</strong>, I am committed to delivering innovative, scalable, and efficient software solutions tailored to diverse needs. My expertise spans both front-end and back-end technologies, including building user-focused applications with frameworks like React.js, Angular, and Node.js, as well as designing and implementing secure, high-performance server-side architectures. Proficient in creating and consuming RESTful APIs and GraphQL APIs, I excel in implementing robust authentication and authorization mechanisms, including OAuth, JWT, and secure session management. Additionally, I bring hands-on experience in automation testing, containerization, CI/CD pipelines, and modern DevOps practices to ensure the delivery of reliable, high-quality software solutions that drive operational excellence.
   </p>
@@ -251,53 +268,59 @@ const Brock = () => {
   </p>
 
   <div className="stack-buttons">
-    {[
-      // Front-End Development
-      "HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", 
-      "React", "Redux", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "jQuery", "Vue.js", "Angular", 
-      
-      // Back-End Development
-      "Node.js", "Express.js", "NestJS", "GraphQL", "REST APIs", "WebSockets", "Microservices", 
-      
-      // Databases & Data Management
-      "MongoDB", "PostgreSQL", "MySQL", "Redis", "SQLite", "Mongoose", "Sequelize", "TypeORM", 
-      
-      // Testing & Automation
-      "Selenium WebDriver", "TestNG", "Cucumber BDD", "REST Assured", "Postman", "Jest", "Mocha", "Chai", "Cypress", 
-      
-      // DevOps & Containerization
-      "Docker", "Kubernetes", "CI/CD Pipelines", "Jenkins", "GitHub Actions", "AWS", "GCP", "Azure", "Terraform", "Ansible", 
-      
-      // Version Control & Collaboration
-      "Git", "GitHub", "Bitbucket", "GitLab", "SVN", "Mercurial", 
-      
-      // Cloud & Serverless
-      "AWS Lambda", "AWS EC2", "AWS S3", "AWS RDS", "GCP App Engine", "GCP Functions", "Azure Functions", "Serverless Framework", 
+  {[
+    // Front-End Development
+    "HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript",
+    "React", "Redux", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "jQuery", "Vue.js", "Angular", "Material-UI",
 
-      // Security & Authentication
-      "OAuth", "JWT", "SAML", "2FA", "HTTPS", "SSL/TLS", "CORS", 
-      
-      // Performance Optimization
-      "Caching", "Load Balancing", "Compression", "Minification", "Lazy Loading", "Code Splitting", "Database Indexing", 
+    // Back-End Development
+    "Node.js", "Express.js", "NestJS", "GraphQL", "REST APIs", "WebSockets", "Microservices", "FastAPI", "Spring Boot",
+    
+    // Databases & Data Management
+    "MongoDB", "PostgreSQL", "MySQL", "Redis", "SQLite", "Mongoose", "Sequelize", "TypeORM", "Firebase", "DynamoDB", "Cassandra",
 
-      // Agile & Methodologies
-      "Agile", "Scrum", "Kanban", "Jira", "Confluence", "Trello", "Asana", "CI/CD", "TDD", "BDD", 
+    // Testing & Automation
+    "Selenium WebDriver", "TestNG", "JUnit", "Cucumber BDD", "REST Assured", "Postman", "Jest", "Mocha", "Chai", "Cypress", 
+    "Playwright", "K6", "JMeter", "Appium", "LoadRunner",
 
-      // Architecture & Design Patterns
-      "MVC", "MVVM", "Microservices Architecture", "RESTful Services", "Event-Driven Architecture", "CQRS", "Domain-Driven Design", 
+    // DevOps & Containerization
+    "Docker", "Kubernetes", "CI/CD Pipelines", "Jenkins", "GitHub Actions", "AWS", "GCP", "Azure", "Terraform", "Ansible",
+    "CircleCI", "Bitbucket Pipelines", "Bamboo", "CloudFormation", "Helm", "Vagrant",
 
-      // Other Tools & Technologies
-      "Nginx", "Apache", "Vercel", "Netlify", "Heroku", "WordPress", "Shopify", "Contentful", "WebRTC", "Socket.IO", 
-    ].map((skill) => (
-      <button
-        key={skill}
-        className="stack-button"
-        onClick={() => alert(`Skill: ${skill}`)} // Example action when clicked
-      >
-        {skill}
-      </button>
-    ))}
-  </div>
+    // Version Control & Collaboration
+    "Git", "GitHub", "Bitbucket", "GitLab", "SVN", "Mercurial",
+
+    // Cloud & Serverless
+    "AWS Lambda", "AWS EC2", "AWS S3", "AWS RDS", "GCP App Engine", "GCP Functions", "Azure Functions", "Serverless Framework",
+    "Firebase Functions", "Cloudflare Workers",
+
+    // Security & Authentication
+    "OAuth", "JWT", "SAML", "2FA", "HTTPS", "SSL/TLS", "CORS", "OWASP", "Penetration Testing", "Zero Trust Architecture",
+
+    // Performance Optimization
+    "Caching", "Load Balancing", "Compression", "Minification", "Lazy Loading", "Code Splitting", "Database Indexing", 
+    "Redis Caching", "CDN Optimization",
+
+    // Agile & Methodologies
+    "Agile", "Scrum", "Kanban", "Jira", "Confluence", "Trello", "Asana", "CI/CD", "TDD", "BDD", "SAFe",
+
+    // Architecture & Design Patterns
+    "MVC", "MVVM", "Microservices Architecture", "RESTful Services", "Event-Driven Architecture", "CQRS", "Domain-Driven Design",
+    "Monolithic vs Microservices", "Hexagonal Architecture",
+
+    // Other Tools & Technologies
+    "Nginx", "Apache", "Vercel", "Netlify", "Heroku", "WordPress", "Shopify", "Contentful", "WebRTC", "Socket.IO", 
+    "Electron.js", "Figma", "Adobe Photoshop", "Blender", "Tiled", "Unity3D", "Flutter", "React Native"
+  ].map((skill) => (
+    <button
+      key={skill}
+      className="stack-button"
+      onClick={() => window.open(`https://en.wikipedia.org/wiki/${skill.replace(/ /g, "_")}`, "_blank")}
+    >
+      {skill}
+    </button>
+  ))}
+</div>
 </section>
 
 
@@ -600,25 +623,9 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>SoftEdge Development</h3>
-    <p className="project-description">
-      A fully customized and deployed portfolio website, built from scratch with a custom domain, DNS configuration, and seamless Netlify deployment. Showcasing expertise in Full-Stack Development, Automation Testing, and DevOps.
-    </p>
     
-    {/* Technologies Section with Icons */}
-    <div className="project-technologies">
-      <div className="technology-button"><FaReact title="React" /></div>
-      <div className="technology-button"><SiVite title="Vite" /></div>
-      <div className="technology-button"><SiTailwindcss title="Tailwind CSS" /></div>
-      <div className="technology-button"><SiFramer title="Framer Motion" /></div>
-      <div className="technology-button"><SiNetlify title="Netlify" /></div>
-      <div className="technology-button"><SiCloudflare title="DNS Management" /></div>
-      <div className="technology-button"><FaServer title="Custom Domain Setup" /></div>
-      <div className="technology-button"><FaLock title="SSL Configuration" /></div>
-      <div className="technology-button"><SiEslint title="ESLint" /></div>
-      <div className="technology-button"><FaCode title="FontAwesome Integration" /></div>
-      <div className="technology-button"><FaBolt title="Performance Optimization" /></div>
-      <div className="technology-button"><FaCheckCircle title="Responsive Design" /></div>
-    </div>
+    
+  
   </div>
 </div>
 
@@ -636,23 +643,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>Vibez Tune Music App</h3>
-    <p className="project-description">
-      Explore and save your favorite songs, view lyrics, and create a personalized library. Built with the MERN stack, Apollo GraphQL, and JWT for secure authentication.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaReact title="React" /></div>
-      <div className="technology-button"><SiGraphql title="GraphQL" /></div>
-      <div className="technology-button"><SiApollographql title="Apollo" /></div>
-      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
-      <div className="technology-button"><SiJsonwebtokens title="JWT" /></div>
-      <div className="technology-button"><MdLibraryMusic title="Lyrics.ovh API" /></div>
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiVite title="Vite" /></div>
-      <div className="technology-button"><FaBootstrap title="Bootstrap" /></div>
-      <div className="technology-button"><SiEslint title="ESLint" /></div>
-      <div className="technology-button"><FaFontAwesome title="FontAwesome" /></div>
-    </div>
+   
+    
   </div>
 </div>
 
@@ -669,17 +661,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>ORM Ecom Backend</h3>
-    <p className="project-description">
-      A backend API for managing an e-commerce platform with categories, products, and tags. Built using Node.js, Express, Sequelize, and PostgreSQL for scalable database management.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
-      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
-      <div className="technology-button"><SiDotenv title="Dotenv" /></div>
-      <div className="technology-button"><SiInsomnia title="Insomnia" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -695,21 +678,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>Express Note Taker</h3>
-    <p className="project-description">
-      A simple and efficient note-taking application for creating, viewing, and managing notes. Built with Node.js and Express.js, it features persistent storage and an intuitive interface, ensuring your ideas are always saved and accessible!
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
-      <div className="technology-button"><FaHtml5 title="HTML" /></div>
-      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
-      <div className="technology-button"><SiJson title="JSON" /></div>
-      <div className="technology-button"><VscFileCode title="CRUD" /></div>
-      <div className="technology-button"><BiHash title="UUID" /></div>
-      <div className="technology-button"><MdStorage title="File System" /></div>
-      <div className="technology-button"><AiOutlineApi title="RESTful API" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -725,19 +695,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>Basic Social Media Platform</h3>
-    <p className="project-description">
-      An interactive social media platform to share posts, comments, and engage with others. Built with Node.js, PostgreSQL, and Express.js using MVC architecture for scalability.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
-      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
-      <div className="technology-button"><FaHtml5 title="HTML" /></div>
-      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
-      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
-      <div className="technology-button"><SiHandlebarsdotjs title="Handlebars.js" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -753,16 +712,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>SEO Roadmap</h3>
-    <p className="project-description">
-      An open-source guide to help users implement SEO strategies and improve website rankings. It covers SEO foundations, meta tags, and tools for optimization.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaSearch title="SEO" /></div>
-      <div className="technology-button"><SiGoogleanalytics title="SEO Optimization" /></div>
-      <div className="technology-button"><MdDataUsage title="Metadata" /></div>
-      <div className="technology-button"><FaTags title="Meta Tags" /></div>
-      <div className="technology-button"><FaTools title="SEO Tools" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -778,17 +729,7 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>NoSQL Social Network API</h3>
-    <p className="project-description">
-      A NoSQL backend for a social network app, supporting user profiles, thoughts, reactions, and friend lists. Built with Node.js, Express, MongoDB, and Mongoose.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
-      <div className="technology-button"><SiMongoose title="Mongoose" /></div>
-      <div className="technology-button"><SiDotenv title="Dotenv" /></div>
-      <div className="technology-button"><SiInsomnia title="Insomnia" /></div>
-    </div>
+    
   </div>
 </div>
 
@@ -804,18 +745,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>MERN Book Search Engine</h3>
-    <p className="project-description">
-      A MERN stack book search engine refactored to use GraphQL and Apollo. Integrated with Google Books API for real-time book search and deployed on Render with MongoDB Atlas.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaReact title="React" /></div>
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiGraphql title="GraphQL" /></div>
-      <div className="technology-button"><SiApollographql title="Apollo" /></div>
-      <div className="technology-button"><SiMongodb title="MongoDB" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiJsonwebtokens title="JWT Authentication" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -831,16 +762,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>MVC Tech Blog</h3>
-    <p className="project-description">
-      A CMS-style blog built using the MVC architecture. It allows developers to publish posts, comment, and share their thoughts on tech using Express.js, Sequelize, and Handlebars.js.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiExpress title="Express.js" /></div>
-      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
-      <div className="technology-button"><SiSequelize title="Sequelize" /></div>
-      <div className="technology-button"><SiHandlebarsdotjs title="Handlebars.js" /></div>
-    </div>
+   
+    
   </div>
 </div>
 
@@ -856,16 +779,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>PWA Text Editor</h3>
-    <p className="project-description">
-      A progressive web app (PWA) for offline text editing. Features IndexedDB for data storage and a service worker for caching, offering a seamless offline experience.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiWebpack title="Webpack" /></div>
-      <div className="technology-button"><MdWorkspaces title="Service Worker" /></div>
-      <div className="technology-button"><FaCloud title="PWA" /></div>
-      <div className="technology-button"><MdStorage title="IndexedDB" /></div>
-    </div>
+   
+    
   </div>
 </div>
 
@@ -881,16 +796,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>SQL Employee Tracker</h3>
-    <p className="project-description">
-      Command-line application to manage employees, roles, and departments. Built with Node.js, PostgreSQL, and Inquirer, providing a simple and effective CLI interface.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><SiPostgresql title="PostgreSQL" /></div>
-      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
-      <div className="technology-button"><VscTerminalPowershell title="CLI" /></div>
-      <div className="technology-button"><VscFileCode title="CRUD" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -907,17 +814,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>Server Side API Weather Dashboard</h3>
-    <p className="project-description">
-      A dynamic weather dashboard that allows users to search for cities and view current weather conditions and a 5-day forecast using the OpenWeatherMap API. Search history is saved for convenience!
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
-      <div className="technology-button"><FaCss3Alt title="CSS" /></div>
-      <div className="technology-button"><FaHtml5 title="HTML" /></div>
-      <div className="technology-button"><AiOutlineApi title="API" /></div>
-      <div className="technology-button"><MdStorage title="LocalStorage" /></div>
-      <div className="technology-button"><WiDayCloudy title="Weather API" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -934,18 +832,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>OOP SVG Logo Maker</h3>
-    <p className="project-description">
-      A Node.js command-line tool that allows users to easily create customizable SVG logos by choosing text, colors, and shapes through interactive prompts. Includes robust unit testing with Jest to ensure functionality and input handling.
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><FaJsSquare title="JavaScript" /></div>
-      <div className="technology-button"><MdOutlineDraw title="SVG" /></div>
-      <div className="technology-button"><SiNpm title="NPM" /></div>
-      <div className="technology-button"><FaCheckCircle title="Unit Testing" /></div>
-      <div className="technology-button"><SiJest title="Jest" /></div>
-      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -961,14 +849,8 @@ const Brock = () => {
   />
   <div className="project-details">
     <h3>NodeJS README Generator</h3>
-    <p className="project-description">
-      A CLI tool that generates a complete README.md file with sections like title, description, installation, usage, and more based on user input. Streamline your documentation process with ease!
-    </p>
-    <div className="project-technologies">
-      <div className="technology-button"><FaNodeJs title="Node.js" /></div>
-      <div className="technology-button"><MdStorage title="File System" /></div>
-      <div className="technology-button"><SiInformatica title="Inquirer" /></div>
-    </div>
+    
+    
   </div>
 </div>
 
@@ -995,25 +877,19 @@ const Brock = () => {
 
 <footer className="footer">
   <div className="footer-content">
-    {/* GitHub Stats Section */}
-    <div className="github-stats-container">
-      {/* Overall GitHub Stats */}
-      <img
-        src="https://github-readme-stats.vercel.app/api?username=brockaltug&show_icons=true&theme=graywhite"
-        alt="GitHub Stats"
-        className="github-card"
-      />
-      {/* Top Languages */}
-      <img
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=brockaltug&layout=compact&theme=graywhite&card_width=300"
-        alt="Most Used Languages"
-        className="github-card"
-      />
-    </div>
+    
 
     <div className="footer-right">
       {/* Social Links */}
       <div className="footer-social-links">
+      <a
+          href="mailto:altugba99@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-social-link"
+        >
+          <FontAwesomeIcon icon={faEnvelope} />
+        </a>
         <a
           href="https://github.com/BrockAltug"
           target="_blank"
@@ -1030,14 +906,7 @@ const Brock = () => {
         >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
-        <a
-          href="mailto:altugba99@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer-social-link"
-        >
-          <FontAwesomeIcon icon={faEnvelope} />
-        </a>
+        
       </div>
 
       {/* Download Buttons */}
@@ -1055,9 +924,27 @@ const Brock = () => {
         &copy; {new Date().getFullYear()} Brock Altug. All Rights Reserved.
       </p>
     </div>
+
+    {/* GitHub Stats Section */}
+    <div className="github-stats-container">
+      {/* Overall GitHub Stats */}
+      <img
+        src="https://github-readme-stats.vercel.app/api?username=brockaltug&show_icons=true&theme=graywhite"
+        alt="GitHub Stats"
+        className="github-card"
+      />
+      {/* Top Languages */}
+      <img
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=brockaltug&layout=compact&theme=graywhite&card_width=300"
+        alt="Most Used Languages"
+        className="github-card"
+      />
+    </div>
   </div>
 </footer>
+
     </div>
+    </>
   );
 };
 
