@@ -173,18 +173,7 @@ const Brock = () => {
                 <FontAwesomeIcon icon={faPhone} /> (206) 739-7583
               </p>
   
-              {/* Social & Contact Links */}
-              <div className="header-links">
-              <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer" className="header-link">
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </a>
-                <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer" className="header-link">
-                  <FontAwesomeIcon icon={faGithub} />
-                </a>
-                <a href="mailto:altugba99@gmail.com" target="_blank" rel="noopener noreferrer" className="header-link">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </a>
-              </div>
+              
             </div>
   
             {/* Profile Image */}
