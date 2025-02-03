@@ -962,38 +962,50 @@ section {
     padding: 10px; /* Reduce padding */
   }
 
-  /* Header Section */
-  .header-content {
+/* ===========================
+   Header Section 
+   =========================== */
+   .header-content {
+    display: flex;
     flex-direction: column; /* Stack header text and image */
     align-items: center; /* Center-align content */
-  }
+    text-align: center;
+}
 
-  .header-title {
-    font-size: 1.5rem; /* Smaller header title */
+.header-title {
+    font-size: 1.5rem; /* Adjusted header title size */
+    font-weight: bold;
     margin-bottom: 10px;
-  }
+}
 
-  .header-subtitle {
-    font-size: 0.9rem; /* Smaller subtitle */
+.header-subtitle {
+    font-size: 0.9rem; /* Adjusted subtitle size */
+    font-weight: 400;
     margin-bottom: 10px;
-  }
+}
 
-  .header-location,
-  .header-email {
-    font-size: 0.9rem; /* Smaller text */
+.header-location,
+.header-email {
+    font-size: 0.9rem; /* Uniform font size for location and email */
+    font-weight: 400;
     margin-bottom: 8px;
-  }
+}
 
-  .header-image {
-    width: 100px; /* Smaller profile image */
+.header-image {
+    width: 100px; /* Profile image size */
     height: 100px;
-    margin-top: 40px
-  }
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover;
+    margin-top: 40px;
+}
 
-  .header-links {
+.header-links {
+    display: flex;
     gap: 8px;
     margin-top: 15px;
-  }
+    justify-content: center;
+    align-items: center;
+}
 
  /* About Section */
 .about-section {
