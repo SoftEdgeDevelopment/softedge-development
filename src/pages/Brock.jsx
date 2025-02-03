@@ -153,23 +153,19 @@ const Brock = () => {
               {/* LinkedIn */}
               <p className="header-phone">
                 <FontAwesomeIcon icon={faLinkedin} /> 
-                <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer">
-                  linkedin.com/in/brock-altug
-                </a>
+                <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer"> linkedin.com/in/brock-altug </a>
               </p>
   
               {/* GitHub */}
               <p className="header-phone">
                 <FontAwesomeIcon icon={faGithub} /> 
-                <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer">
-                  BrockAltug
-                </a>
+                <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer"> BrockAltug </a>
               </p>
   
               {/* Email */}
               <p className="header-email">
                 <FontAwesomeIcon icon={faEnvelope} /> 
-                <a href="mailto:altugba99@gmail.com">altugba99@gmail.com</a>
+                <a href="mailto:altugba99@gmail.com"> altugba99@gmail.com</a>
               </p>
   
               {/* Phone Number */}
