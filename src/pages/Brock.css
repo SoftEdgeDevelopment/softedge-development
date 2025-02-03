@@ -968,8 +968,8 @@ section {
    .header-content {
     display: flex;
     flex-direction: column; /* Stack header text and image */
-    align-items: center; /* Center-align content */
-    text-align: center;
+    align-items: flex-start; /* Align content to the left */
+    text-align: left;
 }
 
 .header-title {
@@ -1003,7 +1003,7 @@ section {
     display: flex;
     gap: 8px;
     margin-top: 15px;
-    justify-content: center;
+    justify-content: flex-start; /* Align links to the left */
     align-items: center;
 }
 
