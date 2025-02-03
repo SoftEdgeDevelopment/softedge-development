@@ -274,7 +274,7 @@ const Brock = () => {
     "React", "Redux", "Next.js", "Tailwind CSS", "Bootstrap", "SASS", "jQuery", "Vue.js", "Angular", "Material-UI",
 
     // Back-End Development
-    "Node.js", "Express.js", "NestJS", "GraphQL", "REST APIs", "WebSockets", "Microservices", "FastAPI", "Spring Boot",
+    "Python", "Java", "Node.js", "Express.js", "NestJS", "GraphQL", "REST APIs", "WebSockets", "Microservices", "FastAPI", "Spring Boot",
     
     // Databases & Data Management
     "MongoDB", "PostgreSQL", "MySQL", "Redis", "SQLite", "Mongoose", "Sequelize", "TypeORM", "Firebase", "DynamoDB", "Cassandra",
@@ -571,7 +571,7 @@ const Brock = () => {
   {/* Certifications Section */}
 <div className="education-item">
   <div className="education-header">
-    <h3 className="education-title">Certifications</h3>
+    <h3 className="education-titlee">Certifications</h3>
   </div>
   
   <div className="certifications-list">
