@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundImage from "../pages/assets/background.png"; // ✅ Correct path for background image

@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import styled from "styled-components";
 import backgroundImage from "../pages/assets/background.png"; // ✅ Background Image
 
