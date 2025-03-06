@@ -14,22 +14,24 @@ const ErrorWrapper = styled.div`
 
 const ErrorTitle = styled.h1`
   font-size: 3rem;
-  color: #4c1d95;
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 1rem;
 `;
 
 const ErrorMessage = styled.p`
   font-size: 1.2rem;
-  color: #666;
+  color: grey;
   margin-bottom: 2rem;
 `;
 
+// Updated button with grayscale gradient
 const GoHomeButton = styled.button`
   padding: 0.75rem 1.5rem;
   background: white;
-  color: #4c1d95;
+  color: black;
   border: 2px solid;
-  border-image: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c) 1;
+  border-image: linear-gradient(90deg, black, grey, white) 1;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
@@ -37,7 +39,7 @@ const GoHomeButton = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+    background: linear-gradient(90deg, black, grey, white);
     color: white;
     border-color: white;
   }

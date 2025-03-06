@@ -11,13 +11,13 @@ const VideoContainer = styled.div`
   padding: 2rem 0;
 `;
 
-// Wrapper with a fully rounded gradient border
+// Wrapper with a fully rounded grayscale gradient border
 const VideoWrapper = styled.div`
   width: 80%;
   max-width: 1000px;
   border-radius: 20px;
-  padding: 6px; // Border thickness
-  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+  padding: 6px; /* ✅ Border thickness */
+  background: linear-gradient(90deg, black, grey, white); /* ✅ Updated to grayscale */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,14 +34,15 @@ const VideoWrapper = styled.div`
   }
 `;
 
-// Video styling ensuring full visibility and centering
+// Video styling with **PERMANENT black and white effect**
 const StyledVideo = styled.video`
   width: 100%;
   height: auto;
   border-radius: 14px;
   display: block;
-  object-fit: cover; // Ensures full visibility without distortion
+  object-fit: cover;
   pointer-events: none;
+  filter: grayscale(100%); /* ✅ Makes video permanently black and white */
 `;
 
 const Video = () => {
@@ -49,7 +50,7 @@ const Video = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 1.25; // Set playback speed to 1.2x
+      videoRef.current.playbackRate = 1.25; // ✅ Set playback speed to 1.25x
     }
   }, []);
 

@@ -23,7 +23,7 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6);
+    filter: blur(20px) brightness(1.2) grayscale(100%) opacity(0.6); // ✅ Converted to grayscale
   }
 `;
 
@@ -38,7 +38,7 @@ const TermsWrapper = styled.div`
   z-index: 1;
 `;
 
-// Title with black font & white outline (consistent with other pages)
+// Title
 const Title = styled.h1`
   font-size: 2.5rem;
   font-weight: bold;
@@ -62,20 +62,17 @@ const Section = styled.div`
     color: black;
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     margin-bottom: 1rem;
-    text-align: left;
   }
 
   p {
     font-size: 1.125rem;
     color: white;
     line-height: 1.7;
-    text-align: left;
   }
 
   ul {
     list-style: disc;
     margin-left: 2rem;
-    text-align: left;
 
     li {
       font-size: 1.125rem;
@@ -85,12 +82,12 @@ const Section = styled.div`
   }
 
   a {
-    color: #9d174d;
+    color: grey;
     text-decoration: none;
     font-weight: bold;
 
     &:hover {
-      color: rgb(108, 15, 52);
+      color: black;
       text-decoration: underline;
     }
   }
@@ -104,12 +101,12 @@ const ContactInfo = styled.div`
   text-align: center;
 
   a {
-    color: #9d174d;
+    color: grey;
     text-decoration: none;
     font-weight: bold;
 
     &:hover {
-      color: rgb(108, 15, 52);
+      color: black;
       text-decoration: underline;
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import backgroundImage from "../assets/background.png"; // ✅ Background Image
 
-// Import images - Keeping the exact file paths as provided
+// Import images
 import qaImage1 from "../services/assets/qa1.png";
 import qaImage2 from "../services/assets/qa2.png";
 import qaImage3 from "../services/assets/qa3.png";
@@ -28,11 +28,11 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6);
+    filter: blur(20px) brightness(1.2) opacity(0.6);
   }
 `;
 
-// Wrapper for the Quality and Test Automation section
+// Wrapper for Quality & Test Automation content
 const QAWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
@@ -43,19 +43,19 @@ const QAWrapper = styled.div`
   z-index: 1;
 `;
 
-// Title Styling - Black font with white outline
+// Title Styling - White font with black outline
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: black;
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+  color: black; /* ✅ Change text color to black */
+text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; /* ✅ Change outline to white */
   margin-bottom: 1.5rem;
 `;
 
-// Description Styling - White text
+// Description Styling - Light grey text
 const Description = styled.p`
   font-size: 1.125rem;
-  color: white;
+  color: lightgrey;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -71,14 +71,17 @@ const SectionWrapper = styled.div`
   margin-top: 3rem;
 `;
 
-// Image Styling
+// Image Styling - Grayscale border effect
 const Image = styled.img`
   width: 100%;
   max-width: 400px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
   margin: 0 auto;
+  border: 3px solid transparent;
+  background: linear-gradient(90deg, black, grey, white);
+  padding: 3px;
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -95,20 +98,20 @@ const TextWrapper = styled.div`
   max-width: 100%;
 `;
 
-// Subheading Styling - Black font with white outline
+// Subheading Styling - White font with black outline
 const SectionHeader = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
-  color: black;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  color: white;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
   margin-bottom: 1rem;
   text-align: center;
 `;
 
-// Content Styling - White text
+// Content Styling - Light grey text
 const SectionContent = styled.p`
   font-size: 1.125rem;
-  color: white;
+  color: lightgrey;
   line-height: 1.7;
   max-width: 900px;
   margin-left: auto;

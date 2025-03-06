@@ -23,7 +23,7 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Applies blur, brightness, and opacity
+    filter: blur(20px) brightness(1.2) grayscale(100%) opacity(0.6); // ✅ Converted to grayscale
   }
 `;
 
@@ -50,7 +50,7 @@ const Title = styled.h2`
 // Updated Description - Text is white
 const Description = styled.p`
   font-size: 1.125rem;
-  color: white; // ✅ Changed to white
+  color: white; // ✅ White text
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
@@ -68,9 +68,9 @@ const ButtonGroup = styled.div`
 const Button = styled.button`
   padding: 0.75rem 1.5rem;
   background: white;
-  color: #4c1d95;
+  color: black;
   border: 2px solid;
-  border-image: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c) 1;
+  border-image: linear-gradient(90deg, black, grey, white) 1; // ✅ Changed to black, grey, and white gradient
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
@@ -78,13 +78,12 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+    background: linear-gradient(90deg, black, grey, white);
     color: white;
-    
   }
 `;
 
-// Updated Content Wrapper - Removed unwanted gradient border
+// Updated Content Wrapper - Converted to grayscale styling
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -94,7 +93,7 @@ const ContentWrapper = styled.div`
   backdrop-filter: blur(10px); // ✅ Soft frosted blur
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;

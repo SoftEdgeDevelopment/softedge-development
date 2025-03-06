@@ -5,7 +5,7 @@ import { faTwitter, faGithub, faInstagram } from "@fortawesome/free-brands-svg-i
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const FooterWrapper = styled.footer`
-  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+  background: linear-gradient(90deg, black, grey, white); // ✅ Grayscale gradient
   width: 100vw;
   box-sizing: border-box;
   display: flex;
@@ -55,37 +55,17 @@ const FooterNavItem = styled(Link)`
   color: white;
   text-decoration: none;
   font-size: 0.85rem;
-  padding: 0.5rem 0.75rem; /* ✅ Reduced padding */
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
   text-align: center;
-  border: 2px solid #222;
+  border: 2px solid black;
   transition: all 0.3s ease-in-out;
   position: relative;
 
   &:hover {
-    background-color: #222;
-    color: white;
-    border-color: white;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    z-index: -1;
-    border-radius: 8px;
-    padding: 2px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-  }
-
-  &:hover::before {
     background: white;
+    color: black;
+    border-color: black;
   }
 `;
 
@@ -93,71 +73,51 @@ const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* ✅ Reduced gap */
+  gap: 0.5rem;
 
   a {
     display: flex;
-    align-items: center; /* ✅ Aligns icon & text next to each other */
-    gap: 0.5rem; /* ✅ Space between icon and text */
+    align-items: center;
+    gap: 0.5rem;
     color: white;
     text-decoration: none;
     font-size: 0.85rem;
-    padding: 0.5rem 0.75rem; /* ✅ Reduced padding */
+    padding: 0.5rem 0.75rem;
     border-radius: 8px;
     position: relative;
-    text-align: left; /* ✅ Aligns text properly */
+    text-align: left;
     width: fit-content;
-    border: 2px solid #222;
+    border: 2px solid black;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: #222;
-      color: white;
-      border-color: white;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-      z-index: -1;
-      border-radius: 8px;
-      padding: 2px;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: destination-out;
-      mask-composite: exclude;
-    }
-
-    &:hover::before {
-      background: white;
+      background-color: white;
+      color: black;
+      border-color: black;
     }
 
     svg {
-      font-size: 1rem; /* ✅ Adjust icon size */
+      font-size: 1rem;
     }
   }
 `;
 
-/* ✅ Square Social Media Buttons */
+// Social Media Buttons
 const FooterSocial = styled.div`
   display: flex;
-  gap: 0.5rem; /* ✅ Reduced gap */
+  gap: 0.5rem;
   justify-content: center;
 
   a {
-    font-size: 1.2rem; /* ✅ Slightly smaller */
+    font-size: 1.2rem;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px; /* ✅ Smaller size */
+    width: 45px;
     height: 45px;
     border-radius: 8px;
-    border: 2px solid #222;
+    border: 2px solid black;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     background: rgba(255, 255, 255, 0.1);
@@ -165,35 +125,18 @@ const FooterSocial = styled.div`
     overflow: hidden;
 
     &:hover {
-      background-color: #222;
-      color: white;
-      border-color: white; /* ✅ Only the border turns white */
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-      z-index: -1;
-      border-radius: 8px;
-      padding: 2px;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      transition: background 0.3s ease-in-out;
-    }
-
-    &:hover::before {
-      background: none; /* ✅ Removes the gradient effect on hover */
+      background-color: white;
+      color: black;
+      border-color: black;
     }
   }
 `;
 
 const FooterTitle = styled.h3`
   text-align: center;
-  margin-bottom: 0.5rem; /* ✅ Reduced margin */
+  margin-bottom: 0.5rem;
   border-bottom: 2px solid white;
-  padding-bottom: 3px; /* ✅ Smaller spacing */
+  padding-bottom: 3px;
   color: white;
 `;
 
@@ -204,12 +147,12 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Useful Links</FooterTitle>
         <FooterLinks>
-        <FooterNavItem onClick={() => handleNavigation("/services/digital-strategy")}>Digital Strategy</FooterNavItem>
-<FooterNavItem onClick={() => handleNavigation("/services/agile-management")}>Agile Management</FooterNavItem>
-<FooterNavItem onClick={() => handleNavigation("/services/big-data-data-science")}>Big Data & Data Science</FooterNavItem>
-<FooterNavItem onClick={() => handleNavigation("/services/cloud-infrastructures")}>Cloud Infrastructures</FooterNavItem>
-<FooterNavItem onClick={() => handleNavigation("/services/quality-test-automation")}>Quality & Test Automation</FooterNavItem>
-<FooterNavItem onClick={() => handleNavigation("/services/user-experience-design")}>User Experience Design</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/digital-strategy")}>Digital Strategy</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/agile-management")}>Agile Management</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/big-data-data-science")}>Big Data & Data Science</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/cloud-infrastructures")}>Cloud Infrastructures</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/quality-test-automation")}>Quality & Test Automation</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/user-experience-design")}>User Experience Design</FooterNavItem>
         </FooterLinks>
       </FooterColumn>
 
@@ -230,10 +173,9 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Follow Us</FooterTitle>
         <FooterSocial>
-        <a href="https://www.github.com/SoftEdgeDevelopment"><FontAwesomeIcon icon={faGithub} /></a>
+          <a href="https://www.github.com/SoftEdgeDevelopment"><FontAwesomeIcon icon={faGithub} /></a>
           <a href="https://twitter.com/softedgedev"><FontAwesomeIcon icon={faTwitter} /></a>
           <a href="https://www.instagram.com/softedgedev"><FontAwesomeIcon icon={faInstagram} /></a>
-          
         </FooterSocial>
       </FooterColumn>
     </FooterSection>

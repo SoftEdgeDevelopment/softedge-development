@@ -23,7 +23,7 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Applies blur, brightness, and opacity
+    filter: blur(20px) brightness(1.2) grayscale(100%) opacity(0.6); // ✅ Converted to grayscale
   }
 `;
 
@@ -38,24 +38,33 @@ const CareersWrapper = styled.div`
   z-index: 1; // Ensures content is above the background
 `;
 
-// Updated Title - Black font with white outline
+// Title
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: black; // ✅ Black font
-  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; // ✅ White border effect
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
 `;
 
-// Updated Description - Text is white
+// Description
 const Description = styled.p`
   font-size: 1.125rem;
-  color: white; // ✅ Changed to white
+  color: white;
   line-height: 1.7;
   margin-bottom: 2.5rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    text-align: center;
+  }
 `;
 
 // Updated Content Wrapper - Glassmorphism effect applied
@@ -65,31 +74,32 @@ const ContentWrapper = styled.div`
   align-items: center;
   text-align: left;
   background: rgba(255, 255, 255, 0.2); // ✅ Glassmorphism effect
-  backdrop-filter: blur(10px); // ✅ Soft frosted blur
+  backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 `;
 
-// Updated Section Titles - Black font with a white outline
+// Section Titles - Black font with a white outline
 const SectionTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: bold;
-  color: black; // ✅ Black font
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; // ✅ White border effect
+  color: black;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
   margin-bottom: 1rem;
 `;
 
-// Updated Section Content - Text is white
+// Section Content - White text for contrast
 const SectionContent = styled.p`
   font-size: 1rem;
-  color: white; // ✅ Changed to white
+  color: white;
   line-height: 1.7;
 `;
 
+// Careers Page Component
 const Careers = () => {
   return (
     <>

@@ -1,29 +1,56 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "./Navbar";
 
 const HeaderWrapper = styled.header`
-  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+  background: linear-gradient(90deg, black, grey, white);
   color: white;
-  padding: 0.75rem 1rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  position: relative;  // Add position to contain the buttons' hover effects
+  text-align: center;
+  width: 100%;
+`;
+
+// Logo Styling (Always Centered)
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.75rem;
+`;
+
+const LogoLink = styled(Link)`
+  display: block;
+  width: 160px;
+
+  img {
+    width: 100%;
+  }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-content: center;
+    width: 130px;
   }
 `;
 
-// Ensure that hover effects only apply to these buttons in the header
-const HeaderButton = styled.a`
+// Contact Info Wrapper (Centers Email, GitHub & Location)
+const ContactWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+`;
+
+// Contact Buttons (Email, GitHub, Location)
+const ContactButton = styled.a`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: white;
   text-decoration: none;
@@ -31,126 +58,60 @@ const HeaderButton = styled.a`
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 2px solid #222;
-  position: relative;
+  border: 2px solid black;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+  width: 170px; /* ✅ Forces uniform width */
+  height: 42px; /* ✅ Forces uniform height */
 
   &:hover {
-    background-color: #222;
-    color: white;
-    border-color: white;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    z-index: -1;
-    border-radius: 8px;
-    padding: 2px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-  }
-
-  &:hover::before {
-    background: white;
+    background-color: white;
+    color: black;
+    border-color: black;
   }
 
   @media (max-width: 768px) {
-    display: none; /* Hide corner buttons on mobile */
-  }
-`;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 42px;
+    height: 42px;
 
-const MobileIcons = styled.div`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-`;
-
-const MobileIconButton = styled.a`
-  color: white;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  border: 2px solid #222;
-  text-decoration: none;
-  transition: all 0.3s ease-in-out;
-  background: rgba(255, 255, 255, 0.1);
-
-  &:hover {
-    background-color: #222;
-    color: white;
-    border-color: white;
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    z-index: -1;
-    border-radius: 8px;
-    padding: 2px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-  }
-
-  &:hover::before {
-    background: white;
+    /* ✅ Hides text inside button on mobile */
+    span {
+      display: none;
+    }
   }
 `;
 
 const Header = () => (
   <>
     <HeaderWrapper>
-      {/* Email (Top Left) - Hidden on Mobile */}
-      <HeaderButton href="mailto:contact@softedgedevelopment.com" style={{ justifySelf: "start" }}>
-        <FontAwesomeIcon icon={faEnvelope} />
-        contact@softedgedevelopment.com
-      </HeaderButton>
+      {/* Logo (PERFECTLY CENTERED) */}
+      <LogoWrapper>
+        <LogoLink to="/">
+          <img src="/assets/logo.png" alt="SoftEdge Development Logo" />
+        </LogoLink>
+      </LogoWrapper>
 
-      {/* Mobile Icons (Visible Only on Mobile) */}
-      <MobileIcons>
-        <MobileIconButton href="mailto:contact@softedgedevelopment.com">
+      {/* Contact Info (Centered Below Logo) */}
+      <ContactWrapper>
+        <ContactButton href="mailto:contact@softedgedevelopment.com">
           <FontAwesomeIcon icon={faEnvelope} />
-        </MobileIconButton>
-        <MobileIconButton
-          href="https://www.google.com/maps/place/Seattle,+WA/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon icon={faMapMarkerAlt} />
-        </MobileIconButton>
-      </MobileIcons>
+          <span>Email</span>
+        </ContactButton>
 
-      {/* Location (Top Right) - Hidden on Mobile */}
-      <HeaderButton
-        href="https://www.google.com/maps/place/Seattle,+WA/"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ justifySelf: "end" }}
-      >
-        <FontAwesomeIcon icon={faMapMarkerAlt} />
-        Seattle, Washington
-      </HeaderButton>
+        <ContactButton href="https://github.com/SoftEdgeDevelopment" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub} />
+          <span>GitHub</span>
+        </ContactButton>
+
+        <ContactButton href="https://www.google.com/maps/place/Seattle,+WA/" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          <span>Location</span>
+        </ContactButton>
+      </ContactWrapper>
     </HeaderWrapper>
+
     <Navbar />
   </>
 );

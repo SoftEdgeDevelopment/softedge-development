@@ -24,7 +24,7 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Applies blur, brightness, and opacity
+    filter: blur(20px) brightness(1.2) grayscale(100%) opacity(0.6); // ✅ Converted to grayscale
   }
 `;
 
@@ -68,7 +68,7 @@ const Description = styled.p`
   }
 `;
 
-// Blog grid container (Now better spaced for desktop)
+// Blog grid container
 const BlogGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); // ✅ 3 columns on desktop
@@ -95,9 +95,9 @@ const BlogCard = styled(Link)`
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  color: #333;
+  color: black;
   position: relative;
   z-index: 0;
   transition: background 0.3s ease, transform 0.2s ease-in-out;
@@ -105,11 +105,14 @@ const BlogCard = styled(Link)`
   border: 2px solid transparent; 
 
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-    color: white;
+    background: white;
+    color: black;
     transform: scale(1.03);
     border: 2px solid black;
     border-radius: 12px;
+  }
+    &:hover p {
+    color: black;
   }
 
   h3 {
@@ -138,13 +141,18 @@ const BlogCard = styled(Link)`
   }
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-    transition: opacity 0.3s ease;
-    position: absolute;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  position: absolute;
+  filter: grayscale(100%); /* ✅ Black & white by default */
+}
+
+&:hover img {
+  filter: grayscale(0%); /* ✅ Restores color on hover */
+}
 `;
 
 const Blog = () => {
@@ -178,7 +186,6 @@ const Blog = () => {
               title: "The Future of Cloud Computing",
               desc: "Explore the latest advancements in cloud computing and what they mean for businesses of all sizes.",
             }
-            
           ].map((blog, index) => (
             <BlogCard key={index} to={blog.to}>
               <div className="image-wrapper">

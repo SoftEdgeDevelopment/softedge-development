@@ -3,11 +3,11 @@ import styled from "styled-components";
 const GradientLine = styled.div`
   width: 100%;
   height: 4px; /* ✅ Thin gradient line */
-  background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+  background: linear-gradient(90deg, black, grey, white); /* ✅ Updated to grayscale */
 `;
 
 const FooterTop = styled.div`
-  background-color: #222; /* Dark background */
+  background-color: #222; /* ✅ Dark background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ const Logo = styled.img`
 `;
 
 const MissionStatement = styled.p`
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6); /* ✅ Soft white text for readability */
   font-size: 0.75rem;
   margin: 0;
   text-align: center;
@@ -40,7 +40,7 @@ const MissionStatement = styled.p`
 
 const Outro = () => (
   <>
-    <GradientLine /> {/* ✅ Full-width gradient line */}
+    <GradientLine /> {/* ✅ Full-width grayscale gradient line */}
     <FooterTop>
       <a href="https://github.com/SoftEdgeDevelopment" target="_blank" rel="noopener noreferrer">
         <Logo src="/assets/logo.png" alt="SoftEdge Development Logo" />

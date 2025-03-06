@@ -25,9 +25,9 @@ const FooterSmallLinks = styled.div`
 
     /* Hover effect */
     &:hover {
-      background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
-      color: white;
-      border-color: white;
+      background: white; /* ✅ Grayscale gradient */
+      color: black;
+      border-color: black;
     }
 
     /* Gradient border */
@@ -38,7 +38,7 @@ const FooterSmallLinks = styled.div`
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+      background: linear-gradient(90deg, black, grey, white); /* ✅ Grayscale gradient */
       z-index: -1;
       border-radius: 8px;
       padding: 2px;

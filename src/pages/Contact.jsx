@@ -23,7 +23,7 @@ const BackgroundContainer = styled.div`
     width: 100%;
     height: 100%;
     background: url(${backgroundImage}) no-repeat center center/cover;
-    filter: blur(20px) brightness(1.3) opacity(0.6); // ✅ Matches project styling
+    filter: blur(20px) brightness(1.2) grayscale(100%) opacity(0.6); // ✅ Converted to grayscale
   }
 `;
 
@@ -38,7 +38,7 @@ const ContactWrapper = styled.div`
   z-index: 1; // Ensures content is above the background
 `;
 
-// Updated Title - Black font with white outline
+// Title
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
@@ -47,7 +47,7 @@ const Title = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
-// Updated Description - Text is white
+// Description
 const Description = styled.p`
   font-size: 1.125rem;
   color: white;
@@ -70,9 +70,9 @@ const ButtonGroup = styled.div`
 const Button = styled.button`
   padding: 0.75rem 1.5rem;
   background: white;
-  color: #4c1d95;
+  color: black;
   border: 2px solid;
-  border-image: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c) 1;
+  border-image: linear-gradient(90deg, black, grey, white) 1; // ✅ Changed to grayscale gradient
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
@@ -80,30 +80,30 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+    background: linear-gradient(90deg, black, grey, white);
     color: white;
     border-color: white;
   }
 `;
 
-// Updated Content Wrapper - Removed unwanted gradient border
+// Updated Content Wrapper
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2); // ✅ Glassmorphism effect
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2rem;
 `;
 
-// Updated Section Titles - Black font with a white outline
+// Section Titles
 const SectionTitle = styled.h3`
   font-size: 1.25rem;
   font-weight: bold;
@@ -112,7 +112,7 @@ const SectionTitle = styled.h3`
   margin-bottom: 1rem;
 `;
 
-// Updated Section Content - Text is white
+// Section Content
 const SectionContent = styled.p`
   font-size: 1rem;
   color: white;
@@ -169,32 +169,24 @@ const TextArea = styled.textarea`
   }
 `;
 
-// Submit button wrapper
-const SubmitButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-`;
-
 // Submit button styling
 const SubmitButton = styled.button`
   width: 100%;
   max-width: 350px;
   padding: 1rem;
   background: white;
-  color: #4c1d95;
+  color: black;
   font-weight: bold;
   font-size: 1rem;
   border: 2px solid;
-  border-image: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c) 1;
+  border-image: linear-gradient(90deg, black, grey, white) 1; // ✅ Changed to grayscale gradient
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
 
   &:hover {
-    background: linear-gradient(90deg, #4c1d95, #9d174d, #ea580c);
+    background: linear-gradient(90deg, black, grey, white);
     color: white;
     border-color: white;
   }
@@ -225,9 +217,7 @@ const Contact = () => {
           <>
             <SectionTitle>General Inquiries</SectionTitle>
             <SectionContent>
-              Have a question about our services, company, or partnership opportunities? We’re here to provide you with the information you need. 
-              Whether you are looking to collaborate, need details on our digital solutions, or have any general inquiries, our team is ready to assist. 
-              Reach out to us, and we will respond promptly with the answers you seek.
+              Have a question about our services, company, or partnership opportunities? We’re here to provide the information you need.
             </SectionContent>
           </>
         );
@@ -236,21 +226,16 @@ const Contact = () => {
           <>
             <SectionTitle>Customer & Technical Support</SectionTitle>
             <SectionContent>
-              Experiencing technical issues or need assistance with our services? Our dedicated support team is here to ensure a seamless experience for you. 
-              We provide timely troubleshooting, guidance on service-related concerns, and personalized support tailored to your needs. 
-              Contact us today for prompt assistance and solutions.
+              Experiencing technical issues? Our dedicated support team is ready to assist with troubleshooting and service concerns.
             </SectionContent>
           </>
         );
       case "careers":
         return (
           <>
-            <SectionTitle>Join Our Team – Careers at SoftEdge Development</SectionTitle>
+            <SectionTitle>Join Our Team</SectionTitle>
             <SectionContent>
-              At SoftEdge Development, we are always looking for innovative and passionate professionals who thrive in a fast-paced, technology-driven environment. 
-              If you are seeking career growth in software development, digital transformation, or cloud technologies, we’d love to hear from you. 
-              Explore exciting career opportunities, contribute to impactful projects, and grow alongside a team of talented individuals. 
-              Contact us to learn more about how you can be part of our dynamic and forward-thinking organization.
+              Looking for a career in software development? Check back for opportunities to be part of SoftEdge Development.
             </SectionContent>
           </>
         );
@@ -264,9 +249,7 @@ const Contact = () => {
       <BackgroundContainer />
       <ContactWrapper>
         <Title>Contact Us</Title>
-        <Description>
-          Whether you have a general inquiry, need support, or are exploring career opportunities, we’re here to help.
-        </Description>
+        <Description>Whether it's support, general inquiries, or career opportunities, we're here to help.</Description>
 
         <ButtonGroup>
           <Button onClick={() => setSelectedSection("support")}>Support</Button>
@@ -277,31 +260,21 @@ const Contact = () => {
         <ContentWrapper>{renderContent()}</ContentWrapper>
 
         <ContentWrapper>
-        <SectionTitle>Contact Form</SectionTitle>
+          <SectionTitle>Contact Form</SectionTitle>
           <form onSubmit={handleSubmit}>
             <FormField>
               <Label>Name</Label>
               <Input type="text" name="lastName" onChange={handleChange} placeholder="Enter your name" required />
             </FormField>
-
             <FormField>
               <Label>Email</Label>
               <Input type="email" name="email" onChange={handleChange} placeholder="Enter your email" required />
             </FormField>
-
-            <FormField>
-              <Label>Phone Number</Label>
-              <Input type="telephone" name="telephone" onChange={handleChange} placeholder="Enter your phone number" required />
-            </FormField>
-
             <FormField>
               <Label>Message</Label>
               <TextArea name="message" onChange={handleChange} placeholder="Enter your message" required />
             </FormField>
-
-            <SubmitButtonWrapper>
-              <SubmitButton type="submit">Send Message</SubmitButton>
-            </SubmitButtonWrapper>
+            <SubmitButton type="submit">Send Message</SubmitButton>
           </form>
         </ContentWrapper>
       </ContactWrapper>

@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Logo from "./components/Logo"; // ✅ Import Logo component
 import Navbar from "./components/Navbar"; // ✅ Import Navbar component
 import Footer from "./components/Footer";
 import Copyright from "./components/Copyright";
@@ -20,8 +19,6 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Brock from "./pages/Brock"; // ✅ Import Brock page
 import Error from "./components/Error"; // ✅ Import Error component for invalid routes
-import Donate from "./pages/Donate"; // ✅ Import Donate page
-import Donation from "./components/Donation"; // ✅ Import Donation component
 
 // Import individual blog post pages
 import Post01 from "./pages/blog/Post01";
@@ -32,7 +29,6 @@ function App() {
   return (
     <Router>
       <Header />
-      <Logo /> {/* ✅ Added Logo directly under Header */}
       <Routes>
         {/* Main Pages */}
         <Route path="/" element={<Home />} />
@@ -59,18 +55,13 @@ function App() {
         <Route path="/blog/post-02" element={<Post02 />} />
         <Route path="/blog/post-03" element={<Post03 />} />
 
-        {/* Donation Page */}
-        <Route path="/donate" element={<Donate />} />
-
         {/* Catch-all route for non-existent pages */}
         <Route path="*" element={<Error />} /> {/* ✅ Handles 404 errors */}
       </Routes>
+      
       <Outro />
-      
       <Footer />
-      <Donation />
       <Copyright />
-      
     </Router>
   );
 }
