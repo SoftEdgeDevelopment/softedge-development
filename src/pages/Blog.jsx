@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import backgroundImage from "../pages/assets/background.png"; // ✅ Correct path for background image
@@ -111,7 +111,8 @@ const BlogCard = styled(Link)`
     border: 2px solid black;
     border-radius: 12px;
   }
-    &:hover p {
+
+  &:hover p {
     color: black;
   }
 
@@ -141,21 +142,25 @@ const BlogCard = styled(Link)`
   }
 
   img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  position: absolute;
-  filter: grayscale(100%); /* ✅ Black & white by default */
-}
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    position: absolute;
+    filter: grayscale(100%); /* ✅ Black & white by default */
+  }
 
-&:hover img {
-  filter: grayscale(0%); /* ✅ Restores color on hover */
-}
+  &:hover img {
+    filter: grayscale(0%); /* ✅ Restores color on hover */
+  }
 `;
 
 const Blog = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // ✅ Ensures the page starts at the top
+  }, []);
+
   return (
     <>
       <BackgroundContainer />

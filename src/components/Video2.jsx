@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import videoFile1 from "../pages/assets/video2.mp4";
@@ -57,7 +57,6 @@ const StyledVideo = styled.video`
   border-radius: 14px;
   display: block;
   object-fit: cover;
-  pointer-events: none;
   filter: grayscale(100%); /* ✅ Initially grayscale */
   transition: filter 0.3s ease-in-out;
 
@@ -69,32 +68,20 @@ const StyledVideo = styled.video`
 const Video2 = () => {
   const navigate = useNavigate();
   const videoRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
-  const [isHovered, setIsHovered] = useState([false, false, false, false]);
 
   useEffect(() => {
     videoRefs.forEach((videoRef) => {
       if (videoRef.current) {
-        videoRef.current.addEventListener("loadedmetadata", () => {
-          videoRef.current.currentTime = videoRef.current.duration / 2; // ✅ Start in the middle (50%)
-        });
+        videoRef.current.currentTime = videoRef.current.duration / 2; // ✅ Start playing from the middle
+        videoRef.current.play().catch(() => {}); // ✅ Start playing automatically (handles browser autoplay restrictions)
       }
     });
   }, []);
 
-  // Handles hover behavior
-  const handleMouseEnter = (index) => {
-    setIsHovered((prev) => prev.map((val, i) => (i === index ? true : val)));
-    if (videoRefs[index].current) {
-      videoRefs[index].current.currentTime = 0; // ✅ Restart video from beginning
-      videoRefs[index].current.play();
-    }
-  };
-
-  const handleMouseLeave = (index) => {
-    setIsHovered((prev) => prev.map((val, i) => (i === index ? false : val)));
-    if (videoRefs[index].current) {
-      videoRefs[index].current.pause();
-    }
+  // Function to navigate and **scroll to the top**
+  const handleNavigation = (path) => {
+    window.scrollTo(0, 0); // ✅ Ensures the page starts at the top
+    navigate(path);
   };
 
   return (
@@ -105,13 +92,8 @@ const Video2 = () => {
         { video: videoFile4, link: "/careers" },
         { video: videoFile2, link: "/contact" },
       ].map((item, index) => (
-        <VideoWrapper
-          key={index}
-          onClick={() => navigate(item.link)}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={() => handleMouseLeave(index)}
-        >
-          <StyledVideo ref={videoRefs[index]} src={item.video} muted playsInline />
+        <VideoWrapper key={index} onClick={() => handleNavigation(item.link)}>
+          <StyledVideo ref={videoRefs[index]} src={item.video} muted loop playsInline />
         </VideoWrapper>
       ))}
     </VideoContainer>
