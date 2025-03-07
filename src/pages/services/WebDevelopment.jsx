@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import backgroundImage from "../assets/background.png"; // ✅ Background Image
 
-// Import images
-import dsImage1 from "../services/assets/ds1.png";
-import dsImage2 from "../services/assets/ds2.png";
-import dsImage3 from "../services/assets/ds3.png";
+// Import images (Keeping Original Names)
+import cloudImage1 from "../services/assets/cloud1.png";
+import cloudImage2 from "../services/assets/cloud2.png";
+import cloudImage3 from "../services/assets/cloud3.png";
 
 // Full-page background container
 const BackgroundContainer = styled.div`
@@ -32,8 +32,8 @@ const BackgroundContainer = styled.div`
   }
 `;
 
-// Wrapper for Digital Strategy content
-const DigitalStrategyWrapper = styled.div`
+// Wrapper for Web Development content
+const WebWrapper = styled.div`
   text-align: center;
   padding: 3rem 2rem;
   max-width: 1200px;
@@ -43,16 +43,16 @@ const DigitalStrategyWrapper = styled.div`
   z-index: 1;
 `;
 
-// Title Styling - White font with black outline
+// Title Styling
 const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: bold;
-  color: black; /* ✅ Change text color to black */
-text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white; /* ✅ Change outline to white */
+  color: black;
+  text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
   margin-bottom: 1.5rem;
 `;
 
-// Description Styling - Light grey text
+// Description Styling
 const Description = styled.p`
   font-size: 1.125rem;
   color: lightgrey;
@@ -71,7 +71,7 @@ const SectionWrapper = styled.div`
   margin-top: 3rem;
 `;
 
-// Image Styling - Grayscale border effect
+// Image Styling
 const Image = styled.img`
   width: 100%;
   max-width: 400px;
@@ -98,7 +98,7 @@ const TextWrapper = styled.div`
   max-width: 100%;
 `;
 
-// Subheading Styling - White font with black outline
+// Subheading Styling
 const SectionHeader = styled.h3`
   font-size: 1.5rem;
   font-weight: bold;
@@ -108,7 +108,7 @@ const SectionHeader = styled.h3`
   text-align: center;
 `;
 
-// Content Styling - Light grey text
+// Content Styling
 const SectionContent = styled.p`
   font-size: 1.125rem;
   color: lightgrey;
@@ -136,27 +136,25 @@ const Section = styled.div`
   }
 `;
 
-const DigitalStrategy = () => (
+const WebDevelopment = () => (
   <>
     <BackgroundContainer />
-    <DigitalStrategyWrapper>
-      <Title>Digital Strategy</Title>
+    <WebWrapper>
+      <Title>Web Development</Title>
       <Description>
-        Empower your business with tailored digital strategies that drive growth, innovation, and 
-        long-term success. We specialize in modern solutions that help businesses thrive in a 
-        rapidly evolving digital landscape.
+        Build fast, scalable, and modern web applications with **SoftEdge Development**.
+        Our team crafts **responsive, secure, and high-performance** websites that elevate your business presence.
       </Description>
 
       <SectionWrapper>
         {/* Left aligned image and right aligned text */}
         <Section justifyContent="flex-start">
-          <Image src={dsImage1} alt="Digital Transformation" />
+          <Image src={cloudImage1} alt="Frontend Development" />
           <TextWrapper>
-            <SectionHeader>Transforming Your Business Digitally</SectionHeader>
+            <SectionHeader>Frontend Development</SectionHeader>
             <SectionContent>
-              Digital transformation is the key to staying competitive. We implement strategies 
-              that integrate cutting-edge technology, streamline operations, and enhance customer 
-              engagement for sustainable business growth.
+              We create **pixel-perfect, highly interactive** UI/UX designs using **React.js, Vue.js, and Next.js**.
+              With modern frameworks like **Tailwind CSS and Bootstrap**, we ensure stunning and **responsive interfaces**.
             </SectionContent>
           </TextWrapper>
         </Section>
@@ -164,41 +162,38 @@ const DigitalStrategy = () => (
         {/* Right aligned image and left aligned text */}
         <Section justifyContent="flex-end">
           <TextWrapper>
-            <SectionHeader>Innovative Solutions for Growth</SectionHeader>
+            <SectionHeader>Backend & API Development</SectionHeader>
             <SectionContent>
-              Our data-driven approach to digital strategy enables businesses to adapt to market 
-              trends. From AI-driven automation to cloud-based solutions, we help you unlock 
-              new opportunities for growth and efficiency.
+              Our **backend services** leverage **Node.js, Express.js, and GraphQL** to create **scalable APIs**.
+              We integrate databases like **PostgreSQL and MongoDB**, ensuring fast and **secure data management**.
             </SectionContent>
           </TextWrapper>
-          <Image src={dsImage2} alt="Innovative Digital Solutions" />
+          <Image src={cloudImage2} alt="Backend Development" />
         </Section>
 
         {/* Left aligned image and right aligned text */}
         <Section justifyContent="flex-start">
-          <Image src={dsImage3} alt="Strategic Business Success" />
+          <Image src={cloudImage3} alt="Performance & Security" />
           <TextWrapper>
-            <SectionHeader>Achieving Long-Term Success</SectionHeader>
+            <SectionHeader>Performance & Security</SectionHeader>
             <SectionContent>
-              Our digital strategies focus on long-term value creation. By leveraging 
-              advanced analytics, market insights, and emerging technologies, we help 
-              businesses build scalable, future-ready models that stand the test of time.
+              Every web application we build is **optimized for speed and security**.
+              We implement **SEO best practices, performance enhancements, and security measures** to **keep your site fast and safe**.
             </SectionContent>
           </TextWrapper>
         </Section>
 
         {/* Additional Section for Business Impact */}
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
-          <SectionHeader>Comprehensive Digital Strategy for Business Growth</SectionHeader>
+          <SectionHeader>Scalable Web Solutions for Businesses</SectionHeader>
           <SectionContent>
-            A strong digital strategy drives efficiency, profitability, and innovation. We partner with businesses 
-            to create tailored solutions that align with their vision, ensuring long-term success in the 
-            ever-changing digital world.
+            Whether you need an **eCommerce store, SaaS platform, or a corporate website**, our development process
+            ensures a **scalable, secure, and future-ready solution** that grows with your business.
           </SectionContent>
         </div>
       </SectionWrapper>
-    </DigitalStrategyWrapper>
+    </WebWrapper>
   </>
 );
 
-export default DigitalStrategy;
+export default WebDevelopment;

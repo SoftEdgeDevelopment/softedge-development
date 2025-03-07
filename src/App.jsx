@@ -7,10 +7,7 @@ import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
-import DigitalStrategy from "./pages/services/DigitalStrategy";
-import AgileManagement from "./pages/services/AgileManagement";
-import BigDataAndDataScience from "./pages/services/BigDataAndDataScience";
-import CloudInfrastructures from "./pages/services/CloudInfrastructures";
+import WebDevelopment from "./pages/services/WebDevelopment";
 import QualityAndTestAutomation from "./pages/services/QualityAndTestAutomation";
 import UserExperienceDesign from "./pages/services/UserExperienceDesign";
 import Outro from "./components/Outro";
@@ -40,10 +37,7 @@ function App() {
         <Route path="/brock-altug" element={<Brock />} /> {/* ✅ Brock page added */}
 
         {/* Service Pages */}
-        <Route path="/services/digital-strategy" element={<DigitalStrategy />} />
-        <Route path="/services/agile-management" element={<AgileManagement />} />
-        <Route path="/services/big-data-data-science" element={<BigDataAndDataScience />} />
-        <Route path="/services/cloud-infrastructures" element={<CloudInfrastructures />} />
+        <Route path="/services/web-development" element={<WebDevelopment />} />
         <Route path="/services/quality-test-automation" element={<QualityAndTestAutomation />} />
         <Route path="/services/user-experience-design" element={<UserExperienceDesign />} />
 

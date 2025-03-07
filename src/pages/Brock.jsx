@@ -396,7 +396,7 @@ const Brock = () => {
     <div className="experience-header">
       <div className="experience-left">
         <h3 className="experience-title">QA Intern</h3>
-        <p className="experience-company">Mersys</p>
+        <p className="experience-company">Mersys.io</p>
         <div className="job-tags">
           <div className="tag-button">REMOTE</div>
           <div className="tag-button">INTERNSHIP</div>
@@ -417,29 +417,34 @@ const Brock = () => {
     </div>
   </div>
 
-  {/* Data Entry Specialist */}
+  {/* Junior IT Specialist */}
   <div className="experience-item">
     <div className="experience-header">
       <div className="experience-left">
-        <h3 className="experience-title">Data Entry Specialist</h3>
+        <h3 className="experience-title">Junior IT Specialist</h3>
         <p className="experience-company">BOSS Holding Company LLC</p>
         <div className="job-tags">
           <div className="tag-button">ON-SITE</div>
           <div className="tag-button">FULLTIME</div>
         </div>
       </div>
-      <p className="experience-date">Oct 2018 - Dec 2021</p>
+      <p className="experience-date">Oct 2020 - Dec 2021</p>
     </div>
     <p className="experience-description">
-      Managed large volumes of data with 99.9% accuracy, maintaining high standards of integrity. Streamlined workflows using automation tools, reducing manual entry time by 25%. Conducted audits to identify and resolve inconsistencies, reducing data-related errors by 20%. Trained new team members on data entry protocols and optimized reporting processes with advanced spreadsheet functionalities. Played a key role in migrating legacy data systems, improving accessibility and reducing redundancies.
+    Provided technical support for end users, assisting in troubleshooting hardware, software, and network-related issues 
+    to ensure operational efficiency. Installed, configured, and maintained workstations, ensuring up-to-date system software 
+    and security patches. Conducted routine system audits to identify and resolve performance bottlenecks, improving 
+    reliability and minimizing downtime. Assisted in the migration of legacy systems to cloud-based platforms, enhancing data 
+    accessibility and security. Maintained detailed documentation of IT assets, troubleshooting steps, and resolved technical 
+    issues to streamline future support requests.
     </p>
     <div className="technologies-buttons">
-      <div className="technology-buttonn">Data Entry</div>
-      <div className="technology-buttonn">Data Analysis</div>
-      <div className="technology-buttonn">Automation Tools</div>
-      <div className="technology-buttonn">Spreadsheet Functions</div>
-      <div className="technology-buttonn">Data Integrity</div>
-      <div className="technology-buttonn">Legacy Systems</div>
+      <div className="technology-buttonn">Technical Support</div>
+      <div className="technology-buttonn">System Configuration</div>
+      <div className="technology-buttonn">Network Troubleshooting</div>
+      <div className="technology-buttonn">Cloud Migration</div>
+      <div className="technology-buttonn">IT Asset Management</div>
+      <div className="technology-buttonn">System Audits</div>
     </div>
   </div>
 </section>
@@ -504,7 +509,7 @@ const Brock = () => {
   <div className="education-item">
     <div className="education-header">
       <div className="education-left">
-        <h3 className="education-title">QA Engineer Bootcamp</h3>
+        <h3 className="education-title">(SDET) QA Engineer Bootcamp</h3>
         <p className="education-company">Mersys.io</p>
         <div className="job-tags">
           <div className="tag-button">Completed Jul 2023</div>

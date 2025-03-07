@@ -151,10 +151,7 @@ const Navbar = () => {
         <Dropdown ref={dropdownRef}>
           <ServicesButton onClick={handleClick}>Services</ServicesButton>
           <DropdownContent isOpen={isDropdownOpen}>
-            <DropdownItem to="/services/digital-strategy" onClick={closeDropdown}>Digital Strategy</DropdownItem>
-            <DropdownItem to="/services/agile-management" onClick={closeDropdown}>Agile Management</DropdownItem>
-            <DropdownItem to="/services/big-data-data-science" onClick={closeDropdown}>Big Data & Data Science</DropdownItem>
-            <DropdownItem to="/services/cloud-infrastructures" onClick={closeDropdown}>Cloud Infrastructures</DropdownItem>
+            <DropdownItem to="/services/web-development" onClick={closeDropdown}>Web Development</DropdownItem>
             <DropdownItem to="/services/quality-test-automation" onClick={closeDropdown}>Quality & Test Automation</DropdownItem>
             <DropdownItem to="/services/user-experience-design" onClick={closeDropdown}>User Experience Design</DropdownItem>
           </DropdownContent>
