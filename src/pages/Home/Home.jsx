@@ -201,7 +201,7 @@ const Home = () => {
         {/* Services Section (Only 3 Services, Tighter Spacing) */}
         <ServicesWrapper>
           {[
-            { to: "/services/cloud-infrastructures", img: "/assets/cloud-infrastructure.svg", title: "Web Development" },
+            { to: "/services/web-development", img: "/assets/cloud-infrastructure.svg", title: "Web Development" },
             { to: "/services/quality-test-automation", img: "/assets/quality-automation.svg", title: "QA Automation" },
             { to: "/services/user-experience-design", img: "/assets/user-experience.png", title: "UX Design" },
           ].map((service, index) => (
