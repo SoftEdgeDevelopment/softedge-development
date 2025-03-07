@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Cursor from "./components/Cursor/Cursor"; // ✅ Custom cursor
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Copyright from "./components/Copyright";
@@ -28,7 +27,7 @@ import Post03 from "./pages/blog/Post03";
 function App() {
   return (
     <Router>
-      <Cursor /> {/* ✅ Custom animated cursor */}
+      
       <Header /> {/* ✅ Navbar should be inside Header */}
       
       <Routes>
