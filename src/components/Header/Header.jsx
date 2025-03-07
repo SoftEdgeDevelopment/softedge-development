@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.jsx";
 
 const HeaderWrapper = styled.header`
   background: linear-gradient(90deg, black, grey, white);

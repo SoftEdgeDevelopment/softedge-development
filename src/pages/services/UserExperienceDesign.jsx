@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import backgroundImage from "../assets/background.png"; // ✅ Background Image
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
 
 // Import images
-import uxImage1 from "../services/assets/ux1.png";
-import uxImage2 from "../services/assets/ux2.png";
-import uxImage3 from "../services/assets/ux3.png";
+import uxImage1 from "./assets/ux1.png";
+import uxImage2 from "./assets/ux2.png";
+import uxImage3 from "./assets/ux3.png";
 
 // Full-page background container
 const BackgroundContainer = styled.div`

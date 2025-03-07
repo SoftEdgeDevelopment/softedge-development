@@ -1,7 +1,8 @@
 import  { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import backgroundImage from "../pages/assets/background.png"; // ✅ Correct path for background image
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
+
 
 // Full-page background container
 const BackgroundContainer = styled.div`

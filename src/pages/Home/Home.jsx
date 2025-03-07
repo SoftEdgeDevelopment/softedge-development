@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import Video from "../components/Video";
-import Video2 from "../components/Video2";
-import backgroundImage from "../pages/assets/background.png";
+import Video from "../../components/Video";
+import Video2 from "../../components/Video2";
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
 
 // Background Container
 const BackgroundContainer = styled.div`

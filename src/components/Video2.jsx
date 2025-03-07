@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import videoFile1 from "../pages/assets/video2.mp4";
-import videoFile2 from "../pages/assets/video3.mp4";
-import videoFile3 from "../pages/assets/video.mp4";
-import videoFile4 from "../pages/assets/video4.mp4";
+import videoFile1 from "../../public/assets/video2.mp4";
+import videoFile2 from "../../public/assets/video3.mp4";
+import videoFile3 from "../../public/assets/video.mp4";
+import videoFile4 from "../../public/assets/video4.mp4";
 
 // Container for the videos with grid layout
 const VideoContainer = styled.div`

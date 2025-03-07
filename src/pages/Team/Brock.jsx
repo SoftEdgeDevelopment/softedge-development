@@ -1,18 +1,18 @@
-import profileImage from './assets/profile.png';
-import projectImageSoftEdge from './assets/project-softedge.png';
-import projectImage01 from './assets/project-01.png';
-import projectImage02 from './assets/project-02.png';
-import projectImage03 from './assets/project-03.png';
-import projectImage04 from './assets/project-04.png';
-import projectImage05 from './assets/project-05.png';
-import projectImage06 from './assets/project-06.png';
-import projectImage07 from './assets/project-07.png';
-import projectImage08 from './assets/project-08.png';
-import projectImage09 from './assets/project-09.png';
-import projectImage10 from './assets/project-10.png';
-import projectImage11 from './assets/project-11.png';
-import projectImage12 from './assets/project-12.png';
-import projectImage13 from './assets/project-13.png';
+import profileImage from '../../../public/assets/profile.png';
+import projectImageSoftEdge from '../../../public/assets/project-softedge.png';
+import projectImage01 from '../../../public/assets/project-01.png';
+import projectImage02 from '../../../public/assets/project-02.png';
+import projectImage03 from '../../../public/assets/project-03.png';
+import projectImage04 from '../../../public/assets/project-04.png';
+import projectImage05 from '../../../public/assets/project-05.png';
+import projectImage06 from '../../../public/assets/project-06.png';
+import projectImage07 from '../../../public/assets/project-07.png';
+import projectImage08 from '../../../public/assets/project-08.png';
+import projectImage09 from '../../../public/assets/project-09.png';
+import projectImage10 from '../../../public/assets/project-10.png';
+import projectImage11 from '../../../public/assets/project-11.png';
+import projectImage12 from '../../../public/assets/project-12.png';
+import projectImage13 from '../../../public/assets/project-13.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -20,7 +20,7 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import "./Brock.css";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import backgroundImage from "./assets/background.png"; // Adjust path if necessary
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
 import styled from "styled-components";
 
 // Background container for full-screen effect

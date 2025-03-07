@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaChartLine, FaLightbulb, FaDatabase } from "react-icons/fa";
-import backgroundImage from "../assets/background.png"; // ✅ Background Image
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
 
 // Full-page background container
 const BackgroundContainer = styled.div`

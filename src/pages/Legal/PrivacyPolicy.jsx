@@ -1,6 +1,6 @@
 import "react";
 import styled from "styled-components";
-import backgroundImage from "../pages/assets/background.png"; // ✅ Background Image
+import backgroundImage from "../../../public/assets/background.png"; // ✅ Background Image
 
 // Full-page background container
 const BackgroundContainer = styled.div`
