@@ -5,7 +5,7 @@ import { faTwitter, faGithub, faInstagram } from "@fortawesome/free-brands-svg-i
 import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 const FooterWrapper = styled.footer`
-  background: linear-gradient(90deg, black, grey, white); // ✅ Grayscale gradient
+  background: #222;
   width: 100vw;
   box-sizing: border-box;
   display: flex;
