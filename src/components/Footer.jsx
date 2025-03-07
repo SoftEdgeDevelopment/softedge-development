@@ -73,22 +73,30 @@ const FooterInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   gap: 0.5rem;
 
   a {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     color: white;
     text-decoration: none;
     font-size: 0.85rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    position: relative;
-    text-align: left;
-    width: fit-content;
+    text-align: center;
+    min-width: 240px; /* ✅ Slightly wider buttons */
+    max-width: 280px; /* ✅ More space to prevent squeezing */
+    width: 100%; /* ✅ Adjusts dynamically */
+    height: 44px; /* ✅ Slightly taller for balance */
     border: 2px solid black;
     transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-left: 1.5rem; /* ✅ Adds space inside button */
+    padding-right: 1.5rem; /* ✅ Adds space inside button */
 
     &:hover {
       background-color: white;
@@ -120,7 +128,6 @@ const FooterSocial = styled.div`
     border: 2px solid black;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    background: rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 
