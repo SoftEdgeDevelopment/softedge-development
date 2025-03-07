@@ -154,10 +154,10 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Useful Links</FooterTitle>
         <FooterLinks>
-          <FooterNavItem onClick={() => handleNavigation("/services/digital-strategy")}>Digital Strategy</FooterNavItem>
-          <FooterNavItem onClick={() => handleNavigation("/services/agile-management")}>Agile Management</FooterNavItem>
-          <FooterNavItem onClick={() => handleNavigation("/services/big-data-data-science")}>Big Data & Data Science</FooterNavItem>
-          <FooterNavItem onClick={() => handleNavigation("/services/cloud-infrastructures")}>Cloud Infrastructures</FooterNavItem>
+        <FooterNavItem onClick={() => handleNavigation("/")}>Home</FooterNavItem>
+        <FooterNavItem onClick={() => handleNavigation("/about")}>About Us</FooterNavItem>
+        <FooterNavItem onClick={() => handleNavigation("/blog")}>Blog</FooterNavItem>
+          <FooterNavItem onClick={() => handleNavigation("/services/web-development")}>Web Development</FooterNavItem>
           <FooterNavItem onClick={() => handleNavigation("/services/quality-test-automation")}>Quality & Test Automation</FooterNavItem>
           <FooterNavItem onClick={() => handleNavigation("/services/user-experience-design")}>User Experience Design</FooterNavItem>
         </FooterLinks>
