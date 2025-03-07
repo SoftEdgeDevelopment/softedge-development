@@ -360,7 +360,7 @@ const Brock = () => {
     <div className="experience-header">
       <div className="experience-left">
         <h3 className="experience-title">QA Engineer</h3>
-        <p className="experience-company">Nako Holding Company LLC</p>
+        <p className="experience-company">BOSS Holding Company LLC</p>
         <div className="job-tags">
           <div className="tag-button">REMOTE</div>
           <div className="tag-button">FULLTIME</div>
@@ -422,7 +422,7 @@ const Brock = () => {
     <div className="experience-header">
       <div className="experience-left">
         <h3 className="experience-title">Data Entry Specialist</h3>
-        <p className="experience-company">Nako Holding Company LLC</p>
+        <p className="experience-company">BOSS Holding Company LLC</p>
         <div className="job-tags">
           <div className="tag-button">ON-SITE</div>
           <div className="tag-button">FULLTIME</div>
@@ -530,13 +530,13 @@ const Brock = () => {
   <div className="education-item">
     <div className="education-header">
       <div className="education-left">
-        <h3 className="education-title">Bachelor’s Degree in CS</h3>
+        <h3 className="education-title">Associates’s Degree in CS</h3>
         <p className="education-company">Renton Technical College</p>
         <div className="job-tags">
           <div className="tag-button">Completed Jun 2022</div>
         </div>
       </div>
-      <p className="education-date">Sep 2018 - Jun 2022</p>
+      <p className="education-date">Sep 2020 - Jun 2022</p>
     </div>
     <p className="education-description">
       Developed a strong foundation in computer science principles, including data structures, algorithms, and software engineering. Gained hands-on experience in programming languages like Java, Python, and C++. Specialized in database management, application architecture, and system design, with a focus on relational and NoSQL databases.
