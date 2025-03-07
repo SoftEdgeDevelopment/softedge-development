@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cursor from "./components/Cursor/Cursor"; // ✅ Custom cursor
 import Header from "./components/Header";
-import Navbar from "./components/Navbar"; // ✅ Import Navbar component
 import Footer from "./components/Footer";
 import Copyright from "./components/Copyright";
 import Home from "./pages/Home";
@@ -17,8 +17,8 @@ import UserExperienceDesign from "./pages/services/UserExperienceDesign";
 import Outro from "./components/Outro";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Brock from "./pages/Brock"; // ✅ Import Brock page
-import Error from "./components/Error"; // ✅ Import Error component for invalid routes
+import Brock from "./pages/Brock"; // ✅ Brock page added
+import Error from "./components/Error"; // ✅ Handles 404 errors
 
 // Import individual blog post pages
 import Post01 from "./pages/blog/Post01";
@@ -28,7 +28,9 @@ import Post03 from "./pages/blog/Post03";
 function App() {
   return (
     <Router>
-      <Header />
+      <Cursor /> {/* ✅ Custom animated cursor */}
+      <Header /> {/* ✅ Navbar should be inside Header */}
+      
       <Routes>
         {/* Main Pages */}
         <Route path="/" element={<Home />} />
