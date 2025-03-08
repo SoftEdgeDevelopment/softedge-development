@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavWrapper = styled.div`
   background: #222;
@@ -16,8 +16,8 @@ const NavWrapper = styled.div`
   height: 50px;
 
   @media (max-width: 768px) {
-    height: 45px; /* Slightly smaller on mobile */
-    padding: 0 8px; /* Add a little side spacing */
+    height: 45px;
+    padding: 0 8px;
   }
 `;
 
@@ -30,7 +30,7 @@ const Nav = styled.nav`
   align-items: center;
 
   @media (max-width: 768px) {
-    gap: 0.5rem; /* Reduce gap between items on mobile */
+    gap: 0.5rem;
   }
 `;
 
@@ -54,8 +54,8 @@ const NavItem = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem; /* Slightly smaller text */
-    padding: 0.3rem 0.8rem; /* Less padding to prevent overlap */
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
   }
 `;
 
@@ -99,7 +99,7 @@ const DropdownContent = styled.div`
   border: 2px solid black;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+  display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
   z-index: 10;
 `;
 
@@ -136,7 +136,6 @@ const DropdownItem = styled(Link)`
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const location = useLocation();
 
   const handleClick = () => {
     setDropdownOpen((prev) => !prev);
@@ -162,7 +161,7 @@ const Navbar = () => {
 
         <Dropdown ref={dropdownRef}>
           <ServicesButton onClick={handleClick}>Services</ServicesButton>
-          <DropdownContent isOpen={isDropdownOpen}>
+          <DropdownContent $isOpen={isDropdownOpen}>
             <DropdownItem to="/services/web-development" onClick={closeDropdown}>
               Web Development
             </DropdownItem>

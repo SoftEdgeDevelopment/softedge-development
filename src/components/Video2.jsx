@@ -57,11 +57,11 @@ const StyledVideo = styled.video`
   border-radius: 14px;
   display: block;
   object-fit: cover;
-  filter: grayscale(100%); /* ✅ Initially grayscale */
+  filter: grayscale(100%);
   transition: filter 0.3s ease-in-out;
 
   ${VideoWrapper}:hover & {
-    filter: grayscale(0%); /* ✅ Full color on hover */
+    filter: grayscale(0%);
   }
 `;
 
@@ -72,15 +72,23 @@ const Video2 = () => {
   useEffect(() => {
     videoRefs.forEach((videoRef) => {
       if (videoRef.current) {
-        videoRef.current.currentTime = videoRef.current.duration / 2; // ✅ Start playing from the middle
-        videoRef.current.play().catch(() => {}); // ✅ Start playing automatically (handles browser autoplay restrictions)
+        // Ensure the video has a valid duration before setting currentTime
+        const setVideoTime = () => {
+          if (!isNaN(videoRef.current.duration) && isFinite(videoRef.current.duration)) {
+            videoRef.current.currentTime = videoRef.current.duration / 2;
+            videoRef.current.play().catch(() => {}); // Handle autoplay restrictions
+          }
+        };
+
+        videoRef.current.addEventListener("loadedmetadata", setVideoTime);
+        return () => videoRef.current.removeEventListener("loadedmetadata", setVideoTime);
       }
     });
   }, []);
 
-  // Function to navigate and **scroll to the top**
+  // Function to navigate and scroll to the top
   const handleNavigation = (path) => {
-    window.scrollTo(0, 0); // ✅ Ensures the page starts at the top
+    window.scrollTo(0, 0);
     navigate(path);
   };
 
@@ -93,7 +101,14 @@ const Video2 = () => {
         { video: videoFile2, link: "/contact" },
       ].map((item, index) => (
         <VideoWrapper key={index} onClick={() => handleNavigation(item.link)}>
-          <StyledVideo ref={videoRefs[index]} src={item.video} muted loop playsInline />
+          <StyledVideo
+            ref={videoRefs[index]}
+            src={item.video}
+            muted
+            loop
+            playsInline
+            autoPlay
+          />
         </VideoWrapper>
       ))}
     </VideoContainer>
