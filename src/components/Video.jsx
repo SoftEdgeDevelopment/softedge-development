@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import styled from "styled-components";
 import videoFile from "../../public/assets/video1.mp4"; // ✅ Using your original path
 
