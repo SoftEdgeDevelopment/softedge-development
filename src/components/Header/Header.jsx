@@ -68,6 +68,7 @@ const ContactButton = styled.a`
     background-color: white;
     color: black;
     border-color: black;
+    border-radius: 16px;
   }
 
   @media (max-width: 768px) {

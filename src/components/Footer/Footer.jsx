@@ -66,6 +66,7 @@ const FooterNavItem = styled(Link)`
     background: white;
     color: black;
     border-color: black;
+    border-radius: 16px;
   }
 `;
 
@@ -102,6 +103,7 @@ const FooterInfo = styled.div`
       background-color: white;
       color: black;
       border-color: black;
+      border-radius: 16px;
     }
 
     svg {
@@ -135,6 +137,7 @@ const FooterSocial = styled.div`
       background-color: white;
       color: black;
       border-color: black;
+      border-radius: 16px;
     }
   }
 `;
