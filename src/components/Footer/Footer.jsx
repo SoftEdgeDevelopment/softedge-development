@@ -157,9 +157,10 @@ const Footer = () => (
       <FooterColumn>
         <FooterTitle>Useful Links</FooterTitle>
         <FooterLinks>
-        <FooterNavItem onClick={() => handleNavigation("/")}>Home</FooterNavItem>
-        <FooterNavItem onClick={() => handleNavigation("/about")}>About Us</FooterNavItem>
         <FooterNavItem onClick={() => handleNavigation("/blog")}>Blog</FooterNavItem>
+        <FooterNavItem onClick={() => handleNavigation("/about")}>About Us</FooterNavItem>
+        <FooterNavItem onClick={() => handleNavigation("/careers")}>Careers</FooterNavItem>
+        
           <FooterNavItem onClick={() => handleNavigation("/services/web-development")}>Web Development</FooterNavItem>
           <FooterNavItem onClick={() => handleNavigation("/services/quality-test-automation")}>Quality & Test Automation</FooterNavItem>
           <FooterNavItem onClick={() => handleNavigation("/services/user-experience-design")}>User Experience Design</FooterNavItem>
