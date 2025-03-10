@@ -173,9 +173,6 @@ const Navbar = () => {
             </DropdownItem>
           </DropdownContent>
         </Dropdown>
-
-        <NavItem to="/careers">Careers</NavItem>
-        <NavItem to="/blog">Blog</NavItem>
         <NavItem to="/contact">Contact</NavItem>
       </Nav>
     </NavWrapper>
