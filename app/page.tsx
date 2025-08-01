@@ -59,7 +59,7 @@ const ServiceCard = memo(({ service, onNavigate }: { service: any; onNavigate: (
     }`}
     onClick={() => onNavigate(service.href)}
   >
-    <CardContent className="p-6 flex flex-col h-full">
+    <CardContent className="p-4 md:p-6 flex flex-col h-full">
       <div className="text-center mb-6">
         <div className={`inline-flex p-4 rounded-full ${service.gradient} mb-4`}>
           <div className="text-white">{service.icon}</div>
@@ -436,10 +436,10 @@ Sent on: ${new Date().toLocaleString()}`
         <Navigation />
 
         {/* Hero Section - More Compact */}
-        <section id="home" className="min-h-[85vh] flex items-center justify-center px-4 py-16">
+        <section id="home" className="flex items-center justify-center px-4 pt-24 pb-12">
           <div className="max-w-6xl mx-auto w-full text-center">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-              <CardContent className="p-6 md:p-10">
+              <CardContent className="p-4 md:p-10">
                 <div className="space-y-6">
                   <div>
                     <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-3">
@@ -484,9 +484,9 @@ Sent on: ${new Date().toLocaleString()}`
         </section>
 
         {/* About Section - More Compact */}
-        <section id="about" className="py-12 px-4">
+        <section id="about" className="py-8 md:py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">About SoftEdge Development</h2>
               <p className="text-white/80 max-w-2xl mx-auto text-sm">
                 We are passionate developers, designers, and QA experts dedicated to creating exceptional digital
@@ -499,7 +499,7 @@ Sent on: ${new Date().toLocaleString()}`
                 className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl hover:bg-white/10 transition-all duration-300 group cursor-pointer"
                 onClick={() => setMissionModalOpen(true)}
               >
-                <CardContent className="p-5">
+                <CardContent className="p-4">
                   <div className="flex items-center mb-3">
                     <div className="p-2 rounded-lg gradient-mission mr-3">
                       <Users className="w-4 h-4 text-white" />
@@ -517,7 +517,7 @@ Sent on: ${new Date().toLocaleString()}`
                 className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl hover:bg-white/10 transition-all duration-300 group cursor-pointer"
                 onClick={() => setApproachModalOpen(true)}
               >
-                <CardContent className="p-5">
+                <CardContent className="p-4">
                   <div className="flex items-center mb-3">
                     <div className="p-2 rounded-lg gradient-approach mr-3">
                       <Zap className="w-4 h-4 text-white" />
@@ -535,9 +535,9 @@ Sent on: ${new Date().toLocaleString()}`
         </section>
 
         {/* Services Section - Enhanced */}
-        <section id="services" className="py-12 px-4">
+        <section id="services" className="py-8 md:py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Our Services</h2>
               <p className="text-white/80 max-w-2xl mx-auto text-sm">
                 Comprehensive technology solutions to help your business thrive in the digital landscape.
@@ -553,9 +553,9 @@ Sent on: ${new Date().toLocaleString()}`
         </section>
 
         {/* Contact Section - Enhanced */}
-        <section id="contact" className="py-12 px-4">
+        <section id="contact" className="py-8 md:py-12 px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
+            <div className="text-center mb-6">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Get In Touch</h2>
               <p className="text-white/80 max-w-2xl mx-auto text-sm">
                 Ready to start your next project? Let's discuss how we can help bring your vision to life.
@@ -563,7 +563,7 @@ Sent on: ${new Date().toLocaleString()}`
             </div>
 
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-lg font-bold text-white mb-4">Contact Information</h3>
@@ -655,10 +655,10 @@ Sent on: ${new Date().toLocaleString()}`
         </section>
 
         {/* Footer - More Compact */}
-        <footer className="py-8 px-4 border-t border-white/10">
+        <footer className="py-6 md:py-8 px-4 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="grid md:grid-cols-4 gap-6">
                   {/* Company Info */}
                   <div className="md:col-span-2">
@@ -757,7 +757,7 @@ Sent on: ${new Date().toLocaleString()}`
                         Seattle, Washington
                       </button>
                       <a
-                        href="/portfolio"
+                        href="/brockaltug"
                         className="block text-white/70 hover:text-white transition-colors text-xs pt-2 border-t border-white/10 mt-2"
                       >
                         View Portfolio

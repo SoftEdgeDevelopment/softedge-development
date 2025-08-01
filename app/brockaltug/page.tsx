@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import {
   Mail,
@@ -25,6 +25,8 @@ import {
   Star,
   Users,
   Target,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -34,7 +36,7 @@ const projects = [
   {
     id: 1,
     title: "SoftEdge Development",
-    image: "/assets/softedge-homepage.png",
+    image: "/assets/softedge-updated.png",
     url: "https://softedgedevelopment.com",
     category: "Web Development",
     description:
@@ -1225,9 +1227,33 @@ export default function Portfolio() {
   const [selectedCertification, setSelectedCertification] = useState<(typeof certifications)[0] | null>(null)
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [skillsModalOpen, setSkillsModalOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0)
 
   const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))]
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter)
+
+  // Pagination logic - 12 projects per page
+  const projectsPerPage = 12
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage)
+  const startIndex = currentPage * projectsPerPage
+  const currentProjects = filteredProjects.slice(startIndex, startIndex + projectsPerPage)
+
+  // Reset to first page when filter changes
+  useEffect(() => {
+    setCurrentPage(0)
+  }, [activeFilter])
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
 
   const exportToPDF = async () => {
     const element = document.querySelector(".app-container") as HTMLElement
@@ -1363,10 +1389,10 @@ export default function Portfolio() {
 
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="min-h-[60vh] flex items-center justify-center px-4 py-6">
+        <section className="min-h-0 md:min-h-[60vh] flex items-center justify-center px-4 py-8 md:py-6">
           <div className="max-w-6xl mx-auto w-full">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-4 md:p-8">
                 <div className="grid md:grid-cols-2 gap-6 items-center">
                   <div className="space-y-4">
                     <div>
@@ -1438,13 +1464,13 @@ export default function Portfolio() {
         </section>
 
         {/* About Section */}
-        <section className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">About Me</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">About Me</h2>
 
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <p className="text-white/90 leading-relaxed text-sm">
                     With a solid foundation in <strong className="text-blue-300">Full Stack Development</strong> and{" "}
                     <strong className="text-blue-300">Automation Testing</strong>, I am committed to delivering
@@ -1461,7 +1487,7 @@ export default function Portfolio() {
               </Card>
 
               <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <h3 className="text-lg font-bold text-white mb-3 text-center">Core Competencies</h3>
                   <div className="grid grid-cols-2 gap-2">
                     {coreCompetencies.map((competency) => (
@@ -1482,9 +1508,9 @@ export default function Portfolio() {
         </section>
 
         {/* Skills Section - Optimized for Performance */}
-        <section className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Technical Skills</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">Technical Skills</h2>
             <p className="text-white/80 text-center mb-4 text-sm max-w-4xl mx-auto">
               With a comprehensive set of skills in web development, automation testing, and software engineering, I am
               proficient in a range of technologies and frameworks. These competencies allow me to build scalable,
@@ -1494,7 +1520,7 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 gap-4">
               {/* Tech Stacks Card */}
               <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <h3 className="text-lg font-bold text-white mb-4 text-center">Technology Stacks</h3>
                   <div className="flex flex-wrap justify-center gap-3">
                     {[
@@ -1523,7 +1549,7 @@ export default function Portfolio() {
                 className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl cursor-pointer hover:bg-white/10 transition-all duration-300"
                 onClick={() => setSkillsModalOpen(true)}
               >
-                <CardContent className="p-6">
+                <CardContent className="p-4">
                   <h3 className="text-lg font-bold text-white mb-4 text-center">Core Technical Skills</h3>
                   <div className="grid grid-cols-3 gap-2 mb-4">
                     {[
@@ -1560,9 +1586,9 @@ export default function Portfolio() {
         </section>
 
         {/* Experience Section */}
-        <section className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Experience</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">Experience</h2>
 
             <div className="space-y-3">
               {experiences.map((exp, index) => (
@@ -1614,9 +1640,9 @@ export default function Portfolio() {
         </section>
 
         {/* Education Section */}
-        <section className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Education</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">Education</h2>
 
             <div className="space-y-3">
               {/* Full Stack Web Development Bootcamp */}
@@ -1748,8 +1774,10 @@ export default function Portfolio() {
                   {certifications.map((cert) => (
                     <Card
                       key={cert.id}
-                      className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl cursor-pointer hover:bg-white/10 transition-all duration-300 group"
-                      onClick={() => setSelectedCertification(cert)}
+                      className={`backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl transition-all duration-300 group ${
+                        cert.image ? "cursor-pointer hover:bg-white/10" : ""
+                      }`}
+                      onClick={() => cert.image && setSelectedCertification(cert)}
                     >
                       <CardContent className="p-4">
                         <div className="flex items-start justify-between mb-3">
@@ -1781,14 +1809,16 @@ export default function Portfolio() {
                           )}
                         </div>
 
-                        <div className="text-right">
-                          <Badge
-                            variant="outline"
-                            className="border-blue-400/30 text-blue-200 text-[10px] px-2 py-1 group-hover:border-blue-300 transition-colors"
-                          >
-                            View Certificate
-                          </Badge>
-                        </div>
+                        {cert.image && (
+                          <div className="text-right">
+                            <Badge
+                              variant="outline"
+                              className="border-blue-400/30 text-blue-200 text-[10px] px-2 py-1 group-hover:border-blue-300 transition-colors"
+                            >
+                              View Certificate
+                            </Badge>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   ))}
@@ -1799,9 +1829,9 @@ export default function Portfolio() {
         </section>
 
         {/* Projects Section */}
-        <section className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Featured Projects</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-3">Featured Projects</h2>
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
@@ -1810,7 +1840,10 @@ export default function Portfolio() {
                   key={category}
                   variant={activeFilter === category ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setActiveFilter(category)}
+                  onClick={() => {
+                    setActiveFilter(category)
+                    setCurrentPage(0) // Reset to first page when filter changes
+                  }}
                   className={`${
                     activeFilter === category
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0"
@@ -1822,44 +1855,94 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Projects Grid */}
-            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
-              {filteredProjects.map((project, index) => (
-                <div
-                  key={project.id}
-                  className="group cursor-pointer transform hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 overflow-hidden h-full">
-                    <div className="aspect-square relative overflow-hidden">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ExternalLink className="w-3 h-3 text-white" />
+            {/* Projects Grid with Navigation */}
+            <div className="relative">
+              {/* Navigation Arrows - Fixed positioning */}
+              {totalPages > 1 && (
+                <>
+                  <Button
+                    onClick={prevPage}
+                    disabled={currentPage === 0}
+                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed p-2 h-10 w-10 rounded-full"
+                    size="sm"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </Button>
+                  <Button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages - 1}
+                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed p-2 h-10 w-10 rounded-full"
+                    size="sm"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </Button>
+                </>
+              )}
+
+              {/* Projects Grid */}
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-3 px-2">
+                {currentProjects.map((project, index) => (
+                  <div
+                    key={project.id}
+                    className="group cursor-pointer transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 h-full"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-lg hover:bg-white/10 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                      <div className="aspect-square relative overflow-hidden">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <ExternalLink className="w-3 h-3 text-white" />
+                        </div>
                       </div>
-                    </div>
-                    <CardContent className="p-2">
-                      <h3 className="text-white font-medium text-[10px] mb-1 line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight">
-                        {project.title}
-                      </h3>
-                      <Badge variant="outline" className="border-blue-400/30 text-blue-200 text-[8px] px-1 py-0">
-                        {project.category}
-                      </Badge>
-                    </CardContent>
-                  </Card>
+                      <CardContent className="p-2 flex-grow flex flex-col justify-between">
+                        <h3 className="text-white font-medium text-[10px] mb-2 line-clamp-2 group-hover:text-blue-300 transition-colors leading-tight flex-grow">
+                          {project.title}
+                        </h3>
+                        <div className="mt-auto">
+                          <Badge
+                            variant="outline"
+                            className="border-blue-400/30 text-blue-200 text-[8px] px-1 py-0 w-full justify-center"
+                          >
+                            {project.category}
+                          </Badge>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+
+              {/* Page Indicators */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-2 mt-4">
+                  <div className="flex gap-1">
+                    {Array.from({ length: totalPages }, (_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentPage(i)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          i === currentPage ? "bg-blue-400" : "bg-white/30 hover:bg-white/50"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-white/60 text-xs ml-2">
+                    {currentPage + 1} / {totalPages}
+                  </span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="py-6 px-4">
+        <section className="py-4 md:py-6 px-4">
           <div className="max-w-6xl mx-auto">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
               <CardContent className="p-4">
@@ -1952,7 +2035,7 @@ export default function Portfolio() {
               </CardContent>
             </Card>
           </div>
-        </footer>
+        </section>
 
         {/* Project Modal */}
         {selectedProject && (
@@ -2219,64 +2302,4 @@ export default function Portfolio() {
             <Card className="backdrop-blur-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 border border-blue-400/30 shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto transform animate-in fade-in-0 zoom-in-95 duration-300">
               <CardContent className="p-0">
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 rounded-t-lg">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center">
-                      <div className="p-3 rounded-full bg-white/20 mr-4">
-                        <Code className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-white">All Technical Skills</h2>
-                        <p className="text-blue-100 text-sm">Complete technology stack and expertise</p>
-                      </div>
-                    </div>
-                    <Button
-                      onClick={() => setSkillsModalOpen(false)}
-                      variant="ghost"
-                      size="sm"
-                      className="text-white hover:bg-white/20 p-2"
-                    >
-                      <X className="w-5 h-5" />
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2">
-                    {skillsWithLinks.map((skill) => (
-                      <div key={skill.name} className="group">
-                        <div
-                          className="backdrop-blur-xl bg-white/5 border border-white/10 shadow-lg hover:bg-white/10 transition-colors duration-200 cursor-pointer h-full rounded-lg"
-                          onClick={() => window.open(skill.url, "_blank")}
-                        >
-                          <div className="p-2 flex flex-col items-center justify-center text-center min-h-[50px]">
-                            <div className="text-blue-300 mb-1 group-hover:text-blue-200 transition-colors duration-200">
-                              {skill.icon}
-                            </div>
-                            <span className="text-white/90 text-[9px] font-medium group-hover:text-white transition-colors duration-200 leading-tight">
-                              {skill.name}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-center mt-6">
-                    <Button
-                      onClick={() => setSkillsModalOpen(false)}
-                      className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white border-0 px-8 py-3 text-lg font-medium shadow-lg hover:scale-105 transition-all"
-                    >
-                      Close
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+                <div className=\"bg
