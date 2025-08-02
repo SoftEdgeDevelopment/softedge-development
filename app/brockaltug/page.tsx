@@ -35,6 +35,54 @@ import { Badge } from "@/components/ui/badge"
 const projects = [
   {
     id: 1,
+    title: "Cosmic Plinko - #BovadaPlinkoChallenge Winner",
+    image: "/assets/cosmic-plinko.png",
+    url: "https://bovadacosmicplinkochallange.netlify.app",
+    category: "PWA",
+    description:
+      "🏆 1st Place Winner of the $5,000 #BovadaPlinkoChallenge! Cosmic Plinko is a fast, cosmic-themed PWA game featuring realistic ball physics, turbo mode, immersive audio, and a mobile-friendly experience — all playable directly in the browser, downloadable as a PWA.",
+    longDescription:
+      "Cosmic Plinko is a space-themed, browser-based Plinko game that won 1st place 🏆 in the $5,000 #BovadaPlinkoChallenge. The game combines fast-paced, physics-based ball simulation with electric multipliers, free drops, and immersive audio for a fully polished arcade experience. Built with modern web technologies including Next.js, TypeScript, Canvas API, and Web Audio API, it features realistic ball physics with simulated gravity, bounce, velocity, and randomness. The game includes electric multiplier lines that boost prizes by 2x–5x with stackable multiplier zones, free drops mode for bonus balls and extra payouts, turbo mode for 2x speed gameplay, and a live balance tracker for real-time tracking of wins, losses, and bets. As a Progressive Web App, it works offline and is installable on both mobile and desktop devices.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "PWA",
+      "Canvas API",
+      "Web Audio API",
+      "Service Workers",
+      "TailwindCSS",
+      "HTML5",
+      "CSS3",
+      "Netlify",
+    ],
+    features: [
+      "Realistic Ball Physics Engine",
+      "Electric Multiplier Lines (2x-5x)",
+      "Free Drops Bonus Mode",
+      "Turbo Mode (2x Speed)",
+      "Immersive Web Audio",
+      "Progressive Web App (PWA)",
+      "Offline Support",
+      "Mobile & Desktop Compatible",
+      "Live Balance Tracking",
+      "Cosmic Theme & Particle Effects",
+    ],
+    metrics: {
+      "Challenge Placement": "1st Place 🏆",
+      "Prize Won": "$5,000",
+      "PWA Score": "95/100",
+      Performance: "< 1s load time",
+      "Mobile Compatible": "100%",
+    },
+    timeline: "2 months",
+    role: "Full Stack PWA Developer & Game Designer",
+    challenges:
+      "Creating a high-performance, physics-based game that runs smoothly across all devices while implementing complex multiplier systems, audio synchronization, and PWA functionality for offline play.",
+    solutions:
+      "Utilized Canvas API for optimized rendering, implemented efficient physics calculations with requestAnimationFrame, integrated Web Audio API for immersive sound, and leveraged service workers for reliable offline functionality and PWA installation.",
+  },
+  {
+    id: 2,
     title: "SoftEdge Development",
     image: "/assets/softedge-updated.png",
     url: "https://softedgedevelopment.com",
@@ -65,11 +113,11 @@ const projects = [
       "Implemented Next.js for optimal performance, used Tailwind CSS for consistent styling, and focused on clean design principles with strategic use of animations and responsive layouts.",
   },
   {
-    id: 2,
+    id: 3,
     title: "Vibez Tune Music App",
     image: "/assets/project-13.png",
     url: "https://vibez-tune-music-app.onrender.com",
-    category: "Full Stack",
+    category: "Fullstack",
     description:
       "Explore and save your favorite songs 🎶 view lyrics, and create a personalized library. Built with the MERN stack, Apollo GraphQL, and JWT for secure authentication.",
     longDescription:
@@ -96,7 +144,7 @@ const projects = [
       "Used Apollo GraphQL for efficient data fetching, implemented JWT for secure authentication, and optimized API calls with proper caching strategies.",
   },
   {
-    id: 3,
+    id: 4,
     title: "ORM E-commerce Backend",
     image: "/assets/project-05.png",
     url: "https://github.com/BrockAltug/orm-ecom-backend",
@@ -127,11 +175,11 @@ const projects = [
       "Implemented proper Sequelize associations with junction tables, created efficient database indexes, and established comprehensive validation rules.",
   },
   {
-    id: 4,
+    id: 5,
     title: "Express Note Taker",
     image: "/assets/project-09.png",
     url: "https://note-taker-2l31.onrender.com",
-    category: "Full Stack",
+    category: "Fullstack",
     description:
       "A simple and efficient 📝 note taking application for creating, viewing, and managing notes. Built with Node.js and Express.js, it features persistent storage and an intuitive interface.",
     longDescription:
@@ -158,11 +206,11 @@ const projects = [
       "Used UUID for unique identifiers, implemented atomic file operations, and created efficient JSON-based storage with proper error handling.",
   },
   {
-    id: 5,
+    id: 6,
     title: "YourSpace Social Media Platform",
     image: "/assets/project-06.png",
     url: "https://yourspace-4rjs.onrender.com",
-    category: "Full Stack",
+    category: "Fullstack",
     description:
       "YourSpace 🌐 is an interactive social media platform designed to foster meaningful connections through features like personalized profiles, posts, comments, and real-time engagement.",
     longDescription:
@@ -189,11 +237,11 @@ const projects = [
       "Implemented efficient database schemas, used Multer for secure file handling, and optimized queries with proper indexing and caching strategies.",
   },
   {
-    id: 6,
+    id: 7,
     title: "SEO Roadmap Guide",
     image: "/assets/project-07.png",
     url: "https://softedgedevelopment.github.io/seo-roadmap/",
-    category: "Documentation",
+    category: "Frontend",
     description:
       "An open-source SEO guide designed to simplify the process of learning and implementing SEO strategies. A comprehensive roadmap for beginners, business owners, and developers.",
     longDescription:
@@ -220,7 +268,7 @@ const projects = [
       "Developed modular content structure, implemented responsive design principles, and created an open-source approach for community contributions and updates.",
   },
   {
-    id: 7,
+    id: 8,
     title: "NoSQL Social Network API",
     image: "/assets/project-01.png",
     url: "https://github.com/BrockAltug/social-network-api",
@@ -251,11 +299,11 @@ const projects = [
       "Implemented efficient Mongoose schemas with proper indexing, used MongoDB aggregation pipelines for complex queries, and created comprehensive API documentation.",
   },
   {
-    id: 8,
+    id: 9,
     title: "MERN Book Search Engine",
     image: "/assets/project-02.png",
     url: "https://mern-book-search-engine-kisn.onrender.com",
-    category: "Full Stack",
+    category: "Fullstack",
     description:
       "📚 MERN Book Search Engine refactored with GraphQL and Apollo: Search, save, and manage books seamlessly. Fully deployed on Render with MongoDB Atlas.",
     longDescription:
@@ -293,11 +341,11 @@ const projects = [
       "Implemented Apollo GraphQL with optimized resolvers, integrated Google Books API efficiently, and used JWT for secure authentication with MongoDB Atlas.",
   },
   {
-    id: 9,
+    id: 10,
     title: "MVC Tech Blog",
     image: "/assets/project-03.png",
     url: "https://mvc-tech-blog-bzaw.onrender.com/",
-    category: "Full Stack",
+    category: "Fullstack",
     description:
       "MVC Tech Blog 🖥️ CMS-style blog built with the MVC architecture, where developers can publish posts, comment, and share their thoughts on tech.",
     longDescription:
@@ -324,7 +372,7 @@ const projects = [
       "Used Handlebars.js for clean view separation, implemented secure session-based authentication, and created efficient database relationships for posts and comments.",
   },
   {
-    id: 10,
+    id: 11,
     title: "PWA Text Editor (JATE)",
     image: "/assets/project-04.png",
     url: "https://pwa-text-editor-ewu6.onrender.com",
@@ -355,7 +403,7 @@ const projects = [
       "Implemented robust service worker strategies, used IndexedDB for reliable offline storage, and utilized Workbox for optimal PWA performance and caching.",
   },
   {
-    id: 11,
+    id: 12,
     title: "SQL Employee Tracker",
     image: "/assets/project-08.png",
     url: "https://brockaltug.github.io/sql-employee-tracker/",
@@ -386,7 +434,7 @@ const projects = [
       "Used Inquirer.js for user-friendly prompts, implemented proper PostgreSQL relationships, and created efficient queries with console.table for data visualization.",
   },
   {
-    id: 12,
+    id: 13,
     title: "Weather Dashboard",
     image: "/assets/project-10.png",
     url: "https://brockaltug.github.io/server-side-api-weather-dashboard/",
@@ -417,7 +465,7 @@ const projects = [
       "Implemented efficient API caching with local storage, created responsive layouts with CSS Grid and Flexbox, and optimized API calls for better performance.",
   },
   {
-    id: 13,
+    id: 14,
     title: "SVG Logo Maker",
     image: "/assets/project-11.png",
     url: "https://brockaltug.github.io/oop-svg-logo-maker/",
@@ -448,7 +496,7 @@ const projects = [
       "Created modular class hierarchies with inheritance, implemented comprehensive Jest testing suites, and used Inquirer.js for intuitive user interaction.",
   },
   {
-    id: 14,
+    id: 15,
     title: "README Generator",
     image: "/assets/project-12.png",
     url: "https://brockaltug.github.io/nodejs-readme-generator/",
@@ -1153,7 +1201,7 @@ const experiences = [
     period: "Jan 2022 - Jun 2022",
     type: "REMOTE • INTERNSHIP",
     description:
-      "Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software releases. Executed cross-browser testing using Selenium Grid, ensuring consistent performance across platforms. Implemented BDD with Cucumber, creating clear test scenarios aligned with business requirements. Validated APIs using Postman and contributed to Agile sprint cycles, ensuring timely delivery of high-quality software. Documented testing processes, created detailed reports, and provided actionable insights for improvement.",
+      'Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software "Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software releases. Executed cross-browser testing using Selenium Grid, ensuring consistent performance across platforms. Implemented BDD with Cucumber, creating clear test scenarios aligned with business requirements. Validated APIs using Postman and contributed to Agile sprint cycles, ensuring timely delivery of high-quality software. Documented testing processes, created detailed reports, and provided actionable insights for improvement.',
     technologies: ["Java", "Selenium", "Maven", "Cucumber", "Selenium Grid", "Postman"],
   },
   {
@@ -1222,6 +1270,88 @@ const certifications = [
   },
 ]
 
+const resumeContent = `Brock Altug 
+Seattle, Washington, USA  
+altugba99@gmail.com | (206) 739-7583 
+linkedin.com/in/brock-altug 
+softedgedevelopment.com/brock-altug  
+github.com/BrockAltug 
+Full Stack Developer | QA Automation Engineer 
+Experienced in building full-stack web apps, developing APIs, and automating software testing. Skilled with 
+modern JavaScript frameworks, backend systems, cloud platforms, and CI/CD pipelines. Focused on writing clean, scalable 
+code and shipping reliable features fast. Strong in both development and testing, with hands-on experience across the full 
+product lifecycle. 
+Technical Skills 
+——————————————————————————————————————————— 
+Frontend: JavaScript (ES6+), TypeScript, React.js, Next.js, Vue.js, Angular, Tailwind CSS, Bootstrap, HTML5, CSS3 
+Backend: Node.js, Express.js, NestJS, Flask, Django, FastAPI, Spring Boot 
+APIs: REST, GraphQL, WebSockets, Axios, Microservices, JSON, Postman 
+Databases: PostgreSQL, MongoDB, MySQL, SQLite, Redis, Firebase, DynamoDB 
+Testing: Selenium WebDriver, Cypress, Playwright, Jest, Mocha, Chai, JUnit, TestNG, Cucumber BDD, REST Assured 
+DevOps & CI/CD: AWS (EC2, Lambda, S3, RDS), Google Cloud Platform, Azure, Docker, Kubernetes, GitHub Actions, 
+Jenkins, CircleCI, Bitbucket Pipelines 
+Tools & Workflow: Git, GitHub, VS Code, Linux CLI, Nginx, Agile/Scrum, Jira, Trello, Figma 
+Professional Experience 
+——————————————————————————————————————————— 
+Full Stack Developer | Limelight Networks | Remote | Jan 2024 – Jan 2025 
+Built full-stack applications using React.js, Next.js, and Node.js. 
+Developed and optimized RESTful and GraphQL APIs for data handling. 
+Deployed microservices with Docker and Kubernetes on AWS. 
+Managed CI/CD pipelines with GitHub Actions and Jenkins. 
+QA Engineer | Lexicon Dynamics Inc. | Remote | Jun 2022 – Dec 2023 
+Created automation frameworks using Java, Selenium, and TestNG. 
+Tested APIs with Postman and REST Assured across multiple environments. 
+Integrated tests into Jenkins pipelines for continuous delivery. 
+Performed UI and performance testing with Cypress and JMeter. 
+QA Intern | Amazon Web Services (AWS) | Seattle, WA | Jan 2022 – Jun 2022 
+Built automated UI test scripts using Java, Selenium, and Maven. 
+Created BDD-style test cases in Cucumber for internal tools and dashboards. 
+Validated REST APIs using Postman and integrated tests into CI pipelines. 
+Ran cross-browser tests and contributed to sprint QA cycles. 
+IT Support Specialist | Symetra Life Insurance Company | Bellevue, WA | Oct 2020 – Dec 2021 
+Provided technical support for employee workstations and internal systems. 
+Assisted with infrastructure migration to AWS and Azure environments. 
+Resolved service tickets and handled hardware/software troubleshooting. 
+Documented IT procedures and tracked system changes across departments. 
+
+Education 
+——————————————————————————————————————————— 
+Full Stack Development Bootcamp | University of California, Berkeley | Aug 2024 – Jan 2025 
+Comprehensive training in modern web development technologies, focusing on React.js, Node.js, Express.js, MongoDB, API 
+integration, and DevOps strategies. Hands-on experience in cloud computing, containerization with Docker and Kubernetes, 
+and CI/CD pipeline implementation. 
+(SDET) QA Engineer Bootcamp | Mersys.io | Oct 2022 – Jul 2023 
+Intensive training in test automation, API testing, and CI/CD pipeline integration. Expertise in Selenium WebDriver, TestNG, 
+Cucumber BDD, REST Assured, and Postman. Practical experience in integrating automated testing workflows into 
+deployment pipelines using Jenkins and GitHub Actions. 
+Associates's Degree in Computer Science | Renton Technical College | Sep 2020 – Jun 2022 
+Strong foundation in computer science principles, including data structures, algorithms, and software engineering. Extensive 
+coursework in database management, application architecture, and system design, focusing on relational and NoSQL 
+databases. Hands-on experience in Java, Python, and C++ for software development and automation testing. 
+Certifications 
+——————————————————————————————————————————— 
+Certified Full Stack Web Developer – University of California, Berkeley (Jan 2025) 
+Certified Software Developer and Engineer in Testing (SDET) – Mersys.io (Jul 2023) 
+Certified in Agile Development & Team Collaboration – Mersys.io (Oct 2022) 
+Certified Java Programming & Automation Testing – Mersys.io (Apr 2022) 
+Languages 
+——————————————————————————————————————————— 
+English - Native (★★★★★ 5/5) 
+Turkish - Professional Proficiency (★★★☆☆ 3/5) 
+Spanish - Professional Proficiency (★★★☆☆ 3/5)`
+
+const downloadResume = () => {
+  const blob = new Blob([resumeContent], { type: "text/plain" })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement("a")
+  link.href = url
+  link.download = "Brock_Altug_Resume.txt"
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  URL.revokeObjectURL(url)
+}
+
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("All")
   const [selectedCertification, setSelectedCertification] = useState<(typeof certifications)[0] | null>(null)
@@ -1229,7 +1359,7 @@ export default function Portfolio() {
   const [skillsModalOpen, setSkillsModalOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
 
-  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))]
+  const categories = ["All", "Web Development", "Fullstack", "Frontend", "Backend", "PWA", "Tools"]
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter)
 
   // Pagination logic - 12 projects per page
@@ -1252,120 +1382,6 @@ export default function Portfolio() {
   const prevPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 1)
-    }
-  }
-
-  const exportToPDF = async () => {
-    const element = document.querySelector(".app-container") as HTMLElement
-    if (!element) {
-      console.error("Container element not found for PDF export")
-      return
-    }
-
-    try {
-      // Dynamic import for client-side only
-      const html2canvas = (await import("html2canvas")).default
-      const jsPDF = (await import("jspdf")).default
-
-      // Hide background elements temporarily for clean PDF
-      const backgroundElements = document.querySelectorAll(".fixed")
-      backgroundElements.forEach((el) => {
-        ;(el as HTMLElement).style.display = "none"
-      })
-
-      // Wait a moment for elements to hide
-      await new Promise((resolve) => setTimeout(resolve, 100))
-
-      const canvas = await html2canvas(element, {
-        scale: 2, // Higher resolution
-        useCORS: true,
-        backgroundColor: "#0f172a", // Dark background to match design
-        logging: false,
-        allowTaint: true,
-        foreignObjectRendering: true,
-        width: element.scrollWidth,
-        height: element.scrollHeight,
-      })
-
-      // Restore background elements
-      backgroundElements.forEach((el) => {
-        ;(el as HTMLElement).style.display = ""
-      })
-
-      const imgData = canvas.toDataURL("image/jpeg", 0.95)
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4",
-      })
-
-      const imgWidth = 210 // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width
-      let yOffset = 0
-
-      // Handle multi-page PDF
-      while (yOffset < imgHeight) {
-        if (yOffset > 0) pdf.addPage()
-        pdf.addImage(imgData, "JPEG", 0, -yOffset, imgWidth, imgHeight)
-        yOffset += 297 // A4 page height in mm
-      }
-
-      pdf.save("brockaltug-portfolio.pdf")
-      console.log("PDF exported successfully!")
-    } catch (error) {
-      console.error("Error generating PDF:", error)
-      alert("Error generating PDF. Please try again.")
-    }
-  }
-
-  const exportToJPG = async () => {
-    const element = document.querySelector(".app-container") as HTMLElement
-    if (!element) {
-      console.error("Container element not found for JPG export")
-      return
-    }
-
-    try {
-      // Dynamic import for client-side only
-      const html2canvas = (await import("html2canvas")).default
-
-      // Hide background elements temporarily for clean image
-      const backgroundElements = document.querySelectorAll(".fixed")
-      backgroundElements.forEach((el) => {
-        ;(el as HTMLElement).style.display = "none"
-      })
-
-      // Wait a moment for elements to hide
-      await new Promise((resolve) => setTimeout(resolve, 100))
-
-      const canvas = await html2canvas(element, {
-        scale: 2, // Higher resolution
-        useCORS: true,
-        backgroundColor: "#0f172a", // Dark background to match design
-        logging: false,
-        allowTaint: true,
-        foreignObjectRendering: true,
-        width: element.scrollWidth,
-        height: element.scrollHeight,
-      })
-
-      // Restore background elements
-      backgroundElements.forEach((el) => {
-        ;(el as HTMLElement).style.display = ""
-      })
-
-      const imgURL = canvas.toDataURL("image/jpeg", 0.9)
-      const link = document.createElement("a")
-      link.href = imgURL
-      link.download = "brockaltug-portfolio.jpg"
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-
-      console.log("JPG exported successfully!")
-    } catch (error) {
-      console.error("Error generating JPG:", error)
-      alert("Error generating JPG. Please try again.")
     }
   }
 
@@ -1946,63 +1962,53 @@ export default function Portfolio() {
           <div className="max-w-6xl mx-auto">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
               <CardContent className="p-4">
-                <div className="grid md:grid-cols-2 gap-4 items-center">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-4">Let's Connect</h3>
-                    <div className="flex gap-3 mb-4">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
-                        asChild
-                      >
-                        <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer">
-                          <Linkedin className="w-3 h-3 mr-1" />
-                          LinkedIn
-                        </a>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
-                        asChild
-                      >
-                        <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer">
-                          <Github className="w-3 h-3 mr-1" />
-                          GitHub
-                        </a>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
-                        asChild
-                      >
-                        <a href="mailto:altugba99@gmail.com">
-                          <Mail className="w-3 h-3 mr-1" />
-                          Email
-                        </a>
-                      </Button>
-                    </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-white mb-4">Let's Connect</h3>
+                  <div className="flex justify-center gap-3 mb-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
+                      asChild
+                    >
+                      <a href="https://linkedin.com/in/brock-altug" target="_blank" rel="noopener noreferrer">
+                        <Linkedin className="w-3 h-3 mr-1" />
+                        LinkedIn
+                      </a>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
+                      asChild
+                    >
+                      <a href="https://github.com/BrockAltug" target="_blank" rel="noopener noreferrer">
+                        <Github className="w-3 h-3 mr-1" />
+                        GitHub
+                      </a>
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="bg-white/10 border-white/20 text-white hover:bg-white/20 text-xs"
+                      asChild
+                    >
+                      <a href="mailto:altugba99@gmail.com">
+                        <Mail className="w-3 h-3 mr-1" />
+                        Email
+                      </a>
+                    </Button>
+                  </div>
 
-                    <div className="flex gap-3">
-                      <Button
-                        onClick={exportToJPG}
-                        size="sm"
-                        className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 hover:from-blue-700 hover:to-indigo-700 text-xs"
-                      >
-                        <Download className="w-3 h-3 mr-1" />
-                        Download JPG
-                      </Button>
-                      <Button
-                        onClick={exportToPDF}
-                        size="sm"
-                        className="bg-gradient-to-r from-slate-600 to-slate-700 text-white border-0 hover:from-slate-700 hover:to-slate-800 text-xs"
-                      >
-                        <Download className="w-3 h-3 mr-1" />
-                        Download PDF
-                      </Button>
-                    </div>
+                  <div className="flex justify-center mb-6">
+                    <Button
+                      onClick={downloadResume}
+                      size="sm"
+                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 hover:from-blue-700 hover:to-indigo-700 text-xs w-full max-w-[200px]"
+                    >
+                      <Download className="w-3 h-3 mr-1" />
+                      Download Resume
+                    </Button>
                   </div>
 
                   <div className="space-y-3">
