@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import { Menu, X, Code, Shield, Palette } from "lucide-react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
@@ -9,6 +9,7 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const navRef = useRef<HTMLDivElement>(null)
 
   const scrollToSection = useCallback(
     (sectionId: string) => {
@@ -69,6 +70,23 @@ export function Navigation() {
     setIsMenuOpen(false)
   }, [])
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isMenuOpen])
+
   const serviceLinks = [
     {
       href: "/web-development",
@@ -91,7 +109,7 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/5 border-b border-white/10">
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/5 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -170,22 +188,22 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-white/10">
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-3 px-2">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-white/80 hover:text-white transition-colors text-left text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-white/80 hover:text-white transition-colors text-left text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("services")}
-                className="text-white/80 hover:text-white transition-colors text-left text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
               >
                 Our Services
               </button>
@@ -196,7 +214,7 @@ export function Navigation() {
                   key={service.href}
                   onClick={() => handleServiceNavigation(service.href)}
                   className={`
-                    flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium
+                    w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium
                     text-white/80 hover:text-white
                     border border-white/20 bg-white/5
                     transition-all duration-300
@@ -211,7 +229,7 @@ export function Navigation() {
 
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-white/80 hover:text-white transition-colors text-left text-sm px-3 py-2 rounded-lg hover:bg-white/10"
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
               >
                 Contact
               </button>

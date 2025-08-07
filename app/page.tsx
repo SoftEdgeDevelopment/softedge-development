@@ -1,25 +1,7 @@
 "use client"
 
 import type React from "react"
-import {
-  Code,
-  Shield,
-  Palette,
-  Mail,
-  MapPin,
-  Facebook,
-  X,
-  Linkedin,
-  Instagram,
-  ArrowRight,
-  CheckCircle,
-  Users,
-  Zap,
-  Star,
-  Award,
-  Clock,
-  Globe,
-} from "lucide-react"
+import { Code, Shield, Palette, Mail, MapPin, ArrowRight, CheckCircle, Users, Zap, Star, Award, Clock, Globe, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -113,19 +95,135 @@ const ServiceCard = memo(({ service, onNavigate }: { service: any; onNavigate: (
 
 ServiceCard.displayName = "ServiceCard"
 
+const AboutModal = memo(({ type, isOpen, onClose }: { type: 'mission' | 'approach'; isOpen: boolean; onClose: () => void }) => {
+  if (!isOpen) return null
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
+
+  const content = type === 'mission' ? {
+    title: 'Our Mission',
+    icon: <Users className="w-6 h-6" />,
+    overview: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and success. We create software that exceeds expectations and delivers measurable results.',
+    keyPoints: [
+      'Deliver cutting-edge technology solutions',
+      'Drive measurable business growth',
+      'Exceed client expectations consistently',
+      'Foster long-term partnerships',
+      'Maintain highest quality standards',
+      'Provide exceptional customer service'
+    ],
+    values: [
+      'Innovation and creativity',
+      'Quality and excellence',
+      'Client success focus',
+      'Continuous improvement',
+      'Transparency and trust',
+      'Technical expertise'
+    ]
+  } : {
+    title: 'Our Approach',
+    icon: <Zap className="w-6 h-6" />,
+    overview: 'We combine cutting-edge technology with proven methodologies to deliver scalable, maintainable, and future-ready solutions with meticulous attention to detail.',
+    keyPoints: [
+      'Agile development methodologies',
+      'User-centered design principles',
+      'Scalable architecture patterns',
+      'Continuous integration and testing',
+      'Performance optimization focus',
+      'Security-first development'
+    ],
+    values: [
+      'Best practices implementation',
+      'Code quality and maintainability',
+      'Comprehensive testing strategies',
+      'Documentation and knowledge sharing',
+      'Collaborative team approach',
+      'Future-proof solutions'
+    ]
+  }
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      onClick={handleBackdropClick}
+    >
+      <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <CardContent className="p-0">
+          {/* Header */}
+          <div className="p-6 bg-white/10 border-b border-white/20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-xl bg-white/20 shadow-lg border border-white/30">
+                    <div className="text-white">{content.icon}</div>
+                  </div>
+                  <h3 className="text-white font-bold text-2xl">{content.title}</h3>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={onClose}
+                  className="text-white/70"
+                >
+                  <X className="w-5 h-5" />
+                </Button>
+              </div>
+              <p className="text-white/90 text-sm leading-relaxed">{content.overview}</p>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6 space-y-6">
+            {/* Key Points */}
+            <div>
+              <h4 className="text-white font-semibold mb-4 flex items-center">
+                <Star className="w-4 h-4 mr-2 text-yellow-400" />
+                Key Focus Areas
+              </h4>
+              <div className="grid grid-cols-1 gap-3">
+                {content.keyPoints.map((point, index) => (
+                  <div key={index} className="flex items-start text-sm text-white/80">
+                    <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 mr-3 flex-shrink-0"></div>
+                    {point}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Values */}
+            <div>
+              <h4 className="text-white font-semibold mb-4 flex items-center">
+                <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+                Core Values
+              </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {content.values.map((value, index) => (
+                  <div key={index} className="flex items-center text-sm text-white/80 bg-white/5 rounded-lg p-3">
+                    <ArrowRight className="w-3 h-3 mr-2 text-green-400 flex-shrink-0" />
+                    {value}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
+})
+
+AboutModal.displayName = "AboutModal"
+
 export default function SoftEdgeHomepage() {
   const [missionModalOpen, setMissionModalOpen] = useState(false)
   const [approachModalOpen, setApproachModalOpen] = useState(false)
   const router = useRouter()
   const formRef = useRef<HTMLFormElement>(null)
-
-  // Close modal when clicking outside
-  const closeModal = useCallback((e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setMissionModalOpen(false)
-      setApproachModalOpen(false)
-    }
-  }, [])
 
   // Handle service card navigation
   const handleServiceNavigation = useCallback(
@@ -436,16 +534,19 @@ Sent on: ${new Date().toLocaleString()}`
         <Navigation />
 
         {/* Hero Section - More Compact */}
-        <section id="home" className="min-h-[85vh] flex items-center justify-center px-4 py-16">
+        <section id="home" className="pt-20 pb-12 px-4">
           <div className="max-w-6xl mx-auto w-full text-center">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
               <CardContent className="p-6 md:p-10">
                 <div className="space-y-6">
                   <div>
-                    <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-3">
-                      SoftEdge Development
-                    </h1>
-                    <p className="text-lg md:text-xl text-blue-200 mb-4">Cutting-Edge Software Solutions</p>
+                    <div className="mb-6">
+                      <img 
+                        src="/assets/softedge-logo.png" 
+                        alt="SoftEdge Development" 
+                        className="mx-auto max-w-md w-full h-auto"
+                      />
+                    </div>
                     <p className="text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
                       We deliver innovative, scalable software solutions that drive your business forward. From web
                       development to quality assurance and user experience design.
@@ -501,7 +602,7 @@ Sent on: ${new Date().toLocaleString()}`
               >
                 <CardContent className="p-5">
                   <div className="flex items-center mb-3">
-                    <div className="p-2 rounded-lg gradient-mission mr-3">
+                    <div className="p-2 rounded-lg bg-white/20 mr-3">
                       <Users className="w-4 h-4 text-white" />
                     </div>
                     <h3 className="text-lg font-bold text-white">Our Mission</h3>
@@ -519,7 +620,7 @@ Sent on: ${new Date().toLocaleString()}`
               >
                 <CardContent className="p-5">
                   <div className="flex items-center mb-3">
-                    <div className="p-2 rounded-lg gradient-approach mr-3">
+                    <div className="p-2 rounded-lg bg-white/20 mr-3">
                       <Zap className="w-4 h-4 text-white" />
                     </div>
                     <h3 className="text-lg font-bold text-white">Our Approach</h3>
@@ -572,14 +673,14 @@ Sent on: ${new Date().toLocaleString()}`
                         className="flex items-center cursor-pointer group hover:bg-white/5 p-2 rounded-lg transition-all"
                         onClick={handleEmailClick}
                       >
-                        <div className="p-2 rounded-lg gradient-web-dev mr-3 group-hover:scale-110 transition-transform">
+                        <div className="p-2 rounded-lg bg-white/20 mr-3 group-hover:scale-110 transition-transform">
                           <Mail className="w-3 h-3 text-white" />
                         </div>
                         <div>
-                          <div className="text-white font-medium text-sm group-hover:text-blue-200 transition-colors">
+                          <div className="text-white font-medium text-sm group-hover:text-white transition-colors">
                             Email Us
                           </div>
-                          <div className="text-blue-200 hover:text-blue-100 transition-colors text-xs">
+                          <div className="text-white/80 hover:text-white transition-colors text-xs">
                             contact@softedgedevelopment.com
                           </div>
                         </div>
@@ -588,14 +689,14 @@ Sent on: ${new Date().toLocaleString()}`
                         className="flex items-center cursor-pointer group hover:bg-white/5 p-2 rounded-lg transition-all"
                         onClick={handleLocationClick}
                       >
-                        <div className="p-2 rounded-lg gradient-ux-design mr-3 group-hover:scale-110 transition-transform">
+                        <div className="p-2 rounded-lg bg-white/20 mr-3 group-hover:scale-110 transition-transform">
                           <MapPin className="w-3 h-3 text-white" />
                         </div>
                         <div>
-                          <div className="text-white font-medium text-sm group-hover:text-purple-200 transition-colors">
+                          <div className="text-white font-medium text-sm group-hover:text-white transition-colors">
                             Location
                           </div>
-                          <div className="text-white/80 text-xs group-hover:text-purple-200 transition-colors">
+                          <div className="text-white/80 text-xs group-hover:text-white transition-colors">
                             Seattle, Washington
                           </div>
                         </div>
@@ -654,7 +755,7 @@ Sent on: ${new Date().toLocaleString()}`
           </div>
         </section>
 
-        {/* Footer - More Compact */}
+        {/* Footer - Exact same as web development page */}
         <footer className="py-8 px-4 border-t border-white/10">
           <div className="max-w-6xl mx-auto">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
@@ -672,36 +773,31 @@ Sent on: ${new Date().toLocaleString()}`
                         variant="outline"
                         size="sm"
                         className="bg-white/10 border-white/20 text-white hover:bg-white/20 p-2"
+                        onClick={() => window.open("https://medium.com/@softedgedev", "_blank")}
                       >
-                        <Facebook className="w-3 h-3" />
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                        </svg>
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
                         className="bg-white/10 border-white/20 text-white hover:bg-white/20 p-2"
+                        onClick={() => window.open("https://instagram.com/softedgedev", "_blank")}
                       >
-                        <X className="w-3 h-3" />
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
                       </Button>
                       <Button
                         variant="outline"
                         size="sm"
                         className="bg-white/10 border-white/20 text-white hover:bg-white/20 p-2"
+                        onClick={() => window.open("https://x.com/softedgedev", "_blank")}
                       >
-                        <Linkedin className="w-3 h-3" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 p-2"
-                      >
-                        <Instagram className="w-3 h-3" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="bg-white/10 border-white/20 text-white hover:bg-white/20 p-2"
-                      >
-                        <MediumIcon className="w-3 h-3" />
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
                       </Button>
                     </div>
                   </div>
@@ -722,18 +818,33 @@ Sent on: ${new Date().toLocaleString()}`
                       <Link
                         href="/web-development"
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
                       >
                         Web Development
                       </Link>
                       <Link
                         href="/qa-automation"
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
                       >
                         Quality & Test Automation
                       </Link>
                       <Link
                         href="/ux-design"
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
                       >
                         User Experience Design
                       </Link>
@@ -745,13 +856,36 @@ Sent on: ${new Date().toLocaleString()}`
                     <h4 className="text-white font-medium mb-3 text-sm">Contact Info</h4>
                     <div className="space-y-1">
                       <button
-                        onClick={handleEmailClick}
+                        onClick={() => {
+                          const email = "contact@softedgedevelopment.com"
+                          const subject = "Project Inquiry - SoftEdge Development"
+                          const body = `Hello SoftEdge Development,
+
+I'm interested in discussing a project with you.
+
+Please let me know when would be a good time to connect.
+
+Thank you!`
+                          const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+                          const link = document.createElement("a")
+                          link.href = mailtoUrl
+                          link.target = "_blank"
+                          link.rel = "noopener noreferrer"
+                          document.body.appendChild(link)
+                          link.click()
+                          document.body.removeChild(link)
+                        }}
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left cursor-pointer"
                       >
                         contact@softedgedevelopment.com
                       </button>
                       <button
-                        onClick={handleLocationClick}
+                        onClick={() =>
+                          window.open(
+                            "https://www.google.com/maps/place/Seattle,+WA/@47.6062095,-122.3320708,11z/data=!3m1!4b1!4m6!3m5!1s0x5490102c93e83355:0x102565466944d59a!8m2!3d47.6062095!4d-122.3320708!16zL20vMGQ5anI",
+                            "_blank",
+                          )
+                        }
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left cursor-pointer"
                       >
                         Seattle, Washington
@@ -786,123 +920,24 @@ Sent on: ${new Date().toLocaleString()}`
             </Card>
           </div>
         </footer>
-        {/* Mission Modal */}
-        {missionModalOpen && (
-          <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <Card className="backdrop-blur-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 border border-pink-400/30 shadow-2xl max-w-3xl w-full transform animate-in fade-in-0 zoom-in-95 duration-300">
-              <CardContent className="p-0">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-6 rounded-t-lg">
-                  <div className="flex items-center">
-                    <div className="p-3 rounded-full bg-white/20 mr-4">
-                      <Users className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-3xl font-bold text-white">Our Mission</h2>
-                      <p className="text-pink-100 text-sm">Empowering businesses through innovation</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="space-y-6 text-white/90 leading-relaxed">
-                    <p className="text-lg">
-                      At SoftEdge Development, our mission is to{" "}
-                      <span className="text-pink-300 font-semibold">empower businesses</span> with innovative technology
-                      solutions that drive growth, efficiency, and success. We believe that exceptional software should
-                      not only meet current needs but anticipate future challenges.
-                    </p>
-                    <p>
-                      We are committed to creating software that exceeds expectations through meticulous attention to
-                      detail, cutting-edge technology implementation, and a deep understanding of our clients' unique
-                      business requirements.
-                    </p>
-                    <p>
-                      Our goal is to be the{" "}
-                      <span className="text-pink-300 font-semibold">trusted technology partner</span> that transforms
-                      ideas into powerful, scalable solutions that make a real difference in how businesses operate and
-                      grow.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex justify-center">
-                    <Button
-                      onClick={() => setMissionModalOpen(false)}
-                      className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white border-0 px-8 py-3 text-lg font-medium shadow-lg hover:scale-105 transition-all"
-                    >
-                      Close
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
-        {/* Approach Modal */}
-        {approachModalOpen && (
-          <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <Card className="backdrop-blur-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 border border-orange-400/30 shadow-2xl max-w-3xl w-full transform animate-in fade-in-0 zoom-in-95 duration-300">
-              <CardContent className="p-0">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 p-6 rounded-t-lg">
-                  <div className="flex items-center">
-                    <div className="p-3 rounded-full bg-white/20 mr-4">
-                      <Zap className="w-8 h-8 text-white" />
-                    </div>
-                    <div>
-                      <h2 className="text-3xl font-bold text-white">Our Approach</h2>
-                      <p className="text-orange-100 text-sm">Innovation meets reliability</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <div className="space-y-6 text-white/90 leading-relaxed">
-                    <p className="text-lg">
-                      We combine <span className="text-orange-300 font-semibold">cutting-edge technology</span> with
-                      proven methodologies to deliver scalable, maintainable, and future-ready solutions. Our approach
-                      is built on three core principles: innovation, reliability, and attention to detail.
-                    </p>
-                    <p>
-                      Every project begins with a deep dive into understanding your business goals, technical
-                      requirements, and user needs. We then architect solutions that not only solve today's challenges
-                      but are designed to evolve with your business.
-                    </p>
-                    <p>
-                      Our development process emphasizes{" "}
-                      <span className="text-orange-300 font-semibold">clean code, comprehensive testing</span>, and
-                      continuous integration to ensure that every solution we deliver is robust, secure, and performs at
-                      the highest level.
-                    </p>
-                    <p>
-                      We believe in transparent communication, agile development practices, and building long-term
-                      partnerships with our clients based on trust and exceptional results.
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex justify-center">
-                    <Button
-                      onClick={() => setApproachModalOpen(false)}
-                      className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 px-8 py-3 text-lg font-medium shadow-lg hover:scale-105 transition-all"
-                    >
-                      Close
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        )}
       </div>
+
+      {/* About Modals */}
+      {missionModalOpen && (
+        <AboutModal
+          type="mission"
+          isOpen={missionModalOpen}
+          onClose={() => setMissionModalOpen(false)}
+        />
+      )}
+
+      {approachModalOpen && (
+        <AboutModal
+          type="approach"
+          isOpen={approachModalOpen}
+          onClose={() => setApproachModalOpen(false)}
+        />
+      )}
     </div>
   )
 }

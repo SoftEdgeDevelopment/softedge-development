@@ -2,32 +2,9 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Linkedin,
-  Download,
-  ExternalLink,
-  Code,
-  Database,
-  Server,
-  Smartphone,
-  Zap,
-  Shield,
-  X,
-  Award,
-  Calendar,
-  Globe,
-  Star,
-  Users,
-  Target,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react"
+import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, Code, Database, Server, Smartphone, Zap, Shield, X, Award, Calendar, Globe, Star, Users, Target, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -35,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 const projects = [
   {
     id: 1,
-    title: "Cosmic Plinko - #BovadaPlinkoChallenge Winner",
+    title: "Cosmic Plinko",
     image: "/assets/cosmic-plinko.png",
     url: "https://bovadacosmicplinkochallange.netlify.app",
     category: "PWA",
@@ -241,7 +218,7 @@ const projects = [
     title: "SEO Roadmap Guide",
     image: "/assets/project-07.png",
     url: "https://softedgedevelopment.github.io/seo-roadmap/",
-    category: "Frontend",
+    category: "Tools",
     description:
       "An open-source SEO guide designed to simplify the process of learning and implementing SEO strategies. A comprehensive roadmap for beginners, business owners, and developers.",
     longDescription:
@@ -1303,41 +1280,42 @@ Created automation frameworks using Java, Selenium, and TestNG.
 Tested APIs with Postman and REST Assured across multiple environments. 
 Integrated tests into Jenkins pipelines for continuous delivery. 
 Performed UI and performance testing with Cypress and JMeter. 
-QA Intern | Amazon Web Services (AWS) | Seattle, WA | Jan 2022 – Jun 2022 
-Built automated UI test scripts using Java, Selenium, and Maven. 
-Created BDD-style test cases in Cucumber for internal tools and dashboards. 
-Validated REST APIs using Postman and integrated tests into CI pipelines. 
-Ran cross-browser tests and contributed to sprint QA cycles. 
-IT Support Specialist | Symetra Life Insurance Company | Bellevue, WA | Oct 2020 – Dec 2021 
-Provided technical support for employee workstations and internal systems. 
-Assisted with infrastructure migration to AWS and Azure environments. 
-Resolved service tickets and handled hardware/software troubleshooting. 
-Documented IT procedures and tracked system changes across departments. 
+QA Intern | Amazon Web Services (AWS) | Seattle, WA | Jan 2022 – Jun 2022 with Cypress and JMeter.
+QA Intern | Amazon Web Services (AWS) | Seattle, WA | Jan 2022 – Jun 2022
+Built automated UI test scripts using Java, Selenium, and Maven.
+Created BDD-style test cases in Cucumber for internal tools and dashboards.
+Validated REST APIs using Postman and integrated tests into CI pipelines.
+Ran cross-browser tests and contributed to sprint QA cycles.
+IT Support Specialist | Symetra Life Insurance Company | Bellevue, WA | Oct 2020 – Dec 2021
+Provided technical support for employee workstations and internal systems.
+Assisted with infrastructure migration to AWS and Azure environments.
+Resolved service tickets and handled hardware/software troubleshooting.
+Documented IT procedures and tracked system changes across departments.
 
-Education 
-——————————————————————————————————————————— 
-Full Stack Development Bootcamp | University of California, Berkeley | Aug 2024 – Jan 2025 
-Comprehensive training in modern web development technologies, focusing on React.js, Node.js, Express.js, MongoDB, API 
-integration, and DevOps strategies. Hands-on experience in cloud computing, containerization with Docker and Kubernetes, 
-and CI/CD pipeline implementation. 
-(SDET) QA Engineer Bootcamp | Mersys.io | Oct 2022 – Jul 2023 
-Intensive training in test automation, API testing, and CI/CD pipeline integration. Expertise in Selenium WebDriver, TestNG, 
-Cucumber BDD, REST Assured, and Postman. Practical experience in integrating automated testing workflows into 
-deployment pipelines using Jenkins and GitHub Actions. 
-Associates's Degree in Computer Science | Renton Technical College | Sep 2020 – Jun 2022 
-Strong foundation in computer science principles, including data structures, algorithms, and software engineering. Extensive 
-coursework in database management, application architecture, and system design, focusing on relational and NoSQL 
-databases. Hands-on experience in Java, Python, and C++ for software development and automation testing. 
-Certifications 
-——————————————————————————————————————————— 
-Certified Full Stack Web Developer – University of California, Berkeley (Jan 2025) 
-Certified Software Developer and Engineer in Testing (SDET) – Mersys.io (Jul 2023) 
-Certified in Agile Development & Team Collaboration – Mersys.io (Oct 2022) 
-Certified Java Programming & Automation Testing – Mersys.io (Apr 2022) 
-Languages 
-——————————————————————————————————————————— 
-English - Native (★★★★★ 5/5) 
-Turkish - Professional Proficiency (★★★☆☆ 3/5) 
+Education
+———————————————————————————————————————————
+Full Stack Development Bootcamp | University of California, Berkeley | Aug 2024 – Jan 2025
+Comprehensive training in modern web development technologies, focusing on React.js, Node.js, Express.js, MongoDB, API
+integration, and DevOps strategies. Hands-on experience in cloud computing, containerization with Docker and Kubernetes,
+and CI/CD pipeline implementation.
+(SDET) QA Engineer Bootcamp | Mersys.io | Oct 2022 – Jul 2023
+Intensive training in test automation, API testing, and CI/CD pipeline integration. Expertise in Selenium WebDriver, TestNG,
+Cucumber BDD, REST Assured, and Postman. Practical experience in integrating automated testing workflows into
+deployment pipelines using Jenkins and GitHub Actions.
+Associates's Degree in Computer Science | Renton Technical College | Sep 2020 – Jun 2022
+Strong foundation in computer science principles, including data structures, algorithms, and software engineering. Extensive
+coursework in database management, application architecture, and system design, focusing on relational and NoSQL
+databases. Hands-on experience in Java, Python, and C++ for software development and automation testing.
+Certifications
+———————————————————————————————————————————
+Certified Full Stack Web Developer – University of California, Berkeley (Jan 2025)
+Certified Software Developer and Engineer in Testing (SDET) – Mersys.io (Jul 2023)
+Certified in Agile Development & Team Collaboration – Mersys.io (Oct 2022)
+Certified Java Programming & Automation Testing – Mersys.io (Apr 2022)
+Languages
+———————————————————————————————————————————
+English - Native (★★★★★ 5/5)
+Turkish - Professional Proficiency (★★★☆☆ 3/5)
 Spanish - Professional Proficiency (★★★☆☆ 3/5)`
 
 const downloadResume = () => {
@@ -1358,6 +1336,8 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [skillsModalOpen, setSkillsModalOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(0)
+
+  const featuredProjectsRef = useRef<HTMLHeadingElement>(null)
 
   const categories = ["All", "Web Development", "Fullstack", "Frontend", "Backend", "PWA", "Tools"]
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter)
@@ -1390,6 +1370,12 @@ export default function Portfolio() {
       setSelectedCertification(null)
       setSelectedProject(null)
     }
+  }
+
+  const scrollToFeaturedProjects = () => {
+    setTimeout(() => {
+      featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
   }
 
   return (
@@ -1847,7 +1833,7 @@ export default function Portfolio() {
         {/* Projects Section */}
         <section className="py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Featured Projects</h2>
+            <h2 ref={featuredProjectsRef} className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Featured Projects</h2>
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
@@ -1859,6 +1845,7 @@ export default function Portfolio() {
                   onClick={() => {
                     setActiveFilter(category)
                     setCurrentPage(0) // Reset to first page when filter changes
+                    scrollToFeaturedProjects()
                   }}
                   className={`${
                     activeFilter === category
@@ -1873,30 +1860,8 @@ export default function Portfolio() {
 
             {/* Projects Grid with Navigation */}
             <div className="relative">
-              {/* Navigation Arrows - Fixed positioning */}
-              {totalPages > 1 && (
-                <>
-                  <Button
-                    onClick={prevPage}
-                    disabled={currentPage === 0}
-                    className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed p-2 h-10 w-10 rounded-full"
-                    size="sm"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    onClick={nextPage}
-                    disabled={currentPage === totalPages - 1}
-                    className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed p-2 h-10 w-10 rounded-full"
-                    size="sm"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </Button>
-                </>
-              )}
-
               {/* Projects Grid */}
-              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-3 px-2">
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-3">
                 {currentProjects.map((project, index) => (
                   <div
                     key={project.id}
@@ -1934,23 +1899,54 @@ export default function Portfolio() {
                 ))}
               </div>
 
-              {/* Page Indicators */}
+              {/* Navigation Controls Below Projects */}
               {totalPages > 1 && (
-                <div className="flex justify-center items-center gap-2 mt-4">
-                  <div className="flex gap-1">
-                    {Array.from({ length: totalPages }, (_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setCurrentPage(i)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          i === currentPage ? "bg-blue-400" : "bg-white/30 hover:bg-white/50"
-                        }`}
-                      />
-                    ))}
+                <div className="flex justify-center items-center gap-4 mt-6">
+                  <Button
+                    onClick={() => {
+                      prevPage()
+                      scrollToFeaturedProjects()
+                    }}
+                    disabled={currentPage === 0}
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed px-4 py-2 rounded-lg"
+                    size="sm"
+                  >
+                    <ChevronLeft className="w-4 h-4 mr-1" />
+                    Previous
+                  </Button>
+
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-1">
+                      {Array.from({ length: totalPages }, (_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setCurrentPage(i)
+                            scrollToFeaturedProjects()
+                          }}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            i === currentPage ? "bg-blue-400" : "bg-white/30 hover:bg-white/50"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-white/60 text-xs ml-2">
+                      {currentPage + 1} / {totalPages}
+                    </span>
                   </div>
-                  <span className="text-white/60 text-xs ml-2">
-                    {currentPage + 1} / {totalPages}
-                  </span>
+
+                  <Button
+                    onClick={() => {
+                      nextPage()
+                      scrollToFeaturedProjects()
+                    }}
+                    disabled={currentPage === totalPages - 1}
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed px-4 py-2 rounded-lg"
+                    size="sm"
+                  >
+                    Next
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
                 </div>
               )}
             </div>
