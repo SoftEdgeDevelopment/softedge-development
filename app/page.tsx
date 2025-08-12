@@ -1,7 +1,22 @@
 "use client"
 
 import type React from "react"
-import { Code, Shield, Palette, Mail, MapPin, ArrowRight, CheckCircle, Users, Zap, Star, Award, Clock, Globe, X } from 'lucide-react'
+import {
+  Code,
+  Shield,
+  Palette,
+  Mail,
+  MapPin,
+  ArrowRight,
+  CheckCircle,
+  Users,
+  Zap,
+  Star,
+  Award,
+  Clock,
+  Globe,
+  X,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -95,127 +110,287 @@ const ServiceCard = memo(({ service, onNavigate }: { service: any; onNavigate: (
 
 ServiceCard.displayName = "ServiceCard"
 
-const AboutModal = memo(({ type, isOpen, onClose }: { type: 'mission' | 'approach'; isOpen: boolean; onClose: () => void }) => {
-  if (!isOpen) return null
+const AboutModal = memo(
+  ({ type, isOpen, onClose }: { type: "mission" | "approach"; isOpen: boolean; onClose: () => void }) => {
+    if (!isOpen) return null
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose()
+    const handleBackdropClick = (e: React.MouseEvent) => {
+      if (e.target === e.currentTarget) {
+        onClose()
+      }
     }
-  }
 
-  const content = type === 'mission' ? {
-    title: 'Our Mission',
-    icon: <Users className="w-6 h-6" />,
-    overview: 'To empower businesses with innovative technology solutions that drive growth, efficiency, and success. We create software that exceeds expectations and delivers measurable results.',
-    keyPoints: [
-      'Deliver cutting-edge technology solutions',
-      'Drive measurable business growth',
-      'Exceed client expectations consistently',
-      'Foster long-term partnerships',
-      'Maintain highest quality standards',
-      'Provide exceptional customer service'
-    ],
-    values: [
-      'Innovation and creativity',
-      'Quality and excellence',
-      'Client success focus',
-      'Continuous improvement',
-      'Transparency and trust',
-      'Technical expertise'
-    ]
-  } : {
-    title: 'Our Approach',
-    icon: <Zap className="w-6 h-6" />,
-    overview: 'We combine cutting-edge technology with proven methodologies to deliver scalable, maintainable, and future-ready solutions with meticulous attention to detail.',
-    keyPoints: [
-      'Agile development methodologies',
-      'User-centered design principles',
-      'Scalable architecture patterns',
-      'Continuous integration and testing',
-      'Performance optimization focus',
-      'Security-first development'
-    ],
-    values: [
-      'Best practices implementation',
-      'Code quality and maintainability',
-      'Comprehensive testing strategies',
-      'Documentation and knowledge sharing',
-      'Collaborative team approach',
-      'Future-proof solutions'
-    ]
-  }
+    const content =
+      type === "mission"
+        ? {
+            title: "Our Mission",
+            icon: <Users className="w-6 h-6" />,
+            overview:
+              "To empower businesses with innovative technology solutions that drive growth, efficiency, and success. We create software that exceeds expectations and delivers measurable results.",
+            keyPoints: [
+              "Deliver cutting-edge technology solutions",
+              "Drive measurable business growth",
+              "Exceed client expectations consistently",
+              "Foster long-term partnerships",
+              "Maintain highest quality standards",
+              "Provide exceptional customer service",
+            ],
+            values: [
+              "Innovation and creativity",
+              "Quality and excellence",
+              "Client success focus",
+              "Continuous improvement",
+              "Transparency and trust",
+              "Technical expertise",
+            ],
+            metrics: [
+              { label: "Client Satisfaction Rate", percentage: 100 },
+              { label: "Project Success Rate", percentage: 98 },
+              { label: "On-Time Delivery", percentage: 95 },
+              { label: "Code Quality Score", percentage: 97 },
+              { label: "Performance Optimization", percentage: 92 },
+              { label: "Security Compliance", percentage: 99 },
+            ],
+          }
+        : {
+            title: "Our Approach",
+            icon: <Zap className="w-6 h-6" />,
+            overview:
+              "We combine cutting-edge technology with proven methodologies to deliver scalable, maintainable, and future-ready solutions with meticulous attention to detail.",
+            keyPoints: [
+              "Agile development methodologies",
+              "User-centered design principles",
+              "Scalable architecture patterns",
+              "Continuous integration and testing",
+              "Performance optimization focus",
+              "Security-first development",
+            ],
+            values: [
+              "Best practices implementation",
+              "Code quality and maintainability",
+              "Comprehensive testing strategies",
+              "Documentation and knowledge sharing",
+              "Collaborative team approach",
+              "Future-proof solutions",
+            ],
+            techStacks: {
+              webDev: {
+                title: "Web Development",
+                color: "blue",
+                categories: [
+                  { name: "Frontend", techs: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+                  { name: "Backend", techs: ["Node.js", "Express", "Python", "REST APIs"] },
+                  { name: "Database", techs: ["MongoDB", "PostgreSQL", "Redis", "Prisma"] },
+                  { name: "Cloud & DevOps", techs: ["AWS", "Vercel", "Docker", "CI/CD"] },
+                ],
+              },
+              qa: {
+                title: "Quality Assurance",
+                color: "green",
+                categories: [
+                  { name: "Functional Testing", techs: ["Selenium", "Cypress", "Jest", "Playwright"] },
+                  { name: "Performance Testing", techs: ["JMeter", "LoadRunner", "K6", "Artillery"] },
+                  { name: "Mobile Testing", techs: ["Appium", "Detox", "XCTest", "Espresso"] },
+                  { name: "Security Testing", techs: ["OWASP", "Burp Suite", "SonarQube", "Snyk"] },
+                  { name: "API Testing", techs: ["Postman", "Newman", "REST Assured", "Insomnia"] },
+                  { name: "Quality Management", techs: ["TestRail", "Jira", "Allure", "ReportPortal"] },
+                ],
+              },
+              ux: {
+                title: "UX Design",
+                color: "purple",
+                categories: [
+                  { name: "UX Strategy & Research", techs: ["User Interviews", "Surveys", "Analytics", "Personas"] },
+                  { name: "Interface Design", techs: ["Figma", "Adobe XD", "Sketch", "Design Systems"] },
+                  { name: "Prototyping", techs: ["InVision", "Principle", "Framer", "Marvel"] },
+                  { name: "Usability Testing", techs: ["UserTesting", "Hotjar", "Maze", "Lookback"] },
+                  { name: "Optimization", techs: ["A/B Testing", "Heatmaps", "Conversion", "Accessibility"] },
+                ],
+              },
+            },
+          }
 
-  return (
-    <div 
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      onClick={handleBackdropClick}
-    >
-      <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <CardContent className="p-0">
-          {/* Header */}
-          <div className="p-6 bg-white/10 border-b border-white/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-black/20"></div>
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-3 rounded-xl bg-white/20 shadow-lg border border-white/30">
-                    <div className="text-white">{content.icon}</div>
+    return (
+      <div
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={handleBackdropClick}
+      >
+        <Card className="backdrop-blur-xl bg-white/10 border-white/20 shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <CardContent className="p-0">
+            {/* Header */}
+            <div className="p-6 bg-white/10 border-b border-white/20 relative overflow-hidden">
+              <div className="absolute inset-0 bg-black/20"></div>
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-3 rounded-xl bg-white/20 shadow-lg border border-white/30">
+                      <div className="text-white">{content.icon}</div>
+                    </div>
+                    <h3 className="text-white font-bold text-2xl">{content.title}</h3>
                   </div>
-                  <h3 className="text-white font-bold text-2xl">{content.title}</h3>
+                  <Button variant="ghost" size="sm" onClick={onClose} className="text-white/70">
+                    <X className="w-5 h-5" />
+                  </Button>
                 </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={onClose}
-                  className="text-white/70"
-                >
-                  <X className="w-5 h-5" />
-                </Button>
-              </div>
-              <p className="text-white/90 text-sm leading-relaxed">{content.overview}</p>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-6 space-y-6">
-            {/* Key Points */}
-            <div>
-              <h4 className="text-white font-semibold mb-4 flex items-center">
-                <Star className="w-4 h-4 mr-2 text-yellow-400" />
-                Key Focus Areas
-              </h4>
-              <div className="grid grid-cols-1 gap-3">
-                {content.keyPoints.map((point, index) => (
-                  <div key={index} className="flex items-start text-sm text-white/80">
-                    <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 mr-3 flex-shrink-0"></div>
-                    {point}
-                  </div>
-                ))}
+                <p className="text-white/90 text-sm leading-relaxed">{content.overview}</p>
               </div>
             </div>
 
-            {/* Values */}
-            <div>
-              <h4 className="text-white font-semibold mb-4 flex items-center">
-                <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
-                Core Values
-              </h4>
-              <div className="grid grid-cols-2 gap-3">
-                {content.values.map((value, index) => (
-                  <div key={index} className="flex items-center text-sm text-white/80 bg-white/5 rounded-lg p-3">
-                    <ArrowRight className="w-3 h-3 mr-2 text-green-400 flex-shrink-0" />
-                    {value}
-                  </div>
-                ))}
+            {/* Content */}
+            <div className="p-6 space-y-8">
+              {/* Key Points */}
+              <div>
+                <h4 className="text-white font-semibold mb-4 flex items-center">
+                  <Star className="w-4 h-4 mr-2 text-yellow-400" />
+                  Key Focus Areas
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {content.keyPoints.map((point, index) => (
+                    <div key={index} className="flex items-start text-sm text-white/80 bg-white/5 rounded-lg p-3">
+                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 mr-3 flex-shrink-0"></div>
+                      {point}
+                    </div>
+                  ))}
+                </div>
               </div>
+
+              {/* Values */}
+              <div>
+                <h4 className="text-white font-semibold mb-4 flex items-center">
+                  <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
+                  Core Values
+                </h4>
+                <div className="grid grid-cols-2 gap-3">
+                  {content.values.map((value, index) => (
+                    <div key={index} className="flex items-center text-sm text-white/80 bg-white/5 rounded-lg p-3">
+                      <ArrowRight className="w-3 h-3 mr-2 text-green-400 flex-shrink-0" />
+                      {value}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mission Metrics or Approach Tech Stacks */}
+              {type === "mission" ? (
+                <div className="bg-white/5 rounded-lg p-6 border border-white/10">
+                  <h4 className="text-white font-semibold mb-6 flex items-center">
+                    <Award className="w-4 h-4 mr-2 text-blue-400" />
+                    Performance Metrics
+                  </h4>
+                  <div className="space-y-4">
+                    {content.metrics?.map((metric, index) => (
+                      <div key={index} className="space-y-2">
+                        <div className="flex justify-between items-center">
+                          <span className="text-white/90 text-sm font-medium">{metric.label}</span>
+                          <span className="text-blue-400 font-bold text-sm">{metric.percentage}%</span>
+                        </div>
+                        <div className="w-full bg-white/10 rounded-full h-2">
+                          <div
+                            className="bg-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${metric.percentage}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-white/5 rounded-lg p-6 border border-white/10">
+                  <h4 className="text-white font-semibold mb-6 flex items-center">
+                    <Code className="w-4 h-4 mr-2 text-blue-400" />
+                    Technology Stack & Expertise
+                  </h4>
+                  <div className="space-y-8">
+                    {/* Web Development */}
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <div className="p-2 rounded-lg bg-blue-500/20 mr-3">
+                          <Code className="w-4 h-4 text-blue-400" />
+                        </div>
+                        <h5 className="text-white font-medium">{content.techStacks?.webDev.title}</h5>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {content.techStacks?.webDev.categories.map((category, index) => (
+                          <div key={index} className="bg-white/5 rounded-lg p-4 border border-blue-500/20">
+                            <h6 className="text-blue-300 font-medium text-sm mb-3">{category.name}</h6>
+                            <div className="flex flex-wrap gap-2">
+                              {category.techs.map((tech, techIndex) => (
+                                <Badge
+                                  key={techIndex}
+                                  className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs"
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Quality Assurance */}
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <div className="p-2 rounded-lg bg-green-500/20 mr-3">
+                          <Shield className="w-4 h-4 text-green-400" />
+                        </div>
+                        <h5 className="text-white font-medium">{content.techStacks?.qa.title}</h5>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {content.techStacks?.qa.categories.map((category, index) => (
+                          <div key={index} className="bg-white/5 rounded-lg p-4 border border-green-500/20">
+                            <h6 className="text-green-300 font-medium text-sm mb-3">{category.name}</h6>
+                            <div className="flex flex-wrap gap-2">
+                              {category.techs.map((tech, techIndex) => (
+                                <Badge
+                                  key={techIndex}
+                                  className="bg-green-500/20 text-green-300 border-green-500/30 text-xs"
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* UX Design */}
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <div className="p-2 rounded-lg bg-purple-500/20 mr-3">
+                          <Palette className="w-4 h-4 text-purple-400" />
+                        </div>
+                        <h5 className="text-white font-medium">{content.techStacks?.ux.title}</h5>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {content.techStacks?.ux.categories.map((category, index) => (
+                          <div key={index} className="bg-white/5 rounded-lg p-4 border border-purple-500/20">
+                            <h6 className="text-purple-300 font-medium text-sm mb-3">{category.name}</h6>
+                            <div className="flex flex-wrap gap-2">
+                              {category.techs.map((tech, techIndex) => (
+                                <Badge
+                                  key={techIndex}
+                                  className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs"
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  )
-})
+          </CardContent>
+        </Card>
+      </div>
+    )
+  },
+)
 
 AboutModal.displayName = "AboutModal"
 
@@ -541,9 +716,9 @@ Sent on: ${new Date().toLocaleString()}`
                 <div className="space-y-6">
                   <div>
                     <div className="mb-6">
-                      <img 
-                        src="/assets/softedge-logo.png" 
-                        alt="SoftEdge Development" 
+                      <img
+                        src="/assets/softedge-logo.png"
+                        alt="SoftEdge Development"
                         className="mx-auto max-w-md w-full h-auto"
                       />
                     </div>
@@ -891,7 +1066,7 @@ Thank you!`
                         Seattle, Washington
                       </button>
                       <a
-                        href="/brockaltug"
+                        href="/portfolio"
                         className="block text-white/70 hover:text-white transition-colors text-xs pt-2 border-t border-white/10 mt-2"
                       >
                         View Portfolio
@@ -924,19 +1099,11 @@ Thank you!`
 
       {/* About Modals */}
       {missionModalOpen && (
-        <AboutModal
-          type="mission"
-          isOpen={missionModalOpen}
-          onClose={() => setMissionModalOpen(false)}
-        />
+        <AboutModal type="mission" isOpen={missionModalOpen} onClose={() => setMissionModalOpen(false)} />
       )}
 
       {approachModalOpen && (
-        <AboutModal
-          type="approach"
-          isOpen={approachModalOpen}
-          onClose={() => setApproachModalOpen(false)}
-        />
+        <AboutModal type="approach" isOpen={approachModalOpen} onClose={() => setApproachModalOpen(false)} />
       )}
     </div>
   )
