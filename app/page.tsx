@@ -657,7 +657,7 @@ Sent on: ${new Date().toLocaleString()}`
     { icon: <Award className="w-5 h-5" />, value: "25+", label: "Projects Delivered" },
     { icon: <Star className="w-5 h-5" />, value: "100%", label: "Client Satisfaction" },
     { icon: <Clock className="w-5 h-5" />, value: "24/7", label: "Support Available" },
-    { icon: <Globe className="w-5 h-5" />, value: "3+", label: "Years Experience" },
+    { icon: <Globe className="w-5 h-5" />, value: "5+", label: "Years Experience" },
   ]
 
   const scrollToSection = useCallback((sectionId: string) => {
