@@ -1,6 +1,24 @@
 "use client"
 
-import { Code, Shield, Palette, ArrowRight, ExternalLink, Github, Globe, Star, Calendar, Users, TrendingUp, Award, Filter, Search, X } from 'lucide-react'
+import {
+  Code,
+  Shield,
+  Palette,
+  ArrowRight,
+  ExternalLink,
+  Github,
+  Globe,
+  Star,
+  Calendar,
+  Users,
+  TrendingUp,
+  Award,
+  Filter,
+  Search,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -15,8 +33,10 @@ const portfolioProjects = [
   {
     id: 1,
     title: "Enterprise SaaS Platform",
-    description: "Multi-tenant SaaS application serving 10,000+ users with real-time analytics and advanced dashboard capabilities",
-    longDescription: "A comprehensive enterprise-grade SaaS platform built with React, Node.js, and PostgreSQL. Features include real-time analytics, multi-tenant architecture, advanced user management, and scalable microservices infrastructure.",
+    description:
+      "Multi-tenant SaaS application serving 10,000+ users with real-time analytics and advanced dashboard capabilities",
+    longDescription:
+      "A comprehensive enterprise-grade SaaS platform built with React, Node.js, and PostgreSQL. Features include real-time analytics, multi-tenant architecture, advanced user management, and scalable microservices infrastructure.",
     image: "/assets/project-01.png",
     category: "Web Development",
     technologies: ["React", "Node.js", "PostgreSQL", "Redis", "AWS", "Docker", "TypeScript"],
@@ -31,24 +51,26 @@ const portfolioProjects = [
       "Advanced user management",
       "API-first design",
       "Microservices infrastructure",
-      "Automated CI/CD pipeline"
+      "Automated CI/CD pipeline",
     ],
     results: [
       "Increased user engagement by 150%",
       "Reduced operational costs by 40%",
       "Improved system performance by 200%",
-      "Achieved 99.9% uptime SLA"
+      "Achieved 99.9% uptime SLA",
     ],
     links: {
       live: "https://enterprise-saas.example.com",
-      github: "https://github.com/softedge/enterprise-saas"
-    }
+      github: "https://github.com/softedge/enterprise-saas",
+    },
   },
   {
     id: 2,
     title: "E-commerce Marketplace",
-    description: "High-performance marketplace with advanced search, recommendation engine, and seamless payment integration",
-    longDescription: "A modern e-commerce marketplace built with Next.js and GraphQL, featuring advanced search capabilities, AI-powered recommendations, and integrated payment processing with Stripe.",
+    description:
+      "High-performance marketplace with advanced search, recommendation engine, and seamless payment integration",
+    longDescription:
+      "A modern e-commerce marketplace built with Next.js and GraphQL, featuring advanced search capabilities, AI-powered recommendations, and integrated payment processing with Stripe.",
     image: "/assets/project-02.png",
     category: "Web Development",
     technologies: ["Next.js", "GraphQL", "MongoDB", "Stripe", "Vercel", "TypeScript", "Tailwind CSS"],
@@ -63,24 +85,25 @@ const portfolioProjects = [
       "Integrated payment processing",
       "Vendor management system",
       "Real-time inventory tracking",
-      "Mobile-responsive design"
+      "Mobile-responsive design",
     ],
     results: [
       "Processed over $1M in transactions",
       "Increased conversion rate by 35%",
       "Achieved sub-1 second page load times",
-      "Onboarded 200+ vendors"
+      "Onboarded 200+ vendors",
     ],
     links: {
       live: "https://marketplace.example.com",
-      github: "https://github.com/softedge/ecommerce-marketplace"
-    }
+      github: "https://github.com/softedge/ecommerce-marketplace",
+    },
   },
   {
     id: 3,
     title: "Real-time Collaboration Tool",
     description: "WebSocket-powered collaboration platform with live editing, video conferencing, and team management",
-    longDescription: "A comprehensive collaboration platform built with Vue.js and Socket.io, enabling real-time document editing, video conferencing, and advanced team management features.",
+    longDescription:
+      "A comprehensive collaboration platform built with Vue.js and Socket.io, enabling real-time document editing, video conferencing, and advanced team management features.",
     image: "/assets/project-03.png",
     category: "Web Development",
     technologies: ["Vue.js", "Socket.io", "Express", "Docker", "GCP", "WebRTC", "MongoDB"],
@@ -95,24 +118,25 @@ const portfolioProjects = [
       "Team management dashboard",
       "File sharing and storage",
       "Activity tracking",
-      "Cross-platform compatibility"
+      "Cross-platform compatibility",
     ],
     results: [
       "Supported 1K+ concurrent users",
       "Achieved <50ms latency",
       "Onboarded 500+ teams",
-      "99.8% user satisfaction rate"
+      "99.8% user satisfaction rate",
     ],
     links: {
       live: "https://collab-tool.example.com",
-      github: "https://github.com/softedge/collaboration-tool"
-    }
+      github: "https://github.com/softedge/collaboration-tool",
+    },
   },
   {
     id: 4,
     title: "FinTech Trading Platform",
     description: "Secure trading platform with real-time market data, advanced charting, and portfolio management",
-    longDescription: "A sophisticated trading platform built with React and Python, featuring real-time market data feeds, advanced technical analysis tools, and comprehensive portfolio management.",
+    longDescription:
+      "A sophisticated trading platform built with React and Python, featuring real-time market data feeds, advanced technical analysis tools, and comprehensive portfolio management.",
     image: "/assets/project-04.png",
     category: "Web Development",
     technologies: ["React", "Python", "FastAPI", "PostgreSQL", "Redis", "WebSocket", "D3.js"],
@@ -127,26 +151,28 @@ const portfolioProjects = [
       "Portfolio management",
       "Risk assessment algorithms",
       "Automated trading bots",
-      "Regulatory compliance"
+      "Regulatory compliance",
     ],
     results: [
       "Processed 100K+ trades",
       "Achieved <10ms latency",
       "Managed $50M+ in volume",
-      "Maintained 99.99% accuracy"
+      "Maintained 99.99% accuracy",
     ],
     links: {
       live: "https://trading-platform.example.com",
-      github: "https://github.com/softedge/trading-platform"
-    }
+      github: "https://github.com/softedge/trading-platform",
+    },
   },
 
   // QA Automation Projects
   {
     id: 5,
     title: "Enterprise Banking Test Suite",
-    description: "Comprehensive test automation for critical financial systems with 99.9% reliability and regulatory compliance",
-    longDescription: "A robust testing framework for enterprise banking systems, ensuring regulatory compliance, security validation, and comprehensive functional testing across all critical financial operations.",
+    description:
+      "Comprehensive test automation for critical financial systems with 99.9% reliability and regulatory compliance",
+    longDescription:
+      "A robust testing framework for enterprise banking systems, ensuring regulatory compliance, security validation, and comprehensive functional testing across all critical financial operations.",
     image: "/assets/project-05.png",
     category: "QA Automation",
     technologies: ["Selenium", "TestNG", "Jenkins", "PostgreSQL", "Docker", "Cucumber", "JMeter"],
@@ -161,23 +187,24 @@ const portfolioProjects = [
       "Performance load testing",
       "Regulatory compliance validation",
       "Cross-browser compatibility",
-      "API testing framework"
+      "API testing framework",
     ],
     results: [
       "Achieved 98.5% test coverage",
       "Reduced bugs by 95%",
       "Increased testing speed by 70%",
-      "Maintained 100% compliance"
+      "Maintained 100% compliance",
     ],
     links: {
-      github: "https://github.com/softedge/banking-test-suite"
-    }
+      github: "https://github.com/softedge/banking-test-suite",
+    },
   },
   {
     id: 6,
     title: "Healthcare Management Testing",
     description: "HIPAA-compliant testing framework with advanced security validation and patient data protection",
-    longDescription: "A comprehensive testing solution for healthcare management systems, focusing on HIPAA compliance, patient data security, and critical healthcare workflow validation.",
+    longDescription:
+      "A comprehensive testing solution for healthcare management systems, focusing on HIPAA compliance, patient data security, and critical healthcare workflow validation.",
     image: "/assets/project-06.png",
     category: "QA Automation",
     technologies: ["Cypress", "Postman", "K6", "MongoDB", "AWS", "Newman", "Playwright"],
@@ -192,23 +219,25 @@ const portfolioProjects = [
       "Electronic health record testing",
       "Integration testing suite",
       "Mobile app testing",
-      "Performance monitoring"
+      "Performance monitoring",
     ],
     results: [
       "Achieved 100% HIPAA compliance",
       "Automated 85% of test cases",
       "Reduced defects by 90%",
-      "Earned A+ security rating"
+      "Earned A+ security rating",
     ],
     links: {
-      github: "https://github.com/softedge/healthcare-testing"
-    }
+      github: "https://github.com/softedge/healthcare-testing",
+    },
   },
   {
     id: 7,
     title: "E-commerce Performance Suite",
-    description: "Load testing and performance optimization for high-traffic retail platform handling millions of users",
-    longDescription: "A comprehensive performance testing suite designed for high-traffic e-commerce platforms, ensuring optimal performance during peak shopping seasons and flash sales.",
+    description:
+      "Load testing and performance optimization for high-traffic retail platform handling millions of users",
+    longDescription:
+      "A comprehensive performance testing suite designed for high-traffic e-commerce platforms, ensuring optimal performance during peak shopping seasons and flash sales.",
     image: "/assets/project-07.png",
     category: "QA Automation",
     technologies: ["JMeter", "Playwright", "Grafana", "Redis", "Kubernetes", "Artillery", "Gatling"],
@@ -223,23 +252,24 @@ const portfolioProjects = [
       "Stress testing scenarios",
       "Real-time analytics",
       "Scalability validation",
-      "CDN optimization testing"
+      "CDN optimization testing",
     ],
     results: [
       "Handled 10K concurrent users",
       "Maintained <200ms response time",
       "Achieved 99.99% uptime",
-      "Processed 1M requests/minute"
+      "Processed 1M requests/minute",
     ],
     links: {
-      github: "https://github.com/softedge/ecommerce-performance"
-    }
+      github: "https://github.com/softedge/ecommerce-performance",
+    },
   },
   {
     id: 8,
     title: "Mobile App Testing Framework",
     description: "Cross-platform mobile testing solution for iOS and Android applications with device farm integration",
-    longDescription: "A comprehensive mobile testing framework supporting both iOS and Android platforms, with device farm integration and automated testing across multiple device configurations.",
+    longDescription:
+      "A comprehensive mobile testing framework supporting both iOS and Android platforms, with device farm integration and automated testing across multiple device configurations.",
     image: "/assets/project-08.png",
     category: "QA Automation",
     technologies: ["Appium", "Espresso", "XCUITest", "Detox", "BrowserStack", "Firebase", "TestRail"],
@@ -254,25 +284,27 @@ const portfolioProjects = [
       "Automated UI testing",
       "Performance profiling",
       "Crash reporting",
-      "App store validation"
+      "App store validation",
     ],
     results: [
       "Tested on 50+ devices",
       "Covered iOS and Android",
       "Achieved 95% test coverage",
-      "Automated 80% of test cases"
+      "Automated 80% of test cases",
     ],
     links: {
-      github: "https://github.com/softedge/mobile-testing"
-    }
+      github: "https://github.com/softedge/mobile-testing",
+    },
   },
 
   // UX Design Projects
   {
     id: 9,
     title: "FinTech Mobile Banking App",
-    description: "Complete UX transformation resulting in 250% increase in user engagement and industry-leading satisfaction",
-    longDescription: "A comprehensive UX redesign of a mobile banking application, focusing on user journey optimization, accessibility improvements, and modern design patterns to enhance user engagement and satisfaction.",
+    description:
+      "Complete UX transformation resulting in 250% increase in user engagement and industry-leading satisfaction",
+    longDescription:
+      "A comprehensive UX redesign of a mobile banking application, focusing on user journey optimization, accessibility improvements, and modern design patterns to enhance user engagement and satisfaction.",
     image: "/assets/project-09.png",
     category: "UX Design",
     technologies: ["Figma", "Principle", "UserTesting", "Hotjar", "Maze", "InVision", "Sketch"],
@@ -287,24 +319,26 @@ const portfolioProjects = [
       "Accessibility compliance",
       "Usability testing",
       "Design system creation",
-      "Mobile-first approach"
+      "Mobile-first approach",
     ],
     results: [
       "Increased engagement by 250%",
       "Achieved 4.9/5 satisfaction",
       "96% task completion rate",
-      "Improved retention by 180%"
+      "Improved retention by 180%",
     ],
     links: {
       prototype: "https://figma.com/proto/banking-app",
-      case_study: "https://softedge.dev/case-studies/banking-app"
-    }
+      case_study: "https://softedge.dev/case-studies/banking-app",
+    },
   },
   {
     id: 10,
     title: "E-commerce Platform Redesign",
-    description: "Strategic redesign focusing on conversion optimization and user journey enhancement for online retail",
-    longDescription: "A complete e-commerce platform redesign aimed at improving conversion rates, streamlining the checkout process, and enhancing the overall shopping experience through data-driven design decisions.",
+    description:
+      "Strategic redesign focusing on conversion optimization and user journey enhancement for online retail",
+    longDescription:
+      "A complete e-commerce platform redesign aimed at improving conversion rates, streamlining the checkout process, and enhancing the overall shopping experience through data-driven design decisions.",
     image: "/assets/project-10.png",
     category: "UX Design",
     technologies: ["Adobe XD", "Maze", "Google Analytics", "Storybook", "Lookback", "Optimal Workshop"],
@@ -319,24 +353,26 @@ const portfolioProjects = [
       "Product discovery enhancement",
       "Mobile optimization",
       "A/B testing implementation",
-      "Personalization features"
+      "Personalization features",
     ],
     results: [
       "Increased conversion by 220%",
       "Reduced bounce rate by 55%",
       "Boosted revenue by 380%",
-      "Improved cart completion by 150%"
+      "Improved cart completion by 150%",
     ],
     links: {
       prototype: "https://xd.adobe.com/view/ecommerce-redesign",
-      case_study: "https://softedge.dev/case-studies/ecommerce-redesign"
-    }
+      case_study: "https://softedge.dev/case-studies/ecommerce-redesign",
+    },
   },
   {
     id: 11,
     title: "Healthcare Dashboard System",
-    description: "Complex data visualization and workflow optimization for healthcare professionals and patient management",
-    longDescription: "A sophisticated healthcare dashboard design focusing on complex data visualization, workflow optimization for medical professionals, and patient management system integration.",
+    description:
+      "Complex data visualization and workflow optimization for healthcare professionals and patient management",
+    longDescription:
+      "A sophisticated healthcare dashboard design focusing on complex data visualization, workflow optimization for medical professionals, and patient management system integration.",
     image: "/assets/project-11.png",
     category: "UX Design",
     technologies: ["Figma", "InVision", "Optimal Workshop", "Zeroheight", "Abstract", "UserTesting"],
@@ -351,24 +387,26 @@ const portfolioProjects = [
       "Medical compliance UI",
       "Patient management interface",
       "Real-time monitoring",
-      "Accessibility standards"
+      "Accessibility standards",
     ],
     results: [
       "Improved efficiency by 180%",
       "Reduced errors by 80%",
       "Decreased training time by 70%",
-      "Achieved 4.8/5 satisfaction"
+      "Achieved 4.8/5 satisfaction",
     ],
     links: {
       prototype: "https://figma.com/proto/healthcare-dashboard",
-      case_study: "https://softedge.dev/case-studies/healthcare-dashboard"
-    }
+      case_study: "https://softedge.dev/case-studies/healthcare-dashboard",
+    },
   },
   {
     id: 12,
     title: "SaaS Analytics Platform",
-    description: "Intuitive analytics dashboard design with advanced data visualization and customizable reporting features",
-    longDescription: "A comprehensive analytics platform design featuring intuitive data visualization, customizable dashboards, and advanced reporting capabilities for business intelligence and decision-making.",
+    description:
+      "Intuitive analytics dashboard design with advanced data visualization and customizable reporting features",
+    longDescription:
+      "A comprehensive analytics platform design featuring intuitive data visualization, customizable dashboards, and advanced reporting capabilities for business intelligence and decision-making.",
     image: "/assets/project-12.png",
     category: "UX Design",
     technologies: ["Figma", "Framer", "D3.js", "Tableau", "Hotjar", "Mixpanel", "Amplitude"],
@@ -383,184 +421,187 @@ const portfolioProjects = [
       "Advanced filtering system",
       "Export and sharing tools",
       "Real-time data updates",
-      "Mobile responsive design"
+      "Mobile responsive design",
     ],
     results: [
       "Increased adoption by 300%",
       "Improved insights by 250%",
       "Enhanced decisions by 200%",
-      "Reduced analysis time by 60%"
+      "Reduced analysis time by 60%",
     ],
     links: {
       prototype: "https://framer.com/share/analytics-platform",
-      case_study: "https://softedge.dev/case-studies/analytics-platform"
-    }
-  }
+      case_study: "https://softedge.dev/case-studies/analytics-platform",
+    },
+  },
 ]
 
 const categories = ["All", "Web Development", "QA Automation", "UX Design"]
 
-const ProjectCard = memo(({ project, onProjectClick }: { 
-  project: typeof portfolioProjects[0]
-  onProjectClick: (project: typeof portfolioProjects[0]) => void 
-}) => {
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "Web Development":
-        return <Code className="w-4 h-4" />
-      case "QA Automation":
-        return <Shield className="w-4 h-4" />
-      case "UX Design":
-        return <Palette className="w-4 h-4" />
-      default:
-        return <Globe className="w-4 h-4" />
+const ProjectCard = memo(
+  ({
+    project,
+    onProjectClick,
+  }: {
+    project: (typeof portfolioProjects)[0]
+    onProjectClick: (project: (typeof portfolioProjects)[0]) => void
+  }) => {
+    const getCategoryIcon = (category: string) => {
+      switch (category) {
+        case "Web Development":
+          return <Code className="w-4 h-4" />
+        case "QA Automation":
+          return <Shield className="w-4 h-4" />
+        case "UX Design":
+          return <Palette className="w-4 h-4" />
+        default:
+          return <Globe className="w-4 h-4" />
+      }
     }
-  }
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Web Development":
-        return "badge-web-dev"
-      case "QA Automation":
-        return "badge-qa-automation"
-      case "UX Design":
-        return "badge-ux-design"
-      default:
-        return "bg-gray-500/20 text-gray-200"
+    const getCategoryColor = (category: string) => {
+      switch (category) {
+        case "Web Development":
+          return "badge-web-dev"
+        case "QA Automation":
+          return "badge-qa-automation"
+        case "UX Design":
+          return "badge-ux-design"
+        default:
+          return "bg-gray-500/20 text-gray-200"
+      }
     }
-  }
 
-  const getCategoryGradient = (category: string) => {
-    switch (category) {
-      case "Web Development":
-        return "from-blue-500/20 to-cyan-500/20"
-      case "QA Automation":
-        return "from-green-500/20 to-emerald-500/20"
-      case "UX Design":
-        return "from-purple-500/20 to-pink-500/20"
-      default:
-        return "from-gray-500/20 to-gray-600/20"
+    const getCategoryGradient = (category: string) => {
+      switch (category) {
+        case "Web Development":
+          return "from-blue-500/20 to-cyan-500/20"
+        case "QA Automation":
+          return "from-green-500/20 to-emerald-500/20"
+        case "UX Design":
+          return "from-purple-500/20 to-pink-500/20"
+        default:
+          return "from-gray-500/20 to-gray-600/20"
+      }
     }
-  }
 
-  return (
-    <Card 
-      className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl hover:bg-white/10 transition-all duration-300 group overflow-hidden h-full cursor-pointer"
-      onClick={() => onProjectClick(project)}
-    >
-      <CardContent className="p-0 h-full flex flex-col">
-        {/* Project Image */}
-        <div className="relative h-48 overflow-hidden">
-          <div className={`absolute inset-0 bg-gradient-to-br ${getCategoryGradient(project.category)}`}></div>
-          <div className="absolute top-4 left-4">
-            <Badge className={`${getCategoryColor(project.category)} text-xs flex items-center gap-1`}>
-              {getCategoryIcon(project.category)}
-              {project.category}
-            </Badge>
-          </div>
-          <div className="absolute top-4 right-4">
-            <Badge className="bg-black/50 text-white border-0 text-xs">
-              {project.date}
-            </Badge>
-          </div>
-          <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="flex gap-2">
-              {project.links?.live && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    window.open(project.links.live, "_blank")
-                  }}
-                >
-                  <ExternalLink className="w-4 h-4 text-white" />
-                </Button>
-              )}
-              {project.links?.github && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    window.open(project.links.github, "_blank")
-                  }}
-                >
-                  <Github className="w-4 h-4 text-white" />
-                </Button>
-              )}
-              {project.links?.prototype && (
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    window.open(project.links.prototype, "_blank")
-                  }}
-                >
-                  <ExternalLink className="w-4 h-4 text-white" />
-                </Button>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="p-6 flex-grow flex flex-col">
-          <div className="flex items-start justify-between mb-3">
-            <h3 className="text-white font-bold text-lg leading-tight flex-grow">
-              {project.title}
-            </h3>
-            <div className="flex items-center text-yellow-400 ml-2">
-              <Star className="w-4 h-4 fill-current" />
-            </div>
-          </div>
-          
-          <p className="text-white/80 text-sm mb-4 leading-relaxed flex-grow">{project.description}</p>
-          
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-1 mb-4">
-            {project.technologies.slice(0, 4).map((tech, techIndex) => (
-              <Badge key={techIndex} className="bg-white/10 text-white/70 text-[10px] px-2 py-1">
-                {tech}
+    return (
+      <Card
+        className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl hover:bg-white/10 transition-all duration-300 group overflow-hidden h-full cursor-pointer"
+        onClick={() => onProjectClick(project)}
+      >
+        <CardContent className="p-0 h-full flex flex-col">
+          {/* Project Image */}
+          <div className="relative h-48 overflow-hidden">
+            <div className={`absolute inset-0 bg-gradient-to-br ${getCategoryGradient(project.category)}`}></div>
+            <div className="absolute top-4 left-4">
+              <Badge className={`${getCategoryColor(project.category)} text-xs flex items-center gap-1`}>
+                {getCategoryIcon(project.category)}
+                {project.category}
               </Badge>
-            ))}
-            {project.technologies.length > 4 && (
-              <Badge className="bg-white/10 text-white/70 text-[10px] px-2 py-1">
-                +{project.technologies.length - 4} more
-              </Badge>
-            )}
-          </div>
-
-          {/* Project Details */}
-          <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
-            <div className="flex items-center text-white/60">
-              <Users className="w-3 h-3 mr-1" />
-              {project.team}
             </div>
-            <div className="flex items-center text-white/60">
-              <Calendar className="w-3 h-3 mr-1" />
-              {project.duration}
+            <div className="absolute top-4 right-4">
+              <Badge className="bg-black/50 text-white border-0 text-xs">{project.date}</Badge>
             </div>
-          </div>
-
-          {/* Metrics */}
-          <div className="flex justify-between items-center pt-4 border-t border-white/10">
-            {Object.entries(project.metrics).slice(0, 3).map(([key, value]) => (
-              <div key={key} className="text-center">
-                <div className="text-green-400 font-bold text-sm">{value}</div>
-                <div className="text-white/60 text-xs capitalize">{key}</div>
+            <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex gap-2">
+                {project.links?.live && (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      window.open(project.links.live, "_blank")
+                    }}
+                  >
+                    <ExternalLink className="w-4 h-4 text-white" />
+                  </Button>
+                )}
+                {project.links?.github && (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      window.open(project.links.github, "_blank")
+                    }}
+                  >
+                    <Github className="w-4 h-4 text-white" />
+                  </Button>
+                )}
+                {project.links?.prototype && (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      window.open(project.links.prototype, "_blank")
+                    }}
+                  >
+                    <ExternalLink className="w-4 h-4 text-white" />
+                  </Button>
+                )}
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-})
+
+          {/* Content */}
+          <div className="p-6 flex-grow flex flex-col">
+            <div className="flex items-start justify-between mb-3">
+              <h3 className="text-white font-bold text-lg leading-tight flex-grow">{project.title}</h3>
+              <div className="flex items-center text-yellow-400 ml-2">
+                <Star className="w-4 h-4 fill-current" />
+              </div>
+            </div>
+
+            <p className="text-white/80 text-sm mb-4 leading-relaxed flex-grow">{project.description}</p>
+
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-1 mb-4">
+              {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                <Badge key={techIndex} className="bg-white/10 text-white/70 text-[10px] px-2 py-1">
+                  {tech}
+                </Badge>
+              ))}
+              {project.technologies.length > 4 && (
+                <Badge className="bg-white/10 text-white/70 text-[10px] px-2 py-1">
+                  +{project.technologies.length - 4} more
+                </Badge>
+              )}
+            </div>
+
+            {/* Project Details */}
+            <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
+              <div className="flex items-center text-white/60">
+                <Users className="w-3 h-3 mr-1" />
+                {project.team}
+              </div>
+              <div className="flex items-center text-white/60">
+                <Calendar className="w-3 h-3 mr-1" />
+                {project.duration}
+              </div>
+            </div>
+
+            {/* Metrics */}
+            <div className="flex justify-between items-center pt-4 border-t border-white/10">
+              {Object.entries(project.metrics)
+                .slice(0, 3)
+                .map(([key, value]) => (
+                  <div key={key} className="text-center">
+                    <div className="text-green-400 font-bold text-sm">{value}</div>
+                    <div className="text-white/60 text-xs capitalize">{key}</div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    )
+  },
+)
 
 ProjectCard.displayName = "ProjectCard"
 
@@ -569,18 +610,42 @@ export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedProject, setSelectedProject] = useState<(typeof portfolioProjects)[0] | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const projectsPerPage = 9
 
   const filteredProjects = useMemo(() => {
-    return portfolioProjects.filter(project => {
+    return portfolioProjects.filter((project) => {
       const matchesCategory = selectedCategory === "All" || project.category === selectedCategory
-      const matchesSearch = searchQuery === "" || 
+      const matchesSearch =
+        searchQuery === "" ||
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.technologies.some(tech => tech.toLowerCase().includes(searchQuery.toLowerCase()))
-      
+        project.technologies.some((tech) => tech.toLowerCase().includes(searchQuery.toLowerCase()))
+
       return matchesCategory && matchesSearch
     })
   }, [selectedCategory, searchQuery])
+
+  const handleCategoryChange = useCallback((category: string) => {
+    setSelectedCategory(category)
+    setCurrentPage(1)
+  }, [])
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    setTimeout(() => {
+      const filterSection = document.querySelector('[data-section="filter-section"]')
+      if (filterSection) {
+        const navbarHeight = 80
+        const elementPosition = filterSection.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - navbarHeight
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        })
+      }
+    }, 100)
+  }
 
   const handleStartProject = useCallback(() => {
     router.push("/#contact")
@@ -594,10 +659,10 @@ export default function PortfolioPage() {
 
   const getCategoryStats = () => {
     const stats = {
-      "All": portfolioProjects.length,
-      "Web Development": portfolioProjects.filter(p => p.category === "Web Development").length,
-      "QA Automation": portfolioProjects.filter(p => p.category === "QA Automation").length,
-      "UX Design": portfolioProjects.filter(p => p.category === "UX Design").length,
+      All: portfolioProjects.length,
+      "Web Development": portfolioProjects.filter((p) => p.category === "Web Development").length,
+      "QA Automation": portfolioProjects.filter((p) => p.category === "QA Automation").length,
+      "UX Design": portfolioProjects.filter((p) => p.category === "UX Design").length,
     }
     return stats
   }
@@ -627,7 +692,7 @@ export default function PortfolioPage() {
                 <Award className="w-4 h-4 text-blue-400 mr-2" />
                 <span className="text-blue-400 text-sm font-medium">Our Work Portfolio</span>
               </div>
-              
+
               <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 leading-tight">
                 Featured Projects
                 <br />
@@ -635,49 +700,64 @@ export default function PortfolioPage() {
                   & Case Studies
                 </span>
               </h1>
-              
+
               <p className="text-white/80 text-base mb-8 leading-relaxed max-w-3xl mx-auto">
-                Explore our comprehensive portfolio showcasing innovative web development, rigorous QA automation, 
-                and exceptional UX design projects that have delivered measurable results for our clients.
+                Explore our comprehensive portfolio showcasing innovative web development, rigorous QA automation, and
+                exceptional UX design projects that have delivered measurable results for our clients.
               </p>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">{portfolioProjects.length}</div>
-                  <div className="text-white/60 text-sm">Total Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-400 mb-1">{categoryStats["Web Development"]}</div>
-                  <div className="text-white/60 text-sm">Web Development</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-400 mb-1">{categoryStats["QA Automation"]}</div>
-                  <div className="text-white/60 text-sm">QA Automation</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-400 mb-1">{categoryStats["UX Design"]}</div>
-                  <div className="text-white/60 text-sm">UX Design</div>
-                </div>
+                {/* Total Projects Card */}
+                <Card className="backdrop-blur-xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border-blue-400/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-white mb-1">{portfolioProjects.length}</div>
+                    <div className="text-blue-200 text-sm font-medium">Total Projects</div>
+                  </CardContent>
+                </Card>
+
+                {/* Web Development Card */}
+                <Card className="backdrop-blur-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border-cyan-400/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-white mb-1">{categoryStats["Web Development"]}</div>
+                    <div className="text-cyan-200 text-sm font-medium">Web Development</div>
+                  </CardContent>
+                </Card>
+
+                {/* QA Automation Card */}
+                <Card className="backdrop-blur-xl bg-gradient-to-br from-green-500/20 to-green-600/20 border-green-400/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-white mb-1">{categoryStats["QA Automation"]}</div>
+                    <div className="text-green-200 text-sm font-medium">QA Automation</div>
+                  </CardContent>
+                </Card>
+
+                {/* UX Design Card */}
+                <Card className="backdrop-blur-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-400/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <CardContent className="p-4 text-center">
+                    <div className="text-2xl font-bold text-white mb-1">{categoryStats["UX Design"]}</div>
+                    <div className="text-purple-200 text-sm font-medium">UX Design</div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </section>
 
         {/* Filters Section */}
-        <section className="py-8 px-4">
+        <section className="py-8 px-4" data-section="filter-section">
           <div className="max-w-7xl mx-auto">
             <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl mb-8">
               <CardContent className="p-6">
-                <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <div className="flex flex-col lg:flex-row gap-6 items-start lg:items-center">
                   {/* Search */}
-                  <div className="relative flex-grow max-w-md">
+                  <div className="relative w-full lg:w-80">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4" />
                     <Input
                       placeholder="Search projects, technologies..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40"
+                      className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/40 w-full"
                     />
                     {searchQuery && (
                       <Button
@@ -691,27 +771,31 @@ export default function PortfolioPage() {
                     )}
                   </div>
 
-                  {/* Category Filters */}
-                  <div className="flex gap-2 flex-wrap">
-                    {categories.map((category) => (
-                      <Button
-                        key={category}
-                        variant={selectedCategory === category ? "default" : "outline"}
-                        size="sm"
-                        onClick={() => setSelectedCategory(category)}
-                        className={`${
-                          selectedCategory === category
-                            ? "bg-blue-500 text-white border-blue-500"
-                            : "bg-white/10 border-white/20 text-white hover:bg-white/20"
-                        } transition-all`}
-                      >
-                        {category === "All" && <Filter className="w-3 h-3 mr-1" />}
-                        {category === "Web Development" && <Code className="w-3 h-3 mr-1" />}
-                        {category === "QA Automation" && <Shield className="w-3 h-3 mr-1" />}
-                        {category === "UX Design" && <Palette className="w-3 h-3 mr-1" />}
-                        {category} ({categoryStats[category as keyof typeof categoryStats]})
-                      </Button>
-                    ))}
+                  <div className="flex-1">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2">
+                      {categories.map((category) => (
+                        <Button
+                          key={category}
+                          variant={selectedCategory === category ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => handleCategoryChange(category)}
+                          className={`${
+                            selectedCategory === category
+                              ? "bg-blue-500 text-white border-blue-500"
+                              : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                          } transition-all text-xs whitespace-nowrap justify-center`}
+                        >
+                          {category === "All" && <Filter className="w-3 h-3 mr-1 flex-shrink-0" />}
+                          {category === "Web Development" && <Code className="w-3 h-3 mr-1 flex-shrink-0" />}
+                          {category === "QA Automation" && <Shield className="w-3 h-3 mr-1 flex-shrink-0" />}
+                          {category === "UX Design" && <Palette className="w-3 h-3 mr-1 flex-shrink-0" />}
+                          <span className="truncate">{category}</span>
+                          <span className="ml-1 opacity-70">
+                            ({categoryStats[category as keyof typeof categoryStats]})
+                          </span>
+                        </Button>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -731,39 +815,94 @@ export default function PortfolioPage() {
         {/* Projects Grid */}
         <section className="py-8 px-4">
           <div className="max-w-7xl mx-auto">
-            {filteredProjects.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredProjects.map((project) => (
-                  <ProjectCard 
-                    key={project.id} 
-                    project={project} 
-                    onProjectClick={setSelectedProject}
-                  />
-                ))}
-              </div>
-            ) : (
-              <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
-                <CardContent className="p-12 text-center">
-                  <div className="text-white/40 mb-4">
-                    <Search className="w-16 h-16 mx-auto" />
+            {(() => {
+              const totalPages = Math.ceil(filteredProjects.length / projectsPerPage)
+              const startIndex = (currentPage - 1) * projectsPerPage
+              const endIndex = startIndex + projectsPerPage
+              const currentProjects = filteredProjects.slice(startIndex, endIndex)
+
+              return currentProjects.length > 0 ? (
+                <>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {currentProjects.map((project) => (
+                      <ProjectCard key={project.id} project={project} onProjectClick={setSelectedProject} />
+                    ))}
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-2">No Projects Found</h3>
-                  <p className="text-white/60 mb-6">
-                    No projects match your current search criteria. Try adjusting your filters or search terms.
-                  </p>
-                  <Button
-                    onClick={() => {
-                      setSearchQuery("")
-                      setSelectedCategory("All")
-                    }}
-                    variant="outline"
-                    className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-                  >
-                    Clear Filters
-                  </Button>
-                </CardContent>
-              </Card>
-            )}
+
+                  {totalPages > 1 && (
+                    <div className="mt-12 flex justify-center">
+                      <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
+                        <CardContent className="p-4">
+                          <div className="flex items-center space-x-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handlePageChange(currentPage - 1)}
+                              disabled={currentPage === 1}
+                              className="bg-white/5 border-white/20 text-white hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              <ChevronLeft className="w-4 h-4 mr-1" />
+                              Previous
+                            </Button>
+
+                            <div className="flex space-x-1">
+                              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                                <Button
+                                  key={page}
+                                  variant={currentPage === page ? "default" : "outline"}
+                                  size="sm"
+                                  onClick={() => handlePageChange(page)}
+                                  className={
+                                    currentPage === page
+                                      ? "bg-blue-500 text-white border-blue-500"
+                                      : "bg-white/5 border-white/20 text-white hover:bg-white/10"
+                                  }
+                                >
+                                  {page}
+                                </Button>
+                              ))}
+                            </div>
+
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handlePageChange(currentPage + 1)}
+                              disabled={currentPage === totalPages}
+                              className="bg-white/5 border-white/20 text-white hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                              Next
+                              <ChevronRight className="w-4 h-4 ml-1" />
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Card className="backdrop-blur-xl bg-white/5 border-white/10 shadow-2xl">
+                  <CardContent className="p-12 text-center">
+                    <div className="text-white/40 mb-4">
+                      <Search className="w-16 h-16 mx-auto" />
+                    </div>
+                    <h3 className="text-white font-bold text-xl mb-2">No Projects Found</h3>
+                    <p className="text-white/60 mb-6">
+                      No projects match your current search criteria. Try adjusting your filters or search terms.
+                    </p>
+                    <Button
+                      onClick={() => {
+                        setSearchQuery("")
+                        setSelectedCategory("All")
+                      }}
+                      variant="outline"
+                      className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                    >
+                      Clear Filters
+                    </Button>
+                  </CardContent>
+                </Card>
+              )
+            })()}
           </div>
         </section>
 
@@ -777,12 +916,10 @@ export default function PortfolioPage() {
                   <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4 rounded-full inline-flex mb-6">
                     <TrendingUp className="w-8 h-8 text-white" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                    Ready to Start Your Next Project?
-                  </h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Start Your Next Project?</h2>
                   <p className="text-white/90 mb-6 max-w-2xl mx-auto text-sm">
-                    Let's collaborate to bring your vision to life. Whether you need web development, QA automation, 
-                    or UX design services, we're here to deliver exceptional results.
+                    Let's collaborate to bring your vision to life. Whether you need web development, QA automation, or
+                    UX design services, we're here to deliver exceptional results.
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
                     <Button
@@ -859,15 +996,18 @@ export default function PortfolioPage() {
                   <div>
                     <h4 className="text-white font-medium mb-3 text-sm">Useful Links</h4>
                     <div className="space-y-1">
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
+                      <Link
+                        href="/blog"
+                        className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
+                      >
                         Blog
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        About Us
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        Careers
-                      </button>
+                      </Link>
+
                       <Link
                         href="/web-development"
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
@@ -960,10 +1100,23 @@ Thank you!`
                       <Link
                         href="/terms-of-service"
                         className="text-white/60 hover:text-white transition-colors text-xs"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
                       >
                         Terms of Service
                       </Link>
-                      <Link href="/privacy-policy" className="text-white/60 hover:text-white transition-colors text-xs">
+                      <Link
+                        href="/privacy-policy"
+                        className="text-white/60 hover:text-white transition-colors text-xs"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
+                      >
                         Privacy Policy
                       </Link>
                     </div>

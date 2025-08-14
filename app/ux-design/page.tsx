@@ -407,7 +407,7 @@ const designPhases = [
 const impactMetrics = [
   {
     metric: "180%",
-    label: "Average Conversion Increase",
+    label: "Average Conversion",
     description: "Across redesigned user flows",
     icon: <TrendingUp className="w-8 h-8" />,
     trend: "+28% this quarter",
@@ -1330,15 +1330,19 @@ export default function UXDesignPage() {
                   <div>
                     <h4 className="text-white font-medium mb-3 text-sm">Useful Links</h4>
                     <div className="space-y-1">
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        Blog
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        About Us
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        Careers
-                      </button>
+                      <button
+      onClick={() => {
+        router.push('/blog');
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+      }}
+      className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+    >
+      Blog
+    </button>
+                      
+                      
                       <button
                         onClick={() => router.push("/web-development")}
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
@@ -1413,19 +1417,30 @@ Thank you!`
                   <div className="flex flex-col md:flex-row justify-between items-center gap-3">
                     <div className="text-white/60 text-xs">© 2025 SoftEdge Development. All rights reserved.</div>
                     <div className="flex gap-4">
-                      <button
-                        onClick={() => router.push("/terms-of-service")}
-                        className="text-white/60 hover:text-white transition-colors text-xs"
-                      >
-                        Terms of Service
-                      </button>
-                      <button
-                        onClick={() => router.push("/privacy-policy")}
-                        className="text-white/60 hover:text-white transition-colors text-xs"
-                      >
-                        Privacy Policy
-                      </button>
-                    </div>
+  <button
+    onClick={() => {
+      router.push("/terms-of-service");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }}
+    className="text-white/60 hover:text-white transition-colors text-xs"
+  >
+    Terms of Service
+  </button>
+  <button
+    onClick={() => {
+      router.push("/privacy-policy");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }}
+    className="text-white/60 hover:text-white transition-colors text-xs"
+  >
+    Privacy Policy
+  </button>
+</div>
+
                   </div>
                 </div>
               </CardContent>

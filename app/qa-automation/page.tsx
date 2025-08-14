@@ -1757,15 +1757,19 @@ export default function QAAutomationPage() {
                   <div>
                     <h4 className="text-white font-medium mb-3 text-sm">Useful Links</h4>
                     <div className="space-y-1">
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
+                      <Link
+                        href="/blog"
+                        className="block text-white/70 hover:text-white transition-colors text-xs text-left"
+                        onClick={() => {
+                          setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }, 100)
+                        }}
+                      >
                         Blog
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        About Us
-                      </button>
-                      <button className="block text-white/70 hover:text-white transition-colors text-xs text-left">
-                        Careers
-                      </button>
+                      </Link>
+                      
+                      
                       <Link
                         href="/web-development"
                         className="block text-white/70 hover:text-white transition-colors text-xs text-left"
@@ -1855,16 +1859,29 @@ Thank you!`
                   <div className="flex flex-col md:flex-row justify-between items-center gap-3">
                     <div className="text-white/60 text-xs">© 2025 SoftEdge Development. All rights reserved.</div>
                     <div className="flex gap-4">
-                      <Link
-                        href="/terms-of-service"
-                        className="text-white/60 hover:text-white transition-colors text-xs"
-                      >
-                        Terms of Service
-                      </Link>
-                      <Link href="/privacy-policy" className="text-white/60 hover:text-white transition-colors text-xs">
-                        Privacy Policy
-                      </Link>
-                    </div>
+  <Link
+    href="/terms-of-service"
+    className="text-white/60 hover:text-white transition-colors text-xs"
+    onClick={() => {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }}
+  >
+    Terms of Service
+  </Link>
+  <Link
+    href="/privacy-policy"
+    className="text-white/60 hover:text-white transition-colors text-xs"
+    onClick={() => {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }}
+  >
+    Privacy Policy
+  </Link>
+</div>
                   </div>
                 </div>
               </CardContent>

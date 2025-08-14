@@ -131,7 +131,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden xl:flex items-center space-x-1">
             {/* Regular Nav Links */}
             <button
               onClick={() => scrollToSection("home")}
@@ -150,6 +150,18 @@ export function Navigation() {
               className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm px-4 py-2 rounded-lg font-medium"
             >
               Our Services
+            </button>
+            <button
+              onClick={() => handleServiceNavigation("/blog")}
+              className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm px-4 py-2 rounded-lg font-medium"
+            >
+              Blog
+            </button>
+            <button
+              onClick={() => handleServiceNavigation("/portfolio")}
+              className="text-white/80 hover:text-white hover:bg-white/10 transition-all text-sm px-4 py-2 rounded-lg font-medium"
+            >
+              Portfolio
             </button>
 
             {/* Service Links with Clean Design */}
@@ -180,14 +192,14 @@ export function Navigation() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="lg:hidden text-white" onClick={handleMenuToggle}>
+          <button className="xl:hidden text-white" onClick={handleMenuToggle}>
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-white/10">
+          <div className="xl:hidden py-4 border-t border-white/10">
             <div className="flex flex-col space-y-3 px-2">
               <button
                 onClick={() => scrollToSection("home")}
@@ -206,6 +218,18 @@ export function Navigation() {
                 className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
               >
                 Our Services
+              </button>
+              <button
+                onClick={() => handleServiceNavigation("/blog")}
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
+              >
+                Blog
+              </button>
+              <button
+                onClick={() => handleServiceNavigation("/portfolio")}
+                className="w-full text-white/80 hover:text-white transition-colors text-center text-sm px-4 py-3 rounded-lg hover:bg-white/10 border border-transparent hover:border-white/20"
+              >
+                Portfolio
               </button>
 
               {/* Mobile Service Links */}
