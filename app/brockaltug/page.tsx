@@ -2031,16 +2031,7 @@ export default function Portfolio() {
                     </Button>
                   </div>
 
-                  <div className="flex justify-center mb-6">
-                    <Button
-                      onClick={downloadResume}
-                      size="sm"
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-0 hover:from-blue-700 hover:to-indigo-700 text-xs w-full max-w-[200px]"
-                    >
-                      <Download className="w-3 h-3 mr-1" />
-                      Download Resume
-                    </Button>
-                  </div>
+                  
 
                   <div className="space-y-3">
                     <div className="flex justify-center">
