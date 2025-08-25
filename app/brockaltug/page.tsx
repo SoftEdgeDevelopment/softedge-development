@@ -4,7 +4,30 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, Code, Database, Server, Smartphone, Zap, Shield, X, Award, Calendar, Globe, Star, Users, Target, ChevronLeft, ChevronRight } from 'lucide-react'
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  Download,
+  ExternalLink,
+  Code,
+  Database,
+  Server,
+  Smartphone,
+  Zap,
+  Shield,
+  X,
+  Award,
+  Calendar,
+  Globe,
+  Star,
+  Users,
+  Target,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -1132,69 +1155,79 @@ const coreCompetencies = [
 
 const experiences = [
   {
-    title: "Full Stack Web Developer",
+    title: "Founder & Full Stack Developer",
     company: "SoftEdge Development",
-    period: "Jan 2024 - Present",
+    period: "Jan 2025 - Present",
     type: "REMOTE • FULLTIME",
     description:
-      "Spearheaded the development of dynamic, responsive, and mobile-first web applications using React.js, Node.js, and MongoDB. Designed and implemented RESTful APIs and GraphQL endpoints to enable efficient and secure communication between front-end and back-end systems. Enhanced user experiences with modern frameworks like Tailwind CSS and Bootstrap, ensuring accessibility and responsiveness across devices. Developed scalable microservices and implemented server-side rendering with Next.js, improving performance and SEO. Engineered database solutions with PostgreSQL and MongoDB, optimizing query performance and employing Redis for caching in high-traffic applications. Integrated CI/CD pipelines using GitHub Actions and Jenkins for seamless build and deployment workflows. Deployed cloud-native applications using Docker, Kubernetes, AWS, and GCP for resilient and scalable infrastructure. Collaborated with clients to gather requirements, provided regular updates, and delivered intuitive, feature-rich solutions ahead of schedule.",
+      "Architect and deliver custom websites, web applications, and e-commerce platforms for small businesses and startups. Build modern front-end interfaces with React.js, Next.js, and TypeScript, ensuring responsive design and accessibility. Implement secure back-end systems with Node.js and Python, integrating APIs, databases and cloud services. Manage full development lifecycle including project scoping, technical planning, coding, testing, and deployment. Oversee client relations, proposals, and business development, driving growth through digital consulting. Establish CI/CD workflows, automated QA testing, and scalable cloud hosting environments (AWS, Vercel, DigitalOcean).",
     technologies: [
       "React.js",
+      "Next.js",
+      "TypeScript",
       "Node.js",
-      "MongoDB",
+      "Python",
+      "APIs",
+      "Databases",
+      "Cloud Services",
+      "CI/CD",
+      "AWS",
+      "Vercel",
+      "DigitalOcean",
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    company: "Limelight Networks",
+    period: "Jan 2024 – Jan 2025",
+    type: "REMOTE • FULLTIME",
+    description:
+      "Built full-stack applications using React.js, Next.js, and Node.js. Developed and optimized RESTful and GraphQL APIs for data handling. Deployed microservices with Docker and Kubernetes on AWS. Managed CI/CD pipelines with GitHub Actions and Jenkins.",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Node.js",
       "RESTful APIs",
       "GraphQL",
-      "Tailwind CSS",
-      "Bootstrap",
       "Docker",
       "Kubernetes",
       "AWS",
-      "GCP",
+      "GitHub Actions",
+      "Jenkins",
     ],
   },
   {
     title: "QA Engineer",
-    company: "BOSS Holding Company LLC",
-    period: "Jun 2022 - Dec 2023",
+    company: "Lexicon Dynamics Inc.",
+    period: "Jun 2022 – Dec 2023",
     type: "REMOTE • FULLTIME",
     description:
-      "Designed advanced automation frameworks using Java, Selenium WebDriver, TestNG, and Cucumber BDD to streamline testing processes. Developed reusable test scripts, reducing manual testing by 60% and identifying critical defects early. Conducted API testing with REST Assured and Postman, ensuring seamless service integrations. Integrated automation scripts into CI/CD pipelines using Jenkins and GitHub Actions, significantly improving deployment efficiency. Leveraged Docker for containerized testing environments and Cypress for modern web application testing. Provided training sessions on automation testing best practices and authored detailed technical documentation. Led defect tracking and reporting initiatives, enabling rapid issue resolution and improving overall software quality.",
-    technologies: [
-      "Java",
-      "Selenium WebDriver",
-      "TestNG",
-      "Cucumber BDD",
-      "REST Assured",
-      "Postman",
-      "Docker",
-      "Cypress",
-      "Jenkins",
-      "GitHub Actions",
-    ],
+      "Created automation frameworks using Java, Selenium, and TestNG. Tested APIs with Postman and REST Assured across multiple environments. Integrated tests into Jenkins pipelines for continuous delivery. Performed UI and performance testing with Cypress and JMeter.",
+    technologies: ["Java", "Selenium", "TestNG", "Postman", "REST Assured", "Jenkins", "Cypress", "JMeter"],
   },
   {
     title: "QA Intern",
-    company: "Mersys.io",
-    period: "Jan 2022 - Jun 2022",
-    type: "REMOTE • INTERNSHIP",
+    company: "Amazon Web Services (AWS)",
+    period: "Jan 2022 – Jun 2022",
+    type: "ON-SITE • INTERNSHIP",
     description:
-      'Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software "Developed automated test suites using Java, Selenium, and Maven, enhancing the quality of software releases. Executed cross-browser testing using Selenium Grid, ensuring consistent performance across platforms. Implemented BDD with Cucumber, creating clear test scenarios aligned with business requirements. Validated APIs using Postman and contributed to Agile sprint cycles, ensuring timely delivery of high-quality software. Documented testing processes, created detailed reports, and provided actionable insights for improvement.',
-    technologies: ["Java", "Selenium", "Maven", "Cucumber", "Selenium Grid", "Postman"],
+      "Built automated UI test scripts using Java, Selenium, and Maven. Created BDD-style test cases in Cucumber for internal tools and dashboards. Validated REST APIs using Postman and integrated tests into CI pipelines. Ran cross-browser tests and contributed to sprint QA cycles.",
+    technologies: ["Java", "Selenium", "Maven", "Cucumber", "Postman", "CI Pipelines"],
   },
   {
-    title: "Junior IT Specialist",
-    company: "BOSS Holding Company LLC",
-    period: "Oct 2020 - Dec 2021",
+    title: "IT Support Specialist",
+    company: "Symetra Life Insurance Company",
+    period: "Oct 2020 – Dec 2021",
     type: "ON-SITE • FULLTIME",
     description:
-      "Provided technical support for end users, assisting in troubleshooting hardware, software, and network-related issues to ensure operational efficiency. Installed, configured, and maintained workstations, ensuring up-to-date system software and security patches. Conducted routine system audits to identify and resolve performance bottlenecks, improving reliability and minimizing downtime. Assisted in the migration of legacy systems to cloud-based platforms, enhancing data accessibility and security. Maintained detailed documentation of IT assets, troubleshooting steps, and resolved technical issues to streamline future support requests.",
+      "Provided technical support for employee workstations and internal systems. Assisted with infrastructure migration to AWS and Azure environments. Resolved service tickets and handled hardware/software troubleshooting. Documented IT procedures and tracked system changes across departments.",
     technologies: [
       "Technical Support",
-      "System Configuration",
-      "Network Troubleshooting",
-      "Cloud Migration",
-      "IT Asset Management",
-      "System Audits",
+      "AWS",
+      "Azure",
+      "Infrastructure Migration",
+      "Hardware/Software Troubleshooting",
+      "IT Documentation",
     ],
   },
 ]
@@ -1374,7 +1407,7 @@ export default function Portfolio() {
 
   const scrollToFeaturedProjects = () => {
     setTimeout(() => {
-      featuredProjectsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      featuredProjectsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
     }, 100)
   }
 
@@ -1833,7 +1866,9 @@ export default function Portfolio() {
         {/* Projects Section */}
         <section className="py-6 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 ref={featuredProjectsRef} className="text-2xl md:text-3xl font-bold text-center text-white mb-4">Featured Projects</h2>
+            <h2 ref={featuredProjectsRef} className="text-2xl md:text-3xl font-bold text-center text-white mb-4">
+              Featured Projects
+            </h2>
 
             {/* Filter Buttons */}
             <div className="flex flex-wrap justify-center gap-2 mb-4">
